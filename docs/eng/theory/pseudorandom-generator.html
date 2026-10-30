@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/generator-pseudolosowy.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pseudorandom Generator | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Pseudorandom generators (PRG) are used to create random sequences of numbers in deterministic devices.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/pseudorandom-generator.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/pseudorandom-generator.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/generator-pseudolosowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/pseudorandom-generator.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Pseudorandom Generator | Cryptography">
+  <meta property="og:description" content="Pseudorandom generators (PRG) are used to create random sequences of numbers in deterministic devices.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/pseudorandom-generator.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Pseudorandom Generator (PRG)",
+        "description": "Pseudorandom generators (PRG) are used to create random sequences of numbers in deterministic devices.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/pseudorandom-generator.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Pseudorandom Generator (PRG)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/generator-pseudolosowy.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Pseudorandom Generator (PRG)</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Pseudorandom generators (<var>PRG</var>) are used to create random sequences of numbers in deterministic devices. All computer algorithms are strictly deterministic. <var>PRGs</var> allow encryption of many data blocks using data generated from secret keys which have only few bits.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           Pseudorandom generator (<var>PRG</var>) is an efficient and deterministic function, which returns a longer pseudorandom output sequence based on the received shorter input:<br> <span class="math">G:{0,1}<sup>s</sup></span> <span class="math">-&gt;</span> <span class="math">{0,1}<sup>n</sup></span><br> where:
+           <ul>
+           <li><span class="math">n >> s</span></li>
+           </ul>
+          </aside>
+          <p>Pseudorandom generator has to be <strong>unpredictable</strong>. There must not be any efficient algorithm that after receiving the previous output bits from <var>PRG</var> would be able to predict the next output bit with probability <button type="button" class="note-ref" popovertarget="note-negligible">non-negligibly</button> higher than <span class="math">0.5</span>.</p>
+          <p>Pseudorandom generators are used for creating <a href="/eng/theory/prf-and-prp.html">pseudorandom functions and permutations</a>, which are widely used in cryptography (for example, for implementation of block ciphers).</p>
+          <h2 id="prg-implementation">PRG Implementation</h2>
+          <p>Nowadays, pseudorandom generators are implemented in most operating systems (for example <var>/dev/random</var> in Linux) and in many libraries for various programming languages. In general, their behaviour is similar.</p>
+          <p>First, the algorithm initializes the internal state of the generator based on some external information (for example, the current time or temperature). Then, all bytes of the state are mixed for the whole time when the generator works. The changes are based on various external and random input data - the frequency and the way of using the keyboard and mouse by the user, network traffic, hardware interrupts and other kinds of information from outside the deterministic environment where the algorithm works.</p>
+          <p>The pseudorandom generator algorithm continuously changes its internal state. The internal state is then used to generate output sequences of numbers, which should be as random as possible. All the modifications of the state are performed in a way that is supposed to provide the best possible protection against sequence analysis of the produced output data.</p>
+          <h2 id="prg-output-quality">PRG Output Quality</h2>
+          <p>There are many standards that describe requirements, which should be fulfilled by pseudorandom generators. For example, the American National Institute of Standards and Technology is the author of several norms, like <em>NIST SP 800-90</em>.</p>
+          <p>There exist many different statistical tests that can be used to assess the quality of pseudorandom generators. They check if received sequences are random and unpredictable. Some statistical test examples include:</p>
+          <ul>
+           <li>a number of <span class="math">1</span> bits in the produced sequence is similar to the number of <span class="math">0</span> bits</li>
+           <li>a number of <span class="math">00</span> pairs in the produced sequence is more or less equal to one-fourth of all bits</li>
+           <li>a length of the longest sequence of zeros or ones is similar to its mathematical estimation</li>
+          </ul>
+          <div class="note" id="note-negligible" popover>
+           <p>Negligible value - it is assumed that <var>e</var> is:</p>
+           <ul>
+           <li>non-negligible, if <span class="math">e &gt;= 1/2<sup>30</sup></span> (in practice likely to happen when there is over <span class="math">1GB</span> of data)</li>
+           <li>negligible, if <span class="math">e &lt;= 1/2<sup>80</sup></span> (in practice will not happen over the life of key)</li>
+           </ul>
+           <button type="button" class="note__close" popovertarget="note-negligible" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/modes-of-block-ciphers.html" rel="prev"><small>← Previous</small>Block ciphers modes of operation</a>
+          <a class="pager__next" href="/eng/theory/prf-and-prp.html" rel="next"><small>Next →</small>Pseudorandom functions and permutations</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fpseudorandom-generator.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fpseudorandom-generator.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fpseudorandom-generator.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html" aria-current="page">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

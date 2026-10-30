@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/beaufort-cipher.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfr Beauforta | Crypto-IT</title>
+  <meta name="description" content="Szyfr Beauforta jest wieloalfabetowym szyfrem podstawieniowym, stosowanym w rotorowych maszynach szyfrujących aż do połowy XX wieku.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/szyfr-beaufort.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/beaufort-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-beaufort.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/beaufort-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfr Beauforta">
+  <meta property="og:description" content="Szyfr Beauforta jest wieloalfabetowym szyfrem podstawieniowym, stosowanym w rotorowych maszynach szyfrujących aż do połowy XX wieku.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/szyfr-beaufort.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfr Beauforta",
+        "description": "Szyfr Beauforta jest wieloalfabetowym szyfrem podstawieniowym, stosowanym w rotorowych maszynach szyfrujących aż do połowy XX wieku.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/szyfr-beaufort.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Wieloalfabetowe szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Szyfr Beauforta"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/beaufort-cipher.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a></li>
+            <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfr Beauforta</h1>
+          <p class="article__subtitle">Wieloalfabetowy szyfr podstawieniowy</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Nazwa tego szyfru pochodzi od&nbsp;angielskiego admirała Francisa Beauforta, żyjącego na&nbsp;przełomie XVIII i&nbsp;XIX wieku.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Szyfr Beauforta to prosty szyfr wieloalfabetowy używający specjalnej tabeli zwanej <i>tabula recta</i>, po raz pierwszy użytej w <a href="/pl/proste/szyfr-trithemius.html">szyfrze Trithemiusa</a>. Nie należy go mylić z odmianą <a href="/pl/proste/szyfr-vigenere.html">szyfru Vigenère’a</a> o nazwie <strong>Wariant Beauforta</strong>.</p>
+          <p>Szyfr Beauforta był używany w&nbsp;rotorowych maszynach szyfrujących Hagelin&nbsp;M-209 w&nbsp;połowie XX&nbsp;wieku.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Szyfr Beauforta opiera się w&nbsp;swoim działaniu na&nbsp;specjalnej tabeli, nazywanej <i>tabula recta</i>.</p>
+          <figure class="figure">
+           <img src="/assets/img/simple-ciphers/tabula-recta.webp" alt="tabula recta" width="320" height="320" loading="lazy"><br>
+           <figcaption>Tabula Recta</figcaption>
+          </figure>
+          <p>W trakcie szyfrowania, kolejne litery tekstu jawnego zamieniane są na&nbsp;inne litery wybrane na podstawie tabeli <i>tabula recta</i>. Obie komunikujące się strony dysponują tym samym sekretnym kluczem, którym może być jedno lub&nbsp;parę słów. Litery sekretnego klucza również wykorzystywane są w algorytmie pojedynczo, jedna po drugiej. Każda litera sekretnego klucza używana jest do&nbsp;zakodowania jednej litery wiadomości. Po&nbsp;wyczerpaniu się liter klucza, wraca się do&nbsp;pierwszej litery klucza i&nbsp;wykorzystuje się je od&nbsp;początku.</p>
+          <p>Proces szyfrowania przestawiony jest poniżej. Dla każdej litery tekstu jawnego wykonywane są następujące operacje, przy wykorzystaniu jednej litery sekretnego klucza:</p>
+          <ol class="steps">
+           <li>Znajdź aktualnie szyfrowaną literę w&nbsp;najwyższym poziomym wierszu.</li>
+           <li>Posuwaj się wzdłuż znalezionej kolumny w&nbsp;dół, aż do&nbsp;napotkania aktualnie używanej litery klucza.</li>
+           <li>Nową literą szyfrogramu jest skrajnie lewa litera (litera w&nbsp;pierwszej kolumnie tabeli) w&nbsp;znalezionym wierszu.</li>
+          </ol>
+          <p>Deszyfrowanie szyfrogramu odbywa się za&nbsp;pomocą dokładnie takiego samego algorytmu. Powtórnie szyfrując szyfrogram, otrzymuje się oryginalny tekst jawny. Szyfry posiadające taką właściwość nazywa się <strong>szyframi obustronnymi</strong> (ang.&nbsp;<i>reciprocal ciphers</i>).</p>
+          <h2 id="sila-szyfru-beauforta">Siła szyfru Beauforta</h2>
+          <p>Szyfrogram utworzony przez szyfr Beauforta może być łatwo przekształcony do&nbsp;postaci szyfrogramu tworzonego przez <a href="/pl/proste/szyfr-vigenere.html">szyfr Vigenère’a</a>. Można tego dokonać zmieniając każdą literę szyfrogramu na&nbsp;jej odwrotną literę (czyli litera&nbsp;<var>a</var> zmieniana jest na&nbsp;<var>z</var>, litera&nbsp;<var>b</var> na&nbsp;<var>y</var> itd.). Po&nbsp;takiej zamianie, można analizować szyfrogram stosując wszystkie znane <a href="/pl/proste/szyfr-vigenere.html#Kryptoanaliza_Vigenere">metody ataku na&nbsp;szyfr Vigenère’a</a>.</p>
+          <h2 id="implementacja">Implementacja</h2>
+          <p>Prosta funkcja szyfrująca/deszyfrująca zaimplementowana w&nbsp;Pythonie:</p>
+          <pre><code>def szyfruj_lub_deszyfruj(key, input_txt):
+  output_txt = []
+  for pos in range(0, len(input_txt)):
+    letter_row = 'A'
+    letter_txt = input_txt[pos]
+    while letter_txt != key[pos%len(key)]:
+      letter_txt = chr((ord(letter_txt)-ord('A')+1)%26
+                + ord('A'))
+      letter_row = chr((ord(letter_row)-ord('A')+1)%26
+                + ord('A'))
+    output_txt.append(letter_row)
+  return ''.join(output_txt)</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/szyfr-vigenere.html" rel="prev"><small>← Poprzedni</small>Szyfr Vigenère’a</a>
+          <a class="pager__next" href="/pl/proste/klucz-biezacy.html" rel="next"><small>Następny →</small>Szyfr z kluczem bieżącym</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-beaufort.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-beaufort.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-beaufort.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html" aria-current="page">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

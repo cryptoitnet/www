@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/pbe.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfrowanie Oparte na Haśle | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Algorytmy szyfrowania opartego na haśle (PBE) umożliwiają użytkownikom tworzenie silnych i bezpiecznych kluczy kryptograficznych.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/pbe.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/pbe.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/pbe.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/pbe.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfrowanie Oparte na Haśle | Kryptografia">
+  <meta property="og:description" content="Algorytmy szyfrowania opartego na haśle (PBE) umożliwiają użytkownikom tworzenie silnych i bezpiecznych kluczy kryptograficznych.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/pbe.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfrowanie oparte na haśle",
+        "description": "Algorytmy szyfrowania opartego na haśle (PBE) umożliwiają użytkownikom tworzenie silnych i bezpiecznych kluczy kryptograficznych.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/pbe.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfrowanie oparte na haśle"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/pbe.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfrowanie oparte na haśle</h1>
+          <p class="article__subtitle">(ang. password-based encryption - PBE)</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Szyfrowanie oparte na haśle to wykorzystywany powszechnie sposób tworzenia silnych kluczy kryptograficznych.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Siła szyfru zależy od siły użytego sekretnego klucza. Dobry sekretny klucz musi zawierać znaki, które nie są łatwe do odgadnięcia. Hasła wymyślane przez użytkowników są zwykle stosunkowo łatwymi do&nbsp;zapamiętania podzbiorami znaków ASCII lub&nbsp;UTF-8, wobec tego nie powinny być bezpośrednio używane do&nbsp;tworzenia sekretnych kluczy.</p>
+          <p>Szyfrowanie oparte na&nbsp;haśle umożliwia tworzenie silnych sekretnych kluczy na&nbsp;podstawie haseł wprowadzonych przez użytkowników. Produkowane bajty klucza są w&nbsp;założeniu maksymalnie losowe i&nbsp;nieprzewidywalne.</p>
+          <p>Algorytmy PBE pobierają jako dane wejściowe hasło użytkownika, razem z&nbsp;dodatkowymi parametrami:</p>
+          <ul>
+           <li><a href="#part_salt">sól (ang. salt)</a></li>
+           <li><a href="#part_iterations">licznik iteracji (ang. iteration count)</a></li>
+          </ul>
+          <p>Istnieją dwa popularne standardy, które opisują jak przekształcić bajty hasła na sekretny klucz: <strong>PKCS&nbsp;#5</strong> (operujący na znakach&nbsp;ASCII) oraz <strong>PKCS&nbsp;#12</strong> (który operuje na 16-bitowych znakach).</p>
+          <p>Oba standardy PBE są zaprojektowane w&nbsp;podobny sposób. Polegają one na użyciu funkcji mieszających na otrzymanych bajtach hasła użytkownika (oraz ewentualnie dodatkowych bajtach soli). Funkcje&nbsp;te zbudowane&nbsp;są bazując na&nbsp;<a href="/pl/teoria/funkcja-jednokierunkowa.html#hash">bezpiecznych funkcjach haszujących</a>, które wywoływane są pewną ilość razy (określoną przez otrzymany licznik iteracji). Po wymieszaniu danych, bajty wyjściowe z tych funkcji tworzą klucz szyfrujący (oraz wektor inicjujący, jeśli jest potrzebny).</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/pbe-pl.webp" alt="działanie algorytmów PBE" width="1193" height="1624" loading="lazy">
+           <figcaption>Schemat działania algorytmów PBE</figcaption>
+          </figure>
+          <h2 id="part_salt">Sól</h2>
+          <span>(ang. salt)</span>
+          <p>Sól jest losowym numerem, który w&nbsp;założeniu ma przeciwdziałać atakom słownikowym. Jeśli sekretny klucz utworzony byłby bez użycia soli, ewentualny napastnik mógłby zastosować te same algorytmy&nbsp;PBE i&nbsp;przygotować klucze odpowiadające popularnym słowom, często używanym jako hasła. Dodanie losowej wartości jako wejścia do&nbsp;algorytmów PBE sprawia, że wynikowa kombinacja danych wejściowych staje się również losowa. Nie jest już dłużej możliwe sprawdzenie wszystkich prawdopodobnych parametrów wejściowych algorytmu&nbsp;PBE.</p>
+          <p>Ponieważ sól jest losowa, jest bardzo nieprawdopodobne, że taka sama wartość zostanie używa wielokrotnie, dla wielu operacji szyfrowania. Wartość soli nie jest sekretem. Może być transmitowana razem z&nbsp;szyfrogramem do&nbsp;odbiorcy.</p>
+          <p>Wartości soli są produkowane przez <a href="/pl/teoria/generator-pseudolosowy.html">generatory liczb pseudolosowych</a>. Idealnie, długość soli powinna być taka sama jak wielkość danych wyjściowych zwracanych przez funkcję haszującą.</p>
+          <h2 id="part_iterations">Licznik iteracji</h2>
+          <span>(ang. iteration count)</span>
+          <p>Procedura tworzenia klucza może zostać dodatkowo skomplikowana przez wykonanie funkcji algorytmu&nbsp;PBE wiele razy. Powoduje&nbsp;to, że cały proces uzyskiwania sekretnego klucza zajmuje więcej czasu. Taka sytuacja jest akceptowalna dla użytkownika, który musi uwierzytelniać się stosunkowo rzadko i&nbsp;nie jest zbytnio afektowany przez krótkie opóźnienia. Z drugiej strony, ewentualny napastnik przeprowadzający <a href="/pl/ataki/atak-silowy.html">atak siłowy</a> i&nbsp;sprawdzający tysiące potencjalnych kombinacji, miałby dużo trudniejsze zadanie ze względu na&nbsp;znacznie zwiększoną złożoność obliczeniową.</p>
+          <p>Podobnie jak sól, licznik iteracji może być przekazywany do&nbsp;odbiorcy bez potrzeby utajniania, razem z&nbsp;właściwym szyfrogramem.</p>
+          <p>Zalecane jest używanie 1000 lub więcej iteracji w&nbsp;celu uzyskania zadowalającego poziomu zabezpieczeń.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/mac.html" rel="prev"><small>← Poprzedni</small>MAC</a>
+          <a class="pager__next" href="/pl/teoria/podpisywanie-oprogramowania.html" rel="next"><small>Następny →</small>Podpisywanie oprogramowania</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fpbe.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fpbe.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fpbe.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html" aria-current="page">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

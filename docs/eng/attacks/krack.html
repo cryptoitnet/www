@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/ataki/krack.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Key Reinstallation Attack (KRACK) | Cryptography | Crypto-IT</title>
+  <meta name="description" content="During the Key Reinstallation Attack, the attacker tries to discover the secret WPA2 key which protects evvery wireless communication.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/attacks/krack.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/krack.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/krack.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/krack.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Key Reinstallation Attack (KRACK) | Cryptography">
+  <meta property="og:description" content="During the Key Reinstallation Attack, the attacker tries to discover the secret WPA2 key which protects evvery wireless communication.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/attacks/krack.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "KRACK",
+        "description": "During the Key Reinstallation Attack, the attacker tries to discover the secret WPA2 key which protects evvery wireless communication.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/attacks/krack.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Attacks",
+            "item": "https://www.crypto-it.net/eng/attacks/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "KRACK"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/" aria-current="true">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/ataki/krack.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/attacks/">Attacks</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">KRACK</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Key Reinstallation Attack (KRACK) is a complex attack against the WPA2 protocol. It is a combination of <a href="/eng/attacks/known-ciphertext.html">a known-ciphertext attack</a> and <a href="/eng/attacks/man-in-the-middle.html">a man-in-the-middle attack</a>. The intruder performs the attack during the WPA2 handshake, that is during the initialisation of WPA2 connection. The attack is based on flaws in the standard and its implementations.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>At the moment when the details regarding this attack were published (on 16th October 2017) most existing WPA2 implementations were vulnerable to KRACK attack. The authors carefully prepared their publication, by creating a dedicated website, creating videos, and even preparing a special logo (available in many resolutions). They proposed how to fix the standard and prepared patches for all major WPA2 implementations, which should protect them from being vulnerable to attacks based on KRACK.</p>
+          <p>One may predict that the lifetime of KRACK attack will not be particularly long. Most producers released the high-priority patches, which fix the issue, shortly after the publication. However, it seems reasonable to briefly present the way of performing this attack. This is a practical example of cryptographic attack on <a href="/eng/attacks/two-time-pad.html">two-time-pad</a>.</p>
+          <h2 id="wpa2-secret-key">WPA2 Secret Key</h2>
+          <p>To authenticate itself to the WPA2 wireless network, every device exchanges with the router a number of messages. This allows them to generate a common secret key, which will be used to encrypt all their further communication. In order to maintain security, it is required that the key is unique. This means, in particular, that this key has not been used to protect any earlier communication. Read more about the attacks on <a href="/eng/attacks/two-time-pad.html">two-time-pad</a> to find out why this situation should be avoided.</p>
+          <p>The secret key is created based on a shared network password. In order to make sure that the key is unique, both sides (the client accessing the network and the wireless router) generate the key based also on some random numbers, called nonces, and their MAC addresses.</p>
+          <p>In WPA2 protocol, to create the secret key, the client and the router exchange four messages. Two first messages carry the random numbers chosen by both of them and transmitted to the other device. After exchanging those two messages, the router sends a third message to the client. It contains a group key (which is not important for us now) and makes the client generate the secret key. In the last message the client just sends the confirmation to the router.</p>
+          <h2 id="performing-the-attack">Performing the Attack</h2>
+          <p>KRACK attack is about forcing the communicating sides to use the same secret keys multiple times.</p>
+          <p>To achieve that, the first step of the intruder is to perform the <a href="/eng/attacks/man-in-the-middle.html">man-in-the-middle attack</a>. After faking his MAC address, he will locate himself between both communicating sides. He will pretend that he is one of them. The attacker must be able to intercept and block the messages sending between the router and the client.</p>
+          <p>In the second step, the attacker should intercept and save the third handshake message. He must also block the client response (the fourth handshake message) and prevent the router from receiving it.</p>
+          <p>The faulty WPA2 specification recommends the client to generate the secret key every time after receiving the third handshake message. Thanks to that, after some time the attacker can send the third message again, which sets the key to the same value as previously (because it is created based on the same data as before: the password, two nonces and the MAC address).</p>
+          <p>Depending on the particular algorithm used for encryption of further communication between the router and the client, the attacker may compromise the security to a different extent: starting from discovering the secret key protecting the communication in one direction, through the two-direction communication key (CCMP and GCMP protocols), up to breaking the key completely (because some Linux and Android versions reset the key to zeros as a result of this attack).</p>
+          <p>It is worth mentioning that the attacker cannot discover the network password stored on both devices. Only the secret key is stolen, which is used only for message encryption during the current session.</p>
+          <h2 id="protection-against-krack">Protection against KRACK</h2>
+          <p>KRACK attacks can be easily prevented, by changing the parts of code responsible for WPA2 handshake.</p>
+          <p>First of all, after receiving <em>the third handshake message</em> and before actually resetting the key, it would be a good idea to check if the key hasn't been already generated. If the key exists, it shouldn't be calculated again.</p>
+          <p>Also, the values of the nonces and the counters (incremented after sending every message) shouldn't be reset if the key already exists and is used for encryption of ongoing communication.</p>
+          <h2 id="conclusion">Conclusion</h2>
+          <p>KRACK attack presented on this webpage is an interesting example of <a href="/eng/attacks/man-in-the-middle.html">man-in-the-middle</a> attack, performed in order to break <a href="/eng/attacks/two-time-pad.html">two-time-pad</a> encryption.</p>
+          <p>Above, I presented only the most popular version of this attack. The authors presented a number of attacks on similar protocols (Fast BSS, TDSL, PeerKey), which are based on similar handshake algorithms. They presented also the way of stealing the group key and various modifications of this attack for different protocol versions and operating systems. To find out more, you can visit the website which is devoted to KRACK attack: <a href="http://www.krackattacks.com/" rel="noopener" target="_blank">www.krackattacks.com</a>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/attacks/two-time-pad.html" rel="prev"><small>← Previous</small>Attack on two-time pad</a>
+          <a class="pager__next" href="/eng/attacks/frequency-analysis.html" rel="next"><small>Next →</small>Frequency analysis</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fkrack.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fkrack.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fkrack.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-attacks -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/attacks/">Attacks</a></h2>
+        <ul>
+          <li><a href="/eng/attacks/known-plaintext.html">Known-plaintext attack</a></li>
+          <li><a href="/eng/attacks/chosen-plaintext.html">Chosen-plaintext attack</a></li>
+          <li><a href="/eng/attacks/known-ciphertext.html">Ciphertext-only attack</a></li>
+          <li><a href="/eng/attacks/chosen-ciphertext.html">Chosen-ciphertext attack</a></li>
+          <li><a href="/eng/attacks/chosen-key.html">Chosen-key attack</a></li>
+          <li><a href="/eng/attacks/brute-force.html">Brute force attack</a></li>
+          <li><a href="/eng/attacks/dos.html">DoS</a></li>
+          <li><a href="/eng/attacks/man-in-the-middle.html">Man-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/two-time-pad.html">Attack on two-time pad</a></li>
+          <li><a href="/eng/attacks/krack.html" aria-current="page">KRACK attack</a></li>
+          <li><a href="/eng/attacks/frequency-analysis.html">Frequency analysis</a></li>
+          <li><a href="/eng/attacks/meet-in-the-middle.html">Meet-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/replay.html">Replay attack</a></li>
+          <li><a href="/eng/attacks/homograph-attack.html">Homograph attack</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-attacks -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

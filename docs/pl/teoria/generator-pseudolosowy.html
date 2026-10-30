@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/pseudorandom-generator.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generator pseudolosowy | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Generatory pseudolosowe (PRG) umożliwiają tworzenie losowych ciągów liczb wewnątrz deterministycznych urządzeń.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/generator-pseudolosowy.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/pseudorandom-generator.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/generator-pseudolosowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/pseudorandom-generator.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Generator pseudolosowy | Kryptografia">
+  <meta property="og:description" content="Generatory pseudolosowe (PRG) umożliwiają tworzenie losowych ciągów liczb wewnątrz deterministycznych urządzeń.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/generator-pseudolosowy.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Generator pseudolosowy (PRG)",
+        "description": "Generatory pseudolosowe (PRG) umożliwiają tworzenie losowych ciągów liczb wewnątrz deterministycznych urządzeń.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/generator-pseudolosowy.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Generator pseudolosowy (PRG)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/pseudorandom-generator.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Generator pseudolosowy (PRG)</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Generatory pseudolosowe (ang.&nbsp;<i>pseudorandom generators</i> - <var>PRG</var>) służą do&nbsp;tworzenia losowych ciągów liczb w&nbsp;ściśle deterministycznych urządzeniach, jakimi są wszystkie komputery. Są stosowane w&nbsp;celu umożliwienia szyfrowania wielu bloków danych za&nbsp;pomocą rozszerzonych kluczy generowanych z&nbsp;sekretnych kluczy o&nbsp;niewielkiej ilości bitów.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Generator pseudolosowy (<var>PRG</var>) to wydajna i&nbsp;deterministyczna funkcja, która zwraca dłuższy ciąg pseudolosowy na&nbsp;podstawie krótszego ciągu wejściowego:<br> <span class="math">G:{0,1}<sup>s</sup></span>&nbsp;<span class="math">-&gt;</span>&nbsp;<span class="math">{0,1}<sup>n</sup></span><br> gdzie:
+           <ul>
+           <li><span class="math">n&nbsp;>>&nbsp;s</span></li>
+           </ul>
+          </aside>
+          <p>Generator pseudolosowy musi być <strong>nieprzewidywalny</strong> - nie&nbsp;może istnieć żaden wydajny algorytm, który otrzymawszy poprzednie bity wyjściowe z&nbsp;<var>PRG</var> mógłby przewidzieć kolejny wygenerowany bit z&nbsp;prawdopodobieństwem <button type="button" class="note-ref" popovertarget="note-negligible">niezaniedbywalnie</button> większym niż <span class="math">0.5</span>.</p>
+          <p>Generatory pseudolosowe są wykorzystywane do&nbsp;tworzenia <a href="/pl/teoria/prf-i-prp.html">funkcji i&nbsp;permutacji pseudolosowych</a>, wykorzystywanych powszechnie w&nbsp;kryptografii (na&nbsp;przykład przy&nbsp;implementowaniu szyfrów blokowych).</p>
+          <h2 id="implementacja-prg">Implementacja PRG</h2>
+          <p>Obecnie, generatory pseudolosowe są implementowane w&nbsp;większości systemów operacyjnych (na&nbsp;przykład linuksowy <var>/dev/random</var>) i&nbsp;wielu bibliotekach dla&nbsp;różnych języków programowania. Zwykle ich idea działania jest podobna.</p>
+          <p>Algorytm najpierw inicjuje wewnętrzny stan generatora bazując na&nbsp;różnych informacjach zewnętrznych (na&nbsp;przykład na&nbsp;aktualnym czasie lub&nbsp;temperaturze). Następnie ten stan jest zmieniany przez cały czas działania generatora na&nbsp;podstawie innych zewnętrznych i&nbsp;losowych danych - częstotliwości i&nbsp;sposobu używania przez&nbsp;użytkownika klawiatury i&nbsp;myszki, wymiany pakietów sieciowych oraz&nbsp;wszelkich tego typu informacji, pochodzących spoza deterministycznego środowiska, w&nbsp;którym pracuje algorytm.</p>
+          <p>Algorytmy generatorów pseudolosowych przekształcają swój stan wewnętrzny i&nbsp;na tej podstawie zwracają ciągi liczb, które powinny być jak najbardziej losowe. Wszelkie przekształcenia i&nbsp;manipulacje liczbami są tak&nbsp;dobrane, aby jak najbardziej utrudnić analizowanie prawidłowości w&nbsp;zwracanych danych.</p>
+          <h2 id="jakosc-generowanych-danych">Jakość generowanych danych</h2>
+          <p>Istnieje wiele standardów, które określają wymagania, jakie powinny być spełnione przez&nbsp;generatory pseudolosowe. Przykładowo amerykańska organizacja National Institute of Standards and&nbsp;Technology jest autorem wielu norm, takich jak <em>NIST&nbsp;SP&nbsp;800-90</em> i&nbsp;pokrewne.</p>
+          <p>W&nbsp;celu oceny jakości działania generatorów pseudolosowych stosuje się testy statystyczne. Określają one czy produkowane ciągi liczb wyglądają na&nbsp;losowe i są nieprzewidywalne. Przykładowe testy statystyczne:</p>
+          <ul>
+           <li>ilość bitów ustawionych na&nbsp;<span class="math">1</span> w&nbsp;produkowanym ciągu jest równa mniej więcej ilości bitów zerowych</li>
+           <li>ilość par zerowych bitów&nbsp;(<span class="math">00</span>) w&nbsp;produkowanym ciągu jest równa mniej więcej czwartej części wszystkich bitów</li>
+           <li>długość najdłuższego ciągu zer lub&nbsp;jedynek jest podobna do prawdopodobnej długości oszacowanej matematycznie</li>
+          </ul>
+          <div class="note" id="note-negligible" popover>
+           <p>Wielkość zaniedbywalna&nbsp;- przyjmuje się, że wielkość <var>e</var>&nbsp;jest:</p>
+           <ul>
+           <li>niezaniedbywalna, jeżeli <span class="math">e&nbsp;&gt;= 1/2<sup>30</sup></span> (w&nbsp;praktyce prawdopodobnie zdarzy się w <span class="math">1GB</span>&nbsp; danych)</li>
+           <li>zaniedbywalna, jeżeli <span class="math">e&nbsp;&lt;= 1/2<sup>80</sup></span> (w&nbsp;praktyce nie&nbsp;zdarzy się w&nbsp;okresie życia klucza)</li>
+           </ul>
+           <button type="button" class="note__close" popovertarget="note-negligible" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/tryby-szyfrow-blokowych.html" rel="prev"><small>← Poprzedni</small>Tryby szyfrów blokowych</a>
+          <a class="pager__next" href="/pl/teoria/prf-i-prp.html" rel="next"><small>Następny →</small>Funkcje i permutacje pseudolosowe</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fgenerator-pseudolosowy.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fgenerator-pseudolosowy.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fgenerator-pseudolosowy.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html" aria-current="page">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

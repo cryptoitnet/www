@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/ataki/two-time-pad.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attack on Two-Time Pad | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Using the same keystream bytes more than once for encrypting different data, makes a cipher vulnerable to the attacks on Two-Time Pad.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/attacks/two-time-pad.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/two-time-pad.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/two-time-pad.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/two-time-pad.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Attack on Two-Time Pad | Cryptography">
+  <meta property="og:description" content="Using the same keystream bytes more than once for encrypting different data, makes a cipher vulnerable to the attacks on Two-Time Pad.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/attacks/two-time-pad.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Attack on Two-Time Pad",
+        "description": "Using the same keystream bytes more than once for encrypting different data, makes a cipher vulnerable to the attacks on Two-Time Pad.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/attacks/two-time-pad.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Attacks",
+            "item": "https://www.crypto-it.net/eng/attacks/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Attack on Two-Time Pad"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/" aria-current="true">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/ataki/two-time-pad.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/attacks/">Attacks</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Attack on Two-Time Pad</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The general rule of cryptography says that one should never use the same keystream characters more than once. Otherwise, the cipher starts to be vulnerable to <a href="/eng/attacks/known-ciphertext.html">ciphertext-only attacks</a>.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>The following example shows, how the security of the <a href="/eng/symmetric/otp.html">OTP cipher</a> is affected by using the same keystream bytes twice:</p>
+          <p><span class="math">c<sub>1</sub></span> <span class="math">&lt;-</span> <span class="math">m<sub>1</sub></span> XOR <span class="math">PRG(k)</span> <br> <span class="math">c<sub>2</sub></span> <span class="math">&lt;-</span> <span class="math">m<sub>2</sub></span> XOR <span class="math">PRG(k)</span></p>
+          <p>Having the two ciphertexts, an eavesdropper is able to break the cipher just by adding them together:</p>
+          <p><span class="math">c<sub>1</sub></span> XOR <span class="math">c<sub>2</sub></span> = <span class="math">m<sub>1</sub></span> XOR <span class="math">PRG(k)</span> XOR <span class="math">m<sub>2</sub></span> XOR <span class="math">PRG(k)</span> = <span class="math">m<sub>1</sub></span> XOR <span class="math">m<sub>2</sub></span></p>
+          <p>The received byte sequence does not depend on the secret key. Due to the fact that there is enough redundancy in languages and in ASCII encoding, the attacker is able to extract the original messages:</p>
+          <p><span class="math">m<sub>1</sub></span> XOR <span class="math">m<sub>2</sub></span> <span class="math">-&gt;</span> <span class="math">m<sub>1</sub></span>, <span class="math">m<sub>2</sub></span></p>
+          <p>Nowadays, well-designed algorithms of symmetric ciphers add some unique (for every piece of data) characters to secret key bits. In the simplest case, a regular counter could be used. It may be stored on a few bytes and it should increase every iteration of the encryption algorithm. This guarantees effective encryption, without the risk of repetition of secret key bits.</p>
+          <h2 id="venona-project">Venona Project</h2>
+          <p>During and after the Second World War, hundreds of cryptanalysts of intelligence agencies of the United States and the United Kingdom were collaborating against intelligence agencies of the Soviet Union. All the messages sent by Soviet spies and diplomats were constantly stored and analysed. The most important messages were encrypted with a One-Time Pad system.</p>
+          <p>Many secret Soviet messages were revealed, due to a serious blunder on the part of the Soviets. Because of shortages of code books, the operators reused some parts of the secret OTP keys for encryption of multiple messages. Every page of the code book should have been used exactly once, and then it should have been destroyed</p>
+          <p>This mistake broke the security of the One-Time Pad cipher. It allowed the Allies to decrypt many secret messages and gain advantage over their communist opponents.</p>
+          <h2 id="ms-pptp">MS-PPTP</h2>
+          <p>PPTP (Point to Point Tunnelling Protocol) is one of communication protocols, which allow to create virtual private networks (VPN) using tunnelling. Implementation of this protocol created by Microsoft was one of the most popular (used in Windows 98 and Windows NT), and also one of the most faulty. MS-PPTP has been considered cryptographically broken by Microsoft since 2012, and it is no longer recommended.</p>
+          <p>One of the MS-PPTP weaknesses is the lack of proper synchronisation between the client and the server. They use the same secret key (usually created from the user's password) in exactly the same way, for sending their messages. Both parties fail to create unique keystreams by adding some unique numbers.</p>
+          <figure class="figure">
+           <img src="/assets/img/attacks/attack-ms-pptp.webp" alt="Encryption in the MS-PPTP protocol" width="500" height="300" loading="lazy">
+           <figcaption>Encryption in the MS-PPTP protocol</figcaption>
+          </figure>
+          <p>The client groups his messages together, and then encrypts them by using the shared secret key. In the meantime, the same operations are performed by the server. It also groups the messages, encrypts using the same shared secret key, and sends them to the client.</p>
+          <p>Because the used secret key bytes are the same, the attacker may eavesdrop messages from the client and from the server, which are encoded by using exactly the same keystream bytes. Having such data, the attacker has great chances for breaking the cipher and recovering the original data.</p>
+          <h2 id="802-11-wep">802.11 WEP</h2>
+          <p>802.11 is a group of IEEE (Institute of Electrical and Electronics Engineers) standards of wireless network protocols. In their older versions, it was recommended to use a WEP (Wired Equivalent Privacy) standard (created in 1997) for encryption of wireless transmission.</p>
+          <figure class="figure">
+           <img src="/assets/img/attacks/attack-wep-eng.webp" alt="WEP encryption" width="500" height="200" loading="lazy">
+           <figcaption>WEP encryption</figcaption>
+          </figure>
+          <p>The messages exchanged between client and host are encrypted using <a href="/eng/symmetric/rc4.html">RC4</a> stream symmetric cipher. Both sides use the same 5-byte long secret key for generating keystream. Each side generates the same keystream. To ensure that every message is encrypted using different bytes, they add three additional bytes of the <var>IV</var> vector to every key sequence. <var>IV</var> is added unencrypted to each encrypted message. This allows the receiver to decrypt all messages.</p>
+          <p>However, due to the fact that the <var>IV</var> vector has only 24 bits, so after relatively short time its values begin to repeat. It happens after around 16 million frames, so (if network traffic is high), after around 5 hours. Moreover, some devices reset the vector <var>IV</var> during the restart, which allows to observe the same byte sequences even faster.</p>
+          <p>There exist a few other flaws that make WEP even less secure. Usually, regular counters are used for creating the <var>IV</var> vector. It makes the key bytes used for encryption messages in both directions relatively similar. Moreover, some values of the <var>IV</var> vector are considered weak because they allow to attack specific bytes of the secret key. Because of all these weaknesses, the WEP encryption can be broken in a very short time (within a few minutes).</p>
+          <p>In newer versions of IEEE standards, newer security protocols are recommended: WPA (Wi-Fi Protected Access) and WPA2.</p>
+          <h2 id="key-reinstallation-attack">Key Reinstallation Attack</h2>
+          <p>Another example of an attack based on the two-time-pad vulnerability is <a href="/eng/attacks/krack.html">KRACK attack</a>, presented in October 2017. Due to its complexity, it was presented on a separate subpage.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/attacks/man-in-the-middle.html" rel="prev"><small>← Previous</small>Man-in-the-middle attack</a>
+          <a class="pager__next" href="/eng/attacks/krack.html" rel="next"><small>Next →</small>KRACK attack</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Ftwo-time-pad.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Ftwo-time-pad.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Ftwo-time-pad.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-attacks -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/attacks/">Attacks</a></h2>
+        <ul>
+          <li><a href="/eng/attacks/known-plaintext.html">Known-plaintext attack</a></li>
+          <li><a href="/eng/attacks/chosen-plaintext.html">Chosen-plaintext attack</a></li>
+          <li><a href="/eng/attacks/known-ciphertext.html">Ciphertext-only attack</a></li>
+          <li><a href="/eng/attacks/chosen-ciphertext.html">Chosen-ciphertext attack</a></li>
+          <li><a href="/eng/attacks/chosen-key.html">Chosen-key attack</a></li>
+          <li><a href="/eng/attacks/brute-force.html">Brute force attack</a></li>
+          <li><a href="/eng/attacks/dos.html">DoS</a></li>
+          <li><a href="/eng/attacks/man-in-the-middle.html">Man-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/two-time-pad.html" aria-current="page">Attack on two-time pad</a></li>
+          <li><a href="/eng/attacks/krack.html">KRACK attack</a></li>
+          <li><a href="/eng/attacks/frequency-analysis.html">Frequency analysis</a></li>
+          <li><a href="/eng/attacks/meet-in-the-middle.html">Meet-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/replay.html">Replay attack</a></li>
+          <li><a href="/eng/attacks/homograph-attack.html">Homograph attack</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-attacks -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

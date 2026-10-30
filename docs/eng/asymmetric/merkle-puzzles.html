@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/asymetryczne/puzzle-merkle.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Merkle's Puzzles | Asymmetric Cipher | Crypto-IT</title>
+  <meta name="description" content="Merkle&#x27;s Puzzles algorithm is a key-agreement protocol which allows two parties to negotiate a shared secret key. It is one of the first asymmetric ciphers.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/asymmetric/merkle-puzzles.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/merkle-puzzles.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/puzzle-merkle.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/asymmetric/merkle-puzzles.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Merkle&#x27;s Puzzles | Asymmetric Cipher">
+  <meta property="og:description" content="Merkle&#x27;s Puzzles algorithm is a key-agreement protocol which allows two parties to negotiate a shared secret key. It is one of the first asymmetric ciphers.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/asymmetric/merkle-puzzles.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Merkle's Puzzles",
+        "description": "Merkle's Puzzles algorithm is a key-agreement protocol which allows two parties to negotiate a shared secret key. It is one of the first asymmetric ciphers.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/asymmetric/merkle-puzzles.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Asymmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/asymmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Merkle's Puzzles"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/" aria-current="true">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/asymetryczne/puzzle-merkle.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/asymmetric/">Asymmetric ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Merkle's Puzzles</h1>
+          <p class="article__subtitle">Key-agreement Protocol</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>without authentication</li>
+          </ul>
+          <p>Merkle's Puzzles protocol allows any two parties to negotiate a shared secret key. The secret key can be later used to protect their further communication.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>Merkle's Puzzles is one of the first algorithms for a public-key cryptosystem. It was invented by Ralph Merkle in 1974 and published in 1978.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The Merkle's Puzzles algorithm describes a communication between two parties which allows to create a shared secret key. It is impossible to deduce the key by a potential eavesdropper. The key may be later used during the further communication, protected by the <a href="/eng/symmetric/">symmetric encryption</a>.</p>
+          <p>The protocol of the exchange of information between two parties (commonly referred to as Alice and Bob) is presented below. To determine the shared secret key, the following steps should be performed:</p>
+          <ol class="steps">
+           <li>One of the parties (Alice) prepares a lot of messages, which consist of a unique random id and a unique random key.</li>
+           <li>Then, Alice encrypts each message using a weak cipher (for example a symmetric cipher with a secret 20-bit long key) and send all the encrypted messages to the second party (to Bob).</li>
+           <li>Bob chooses randomly one of the received encrypted messages and breaks its security using a brute force attack.</li>
+           <li>Bob informs Alice, what is the id value in the message selected by him.</li>
+           <li>At this point, both Alice and Bob possess the secret shared key, which was in the message chosen and broken by Bob. They can use it during the further communication.</li>
+          </ol>
+          <p>The main idea of the algorithm of Merkle's Puzzles is that the big number of messages is encrypted using a cipher weak enough to be broken by a <a href="/eng/attacks/brute-force.html">brute force attack</a> by the receiver.</p>
+          <p>The secret unique key is specified by the message id transmitted without encryption. The attacker, who wants to capture the key, can overhear all messages. He would have to break many messages using brute force attacks, hoping to find the message which was chosen randomly. After its decryption, he would have had knowledge about the secret key. Therefore, the key which was used for encryption of the messages must be long enough, that decryption of a large number of messages would be practically impossible.</p>
+          <h2 id="security-of-merkle-s-puzzles">Security of Merkle's Puzzles</h2>
+          <p>Assuming that decrypting one message using brute force attack requires <span class="term">n</span> steps and that there are <span class="term">m</span> messages, the establishment of the secret key takes Alice and Bob <span class="term">O(n+m)</span> time. On the other hand, to discover the selected key, an eavesdropping intruder must perform calculations with complexity <span class="term">O(n*m)</span>.</p>
+          <p>Quadratic complexity of decrypting is typically not considered secure enough against an attacker. Too long key (that means too big value of <span class="term">n</span>) causes using the protocol quite inconvenient for its users. At present, there are more efficient and convenient ways to use encryption with public and private keys.</p>
+          <p>Because the protocol does not provide authentication of the communicating parties, it is vulnerable to <a href="/eng/attacks/man-in-the-middle.html">man-in-the-middle</a> attacks. The attacker may establish two sessions of the protocol (one with Alice and one with Bob) and pretend to be the opposite side to each of them. He creates two symmetric keys and uses them in the communication with them (still pretending to be the opposite side to each of them).</p>
+          <h2 id="block-diagram-of-merkle-s-puzzles-protocol">Block Diagram of Merkle's Puzzles Protocol</h2>
+          <figure class="figure"><img src="/assets/img/merkle-puzzles/merkle-puzzles.webp" alt="Protocol of Merkle&#x27;s Puzzles" width="500" height="200" loading="lazy"></figure>
+          <h2 id="maths">Maths</h2>
+          <h3 id="encryption-used-in-merkle-s-puzzles">Encryption used in Merkle's Puzzles</h3>
+          <p>A lot of messages, which are sent at the beginning of the protocol, must be encrypted by the first person using a symmetric cipher.</p>
+          <p>To achieve this, one of the common and popular algorithms of symmetric encryption is used. The only difference lies in the intentional weakening of the cipher, by using shorter symmetric keys. Usually, the original random key (let us say 128-bit long) is replaced by the key consisting of 98 bits set to 0 connected with 30 bits of random bits of the real key. The receiver must break those 30 random bits to read the message and get the symmetric key.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a class="pager__next" href="/eng/asymmetric/diffie-hellman.html" rel="next"><small>Next →</small>Diffie–Hellman protocol</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2Fmerkle-puzzles.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2Fmerkle-puzzles.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2Fmerkle-puzzles.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-asymmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/asymmetric/">Asymmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/asymmetric/merkle-puzzles.html" aria-current="page">Merkle&#x27;s puzzles</a></li>
+          <li><a href="/eng/asymmetric/diffie-hellman.html">Diffie–Hellman protocol</a></li>
+          <li><a href="/eng/asymmetric/rsa.html">RSA</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-asymmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

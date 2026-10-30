@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/tools/docker.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docker | Wirtualizacja Zasobów | Crypto-IT</title>
+  <meta name="description" content="Aplikacja Docker umożliwia instalowanie i uruchamianie bezpiecznych wirtualnych kontenerów, dużo bardziej wydajnych niż tradycyjnie używane maszyny wirtualne.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/narzedzia/docker.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/docker.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/docker.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/tools/docker.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Docker | Wirtualizacja Zasobów">
+  <meta property="og:description" content="Aplikacja Docker umożliwia instalowanie i uruchamianie bezpiecznych wirtualnych kontenerów, dużo bardziej wydajnych niż tradycyjnie używane maszyny wirtualne.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/narzedzia/docker.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Docker",
+        "description": "Aplikacja Docker umożliwia instalowanie i uruchamianie bezpiecznych wirtualnych kontenerów, dużo bardziej wydajnych niż tradycyjnie używane maszyny wirtualne.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/narzedzia/docker.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Oprogramowanie",
+            "item": "https://www.crypto-it.net/pl/narzedzia/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Docker"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/" aria-current="true">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/tools/docker.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Docker</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Docker jest aplikacją, która umożliwia umieszczanie programów wewnątrz izolowanych piaskownic (ang. <i>sandbox</i>) nazywanych kontenerami (ang. <i>container</i>). Kontenery tworzone przez Docker są dużo wydajniejsze niż wykorzystywane zwykle do izolacji maszyny wirtualne (ang. <i>virtual machine</i>). Aplikacja Docker została udostępniona w&nbsp;2013 roku przez Solomona Hykesa i&nbsp;zespół firmy dotCloud z&nbsp;San Francisco (później przemianowanej na Docker, Inc.). Oficjalną stroną projektu jest <a href="http://www.docker.com" rel="noopener" target="_blank">www.docker.com</a>.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Docker umożliwia użytkownikowi tworzenie izolowanych kontenerów, zawierających wskazaną aplikację razem ze wszystkimi powiązanymi z nią bibliotekami i&nbsp;ustawieniami systemowymi. Kontenery te mogą być następnie wykorzystywane do wielokrotnego uruchamiania wcześniej przygotowanych programów lub do prac programistycznych w dokładnie przygotowanym środowisku.</p>
+          <p>Ze względu na możliwość relatywnie szybkiego i&nbsp;łatwego modyfikowania aplikacji bazujących na kontenerach (poprzez dodawanie lub&nbsp;podmienianie poszczególnych kontenerów), Docker jest często wykorzystywany do tworzenia i zarządzania dużymi systemami rozproszonymi. Kontenery mogą działać na wielu maszynach, zarówno fizycznych, jak i wirtualnych. Wewnętrzna konfiguracja tak używanych kontenerów nie jest afektowana przez ustawienia serwerów, na których działają.</p>
+          <p>Docker oraz aplikacje służące do zarządzania wirtualnymi kontenerami nie są narzędziami ściśle kryptograficznymi. Nadają się bardzo dobrze do wdrażania i testowania systemów bezpieczeństwa, z racji swojej efektywności, elastyczności i łatwości instalacji.</p>
+          <p>Mimo, że obecnie istnieje szereg aplikacji umożliwiających tworzenie wirtualnych kontenerów, Docker jest niezaprzeczalnie jednym z najpopularniejszych z nich. Jest warte wspomnienia, że wiele popularnych dostawców usług w chmurze (ang. <i>cloud service providers</i>), jak Amazon lub Microsoft, obsługuje obrazy tworzone przez Docker.</p>
+          <h2 id="wirtualne-kontenery">Wirtualne kontenery</h2>
+          <p>Koszt uruchamiania aplikacji w wirtualnych kontenerach utworzonych przez Docker jest dużo mniejszy niż koszt działania całej maszyny wirtualnej. Zamiast tworzenia nowego systemu operacyjnego, kontenery wykorzystują niskopoziomowe funkcjonalności systemu, w którym działają, modyfikując jedynie jego wyższe warstwy.</p>
+          <p>Początkowo Docker był dostępny jedynie dla systemów Linux, ale z biegiem czasu dodano możliwość używania go również pod Windowsami. Docker wykorzystuje nowoczesne funkcje systemów operacyjnych, które umożliwiają izolowanie zasobów na różne sposoby. Przykładowo, działając na Linuxie, Docker wykorzystuje takie funkcjonalności jądra jak <em>namespaces</em>, <em>cgroups</em>, <em>system plików aufs</em> oraz interfejsy wirtualizujące (<em>libcontainer</em>, <em>libvirt</em> i <em>LXC</em>).</p>
+          <p>Aplikacja działająca wewnątrz kontenera jest izolowana od zewnętrznych systemów operacyjnych pod względem systemu plików, innych procesów i użytkowników, procesora i pamięci oraz interfejsów sieciowych i urządzeń wejścia/wyjścia.</p>
+          <h2 id="api-aplikacji-docker">API aplikacji Docker</h2>
+          <p>Jednym z powodów popularności programu Docker jest prostota jego używania. Po utworzeniu obrazu kontenera, użytkownik może kontrolować aplikację za pomocą kilku prostych komand.</p>
+          <p>Obraz tworzony w aplikacji Docker jest paczką zawierającą docelowy program wybrany przez użytkownika, wraz z jego zależnościami i&nbsp;parametrami konfiguracyjnymi. Za każdym razem, kiedy obraz jest uruchamiany, Docker tworzy nowy wirtualny kontener i inicjuje go za pomocą tych samych parametrów. Oczywiście, szereg oddzielnych kontenerów bazujących na tym samym obrazie może działać równocześnie. Każdy utworzony kontener otrzymuje unikalny numer identyfikacyjny.</p>
+          <ul>
+           <li><strong>docker pull</strong> <span class="term">nazwa_obrazu</span>: pobiera wskazany obraz z repozytorium online aplikacji Docker.</li>
+           <li><strong>docker images</strong>: wyświetla wszystkie dostępne obrazy.</li>
+           <li><strong>docker run</strong> <span class="term">nazwa_obrazu</span>: startuje wybrany obraz i przeprowadza wcześniej zdefiniowane operacje. Nowy kontener jest tworzony za każdym wywołaniem komendy <span class="term">run</span>.</li>
+           <li><strong>docker ps</strong>: wyświetla wszystkie aktualnie uruchomione kontenery.</li>
+           <li><strong>docker stop</strong> <span class="term">id_kontenera</span>: zatrzymuje wskazany kontener.</li>
+           <li><strong>docker rm</strong> <span class="term">id_kontenera</span>: usuwa wskazany kontener.</li>
+          </ul>
+          <h2 id="tworzenie-nowych-obrazow-aplikacji-docker">Tworzenie nowych obrazów aplikacji Docker</h2>
+          <p>Obecnie istnieje bardzo wiele gotowych obrazów Docker, dostępnych w publicznych repozytoriach. Można je pobrać przy użyciu komendy <span class="term">docker pull</span>, a następnie pracować z kontenerami utworzonymi na ich podstawie.</p>
+          <p>Jest możliwe również zbudowanie własnych obrazów, poprzez modyfikowanie innych istniejących już obrazów aplikacji Docker. W tym celu wykorzystuje się specjalnie przygotowany plik <span class="term">Dockerfile</span>.</p>
+          <p>Plik <span class="term">Dockerfile</span> składa się zwykle z kilku lub kilkunastu linijek tekstu, z których każda zawiera słowo kluczowe i&nbsp;odpowiadającą mu wartość. Pierwsza linijka powinna określać obraz, który ma być zmodyfikowany (słowo kluczowe: <span class="term">FROM</span>). W kolejnych liniach znajdują się dodatkowe zależności, które powinny być załadowane do obrazu (słowo kluczowe: <span class="term">ADD</span>), skrypty i aplikacje, które powinny być zainstalowane lub uruchomione (słowa kluczowe: <span class="term">RUN</span>, <span class="term">CMD</span>), numery portów, które powinny zostać otwarte (słowo kluczowe: <span class="term">EXPOSE</span>), itd.</p>
+          <p>Mając przygotowany plik <span class="term">Dockerfile</span>, nowy obraz może zostać utworzony za pomocą komendy <span class="term">docker build</span>, która pobiera jako parametry docelową nazwę obrazu (połączoną z opcjonalnymi użytkownikiem i tagiem) i wspomniany wcześniej plik.</p>
+          <p>Utworzony w ten sposób obraz może zostać załadowany do repozytorium online za pomocą komendy:<br> &nbsp;&nbsp;<strong>docker push</strong> <span class="term">nazwa_obrazu</span></p>
+          <h2 id="sieci-aplikacji-docker">Sieci aplikacji Docker</h2>
+          <p>Możliwe jest utworzenie wielu obrazów aplikacji Docker, które będą komunikować się ze sobą wykorzystując zwykłe protokoły sieciowe. Ogólnie rzecz biorąc, zaleca się budowanie systemów składających się z wielu kontenerów, z których każdy zajmowałby się jednym określonym procesem i komunikował się z innymi kontenerami w&nbsp;celu wykonania przewidzianego zadania.</p>
+          <p>Wirtualna sieć w aplikacji Docker może zostać utworzona za pomocą komendy:<br> &nbsp;&nbsp;<strong>docker network create</strong> <span class="term">nazwa_sieci</span></p>
+          <p>Następnie użytkownik może wskazać kontenerom odpowiednią sieć, definiując parametr <span class="term">--net</span> podczas wydawania komendy <span class="term">run</span>. Kontenery mogą się komunikować, jeśli działają w tej samej sieci aplikacji Docker.</p>
+          <p>Na koniec warto wspomnieć o jeszcze jednej samodzielnej aplikacji, o nazwie <em>Docker Compose</em>. W większym nawet stopniu upraszcza ona konfigurację wielu kontenerów pracujących w&nbsp;jednej sieci wirtualnej. Pozwala ona umieścić wiele obrazów w jednym pliku konfiguracyjnym, <span class="term">docker-compose.yml</span>, i&nbsp;zarządzać nimi za pomocą dwóch komend <span class="term">docker-compose up</span> i <span class="term">docker-compose stop</span>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/narzedzia/uwierzytelnianie-kluczem.html" rel="prev"><small>← Poprzedni</small>Uwierzytelnianie kluczem</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fnarzedzia%2Fdocker.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fnarzedzia%2Fdocker.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fnarzedzia%2Fdocker.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-narzedzia -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/narzedzia/">Oprogramowanie</a></h2>
+        <ul>
+          <li><a href="/pl/narzedzia/jca-i-jce.html">JCA i JCE</a></li>
+          <li><a href="/pl/narzedzia/token-kryptograficzny.html">Tokeny kryptograficzne</a></li>
+          <li><a href="/pl/narzedzia/uwierzytelnianie-kluczem.html">Uwierzytelnianie kluczem</a></li>
+          <li><a href="/pl/narzedzia/docker.html" aria-current="page">Docker</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-narzedzia -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

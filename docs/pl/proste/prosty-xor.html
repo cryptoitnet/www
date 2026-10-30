@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/simple-xor.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prosty Szyfr XOR | Crypto-IT</title>
+  <meta name="description" content="Prosty Szyfr XOR jest wieloalfabetowym szyfrem podstawieniowym, bazującym na szyfrze Vigenère’a, zaadaptowanym do używania przez programy komputerowe.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/prosty-xor.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/simple-xor.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/prosty-xor.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/simple-xor.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Prosty Szyfr XOR">
+  <meta property="og:description" content="Prosty Szyfr XOR jest wieloalfabetowym szyfrem podstawieniowym, bazującym na szyfrze Vigenère’a, zaadaptowanym do używania przez programy komputerowe.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/prosty-xor.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Prosty szyfr XOR",
+        "description": "Prosty Szyfr XOR jest wieloalfabetowym szyfrem podstawieniowym, bazującym na szyfrze Vigenère’a, zaadaptowanym do używania przez programy komputerowe.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/prosty-xor.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Prosty szyfr XOR"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/simple-xor.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Prosty szyfr XOR</h1>
+          <p class="article__subtitle">Wieloalfabetowy szyfr podstawieniowy</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Pomimo niedużej siły zapewnianego bezpieczeństwa, proste szyfrowanie XOR było wykorzystywane w&nbsp;wielu komercyjnych aplikacjach ze względu na&nbsp;dużą szybkość działania i&nbsp;prostotę zaimplementowania.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Prosty szyfr XOR był popularny we&nbsp;wczesnych czasach komputerów, w&nbsp;systemach operacyjnych MS-DOS i&nbsp;Macintosh.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Prosty szyfr XOR jest odmianą <a href="/pl/proste/szyfr-vigenere.html">szyfru Vigenère’a</a>. Różni się od&nbsp;niej tym, że zamiast manipulować na&nbsp;literach i&nbsp;znakach, zmienia bity i&nbsp;bajty elektronicznej wiadomości przechowywanej w&nbsp;pamięci komputera.</p>
+          <p>Zamiast dodawać do&nbsp;siebie dwie litery alfabetu, jak w&nbsp;oryginalnej wersji szyfru Vigenère’a, w&nbsp;szyfrze XOR algorytm sumuje kolejne bajty tekstu jawnego i&nbsp;sekretnego klucza o&nbsp;dowolnej długości za&nbsp;pomocą działania&nbsp;XOR. Po&nbsp;wykorzystaniu ostatniego bajtu klucza, przechodzi się z&nbsp;powrotem do&nbsp;pierwszego bajtu (analogicznie jak w&nbsp;klasycznej wersji).</p>
+          <p>W&nbsp;celu odszyfrowania postępuje się w&nbsp;taki sam sposób, czyli dodaje się kolejne bajty klucza do&nbsp;kolejnych bajtów szyfrogramu za&nbsp;pomocą operacji&nbsp;XOR.</p>
+          <p>Szyfrowanie i&nbsp;deszyfrowanie można przedstawić za&nbsp;pomocą następujących wzorów:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">M</span> XOR <span class="math">K&nbsp;= C</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">C</span> XOR <span class="math">K&nbsp;= M</span></p>
+          <h2 id="sila-prostego-szyfru-xor">Siła prostego szyfru XOR</h2>
+          <p>Prosty szyfrowanie XOR jest względnie łatwe do&nbsp;złamania. Jego zabezpieczenia nie&nbsp;są lepsze niż klasycznych <a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">szyfrów wieloalfabetowych</a>. Przy&nbsp;użyciu komputera, odkrycie tekstu jawnego zajmuje stosunkowo niewiele czasu.</p>
+          <p>Pierwszym etapem łamania szyfru XOR jest zwykle wyznaczenie długości sekretnego klucza. Można tego dokonać wyliczając <a href="/pl/teoria/indeks-koincydencji.html">indeks koincydencji</a> dla&nbsp;szyfrogramu.</p>
+          <p>Po&nbsp;wyznaczeniu długości klucza, należy zapisać ten sam szyfrogram w&nbsp;dwóch linijkach, jedna pod&nbsp;drugą, z tym, że bajty w&nbsp;dolnym wierszu są przesunięte względem bajtów w&nbsp;górnym wierszu o&nbsp;długość klucza. Następnie, po&nbsp;zsumowaniu XOR obu tekstów (dodając do&nbsp;siebie bajty znajdujące się w&nbsp;tych samych kolumnach) uzyskuje się ciąg bajtów, z&nbsp;którego wyeliminowano bajty sekretnego klucza.</p>
+          <p>Dzięki nadmiarowości informacji, zawartych w&nbsp;językach zapisanych w&nbsp;postaci binarnej za&nbsp;pomocą bajtów, można odszyfrować tekst jawny przy użyciu standardowych ataków polegających na <a href="/pl/ataki/atak-statystyczny.html">analizie częstotliwości</a>.</p>
+          <h2 id="implementacja">Implementacja</h2>
+          <p>Aplikacja szyfrująca wskazany plik tekstowy za pomocą prostego sumowania XOR:</p>
+          <pre><code>#include &lt;stdio.h&gt;
+
+int main (int argc, char *argv[])
+{
+  FILE *fi, *fo;
+  char *cp;
+  int c;
+
+  if ((cp = argv[1]) &amp;&amp; *cp!='\0') {
+    if ((fi = fopen(argv[2], "rb")) != NULL) {
+      if ((fo = fopen(argv[3], "wb")) != NULL) {
+        while ((c = getc(fi)) != EOF) {
+          if (!*cp) cp = argv[1];
+          c ^= *(cp++);
+          putc(c,fo);
+        }
+        fclose(fo);
+      }
+      fclose(fi);
+    }
+  }
+  return 0;
+}</code></pre>
+          <p>Użycie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="term">nazwa_programu klucz plik_do_zaszyfrowania plik_wynikowy</span></p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/enigma.html" rel="prev"><small>← Poprzedni</small>Enigma</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fprosty-xor.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fprosty-xor.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fprosty-xor.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html" aria-current="page">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

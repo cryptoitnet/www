@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/attacks/known-ciphertext.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atak ze Znanym Szyfrogramem | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Podczas ataku ze znanym szyfrogramem kryptoanalityk dysponuje pewną liczbą zaszyfrowanych wiadomości.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/ataki/znany-szyfrogram.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/known-ciphertext.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/znany-szyfrogram.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/known-ciphertext.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Atak ze Znanym Szyfrogramem | Kryptografia">
+  <meta property="og:description" content="Podczas ataku ze znanym szyfrogramem kryptoanalityk dysponuje pewną liczbą zaszyfrowanych wiadomości.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/ataki/znany-szyfrogram.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Atak ze znanym szyfrogramem",
+        "description": "Podczas ataku ze znanym szyfrogramem kryptoanalityk dysponuje pewną liczbą zaszyfrowanych wiadomości.",
+        "inLanguage": "pl",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/ataki/znany-szyfrogram.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ataki",
+            "item": "https://www.crypto-it.net/pl/ataki/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Atak ze znanym szyfrogramem"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/" aria-current="true">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/attacks/known-ciphertext.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/ataki/">Ataki</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Atak ze znanym szyfrogramem</h1>
+          <p class="article__subtitle">(ang. Known-Ciphertext Attack)</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Opublikowano <time datetime="2020-03-09">9 marca 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Podczas ataku ze&nbsp;znanym szyfrogramem kryptoanalityk dysponuje pewną liczbą zaszyfrowanych wiadomości. Jego zadanie polega na&nbsp;próbie odtworzenia możliwie wielu oryginalnych wiadomości lub (najlepiej) na&nbsp;odgadnięciu sekretnego klucza szyfrującego. Po&nbsp;odkryciu klucza będzie możliwe odczytanie również innych wiadomości zaszyfrowanych przy jego udziale.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Wszystkie szyfry powinny być szczególnie odporne na ataki ze znanym szyfrogramem, ponieważ są one najbardziej oczywistym punktem rozpoczęcia kryptoanalizy szyfru. Z tego powodu, dobrze zaprojektowane i przebadane algorytmy szyfrujące nie są zwykle podatne na ten typ ataków. Z drugiej strony, można podać przykłady protokołów, które zostały złamane przy użyciu ataków bazujących jedynie na znajomości fragmentów szyfrogramów.</p>
+          <p>Istnieje kilka technik, które okazały się skuteczne nawet w atakowaniu nowoczesnych szyfrów, mimo, że atakujący nie ma w nich dostępu do tekstu jawnego wiadomości oraz nie posiada żadnych informacji o użytym sekretnym kluczu. Najważniejszymi takimi metodami są:</p>
+          <ul>
+           <li><a href="/pl/ataki/two-time-pad.html">Atak na Two-Time Pad</a></li>
+           <li><a href="/pl/ataki/atak-statystyczny.html">Analiza Częstotliwościowa</a></li>
+          </ul>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/ataki/wybrany-tekst-jawny.html" rel="prev"><small>← Poprzedni</small>Atak z wybranym tekstem jawnym</a>
+          <a class="pager__next" href="/pl/ataki/wybrany-szyfrogram.html" rel="next"><small>Następny →</small>Atak z wybranym szyfrogramem</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fznany-szyfrogram.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fznany-szyfrogram.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fznany-szyfrogram.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-ataki -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/ataki/">Ataki</a></h2>
+        <ul>
+          <li><a href="/pl/ataki/znany-tekst-jawny.html">Atak ze znanym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/wybrany-tekst-jawny.html">Atak z wybranym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/znany-szyfrogram.html" aria-current="page">Atak z szyfrogramami</a></li>
+          <li><a href="/pl/ataki/wybrany-szyfrogram.html">Atak z wybranym szyfrogramem</a></li>
+          <li><a href="/pl/ataki/wybrany-klucz.html">Atak z wybranym kluczem</a></li>
+          <li><a href="/pl/ataki/atak-silowy.html">Atak siłowy</a></li>
+          <li><a href="/pl/ataki/dos.html">DoS</a></li>
+          <li><a href="/pl/ataki/man-in-the-middle.html">Atak man-in-the-middle</a></li>
+          <li><a href="/pl/ataki/two-time-pad.html">Atak na two-time pad</a></li>
+          <li><a href="/pl/ataki/krack.html">Atak KRACK</a></li>
+          <li><a href="/pl/ataki/atak-statystyczny.html">Atak statystyczny</a></li>
+          <li><a href="/pl/ataki/meet-in-the-middle.html">Atak meet-in-the-middle</a></li>
+          <li><a href="/pl/ataki/metoda-powtorzenia.html">Atak metodą powtórzenia</a></li>
+          <li><a href="/pl/ataki/atak-homograficzny.html">Atak homograficzny</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-ataki -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

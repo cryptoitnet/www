@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/two-square.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfr Dwukwadratowy | Crypto-IT</title>
+  <meta name="description" content="Szyfr Dwukwadratowy jest poligramowym szyfrem podstawieniowym, który zastępuje każdą parę liter tekstu jawnego inną parą liter, określoną za pomocą dwóch tabel.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/dwukwadratowy.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/two-square.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/dwukwadratowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/two-square.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfr Dwukwadratowy">
+  <meta property="og:description" content="Szyfr Dwukwadratowy jest poligramowym szyfrem podstawieniowym, który zastępuje każdą parę liter tekstu jawnego inną parą liter, określoną za pomocą dwóch tabel.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/dwukwadratowy.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <script src="/assets/js/tools/two-square.js" type="module"></script>
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfr dwukwadratowy (podwójny Playfair)",
+        "description": "Szyfr Dwukwadratowy jest poligramowym szyfrem podstawieniowym, który zastępuje każdą parę liter tekstu jawnego inną parą liter, określoną za pomocą dwóch tabel.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/dwukwadratowy.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Poligramowe szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/poligramowe-szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Szyfr dwukwadratowy (podwójny Playfair)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/two-square.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a></li>
+            <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfr dwukwadratowy (podwójny Playfair)</h1>
+          <p class="article__subtitle">Poligramowy szyfr podstawieniowy</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Szyfr dwukwadratowy jest odmianą <a href="/pl/proste/szyfr-playfair.html">szyfru Playfair</a>, która zapewnia nieco lepsze zabezpieczenie chronionych wiadomości.</p>
+          <p><a href="#online">Wypróbuj szyfr dwukwadratowy online ↓</a></p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Szyfr dwukwadratowy był stosowany przez&nbsp;polityków i&nbsp;wojskowych wielu krajów przez kilkaset lat, aż do&nbsp;II&nbsp;Wojny Światowej. Obecnie jest uważany za łatwy do&nbsp;złamania, przy użyciu stosunkowo nieskomplikowanych i&nbsp;szybkich <a href="/pl/ataki/atak-silowy.html">ataków siłowych</a>.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Szyfr dwukwadratowy jest szyfrem podstawieniowym poligramowym. Oznacza to, że otrzymany tekst jawny wiadomości jest dzielony na&nbsp;grupy znaków, a&nbsp;następnie każdej z&nbsp;tych grup jest przyporządkowywana jedna z&nbsp;innych, wcześniej zdefiniowanych grup znaków. Szyfr dwukwadratowy operuje na&nbsp;grupach dwuliterowych.</p>
+          <p>Przed&nbsp;rozpoczęciem szyfrowania, należy przygotować dwie tabele na&nbsp;podstawie dwóch sekretnych słów (lub&nbsp;dłuższych fraz) pełniących rolę sekretnych kluczy. Obie tabele mają wymiary 5&nbsp;na 5&nbsp;liter i&nbsp;zawierają 25&nbsp;liter alfabetu łacińskiego. Z&nbsp;racji tego, że alfabet łaciński ma 26&nbsp;liter, zwykle pomija się jeden rzadki znak (<span class="term">x</span>&nbsp;lub <span class="term">q</span>), ewentualnie traktuje się <span class="term">i</span>&nbsp;oraz <span class="term">j</span>&nbsp;jako jedną literę.</p>
+          <p>Do&nbsp;wypełniania pól w&nbsp;tabelach, wykorzystuje się wspomniane wyżej sekretne słowa (słowa kluczowe, nazywane również kluczami). W&nbsp;obu kluczach pomija się wszystkie powtarzające się litery (opuszczając wszystkie ponowne pojawienia się tych samych liter). Następnie wykorzystuje się pozostałe litery kluczy do wypełnienia tabel&nbsp;- do&nbsp;pierwszej tabeli wpisuje się litery pierwszego klucza, a do&nbsp;drugiej tabeli litery z drugiego klucza. Obie strony muszą ustalić wcześniej w&nbsp;jakiej kolejności wypełniają tabele literami (na&nbsp;przykład, kolejno wierszami od&nbsp;lewej do&nbsp;prawej, z&nbsp;góry na&nbsp;dół). Pozostałe pozycje w&nbsp;tabelach wypełnia się pozostałymi literami alfabetu, zwykle w&nbsp;kolejności alfabetycznej.</p>
+          <p>Przykładowo, używając jako sekretnych kluczy imion obojga rodziców rzymskiego cesarza Wespazjana: <i>Titus Flavius Sabinus</i> i&nbsp;<i>Vespasia Polla</i>, traktując litery <span class="term">i</span> oraz <span class="term">j</span> wspólnie i&nbsp;wypełniając tabele wierszami z&nbsp;góry na&nbsp;dół, otrzyma się następujące dwie tabele:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Pierwsza tabela szyfrująca szyfru dwukradratowego">
+           <tr>
+           <td>&nbsp;t</td>
+           <td>&nbsp;i</td>
+           <td>&nbsp;u</td>
+           <td>&nbsp;s</td>
+           <td>&nbsp;f</td>
+           </tr>
+           <tr>
+           <td>&nbsp;l</td>
+           <td>&nbsp;a</td>
+           <td>&nbsp;v</td>
+           <td>&nbsp;b</td>
+           <td>&nbsp;n</td>
+           </tr>
+           <tr>
+           <td>&nbsp;c</td>
+           <td>&nbsp;d</td>
+           <td>&nbsp;e</td>
+           <td>&nbsp;g</td>
+           <td>&nbsp;h</td>
+           </tr>
+           <tr>
+           <td>&nbsp;k</td>
+           <td>&nbsp;m</td>
+           <td>&nbsp;o</td>
+           <td>&nbsp;p</td>
+           <td>&nbsp;q</td>
+           </tr>
+           <tr>
+           <td>&nbsp;r</td>
+           <td>&nbsp;w</td>
+           <td>&nbsp;x</td>
+           <td>&nbsp;y</td>
+           <td>&nbsp;z</td>
+           </tr>
+           </table>
+          </div>
+          &nbsp;
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Druga tabela szyfrująca szyfru dwukradratowego">
+           <tr>
+           <td>&nbsp;v</td>
+           <td>&nbsp;e</td>
+           <td>&nbsp;s</td>
+           <td>&nbsp;p</td>
+           <td>&nbsp;a</td>
+           </tr>
+           <tr>
+           <td>&nbsp;i</td>
+           <td>&nbsp;o</td>
+           <td>&nbsp;l</td>
+           <td>&nbsp;b</td>
+           <td>&nbsp;c</td>
+           </tr>
+           <tr>
+           <td>&nbsp;d</td>
+           <td>&nbsp;f</td>
+           <td>&nbsp;g</td>
+           <td>&nbsp;h</td>
+           <td>&nbsp;k</td>
+           </tr>
+           <tr>
+           <td>&nbsp;m</td>
+           <td>&nbsp;n</td>
+           <td>&nbsp;q</td>
+           <td>&nbsp;r</td>
+           <td>&nbsp;t</td>
+           </tr>
+           <tr>
+           <td>&nbsp;u</td>
+           <td>&nbsp;w</td>
+           <td>&nbsp;x</td>
+           <td>&nbsp;y</td>
+           <td>&nbsp;z</td>
+           </tr>
+           </table>
+          </div>
+          <p>Tabele powinny być zapisane jedna obok&nbsp;drugiej lub&nbsp;jedna pod&nbsp;drugą, tak aby&nbsp;linie wierszy (lub&nbsp;odpowiednio linie kolumn) zostały zachowane.</p>
+          <p>Drugim etapem szyfrowania jest podzielenie tekstu jawnego na&nbsp;pary, z&nbsp;których każda zawiera dwie kolejne litery. W&nbsp;razie potrzeby, należy dopełnić oryginalny tekst wstawiając na&nbsp;końcu jakąś rzadko używaną literę, na&nbsp;przykład <span class="term">X</span> lub&nbsp;<span class="term">Q</span>.</p>
+          <p>Aby zaszyfrować każdą parę liter, trzeba znaleźć pierwszą literę z&nbsp;każdej pary w&nbsp;pierwszej tabeli, a drugą literę w&nbsp;drugiej tabeli. Następnie należy wyznaczyć prostokąt (rozciągający się na&nbsp;dwie tabele), w&nbsp;którego dwóch rogach znajdują się znalezione litery. Następnie trzeba podmienić dwie znalezione litery na&nbsp;dwie litery, wyznaczone przez&nbsp;dwa pozostałe kąty prostokąta. W ten sam sposób należy postępować ze wszystkimi parami liter w&nbsp;oryginalnej wiadomości, zastępując je literami otrzymywanymi na&nbsp;podstawie obu tabel szyfrujących.</p>
+          <p>Przykładowo, szyfrując parę <span class="term">AS</span> za&nbsp;pomocą powyższych tabel ustawionych obok siebie, otrzyma się parę <span class="term">IL</span> lub&nbsp;<span class="term">LI</span>.</p>
+          <p>Obie strony powinny wcześniej ustalić, w&nbsp;jakiej kolejności będą dopisywać nowe litery do tworzonego szyfrogramu. Na&nbsp;przykład, pierwszą literę można brać z&nbsp;pierwszej (lewej) tabeli, a drugą literę pary z&nbsp;drugiej (prawej) tabeli.</p>
+          <p>Jeśli obie litery w&nbsp;parze do&nbsp;zaszyfrowania znajdują się w&nbsp;tym samym wierszu (lub w&nbsp;zależności od&nbsp;ułożenia tabel&nbsp;- w&nbsp;tej samej kolumnie), to nowa para dopisana do szyfrogramu powinna być taka sama jak oryginalne litery tekstu jawnego. Słabością szyfru dwukwadratowego jest to, że sytuacja taka zdarza się dla mniej więcej 20%&nbsp;możliwych par.</p>
+          <p>Proces odczytania szyfrogramu przebiega w&nbsp;podobny sposób. Odbiorca musi najpierw utworzyć (korzystając ze&nbsp;znanych sobie sekretnych kluczy) takie same dwie tabele, jakich używał nadawca wiadomości. Następnie powinien odkodować litery w&nbsp;kolejnych parach, stosując przekształcenia analogiczne do tych opisanych powyżej.</p>
+          <section class="tool" id="online" aria-labelledby="online-title"
+                   data-tool="two-square"
+                   data-msg-mode="Nieprawidłowy tryb pomijania litery."
+                   data-msg-copied="Skopiowano">
+            <h2 id="online-title">Szyfr dwukwadratowy online</h2>
+            <div class="tool__grid">
+              <div>
+                <div class="field">
+                  <label for="ts-keyword1">Pierwsze hasło</label>
+                  <input type="text" id="ts-keyword1" data-role="keyword1" value="example" autocomplete="off" spellcheck="false">
+                  <small>Tworzy pierwszą tabelę. Pozostaw puste, aby uzyskać tabelę alfabetyczną.</small>
+                </div>
+                <div class="field">
+                  <label for="ts-keyword2">Drugie hasło</label>
+                  <input type="text" id="ts-keyword2" data-role="keyword2" value="keyword" autocomplete="off" spellcheck="false">
+                  <small>Tworzy drugą tabelę.</small>
+                </div>
+                <fieldset>
+                  <legend>Litera pomijana w tabelach</legend>
+                  <div class="options">
+                    <label><input type="radio" name="mode" value="j-as-i"> J jako I</label>
+                    <label><input type="radio" name="mode" value="no-q" checked> Bez Q</label>
+                    <label><input type="radio" name="mode" value="no-x"> Bez X</label>
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Układ tabel</legend>
+                  <div class="options">
+                    <label><input type="radio" name="layout" value="horizontal" checked> Poziomo (obok siebie)</label>
+                    <label><input type="radio" name="layout" value="vertical"> Pionowo (jedna nad drugą)</label>
+                  </div>
+                </fieldset>
+              </div>
+              <figure class="matrix-pair" aria-label="Bieżące tabele kluczy">
+                <table class="matrix" data-role="table1" aria-label="Pierwsza tabela"></table>
+                <table class="matrix" data-role="table2" aria-label="Druga tabela"></table>
+              </figure>
+            </div>
+
+            <div class="field">
+              <label for="ts-input">Tekst</label>
+              <textarea id="ts-input" data-role="input" spellcheck="false">Help me Obiwan Kenobi</textarea>
+              <small>Uwzględniane są tylko litery; spacje, cyfry i znaki interpunkcyjne są pomijane, a znaki diakrytyczne usuwane. Ta sama operacja szyfruje i deszyfruje.</small>
+            </div>
+
+            <p class="tool__steps">Pary: <span data-role="digraphs" aria-live="polite"></span></p>
+            <p class="tool__error" data-role="error" role="alert"></p>
+
+            <div class="field">
+              <label for="ts-output">Wynik</label>
+              <textarea id="ts-output" data-role="output" readonly></textarea>
+            </div>
+            <div class="tool__actions">
+              <button type="button" class="button" data-role="copy">Kopiuj wynik</button>
+              <button type="button" class="button" data-role="swap">Użyj wyniku jako wejścia</button>
+            </div>
+          </section>
+          <h2 id="sila-szyfru-dwukwadratowego">Siła szyfru dwukwadratowego</h2>
+          <p>Największą słabością szyfru dwukwadratowego jest częste powtarzanie się w&nbsp;szyfrogramie fragmentów tekstu jawnego. Bazując na tym oraz na dwóch sposobach atakowania szyfrów podstawieniowych -&nbsp;analizie częstotliwości występowania podwójnych znaków oraz odgadywaniu fragmentów tekstu jawnego&nbsp;- atakujący jest w&nbsp;stanie stopniowo odsłaniać coraz większe fragmenty oryginalnej wiadomości.</p>
+          <p>Analiza częstotliwości występowania podwójnych znaków w&nbsp;szyfrogramie polega na&nbsp;wyszukiwaniu częstych powtórzeń tych samych par liter. Znając przybliżone częstotliwości występowania dwuznaków dla&nbsp;języka, w&nbsp;którym zapisano przekazywaną wiadomość, można próbować dopasowywać częste powtórzenia w&nbsp;szyfrogramie do&nbsp;częstych par liter w&nbsp;danym języku. Należy mieć na&nbsp;uwadze, że dzięki zastosowaniu dwóch kluczy, jest to zadanie trudniejsze niż w&nbsp;przypadku zwykłego szyfru Playfair.</p>
+          <p>Odgadywanie fragmentów tekstu jawnego polega na&nbsp;zgadywaniu miejsc w&nbsp;szyfrogramie, które odpowiadają popularnym zwrotom, których można spodziewać się w łamanych wiadomościach, na&nbsp;przykład powitaniu drugiej osoby albo daty lub&nbsp;czasu nadania wiadomości. Dysponując szyfrogramem i&nbsp;prawdopodobnymi fragmentami oryginalnego tekstu, można odtworzyć tablice używane do&nbsp;kodowania wiadomości. Metoda&nbsp;ta była często używana w&nbsp;atakach na&nbsp;niemieckie szyfry tego&nbsp;typu w&nbsp;czasie Drugiej Wojny Światowej.</p>
+          <h2 id="implementacja">Implementacja</h2>
+          <p>Szyfr Dwukwadratowy można zaimplementować stosunkowo prosto. Po wstępnym przygotowaniu tekstu wejściowego i obu haseł, głównym wyzwaniem pozostaje odpowiednie operowanie numerami kolumn i wierszy tabel szyfrujących, dla każdego przetwarzanego znaki.</p>
+          <p>Poniżej przedstawiono funkcję JavaScript, która przeprowadza szyfrowanie wiadomości wejściowej i zwraca utworzony szyfrogram. Oba słowa kluczowe są przekazywane do funkcji jako jednowymiarowe ciągi znaków:</p>
+          <pre><code>function encrypt(messageInput, keyword) {
+  var messageOutput = '';
+
+  var pos = 0;
+  while (pos &lt; messageInput.length) {
+    var m1 = messageInput[pos];
+    var m2 = '';
+
+    if (pos + 1 &lt; messageInput.length) {
+        m2 = messageInput[pos + 1];
+        pos += 2;
+    } else {
+      m2 = 'Q'  // some dummy letter
+      pos += 1;
+    }
+
+    var c1 = m1;
+    var c2 = m2;
+
+    var idx1 = keyword[0].indexOf(m1);
+    var idx2 = keyword[1].indexOf(m2);
+
+    if (Math.floor(idx1 / 5) !== Math.floor(idx2 / 5)) {
+      c1 = keyword[0][(5 * Math.floor(idx2 / 5)) + idx1 % 5];
+      c2 = keyword[1][(5 * Math.floor(idx1 / 5)) + idx2 % 5];
+    }
+
+    messageOutput = messageOutput.concat(c1);
+    messageOutput = messageOutput.concat(c2);
+  }
+
+  return messageOutput;
+}</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/szyfr-playfair.html" rel="prev"><small>← Poprzedni</small>Szyfr Playfair</a>
+          <a class="pager__next" href="/pl/proste/czterokwadratowy.html" rel="next"><small>Następny →</small>Szyfr czterokwadratowy</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fdwukwadratowy.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fdwukwadratowy.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fdwukwadratowy.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html" aria-current="page">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

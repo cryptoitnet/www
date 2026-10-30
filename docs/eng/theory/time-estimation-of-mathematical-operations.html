@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Time Estimation of Mathematical Operations | Crypto-IT</title>
+  <meta name="description" content="Time estimation of basic mathematical operations is necessary for assessing and improving the quality of computer algorithms.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/time-estimation-of-mathematical-operations.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/time-estimation-of-mathematical-operations.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/time-estimation-of-mathematical-operations.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Time Estimation of Mathematical Operations">
+  <meta property="og:description" content="Time estimation of basic mathematical operations is necessary for assessing and improving the quality of computer algorithms.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/time-estimation-of-mathematical-operations.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Time Estimation of Mathematical Operations",
+        "description": "Time estimation of basic mathematical operations is necessary for assessing and improving the quality of computer algorithms.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/time-estimation-of-mathematical-operations.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Time Estimation of Mathematical Operations"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Time Estimation of Mathematical Operations</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Time needed by a computer to perform a task can be evaluated by estimating a number of required operations on bits. One must analyse how many changes of bits is necessary to perform the calculations on the number, which is stored in computer memory by using binary notation.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="binary-addition">Binary addition</h2>
+          <p>Binary addition of two numbers (stored in Natural Binary System - NBS) may be presented as a simple columnar addition:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary addition of numbers 11100 + 1110 in NBS">
+           <tr>
+           <td> </td>
+           <td><sup>1</sup></td>
+           <td><sup>1</sup></td>
+           <td><sup>1</sup></td>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>0</td>
+           </tr>
+           <tr class="row-border">
+           <td>+</td>
+           <td> </td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           </table>
+          </div>
+          <p>First, the vacant spaces in the shorter number are filled with zeros. As a result, both numbers are of the same length of <var>k</var> bits. After that, simple summation should be performed for each pair of digits. If the result of the summation is bigger than <span class="term">1</span>, then the result is set to <span class="term">0</span> and the number <span class="term">1</span> is carried to the next position.</p>
+          <p>The result of addition of two <var>k</var>-digit numbers contains <var>k</var> or <var>k+1</var> digits. The whole operation of summation requires <var>k</var> operations on bits.</p>
+          <h2 id="binary-multiplication">Binary multiplication</h2>
+          <p>Analogously to addition one can perform multiplication of two binary numbers:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary multiplication of numbers 11101 x 1111 in NBS">
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td class="cell-border">x</td>
+           <td class="cell-border"> </td>
+           <td class="cell-border">0</td>
+           <td class="cell-border">1</td>
+           <td class="cell-border">1</td>
+           <td class="cell-border">1</td>
+           <td class="cell-border">1</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td> </td>
+           </tr>
+           <tr class="row-border">
+           <td>+</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           </tr>
+           <tr>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p>During multiplication of two binary numbers <var>n</var> and <var>m</var> of lengths of respectively <var>k</var> and <var>j</var> bits one can receive up to <var>j</var> rows (the number of rows is equal to the number of ones in the number <var>m</var>) which contain copies of the number <var>n</var> shifted to the left by the adequate number of positions. Multiplication can be presented as up to <var>j-1</var> additions. Each addition requires <var>k</var> operations on bits.</p>
+          <p>The number of operations on bits during multiplication of two binary numbers is smaller than a product of their lengths. The result of multiplication has <var>k+j</var> or <var>k+j-1</var> digits.</p>
+          <p>It should be added that there are known much faster algorithms of multiplication of big numbers. Some of them allow to multiply two <var>k</var>-digit numbers using only <var>k(ln k)(ln (ln k))</var> operations on bits.</p>
+          <h2 id="factorial">Factorial</h2>
+          <p>The factorial of a non-negative integer <var>n</var> (<var>n!</var>) is the product of all positive integers less than or equal to <var>n</var>.</p>
+          <p>The product of <var>n</var> numbers of length <var>k</var> is up to <var>nk</var>-bit long. Therefore, the number <var>n!</var> is also up to <var>nk</var>-bit long. To calculate <var>n!</var> one must perform <var>n-2</var> multiplications of numbers of length of up to <var>k</var> bits and a number of length of up to <var>nk</var> bits.</p>
+          <p>Therefore, the total number of operations is equal to:<br> <span class="math">(n-2)nk<sup>2</sup></span></p>
+          <p>The value can be presented by using only the number <var>n</var>:<br> <span class="math">(n-2)n([log<sub>2</sub>n]+1)<sup>2</sup></span></p>
+          <p>Approximately:<br> <span class="math">n<sup>2</sup>(log<sub>2</sub>n)<sup>2</sup></span></p>
+          <a href="" id="polynomial_time"></a>
+          <h2 id="polynomial-time">Polynomial time</h2>
+          <p>According to <strong>Cobham's thesis</strong>, algorithms are considered to be fast and effective, if they run in polynomial time.</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           An algorithm that performs operations on numbers <span class="math">n<sub>1</sub>, n<sub>2</sub>, ..., n<sub>r</sub></span>, of lengths of respectively <span class="math">k<sub>1</sub>, k<sub>2</sub>, ..., k<sub>r</sub></span> digits, runs in <strong>polynomial time</strong>, if there are integers <span class="math">d<sub>1</sub>, d<sub>2</sub>, ..., d<sub>r</sub></span> such as that the number of operations on bits necessary to perform this algorithm can be presented as <span class="math">O(k<sub>1</sub><sup>d<sub>1</sub></sup> k<sub>2</sub><sup>d<sub>2</sub></sup> ... k<sub>r</sub><sup>d<sub>r</sub></sup>)</span>.
+           <div class="definition__note">
+           <ul>
+           <li>Addition, subtraction, multiplication and division are algorithms running in polynomial time</li>
+           <li><a href="/eng/theory/notation-of-numbers.html#base_conversion">Base conversion algorithm</a> runs in polynomial time</li>
+           <li>The algorithm which calculates <var>n!</var> does not run in polynomial time</li>
+           </ul>
+           </div>
+          </aside>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/utf-8.html" rel="prev"><small>← Previous</small>UTF-8 encoding</a>
+          <a class="pager__next" href="/eng/theory/modular-arithmetic.html" rel="next"><small>Next →</small>Modular arithmetic</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Ftime-estimation-of-mathematical-operations.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Ftime-estimation-of-mathematical-operations.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Ftime-estimation-of-mathematical-operations.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html" aria-current="page">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/software-signing.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Podpisywanie i Uwierzytelnianie Aplikacji | Crypto-IT</title>
+  <meta name="description" content="Podpisywanie oprogramowania umożliwia uwierzytelnianie działających na nim aplikacji oraz zapobiega nieautoryzowanemu modyfikowaniu kodu programów.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/podpisywanie-oprogramowania.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/software-signing.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/podpisywanie-oprogramowania.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/software-signing.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Podpisywanie i Uwierzytelnianie Aplikacji">
+  <meta property="og:description" content="Podpisywanie oprogramowania umożliwia uwierzytelnianie działających na nim aplikacji oraz zapobiega nieautoryzowanemu modyfikowaniu kodu programów.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/podpisywanie-oprogramowania.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Podpisywanie i uwierzytelnianie aplikacji",
+        "description": "Podpisywanie oprogramowania umożliwia uwierzytelnianie działających na nim aplikacji oraz zapobiega nieautoryzowanemu modyfikowaniu kodu programów.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/podpisywanie-oprogramowania.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Podpisywanie i uwierzytelnianie aplikacji"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/software-signing.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Podpisywanie i uwierzytelnianie aplikacji</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Ważnym aspektem bezpieczeństwa w&nbsp;IT jest zabezpieczanie aplikacji przed nieautoryzowanymi modyfikacjami i&nbsp;zmianami podczas uaktualniania programów i&nbsp;ładowania ich nowszych wersji. W tym celu stosowane są różne mechanizmy podpisywania i&nbsp;uwierzytelniania oprogramowania.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Obecnie, większość systemów wbudowanych umożliwia ściąganie uaktualnionych wersji oprogramowania i&nbsp;danych. Nowsze wersje mogą być ładowane do urządzeń, przy użyciu specjalnych programów nazywanych programami rozruchowymi (ang. <i>boot loader</i>). Znajdują się one w pamięci wewnętrznej urządzenia i umożliwiają pobieranie danych z zewnątrz, a następnie zaprogramowanie urządzenia, w którym się znajduje.</p>
+          <h2 id="bezpieczna-architektura">Bezpieczna architektura</h2>
+          <p>Zazwyczaj oprogramowanie w urządzeniu składa się z&nbsp;programu rozruchowego (który znajduje się w pamięci tylko-do-odczytu) oraz z&nbsp;systemu operacyjnego lub innej głównej aplikacji (która znajduje się w nadpisywalnej pamięci, często w&nbsp;pamięci flash). Taki podział umożliwia modyfikowanie programów wykonywalnych i&nbsp;danych oraz uaktualnianie aplikacji na urządzeniu. Jedynie nieautoryzowane modyfikacje najwrażliwszych części kodu muszą zostać zablokowane.</p>
+          <p>Dzięki takiemu podejściu użytkownicy są w stanie modyfikować większość obszaru pamięci i&nbsp;funkcjonalności oprogramowania, jednak program rozruchowy i&nbsp;podpis cyfrowy kodu trzymany jest w oddzielnej, bezpiecznej części pamięci, która może być odczytywana, ale nie może zostać zmodyfikowana. Zwykle wykorzystywane są w tym celu pamięci typu ROM (ang. <i>Read-Only Memory</i>), WORM (ang. <i>Write-Once Read-Many</i>) lub EEPROM (wewnętrzna pamięć flash mikroprocesora). Są one inicjowane przez producenta, podczas konstruowania urządzeń. Jednocześnie, większość funkcjonalności urządzenia i&nbsp;jego aplikacji może być modyfikowana i&nbsp;debugowana bezproblemowo, przy użyciu normalnych narzędzie programistycznych.</p>
+          <p>Podpisywanie oprogramowania chroni go przed dalszymi niewykrywalnymi. Ponadto, bezpieczny podpis cyfrowy pozwala uwierzytelnić producenta danej wersji aplikacji (lub przynajmniej organizację zatwierdzającą), gwarantując w ten sposób, że żaden szkodliwy program dostarczony przez trzecią stronę nie będzie uruchomiony.</p>
+          <h2 id="podpisywanie-oprogramowania">Podpisywanie oprogramowania</h2>
+          <p>Oprogramowanie znajdujące się na urządzeniu powinno być uruchamiane tylko wtedy, jeśli zostało ono z sukcesem zweryfikowane podczas rozruchu urządzenia. W celu potwierdzenia autentyczności aplikacji najczęściej stosuje się podpisy cyfrowe.</p>
+          <figure class="figure"><img src="/assets/img/theory/signing/signing-pl.webp" alt="Podpisywanie oprogramowania" width="900" height="723" loading="lazy"></figure>
+          <p>Pierwszym krokiem, który należy wykonać aby podpisać oprogramowanie jest zastosowanie <a href="/pl/teoria/funkcja-jednokierunkowa.html#hash">funkcji haszujących</a> (na przykład, jednego z algorytmów SHA) do wyliczenia krótkiego i&nbsp;unikalnego podpisu. Podpis jest stosunkowo krótkim (w porównaniu do wielkości aplikacji) ciągiem bajtów, o z&nbsp;góry zdefiniowanej długości.</p>
+          <p>Podpis powinien zostać następnie zaszyfrowany, przy użyciu <a href="/pl/asymetryczne/">szyfru asymetrycznego</a> i klucza prywatnego, który jest znany jedynie producentowi urządzenia. <a href="/pl/asymetryczne/rsa.html">RSA</a> jest jednym z najbardziej popularnych szyfrów wykorzystywanych obecnie do szyfrowania podpisów cyfrowych.</p>
+          <p>Klucz publiczny, odpowiadający sekretnemu kluczowi prywatnemu, powinien zostać zapisany w tym samym obszarze pamięci tylko-do-odczytu, obok proramu rozruchowego. Klucze publiczne często znajdują się w podpisanych certyfikatach cyfrowych.</p>
+          <p>Zaszyfrowany podpis jest przechowywany w normalnej pamięci urządzenia. Jest uaktualniany podczas każdej zmiany oprogramowania, na przykład podczas ładowania nowszej wersji. Podczas startowania urządzenia, program rozruchowy powinien sprawdzić czy przechowywana wartość podpisu jest prawidłowa. W tym celu należy najpierw odszyfrować podpis przy użyciu dostępnego klucza publicznego. Następnie trzeba samemu obliczyć drugą wartość podpisu oprogramowania, wykorzystując te same funkcje haszujące, jakie były użyte oryginalnie. Na końcu należy porównać obie wartości. Jeżeli nie są takie same, to oznacza, że aplikacje znajdujące się na urządzeniu zostały zmodyfikowane już po tym, kiedy je podpisano. Wykonywanie programu powinno zostać przerwane, a urządzenie powinno się wyłączyć.</p>
+          <figure class="figure"><img src="/assets/img/theory/signing/verification-pl.webp" alt="Weryfikowanie oprogramowania" width="900" height="884" loading="lazy"></figure>
+          <p>Niezwykle ważne jest to, żeby sprawdzanie integralności kodu następowało zaraz na początku wykonywania się oprogramowania, kiedy procesor wciąż jeszcze operuje w obszarze pamięci tylko-do-odczytu, a sterowanie nie przeszło jeszcze do większej, nadpisywalnej części pamięci.</p>
+          <p>Ogólnie rzecz biorąc, w celu zapewnienia bezpiecznego rozruchu urządzenia, każdy mikroprocesor powinien rozpoczynać wykonywanie kodu w wewnętrznej, niemodyfikowalnej pamięci. Wszystkie procedury weryfikowania integralności oprogramowania powinny również znajdować się w tym obszarze. Takie miejsce nazywane jest często <em>zaufanym</em>, a punkt startowy wykonywania aplikacji jest nazywany <em>zaufanym korzeniem</em> (ang. <i>the root of&nbsp;trust</i>).</p>
+          <p>Istnieją również bardziej skomplikowane sposoby podpisywania kodu. Podpis może być zaszyfrowany przez wiele organizacji, na przykład przez producenta i&nbsp;zewnętrzną organizację certyfikującą. Ponadto, bardziej złożone mechanizmy wykorzystują dodatkowe klucze pośrednie, wykorzystywane dla uzyskania różnych poziomów zabezpieczenia.</p>
+          <h2 id="bezpieczne-wgrywanie-oprogramowania">Bezpieczne wgrywanie oprogramowania</h2>
+          <p>Każda nowa wersja oprogramowania ładowana do urządzenia powinna zostać sprawdzona pod kontem integralności, w celu wykrycia wszelkich prób nieautoryzowanych modyfikacji.</p>
+          <p>Ogólną regułą jest podpisywanie tworzonego oprogramowania już na etapie produkcji, przy użyciu asymetrycznego klucza prywatnego. Zarówno oprogramowanie jak&nbsp;i jego podpis przechowywane są w bezpiecznej bazie danych. Algorytmy szyfrowania asymetrycznego wspomniane wyżej są najczęściej wykorzystywane również i&nbsp;w tej procedurze.</p>
+          <p>Podczas programowania urządzenia, programator pobiera z bazy danych oprogramowanie i&nbsp;odpowiadający mu podpis. Po uwierzytelnieniu programu rozruchowego urządzenia, zabezpieczone aplikacje są przesyłane do tego urządzenia.</p>
+          <p>Program rozruchowy odszyfrowuje otrzymany podpis cyfrowy, a dodatkowo samodzielnie wylicza sumę kontrolną oprogramowania. Jeżeli wartości obu podpisów (otrzymanego i&nbsp;wyliczonego) są takie same, wtedy nowa wersja aplikacji może zostać zaakceptowana i&nbsp;zainstalowana.</p>
+          <figure class="figure"><img src="/assets/img/theory/signing/flashing-pl.webp" alt="Bezpieczne wgrywanie oprogramowania" width="900" height="950" loading="lazy"></figure>
+          <h2 id="podpisywanie-oprogramowania-obecnie">Podpisywanie oprogramowania obecnie</h2>
+          <p>Zabezpieczanie oprogramowania za pomocą podpisów cyfrowych jest wykorzystywane w wielu aplikacjach i&nbsp;urządzeniach, mających zastosowanie w wielu obszarach, takich jak telekomunikacja, aeronautyka i&nbsp;motoryzacja. Jest to szczególnie przydatne w przypadku dużych i złożonych systemów rozproszonych, w których poszczególne elementy działają w&nbsp;dużym stopniu niezależnie od siebie.</p>
+          <p>Z racji tego, że wiele systemów wbudowanych dysponuje względnie niewielkimi możliwościami obliczeniowymi, należy przykładać specjalną uwagę do właściwego implementowania i&nbsp;wykorzystywania skomplikowanych algorytmów funkcji haszujących i&nbsp;szyfrujących. Zaleca się takie konfigurowanie szyfrów asymetrycznych, aby deszyfrowanie przy użyciu klucza publicznego było tak tanie, jak&nbsp;to tylko możliwe. Przykładowo, podczas implementowania szyfru <a href="/pl/asymetryczne/rsa.html">RSA</a>, komponent publiczny klucza powinien być możliwie małą liczbą (powiedzmy, <span class="term">3</span>), aby ułatwić szybkie przeprowadzenie działań matematycznych.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/pbe.html" rel="prev"><small>← Poprzedni</small>PBE</a>
+          <a class="pager__next" href="/pl/teoria/indeks-koincydencji.html" rel="next"><small>Następny →</small>Indeks koincydencji</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fpodpisywanie-oprogramowania.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fpodpisywanie-oprogramowania.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fpodpisywanie-oprogramowania.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html" aria-current="page">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/four-square.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfr Czterokwadratowy | Crypto-IT</title>
+  <meta name="description" content="Szyfr Czterokwadratowy jest poligramowym szyfrem podstawieniowym, który zastępuje każdą parę liter tekstu jawnego inną parą liter, określoną za pomocą…">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/czterokwadratowy.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/four-square.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/czterokwadratowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/four-square.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfr Czterokwadratowy">
+  <meta property="og:description" content="Szyfr Czterokwadratowy jest poligramowym szyfrem podstawieniowym, który zastępuje każdą parę liter tekstu jawnego inną parą liter, określoną za pomocą…">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/czterokwadratowy.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <script src="/assets/js/tools/four-square.js" type="module"></script>
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfr czterokwadratowy",
+        "description": "Szyfr Czterokwadratowy jest poligramowym szyfrem podstawieniowym, który zastępuje każdą parę liter tekstu jawnego inną parą liter, określoną za pomocą…",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/czterokwadratowy.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Poligramowe szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/poligramowe-szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Szyfr czterokwadratowy"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/four-square.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a></li>
+            <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfr czterokwadratowy</h1>
+          <p class="article__subtitle">Poligramowy szyfr podstawieniowy</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Szyfr czterokwadratowy jest ulepszoną wersją szyfru Playfair, zapewniającą lepszą ochronę przekazywanych wiadomości. Został wynaleziony w&nbsp;XIX wieku przez&nbsp;francuskiego kryptologa, Félix'a Delastelle’a.</p>
+          <p><a href="#online">Wypróbuj szyfr czterokwadratowy online ↓</a></p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Szyfr czterokwadratowy był stosowany na&nbsp;wszystkich frontach podczas II&nbsp;Wojny Światowej, przez&nbsp;wszystkie strony konfliktu. Obecnie uważany jest za&nbsp;przestarzały, głównie z&nbsp;racji skutecznych i&nbsp;szybkich <a href="/pl/ataki/atak-silowy.html">ataków siłowych</a>, możliwych do przeprowadzenia za pomocą komputerów.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Szyfr czterokwadratowy jest szyfrem podstawieniowym poligramowym. Oznacza to, że podczas szyfrowania tekst jawny wiadomości jest dzielony na&nbsp;grupy znaków, a&nbsp;następnie każdej z&nbsp;tych grup jest przyporządkowywana jedna ze&nbsp;wcześniej przyporządkowanych&nbsp;jej grup znaków. Szyfr czterokwadratowy operuje na&nbsp;grupach dwuliterowych.</p>
+          <p>Przed&nbsp;rozpoczęciem szyfrowania, należy przygotować cztery tabele. Wszystkie&nbsp;one mają wymiary 5&nbsp;na 5&nbsp;liter i&nbsp;zawierają 25&nbsp;liter alfabetu łacińskiego. Z&nbsp;racji tego, że alfabet łaciński ma 26&nbsp;liter, zwykle pomija się jedną z&nbsp;rzadkich liter (na przykład <span class="term">x</span>&nbsp;lub <span class="term">q</span>) albo traktuje się litery <span class="term">i</span>&nbsp;oraz <span class="term">j</span>&nbsp;jako jedną literę. Wszystkie cztery tabele powinny być rozmieszczone tak, aby razem tworzyły kwadrat o&nbsp;boku długości dwóch tabel. Należy zadbać o to, żeby&nbsp;linie wierszy i&nbsp;linie kolumn zostały zachowane.</p>
+          <p>Dwie tabele (lewa górna oraz&nbsp;prawa dolna) zawierają litery zapisane w&nbsp;kolejności alfabetycznej. Natomiast do&nbsp;wypełnienia pól w&nbsp;pozostałych tabelach, wykorzystuje się dwa sekretne słowa kluczowe. Najpierw usuwa się z&nbsp;każdego z&nbsp;nich wszystkie powtarzające się litery (opuszczając ponownie pojawiające się w&nbsp;danym kluczu powtórzenia tych samych liter). Następnie, pozostałymi literami kluczy wypełnia się tabele&nbsp;- do&nbsp;jednej z&nbsp;pozostałych tabel wpisuje się litery pierwszego klucza, a do&nbsp;drugiej litery drugiego klucza. Obie strony muszą ustalić wcześniej, w&nbsp;jakiej kolejności należy wypełnić tabele literami (na&nbsp;przykład kolejno wierszami od&nbsp;lewej do&nbsp;prawej, z&nbsp;góry na&nbsp;dół) oraz które słowo kluczowe odpowiada której tabeli. Resztę pozycji w&nbsp;tych tabelach wypełnia się literami alfabetu, które nie zostały do nich jeszcze wpisane, zazwyczaj w&nbsp;kolejności alfabetycznej.</p>
+          <p>Przykładowo, używając jako sekretnych kluczy imion obojga rodziców rzymskiego cesarza Wespazjana: <i>Titus Flavius Sabinus</i> i&nbsp;<i>Vespasia Polla</i> oraz traktując litery <span class="term">i</span> oraz <span class="term">j</span> wspólnie i&nbsp;wypełniając tabele wierszami z&nbsp;góry na&nbsp;dół, otrzyma się następujące cztery tabele:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Pierwsza tabela szyfrująca szyfru czterokwadratowego">
+           <tr>
+           <td>a</td>
+           <td>b</td>
+           <td>c</td>
+           <td>d</td>
+           <td>e</td>
+           </tr>
+           <tr>
+           <td>f</td>
+           <td>g</td>
+           <td>h</td>
+           <td>i</td>
+           <td>k</td>
+           </tr>
+           <tr>
+           <td>l</td>
+           <td>m</td>
+           <td>n</td>
+           <td>o</td>
+           <td>p</td>
+           </tr>
+           <tr>
+           <td>q</td>
+           <td>r</td>
+           <td>s</td>
+           <td>t</td>
+           <td>u</td>
+           </tr>
+           <tr>
+           <td>v</td>
+           <td>w</td>
+           <td>x</td>
+           <td>y</td>
+           <td>z</td>
+           </tr>
+           </table>
+          </div>
+          &nbsp;
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Druga tabela szyfrująca szyfru czterokwadratowego">
+           <tr>
+           <td>t</td>
+           <td>i</td>
+           <td>u</td>
+           <td>s</td>
+           <td>f</td>
+           </tr>
+           <tr>
+           <td>l</td>
+           <td>a</td>
+           <td>v</td>
+           <td>b</td>
+           <td>n</td>
+           </tr>
+           <tr>
+           <td>c</td>
+           <td>d</td>
+           <td>e</td>
+           <td>g</td>
+           <td>h</td>
+           </tr>
+           <tr>
+           <td>k</td>
+           <td>m</td>
+           <td>o</td>
+           <td>p</td>
+           <td>q</td>
+           </tr>
+           <tr>
+           <td>r</td>
+           <td>w</td>
+           <td>x</td>
+           <td>y</td>
+           <td>z</td>
+           </tr>
+           </table>
+          </div>
+          <br>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Trzecia tabela szyfrująca szyfru czterokwadratowego">
+           <tr>
+           <td>v</td>
+           <td>e</td>
+           <td>s</td>
+           <td>p</td>
+           <td>a</td>
+           </tr>
+           <tr>
+           <td>i</td>
+           <td>o</td>
+           <td>l</td>
+           <td>b</td>
+           <td>c</td>
+           </tr>
+           <tr>
+           <td>d</td>
+           <td>f</td>
+           <td>g</td>
+           <td>h</td>
+           <td>k</td>
+           </tr>
+           <tr>
+           <td>m</td>
+           <td>n</td>
+           <td>q</td>
+           <td>r</td>
+           <td>t</td>
+           </tr>
+           <tr>
+           <td>u</td>
+           <td>w</td>
+           <td>x</td>
+           <td>y</td>
+           <td>z</td>
+           </tr>
+           </table>
+          </div>
+          &nbsp;
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Czwarta tabela szyfrująca szyfru czterokwadratowego">
+           <tr>
+           <td>a</td>
+           <td>b</td>
+           <td>c</td>
+           <td>d</td>
+           <td>e</td>
+           </tr>
+           <tr>
+           <td>f</td>
+           <td>g</td>
+           <td>h</td>
+           <td>i</td>
+           <td>k</td>
+           </tr>
+           <tr>
+           <td>l</td>
+           <td>m</td>
+           <td>n</td>
+           <td>o</td>
+           <td>p</td>
+           </tr>
+           <tr>
+           <td>q</td>
+           <td>r</td>
+           <td>s</td>
+           <td>t</td>
+           <td>u</td>
+           </tr>
+           <tr>
+           <td>v</td>
+           <td>w</td>
+           <td>x</td>
+           <td>y</td>
+           <td>z</td>
+           </tr>
+           </table>
+          </div>
+          <p>Następnym krokiem szyfrowania jest podzielenie tekstu jawnego na&nbsp;pary, z&nbsp;których każda zawiera dwie kolejne litery. W&nbsp;razie potrzeby, należy dopełnić oryginalny tekst wstawiając na&nbsp;końcu jakąś rzadko używaną literę, na&nbsp;przykład <span class="term">X</span> lub&nbsp;<span class="term">Q</span>.</p>
+          <p>Szyfruje się po&nbsp;dwie litery jednocześnie. Najpierw znajduje się pierwszą literę z&nbsp;każdej pary w&nbsp;górnej-lewej tabeli, a drugą literę w dolnej-prawej tabeli. Następnie wyznacza się prostokąt, którego boki tworzą dwa wiersze i&nbsp;dwie kolumny, w&nbsp;których znajdują się dwie znalezione litery. Tak utworzony prostokąt rozciąga się na&nbsp;wszystkie cztery tabele. Na koniec należy podmienić dwie oryginalne litery, na&nbsp;dwie inne litery, wyznaczone przez&nbsp;pozostałe dwa&nbsp;rogi prostokąta. Takie samo należy postąpić ze wszystkimi parami w&nbsp;aktualnie szyfrowanej wiadomości, zastępując&nbsp;je literami otrzymywanymi na&nbsp;podstawie tych samych czterech tabel szyfrujących.</p>
+          <p>Przykładowo, szyfrując parę liter <span class="term">AS</span> za&nbsp;pomocą powyższych tabel, otrzyma się jedną z dwóch możliwych par: <span class="term">UM</span> lub <span class="term">MU</span>.</p>
+          <p>Komunikujące się strony powinny wcześniej ustalić w&nbsp;jakiej kolejności będą dopisywać znalezione litery do tworzonego szyfrogramu. Przykładowo, jako pierwszą literę można brać literę z&nbsp;górnej-prawej tabeli, a jako drugą literę z&nbsp;dolnej-lewej tabeli.</p>
+          <p>Proces odkodowywania szyfrogramu przebiega w&nbsp;analogiczny sposób. Odbiorca musi najpierw utworzyć (korzystając ze&nbsp;znanych sobie sekretnych kluczy) taki sam układ czterech tabel, jakich używał nadawca wiadomości. Następnie musi odkodować litery parami, wyszukując po&nbsp;dwie litery szyfrogramu w&nbsp;tabelach górnej-prawej i dolnej-lewej oraz zmieniając&nbsp;je na&nbsp;litery znalezione w&nbsp;tabelach górnej-lewej i dolnej-prawej.</p>
+          <section class="tool" id="online" aria-labelledby="online-title"
+                   data-tool="four-square"
+                   data-msg-mode="Nieprawidłowy tryb pomijania litery."
+                   data-msg-copied="Skopiowano">
+            <h2 id="online-title">Szyfr czterokwadratowy online</h2>
+            <div class="tool__grid">
+              <div>
+                <div class="field">
+                  <label for="fs-keyword1">Hasło dla górnej-prawej tabeli</label>
+                  <input type="text" id="fs-keyword1" data-role="keyword1" value="example" autocomplete="off" spellcheck="false">
+                </div>
+                <div class="field">
+                  <label for="fs-keyword2">Hasło dla dolnej-lewej tabeli</label>
+                  <input type="text" id="fs-keyword2" data-role="keyword2" value="keyword" autocomplete="off" spellcheck="false">
+                </div>
+                <fieldset>
+                  <legend>Litera pomijana w tabelach</legend>
+                  <div class="options">
+                    <label><input type="radio" name="mode" value="j-as-i"> J jako I</label>
+                    <label><input type="radio" name="mode" value="no-q" checked> Bez Q</label>
+                    <label><input type="radio" name="mode" value="no-x"> Bez X</label>
+                  </div>
+                </fieldset>
+              </div>
+              <figure class="matrix-quad" aria-label="Cztery tabele kluczy">
+                <table class="matrix" data-role="table-ul" aria-label="Górna-lewa (alfabetyczna)"></table>
+                <table class="matrix" data-role="table-ur" aria-label="Górna-prawa (hasło 1)"></table>
+                <table class="matrix" data-role="table-ll" aria-label="Dolna-lewa (hasło 2)"></table>
+                <table class="matrix" data-role="table-lr" aria-label="Dolna-prawa (alfabetyczna)"></table>
+              </figure>
+            </div>
+
+            <fieldset>
+              <legend class="visually-hidden">Kierunek</legend>
+              <div class="segmented">
+                <label><input type="radio" name="direction" value="encrypt" checked> Szyfruj</label>
+                <label><input type="radio" name="direction" value="decrypt"> Deszyfruj</label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="fs-input">Tekst</label>
+              <textarea id="fs-input" data-role="input" spellcheck="false">help me obi wan kenobi</textarea>
+              <small>Uwzględniane są tylko litery; spacje, cyfry i znaki interpunkcyjne są pomijane, a znaki diakrytyczne usuwane.</small>
+            </div>
+
+            <p class="tool__steps">Pary: <span data-role="digraphs" aria-live="polite"></span></p>
+            <p class="tool__error" data-role="error" role="alert"></p>
+
+            <div class="field">
+              <label for="fs-output">Wynik</label>
+              <textarea id="fs-output" data-role="output" readonly></textarea>
+            </div>
+            <div class="tool__actions">
+              <button type="button" class="button" data-role="copy">Kopiuj wynik</button>
+              <button type="button" class="button" data-role="swap">Użyj wyniku jako wejścia</button>
+            </div>
+          </section>
+          <h2 id="sila-szyfru-czterokwadratowego">Siła szyfru czterokwadratowego</h2>
+          <p>Algorytm szyfru czterokwadratowego zapewnia lepsze zabezpieczenie danych, niż <a href="/pl/proste/szyfr-playfair.html">szyfr Playfair</a> i&nbsp;<a href="/pl/proste/dwukwadratowy.html">szyfr dwukwadratowy</a>. Dzięki zastosowaniu czterech tabel, można uniknąć typowych słabości tych dwóch szyfrów (czyli braku powtarzających się liter w&nbsp;szyfrogramie lub&nbsp;takiego samego kodowania odwrotnych par w&nbsp;tekście jawnym). Pewną wadą szyfru czterokwadratowego jest nieco powolniejsze i&nbsp;bardziej uciążliwe stosowanie, w porównaniu z dwoma poprzednimi szyframi. Powodem tego jest konieczność używania większej ilości tabel i&nbsp;zapamiętania większej (w porównaniu do szyfru Playfair) ilości sekretnych kluczy.</p>
+          <p>Najskuteczniejszą metodą łamania szyfru czterokwadratowego jest stosowanie <a href="/pl/ataki/atak-statystyczny.html">analizy częstotliwości</a> pojawiania się dwuznaków w&nbsp;szyfrogramie oraz&nbsp;próby odgadnięcia na tej&nbsp;podstawie fragmentów tekstu jawnego. Dzięki zastosowaniu komputerów, zabezpieczenia szyfru czterokwadratowego można złamać stosunkowo szybko.</p>
+          <h2 id="implementacja">Implementacja</h2>
+          <p>Szyfr Czterokwadratowy jest stosunkowo nieskomplikowany. Po wstępnym przygotowaniu tekstu wejściowego i obu haseł, głównym zadaniem jest odpowiednie manipulowanie numerami kolumn i wierszy tabel szyfrujących, dla każdej przetwarzanej pary znaków.</p>
+          <p>Poniżej przedstawiono funkcję JavaScript, która przeprowadza szyfrowanie wiadomości wejściowej i zwraca utworzony szyfrogram. Oba słowa kluczowe są przekazywane do funkcji jako jednowymiarowe ciągi znaków:</p>
+          <pre><code>function encrypt(messageInput, keyword, alphabet) {
+  var messageOutput = "";
+
+  var pos = 0;
+  while (pos &lt; messageInput.length) {
+    var m1 = messageInput[pos];
+    var m2 = '';
+
+    if (pos + 1 &lt; messageInput.length) {
+      m2 = messageInput[pos + 1];
+      pos += 2;
+    } else {
+      m2 = 'Q'  // some dummy letter
+      pos += 1;
+    }
+
+    var idx1 = alphabet.indexOf(m1);  // upper-left table
+    var idx2 = alphabet.indexOf(m2);  // lower-right table
+    var c1 = keyword[0][(5 * Math.floor(idx1 / 5)) + idx2 % 5];
+    var c2 = keyword[1][(5 * Math.floor(idx2 / 5)) + idx1 % 5];
+
+    messageOutput = messageOutput.concat(c1);
+    messageOutput = messageOutput.concat(c2);
+  }
+
+  return messageOutput;
+}</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/dwukwadratowy.html" rel="prev"><small>← Poprzedni</small>Szyfr dwukwadratowy</a>
+          <a class="pager__next" href="/pl/proste/szyfr-hilla.html" rel="next"><small>Następny →</small>Szyfr Hilla</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fczterokwadratowy.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fczterokwadratowy.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fczterokwadratowy.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html" aria-current="page">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

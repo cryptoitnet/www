@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/attacks/two-time-pad.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atak na Two-Time Pad | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Wielokrotne użycie tych samych bajtów klucza do szyfrowania różnych danych czyni szyfr podatnym na ataki na Two-Time Pad.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/ataki/two-time-pad.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/two-time-pad.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/two-time-pad.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/two-time-pad.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Atak na Two-Time Pad | Kryptografia">
+  <meta property="og:description" content="Wielokrotne użycie tych samych bajtów klucza do szyfrowania różnych danych czyni szyfr podatnym na ataki na Two-Time Pad.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/ataki/two-time-pad.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Atak na Two-Time pad",
+        "description": "Wielokrotne użycie tych samych bajtów klucza do szyfrowania różnych danych czyni szyfr podatnym na ataki na Two-Time Pad.",
+        "inLanguage": "pl",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/ataki/two-time-pad.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ataki",
+            "item": "https://www.crypto-it.net/pl/ataki/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Atak na Two-Time pad"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/" aria-current="true">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/attacks/two-time-pad.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/ataki/">Ataki</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Atak na Two-Time pad</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Opublikowano <time datetime="2020-03-09">9 marca 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Jest ogólną zasadą kryptografii, że nie&nbsp;można używać tego samego strumienia znaków klucza szyfrującego więcej niż jeden raz. W przeciwnym wypadku, szyfr staje się podatny na <a href="/pl/ataki/znany-szyfrogram.html">ataki ze znanym szyfrogramem</a>.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Poniższy przykład pokazuje, jakie są skutki zastosowania dwukrotnie tych samych bajtów klucza do zaszyfrowania danych przy użyciu <a href="/pl/symetryczne/otp.html">szyfru OTP</a>:</p>
+          <p><span class="math">c<sub>1</sub></span>&nbsp;<span class="math">&lt;-</span>&nbsp;<span class="math">m<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">PRG(k)</span> <br> <span class="math">c<sub>2</sub></span>&nbsp;<span class="math">&lt;-</span>&nbsp;<span class="math">m<sub>2</sub></span>&nbsp;XOR&nbsp;<span class="math">PRG(k)</span></p>
+          <p>Podsłuchawszy obie zaszyfrowane wiadomości, ewentualny napastnik mógłby wtedy złamać szyfr za&nbsp;pomocą prostego sumowania kolejnych bajtów zaszyfrowanych tekstów:</p>
+          <p><span class="math">c<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">c<sub>2</sub></span> = <span class="math">m<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">PRG(k)</span>&nbsp;XOR&nbsp;<span class="math">m<sub>2</sub></span>&nbsp;XOR&nbsp;<span class="math">PRG(k)</span> = <span class="math">m<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">m<sub>2</sub></span></p>
+          <p>Otrzymany ciąg bajtów jest tworzony jedynie przez znaki z obu oryginalnych wiadomości. Dzięki temu, że zarówno w&nbsp;kodowaniu ASCII, jak i w&nbsp;językach mówionych występuje wystarczająco dużo redundancji, atakujący jest w&nbsp;stanie odgadnąć oryginalną wiadomość:</p>
+          <p><span class="math">m<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">m<sub>2</sub></span> <span class="math">-&gt;</span> <span class="math">m<sub>1</sub></span>,&nbsp;<span class="math">m<sub>2</sub></span></p>
+          <p>Obecnie, w&nbsp;dobrze zaprojektowanych szyfrach symetrycznych, algorytmy dołączają do&nbsp;bitów sekretnych kluczy szyfrujących dodatkowe unikalne (dla&nbsp;każdej porcji szyfrowanych informacji) znaki. W&nbsp;najprostszym przypadku może&nbsp;to być zwykły licznik, zapisywany na&nbsp;kilku kolejnych bajtach i&nbsp;zwiększający się o&nbsp;1 w&nbsp;każdej iteracji działania algorytmu szyfrującego. Gwarantuje&nbsp;to skuteczne zabezpieczenie wiadomości, bez&nbsp;ryzyka powtórzenia się sekretnych bitów klucza.</p>
+          <h2 id="projekt-venona">Projekt venona</h2>
+          <p>Podczas II&nbsp;Wojny Światowej i&nbsp;po jej zakończeniu setki kryptologów agencji wywiadowczych Stanów Zjednoczonych i&nbsp;Wielkiej Brytanii współpracowały przeciwko siatkom szpiegowskim Związku Radzieckiego. W tym celu zbierano i&nbsp;analizowano przesyłane przez&nbsp;radzieckich szpiegów wiadomości. Najważniejsze informacje wysyłane przez nich były szyfrowane za&nbsp;pomocą szyfru OTP.</p>
+          <p>Cześć wysyłanych wiadomości stała się możliwa do&nbsp;złamania, z&nbsp;powodu poważnego błędu po&nbsp;stronie radzieckiej, polegającego na&nbsp;wielokrotnym wykorzystaniu tych samych stron ksiąg kodowych, zawierających znaki&nbsp;klucza szyfrującego (działo się tak z powodów opóźnień w dostarczaniu nowych ksiąg, zawierających nowe znaki kluczy szyfrujących). Zgodnie z założeniem, każda strona księgi kodów powinna była zostać zniszczona zaraz po jej&nbsp;użyciu.</p>
+          <p>W ten sposób złamano główne założenie szyfru OTP i&nbsp;umożliwiono drugiej stronie odniesienie wielu sukcesów w&nbsp;walce wywiadów jaka miała miejsce w&nbsp;czasie całej Zimnej Wojny.</p>
+          <h2 id="ms-pptp">MS-PPTP</h2>
+          <p>PPTP (ang. <i>Point to&nbsp;Point Tunnelling Protocol</i>) to jeden z protokołów komunikacyjnych, umożliwiających tworzenie wirtualnych prywatnych sieci (VPN, ang. <i>Virtual Private Network</i>) wykorzystujących technologię tunelowania. Implementacja tego protokołu przez Microsoft była swego czasu jedną z&nbsp;najbardziej popularnych (z racji zaimplementowania w Windowsach&nbsp;98 i&nbsp;NT) i&nbsp;jednocześnie zawierającą najwięcej błędów. Microsoft od&nbsp;2012 roku uznaje MS-PPTP za skompromitowany i&nbsp;nie zaleca jego używania.</p>
+          <p>Jedną ze słabości MS-PPTP jest to, że klient i&nbsp;serwer dzielą ten sam sekretny klucz (zwykle jest nim hasło użytkownika) i&nbsp;obie strony używają go oddzielnie w&nbsp;taki sam niewłaściwy sposób do&nbsp;szyfrowania wysyłanych wiadomości, nie&nbsp;synchronizując poprawnie jego użycia między sobą.</p>
+          <figure class="figure">
+           <img src="/assets/img/attacks/attack-ms-pptp.webp" alt="Szyfrowanie w protokole MS-PPTP" width="500" height="300" loading="lazy">
+           <figcaption>Szyfrowanie w protokole MS-PPTP</figcaption>
+          </figure>
+          <p>Klient łączy porcje danych, które zamierza wysłać w większe wiadomości i&nbsp;szyfruje je za pomocą współdzielonego sekretnego klucza. Serwer przeprowadza takie same operacje, żeby wysyłać swoje wiadomości -&nbsp;łączy je, szyfruje używając tego samego klucza, a następnie wysyła do&nbsp;klienta.</p>
+          <p>Problem polega na tym, że ewentualny intruz może posłuchać wiadomości przesyłane w&nbsp;obie strony (wobec tego zawierające inne dane) i&nbsp;zaszyfrowane za pomocą takich samych bajtów klucza. Dysponując różnymi wiadomościami, zaszyfrowanymi za pomocą dokładnie tych samych bajtów strumienia klucza, można atakować szyfr i odtworzyć sekretne informacje.</p>
+          <h2 id="802-11-wep">802.11 WEP</h2>
+          <p>802.11&nbsp;to grupa standardów IEEE (ang. <i>Institute of&nbsp;Electrical and&nbsp;Electronics Engineers</i>) odnoszących się do działania sieci bezprzewodowych. W ich starszych wersjach, do&nbsp;szyfrowania transmisji bezprzewodowej zalecany był powstały w 1997&nbsp;roku standard WEP (ang. <i>Wired Equivalent Privacy</i>).</p>
+          <figure class="figure">
+           <img src="/assets/img/attacks/attack-wep-pl.webp" alt="Szyfrowanie WEP" width="500" height="200" loading="lazy">
+           <figcaption>Szyfrowanie WEP</figcaption>
+          </figure>
+          <p>Wiadomości wymieniane pomiędzy klientami i&nbsp;punktem dostępowym są szyfrowane za&nbsp;pomocą algorytmu strumieniowego szyfru symetrycznego <a href="/pl/symetryczne/rc4.html">RC4</a>. Oba urządzenia współdzielą sekretny pięciobajtowy klucz szyfrujący, na&nbsp;podstawie którego generowany jest strumień bajtów klucza. Każda ze&nbsp;stron generuje samodzielnie taki sam strumień klucza. Dla&nbsp;zapewnienia tego, że każda wysyłana ramka będzie szyfrowana innymi bajtami, do&nbsp;każdego klucza dołączane są dodatkowe trzy bajty z&nbsp;wektora <var>IV</var>. <var>IV</var> jest dołączany w&nbsp;postaci jawnych danych do&nbsp;każdej zaszyfrowanej wiadomości, tak aby odbiorca mógł odszyfrować wiadomość.</p>
+          <p>Należy jednak zauważyć, wektor <var>IV</var> ma długość 24 bitów, więc po stosunkowo krótkim czasie jego wartości zaczynają się powtarzać. Następuje to po wysłaniu około 16&nbsp;milionów ramek, czyli w&nbsp;przypadku dużego ruchu na&nbsp;routerze, po około 5&nbsp;godzinach jego pracy. Ponadto, niektóre urządzenia resetują wektor <var>IV</var> w&nbsp;momencie restartu, co&nbsp;dodatkowo umożliwia szybsze uzyskanie powtarzających się wartości strumienia bajtów klucza.</p>
+          <p>Protokół WEP posiada jeszcze szereg innych wad. Zwykle do&nbsp;wypełnienia wektora <var>IV</var> używa się zwykłych liczników. Sprawia to, że bajty szyfrujące przesyłane dane są do&nbsp;siebie bardzo podobne. Dodatkowo, niektóre wartości wektora są uważane za&nbsp;słabe, ponieważ umożliwiają ataki na&nbsp;konkretne bajty sekretnego klucza szyfrującego. Wszystko to powoduje, że zabezpieczenia WEP można złamać obecnie w&nbsp;bardzo krótkim czasie (w&nbsp;ciągu paru minut).</p>
+          <p>W nowszych wersjach standardów IEEE, zalecane są nowsze protokoły zabezpieczające, WPA (ang. <i>Wi-Fi Protected Access</i>) oraz&nbsp;WPA2.</p>
+          <h2 id="atak-krack">Atak KRACK</h2>
+          <p>Innym przykładem ataku wykorzystującego podatności two-time-pad jest zaprezentowany w październiku 2017 roku <a href="/pl/ataki/krack.html">atak KRACK</a>. Z racji jego złożoności, poświęcona mu została oddzielna podstrona.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/ataki/man-in-the-middle.html" rel="prev"><small>← Poprzedni</small>Atak man-in-the-middle</a>
+          <a class="pager__next" href="/pl/ataki/krack.html" rel="next"><small>Następny →</small>Atak KRACK</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Ftwo-time-pad.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Ftwo-time-pad.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Ftwo-time-pad.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-ataki -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/ataki/">Ataki</a></h2>
+        <ul>
+          <li><a href="/pl/ataki/znany-tekst-jawny.html">Atak ze znanym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/wybrany-tekst-jawny.html">Atak z wybranym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/znany-szyfrogram.html">Atak z szyfrogramami</a></li>
+          <li><a href="/pl/ataki/wybrany-szyfrogram.html">Atak z wybranym szyfrogramem</a></li>
+          <li><a href="/pl/ataki/wybrany-klucz.html">Atak z wybranym kluczem</a></li>
+          <li><a href="/pl/ataki/atak-silowy.html">Atak siłowy</a></li>
+          <li><a href="/pl/ataki/dos.html">DoS</a></li>
+          <li><a href="/pl/ataki/man-in-the-middle.html">Atak man-in-the-middle</a></li>
+          <li><a href="/pl/ataki/two-time-pad.html" aria-current="page">Atak na two-time pad</a></li>
+          <li><a href="/pl/ataki/krack.html">Atak KRACK</a></li>
+          <li><a href="/pl/ataki/atak-statystyczny.html">Atak statystyczny</a></li>
+          <li><a href="/pl/ataki/meet-in-the-middle.html">Atak meet-in-the-middle</a></li>
+          <li><a href="/pl/ataki/metoda-powtorzenia.html">Atak metodą powtórzenia</a></li>
+          <li><a href="/pl/ataki/atak-homograficzny.html">Atak homograficzny</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-ataki -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

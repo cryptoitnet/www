@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/szyfr-cezara.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caesar Cipher | Simple Substitution Ciphers | Crypto-IT</title>
+  <meta name="description" content="Caesar cipher is a simple substitution cipher which replaces each plaintext letter by a different letter of the alphabet.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/caesar-cipher.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/caesar-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-cezara.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/caesar-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Caesar Cipher | Simple Substitution Ciphers">
+  <meta property="og:description" content="Caesar cipher is a simple substitution cipher which replaces each plaintext letter by a different letter of the alphabet.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/caesar-cipher.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Caesar Cipher",
+        "description": "Caesar cipher is a simple substitution cipher which replaces each plaintext letter by a different letter of the alphabet.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/caesar-cipher.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Simple substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/simple-substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Caesar Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/szyfr-cezara.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a></li>
+            <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Caesar Cipher</h1>
+          <p class="article__subtitle">Simple Substitution Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The Caesar cipher is a simple substitution cipher, which replaces each plaintext letter by a different letter of the alphabet. The cipher is named after Gaius Julius Caesar (100 BC – 44 BC), who used it for communication with his friends and allies.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>Julius Caesar encrypted his correspondence in many ways, for example by writing texts in reverse order or writing Latin texts using Greek letters. Some ancient authors (for example, the Roman historian Gaius Suetonius Tranquillus, who lived in the first century of our era) wrote that he was using the cipher with various shifts, of one or three characters.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The Caesar cipher is one of the simplest substitution ciphers.</p>
+          <p>Each plaintext letter is replaced by another one, which is offset by a certain amount of alphabet positions (always in the same direction). If the algorithm points to the position after the last letter in the alphabet, one should move to the beginning of the alphabet.</p>
+          <p>The cipher can be presented using mathematical formulas for encrypting and decrypting characters:<br> <span class="math">E<sub>n</sub>(x) = (x+n) mod 26</span><br> <span class="math">D<sub>n</sub>(x) = (x-n) mod 26</span><br> where:<br> <span class="term">n</span> is the offset (the secret key) and <span class="term">26</span> is the total number of letters in the Latin alphabet (of course, for other languages one should use a different number).</p>
+          <h2 id="security-of-the-caesar-cipher">Security of the Caesar cipher</h2>
+          <p>The Caesar cipher can be easily broken using <a href="/eng/attacks/brute-force.html">brute force attacks</a>. To discover the plaintext one should just check all the possible 26 (for the Latin alphabet) offsets.</p>
+          <p>Like other substitution ciphers, the Caesar cipher can also be attacked using <a href="/eng/attacks/known-ciphertext.html">known ciphertext attacks</a> and <a href="/eng/attacks/frequency-analysis.html">letter frequency analysis</a> of the ciphertext.</p>
+          <h2 id="implementation">Implementation</h2>
+          <p>Simple encryption and decryption functions implemented in Python:</p>
+          <pre><code>KEY = 3
+
+def encrypt(text):
+  encrypted = ""
+  for ch in text:
+    if ord(ch) &gt;= ord('a') and ord(ch) &lt;= ord('z'):
+      newCode = ord(ch) + KEY
+      if (newCode &gt; ord('z')):
+        newCode -= 26
+      encrypted += chr(newCode)
+    if ord(ch) &gt;= ord('A') and ord(ch) &lt;= ord('Z'):
+      newCode = ord(ch) + KEY
+      if (newCode &gt; ord('Z')):
+        newCode -= 26
+      encrypted += chr(newCode)
+  return encrypted
+
+def decrypt(text):
+  decrypted = ""
+  for ch in text:
+    if ord(ch) &gt;= ord('a') and ord(ch) &lt;= ord('z'):
+      newCode = ord(ch) - KEY
+      if (newCode &lt; ord('a')):
+        newCode += 26
+      decrypted += chr(newCode)
+    if ord(ch) &gt;= ord('A') and ord(ch) &lt;= ord('Z'):
+      newCode = ord(ch) - KEY
+      if (newCode &lt; ord('A')):
+        newCode += 26
+      decrypted += chr(newCode)
+  return decrypted</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/simple-substitution-ciphers.html" rel="prev"><small>← Previous</small>Simple substitution ciphers</a>
+          <a class="pager__next" href="/eng/simple/rot13.html" rel="next"><small>Next →</small>ROT13</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fcaesar-cipher.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fcaesar-cipher.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fcaesar-cipher.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html" aria-current="page">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/protokoly.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protocols | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Protocols are sets of actions that should be performed in order to accomplish the goals. They are essential in almost all cryptographic operations.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/protocols.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/protocols.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/protocols.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Protocols | Cryptography">
+  <meta property="og:description" content="Protocols are sets of actions that should be performed in order to accomplish the goals. They are essential in almost all cryptographic operations.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/protocols.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Protocols",
+        "description": "Protocols are sets of actions that should be performed in order to accomplish the goals. They are essential in almost all cryptographic operations.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/protocols.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Protocols"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/protokoly.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Protocols</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>A protocol is a set of actions that two or more entities need to perform in order to accomplish a task. All users take the actions step by step and successfully carry out the agreed procedure to the end.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Computers and other electronic devices use communications protocols to establish a connection and exchange data. Nowadays there are many protocols and communications standards which are recognized globally. Thanks to that, various different devices located in different places in the world may communicate with each other quite easily.</p>
+          <p>Cryptographic protocols are protocols that use cryptography. They have to guarantee that no entity will be able to gain more knowledge and access more privileges than it was designed in their algorithms. Cryptographic protocols include various types of encryption, <a href="/eng/theory/mac.html">message authentication</a> or key agreement algorithms.</p>
+          <h2 id="arbitration-protocols">Arbitration Protocols</h2>
+          <p>An additional entity, apart from communicating sides, takes part in arbitration protocols. The new entity is called an <strong>arbiter</strong>, and by definition, the arbiter is impartial, not interested in the communication and trusted by all the other sides. He acts like a bank officer, mediating in financial services.</p>
+          <p>Arbitration protocols simplify a lot of tasks which are performed by computers. The arbiter makes it easier to resolve disputes and exchange secret data safely. On the other hand, using arbitration protocols may sometimes be inconvenient:</p>
+          <ul>
+           <li>There is a need to find an arbiter, which may be located far from the other sides, and which would be trusted by all the other entities.</li>
+           <li>The servers serving as arbiters must be financed and maintained.</li>
+           <li>An arbiter is an obvious bottleneck of the transaction. A damaged, attacked or faulty arbiter is a serious problem for the communicating parties.</li>
+          </ul>
+          <p>Most modern systems for transferring money, like credit cards and PayPal, require trusted intermediaries, like banks and credit card companies, to facilitate the transfer.</p>
+          <h2 id="dispute-protocols">Dispute Protocols</h2>
+          <p>A dispute protocol is a kind of arbitration protocol, in which the arbiter is involved only when it is really required. If there are not any problems, then the communicating parties perform the whole task and exchange information without the participation of the arbiter. On the other hand, if a problem occurs - an error, an unexpected circumstance or fraud - an arbiter is called for help. The arbiter has information and power to fix the situation.</p>
+          <p>Dispute protocols are cheaper and easier in use than arbitration protocols. Usually the fact of the arbiter's existence alone prevents fraud. Because the arbiter does not have to be involved in most communications, the major disadvantage of arbitration protocols is overcome.</p>
+          <h2 id="self-enforcing-protocols">Self-Enforcing Protocols</h2>
+          <p>In self-enforcing protocols the whole communication doesn't require trusted third parties. The algorithms are designed in a way that assures that any fraud attempt made by one side is immediately visible for others and they are able to prevent it, without suffering any losses.</p>
+          <p>Undoubtedly self-enforcing protocols have the largest number of advantages and they eliminate the need of involving additional entities. Unfortunately, not all operations can be carried out by using the protocols of this kind.</p>
+          <h2 id="attacking-protocols">Attacking Protocols</h2>
+          <p>In general, there are two types of attacks on protocols: active and passive</p>
+          <ul>
+           <li><strong>Passive attacks</strong>: the intruder may eavesdrop the communication but he is not able to interfere with the exchange of messages.</li>
+           <li><strong>Active attacks</strong>: the attacker tries to change the protocol - by sending new messages, modifying or removing the existing ones, or even altering the whole communication channel.</li>
+          </ul>
+          <p>The main goal of a passive attack is only overhearing the communications. On the other hand, the goals of an active attack may vary, and the effects may usually be much more dangerous for the victims. In the most complex active attacks many intruders take part, attacking various points of the targeted system.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/steganography.html" rel="prev"><small>← Previous</small>Steganography</a>
+          <a class="pager__next" href="/eng/theory/tcp-ip-protocols.html" rel="next"><small>Next →</small>TCP/IP Protocols</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fprotocols.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fprotocols.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fprotocols.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html" aria-current="page">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

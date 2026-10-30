@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/notation-of-numbers.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zapis Liczb | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Systemy zapisu liczb umożliwiają przedstawianie liczby w sposób zrozumiały dla wszystkich oraz przeprowadzanie na nich operacji matematycznych.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/zapis-liczb.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/notation-of-numbers.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/zapis-liczb.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/notation-of-numbers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Zapis Liczb | Kryptografia">
+  <meta property="og:description" content="Systemy zapisu liczb umożliwiają przedstawianie liczby w sposób zrozumiały dla wszystkich oraz przeprowadzanie na nich operacji matematycznych.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/zapis-liczb.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Zapis liczb",
+        "description": "Systemy zapisu liczb umożliwiają przedstawianie liczby w sposób zrozumiały dla wszystkich oraz przeprowadzanie na nich operacji matematycznych.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/zapis-liczb.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Zapis liczb"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/notation-of-numbers.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Zapis liczb</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Różne systemy zapisu liczb umożliwiają przedstawianie dowolnych liczb za pomocą niewielkiej ilości dostępnych cyfr. Do zapisu liczb obecnie powszechnie używa się systemów pozycyjnych (w&nbsp;odróżnieniu od&nbsp;istniejących kiedyś innych sposobów, na&nbsp;przykład zapisu liczb w&nbsp;systemie rzymskim).</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Systemy pozycyjne zapisu liczb polegają na&nbsp;zapisywaniu liczby w&nbsp;taki sposób, że każda cyfra w&nbsp;ciągu, jest mnożona przez odpowiednią wielokrotność (równą numerowi pozycji cyfry pomniejszonemu o&nbsp;jeden) pewnej liczby uznawanej za&nbsp;bazę danego systemu.
+           <div class="definition__note">
+           <ul>
+           <li>Przykładowo, czterocyfrowa liczba <span class="math">a<sub>3</sub>a<sub>2</sub>a<sub>1</sub>a<sub>0</sub></span> w&nbsp;zapisie o&nbsp;podstawie <span class="math">b</span> oznacza: <span class="math">a<sub>3</sub>b<sup>3</sup>&nbsp;+&nbsp;a<sub>2</sub>b<sup>2</sup>&nbsp;+&nbsp;a<sub>1</sub>b<sup>1</sup>&nbsp;+&nbsp;a<sub>0</sub>b<sup>0</sup></span></li>
+           </ul>
+           </div>
+          </aside>
+          <p>Obecnie najpowszechniej używany jest system dziesiętny, natomiast przykładowo Celtowie używali systemu dwunastkowego (podobnie jak Elfy w&nbsp;Tolkienowskim Śródziemiu). Wszystkie komputery wykorzystują zapis dwójkowy (binarny). Ze&nbsp;względu na&nbsp;wygodę zapisu i&nbsp;łatwość zamiany liczb w&nbsp;systemach dwójkowym i&nbsp;szesnastkowym (jeden znak w&nbsp;systemie szesnastkowym odpowiada dokładnie czterem znakom w&nbsp;systemie dwójkowym), do&nbsp;przedstawiania liczb przechowywanych przez komputery w&nbsp;systemie dwójkowym, często stosuje się zapis szesnastkowy.</p>
+          <p>Nieujemną liczbę całkowitą o podstawie&nbsp;<var>b</var> można przedstawić w następujący sposób:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(d<sub>k-1</sub>d<sub>k-2</sub>...d<sub>1</sub>d<sub>0</sub>)<sub>b</sub></span><br> gdzie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">d<sub>k-1</sub>, d<sub>k-2</sub>, ..., d<sub>1</sub>, d<sub>0</sub></span> są cyframi z&nbsp;przedziału domkniętego <span class="math">&lt;0;&nbsp;b-1&gt;</span></p>
+          <a href="" id="zmiana_podstawy"></a>
+          <h2 id="algorytm-zmiany-podstawy">Algorytm zmiany podstawy</h2>
+          <p>Aby zapisać dowolną liczbę <var>n</var> w&nbsp;systemie o&nbsp;podstawie <var>b</var> należy użyć następującego algorytmu:</p>
+          <ol class="steps">
+           <li>Podzielić z&nbsp;resztą liczbę&nbsp;<var>n</var> przez&nbsp;<var>b</var>.</li>
+           <li>Resztę z&nbsp;dzielenia podstawić jako ostatnią cyfrę wyniku.</li>
+           <li>Za&nbsp;<var>n</var> podstawić wynik z&nbsp;dzielenia (iloraz).</li>
+           <li>Powtórzyć powyższe kroki uzyskując przedostatnią cyfrę wyniku i&nbsp;kolejne coraz wcześniejsze cyfry.</li>
+           <li>Przerwać procedurę w&nbsp;momencie pojawienia się zera jako wyniku dzielenia.</li>
+          </ol>
+          <p>Przykładowo, aby przedstawić liczbę&nbsp;<var>19</var> w&nbsp;systemie dwójkowym należy:<br> <span class="math"> &nbsp;&nbsp;&nbsp;&nbsp;19/2 = 9 + 1<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9/2 = 4 + 1<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4/2 = 2 + 0<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2/2 = 1 + 0<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1/2 = 0 + 1<br> &nbsp;&nbsp;&nbsp;19 = (10011)<sub>2</sub> </span></p>
+          <p>Natomiast, aby przedstawić liczbę&nbsp;<var>19</var> w&nbsp;systemie siódemkowym następujące operacje muszą być przeprowadzone:<br> <span class="math"> &nbsp;&nbsp;&nbsp;&nbsp;19/7 = 2 + 5<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2/7 = 0 + 2<br> &nbsp;&nbsp;&nbsp;19 = (25)<sub>7</sub> </span></p>
+          <p>Algorytm może być też wykorzystany do&nbsp;zamiany liczb zapisanych w&nbsp;systemie o&nbsp;mniejszej podstawie na&nbsp;liczby zapisane w&nbsp;systemie o&nbsp;większej podstawie.</p>
+          <h2 id="liczba-cyfr">Liczba cyfr</h2>
+          <p>Liczba całkowita <var>n</var>, która spełnia nierówność <span class="math">b<sup>k-1</sup>&nbsp;&lt;=&nbsp;n&nbsp;&lt;&nbsp;b<sup>k</sup></span> ma <var>k</var>&nbsp;cyfr w&nbsp;systemie o&nbsp;podstawie&nbsp;<var>b</var>. Zależność tą można przedstawić za&nbsp;pomocą logarytmu:<br> &nbsp;&nbsp;&nbsp;&nbsp;liczba&nbsp;cyfr<span class="math"> = [log<sub>b</sub>n] + 1</span><br> gdzie:<br> &nbsp;&nbsp;&nbsp;&nbsp;symbol&nbsp;<span class="math">[]</span> oznacza część całkowitą liczby</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/protokoly-aplikacji.html" rel="prev"><small>← Poprzedni</small>Protokoły warstwy aplikacji</a>
+          <a class="pager__next" href="/pl/teoria/liczby-binarne.html" rel="next"><small>Następny →</small>Liczby binarne</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fzapis-liczb.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fzapis-liczb.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fzapis-liczb.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html" aria-current="page">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

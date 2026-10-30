@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/attacks/frequency-analysis.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atak Statystyczny | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Atak statystyczny polega na analizowaniu częstotliwości występowania znaków w szyfrogramie.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/ataki/atak-statystyczny.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/frequency-analysis.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-statystyczny.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/frequency-analysis.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Atak Statystyczny | Kryptografia">
+  <meta property="og:description" content="Atak statystyczny polega na analizowaniu częstotliwości występowania znaków w szyfrogramie.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/ataki/atak-statystyczny.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Atak statystyczny (analiza częstotliwości)",
+        "description": "Atak statystyczny polega na analizowaniu częstotliwości występowania znaków w szyfrogramie.",
+        "inLanguage": "pl",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/ataki/atak-statystyczny.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ataki",
+            "item": "https://www.crypto-it.net/pl/ataki/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Atak statystyczny (analiza częstotliwości)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/" aria-current="true">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/attacks/frequency-analysis.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/ataki/">Ataki</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Atak statystyczny (analiza częstotliwości)</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Opublikowano <time datetime="2020-03-09">9 marca 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Analizowanie częstotliwości występowania znaków w&nbsp;szyfrogramie to jeden z&nbsp;typów ataku ze&nbsp;<a href="/pl/ataki/znany-szyfrogram.html">znanym szyfrogramem</a>. Polega na&nbsp;wyszukiwaniu często powtarzających się liter i&nbsp;popularnych sekwencji znaków.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>We&nbsp;wszystkich językach różne litery używane są z&nbsp;różną częstotliwością. Dla&nbsp;każdego języka proporcje występowania poszczególnych znaków są nieco&nbsp;inne, więc teksty napisane w&nbsp;danym języku mają pewne wspólne właściwości, które pozwalają&nbsp;je odróżnić od&nbsp;tekstów napisanych w&nbsp;innych językach.</p>
+          <p>Przykładowo, w&nbsp;języku polskim często występują samogłoski takie jak&nbsp;<span class="term">a</span>, <span class="term">e</span> lub&nbsp;<span class="term">i</span>. Z&nbsp;drugiej strony niezwykle rzadko zdarzają się niektóre spółgłoski, na&nbsp;przykład <span class="term">f</span> lub&nbsp;<span class="term">ć</span>. Istnieją zestawienia częstotliwości występowania liter <button type="button" class="note-ref" popovertarget="note-literki">w&nbsp;różnych językach</button>. Dokładne rozkłady częstotliwości mogą się różnić w&nbsp;zależności od&nbsp;konkretnych rodzajów analizowanych tekstów (naukowych, prasowych, powieści i&nbsp;innych).</p>
+          <p>Każdy język posiada ponadto pewne typowe dla&nbsp;niego częste połączenia liter. Dla&nbsp;języka polskiego charakterystyczne są dwuznaki <span class="term">ch</span>, <span class="term">cz</span>, <span class="term">dz</span>, <span class="term">dź</span>, <span class="term">dż</span>, <span class="term">rz</span> i&nbsp;<span class="term">sz</span>. Jest&nbsp;to cecha, która wyróżnia tekst w&nbsp;języku polskim od&nbsp;tekstów napisanych w&nbsp;innych językach. Dodatkowo, można dzięki temu lepiej przewidywać oryginalną kolejność liter z&nbsp;pomieszanych wyrazów.</p>
+          <h2 id="ataki-statystyczne-na-szyfry-podstawieniowe">Ataki statystyczne na szyfry podstawieniowe</h2>
+          <p>Analiza częstotliwościowa jest używana do&nbsp;łamania szyfrów podstawieniowych. Ogólna idea polega na&nbsp;znajdowaniu popularnych liter w szyfrogramie i&nbsp;zastępowaniu ich przez litery występujące często w użytym języku.</p>
+          <p>Napastnik zwykle sprawdza różne możliwe podstawienia i&nbsp;zmienia litery w&nbsp;szyfrogramie. Analizując ujawniające się fragmenty słów tekstu jawnego, można dokonywać kolejnych prób zgadywania pozycji liter w&nbsp;oryginalnym tekście. Przy&nbsp;użyciu komputerów, jest możliwe sprawdzenie bardzo wielu takich kombinacji w&nbsp;relatywnie krótkim czasie.</p>
+          <p>Przykładowo, jeżeli w&nbsp;analizowanym tekście najczęściej występującą literą jest &nbsp;<span class="term">x</span>, można spodziewać się, że&nbsp;<span class="term">x</span> zastąpiło <span class="term">a</span> lub&nbsp;<span class="term">e</span> (jedne z&nbsp;najbardziej popularnych liter w&nbsp;języku polskim) z&nbsp;tekstu jawnego.</p>
+          <p>Podczas ataku statystycznego, zazwyczaj sprawdza się nie&nbsp;tylko pojedyncze litery, ale również popularne pary liter, a nawet dłuższe ciągi znaków i&nbsp;całe wyrazy. Dobór poszukiwanych fraz opiera się na&nbsp;wykorzystywaniu popularnych wyrażeń używanych w danym języku.</p>
+          <div class="note" id="note-literki" popover>
+           <p>Przyjmuje&nbsp;się następujący ogólny rozkład częstotliwości występowania liter w&nbsp;języku polskim:</p>
+           <div class="table-wrap">
+           <table class="table table--matrix" aria-label="overall frequency of letters">
+           <tr>
+           <td>a</td>
+           <td>8,91%</td>
+           </tr>
+           <tr>
+           <td>ą</td>
+           <td>0,99%</td>
+           </tr>
+           <tr>
+           <td>b</td>
+           <td>1,47%</td>
+           </tr>
+           <tr>
+           <td>c</td>
+           <td>3,96%</td>
+           </tr>
+           <tr>
+           <td>ć</td>
+           <td>0,40%</td>
+           </tr>
+           <tr>
+           <td>d</td>
+           <td>3,25%</td>
+           </tr>
+           <tr>
+           <td>e</td>
+           <td>7,66%</td>
+           </tr>
+           <tr>
+           <td>ę</td>
+           <td>1,11%</td>
+           </tr>
+           <tr>
+           <td>f</td>
+           <td>0,30%</td>
+           </tr>
+           <tr>
+           <td>g</td>
+           <td>1,42%</td>
+           </tr>
+           <tr>
+           <td>h</td>
+           <td>1,08%</td>
+           </tr>
+           <tr>
+           <td>i</td>
+           <td>8,21%</td>
+           </tr>
+           <tr>
+           <td>j</td>
+           <td>2,28%</td>
+           </tr>
+           <tr>
+           <td>k</td>
+           <td>3,51%</td>
+           </tr>
+           <tr>
+           <td>l</td>
+           <td>2,10%</td>
+           </tr>
+           <tr>
+           <td>ł</td>
+           <td>1,82%</td>
+           </tr>
+           <tr>
+           <td>m</td>
+           <td>2,80%</td>
+           </tr>
+           <tr>
+           <td>n</td>
+           <td>5,52%</td>
+           </tr>
+           <tr>
+           <td>ń</td>
+           <td>0,20%</td>
+           </tr>
+           <tr>
+           <td>o</td>
+           <td>7,75%</td>
+           </tr>
+           <tr>
+           <td>ó</td>
+           <td>0,85%</td>
+           </tr>
+           <tr>
+           <td>p</td>
+           <td>3,13%</td>
+           </tr>
+           <tr>
+           <td>q</td>
+           <td>0,14%</td>
+           </tr>
+           <tr>
+           <td>r</td>
+           <td>4,69%</td>
+           </tr>
+           <tr>
+           <td>s</td>
+           <td>4,32%</td>
+           </tr>
+           <tr>
+           <td>ś</td>
+           <td>0,66%</td>
+           </tr>
+           <tr>
+           <td>t</td>
+           <td>3,98%</td>
+           </tr>
+           <tr>
+           <td>u</td>
+           <td>2,50%</td>
+           </tr>
+           <tr>
+           <td>v</td>
+           <td>0,04%</td>
+           </tr>
+           <tr>
+           <td>w</td>
+           <td>4,65%</td>
+           </tr>
+           <tr>
+           <td>x</td>
+           <td>0,02%</td>
+           </tr>
+           <tr>
+           <td>y</td>
+           <td>3,76%</td>
+           </tr>
+           <tr>
+           <td>z</td>
+           <td>5,64%</td>
+           </tr>
+           <tr>
+           <td>ź</td>
+           <td>0,06%</td>
+           </tr>
+           <tr>
+           <td>ż</td>
+           <td>0,83%</td>
+           </tr>
+           </table>
+           </div>
+           <button type="button" class="note__close" popovertarget="note-literki" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/ataki/krack.html" rel="prev"><small>← Poprzedni</small>Atak KRACK</a>
+          <a class="pager__next" href="/pl/ataki/meet-in-the-middle.html" rel="next"><small>Następny →</small>Atak meet-in-the-middle</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fatak-statystyczny.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fatak-statystyczny.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fatak-statystyczny.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-ataki -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/ataki/">Ataki</a></h2>
+        <ul>
+          <li><a href="/pl/ataki/znany-tekst-jawny.html">Atak ze znanym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/wybrany-tekst-jawny.html">Atak z wybranym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/znany-szyfrogram.html">Atak z szyfrogramami</a></li>
+          <li><a href="/pl/ataki/wybrany-szyfrogram.html">Atak z wybranym szyfrogramem</a></li>
+          <li><a href="/pl/ataki/wybrany-klucz.html">Atak z wybranym kluczem</a></li>
+          <li><a href="/pl/ataki/atak-silowy.html">Atak siłowy</a></li>
+          <li><a href="/pl/ataki/dos.html">DoS</a></li>
+          <li><a href="/pl/ataki/man-in-the-middle.html">Atak man-in-the-middle</a></li>
+          <li><a href="/pl/ataki/two-time-pad.html">Atak na two-time pad</a></li>
+          <li><a href="/pl/ataki/krack.html">Atak KRACK</a></li>
+          <li><a href="/pl/ataki/atak-statystyczny.html" aria-current="page">Atak statystyczny</a></li>
+          <li><a href="/pl/ataki/meet-in-the-middle.html">Atak meet-in-the-middle</a></li>
+          <li><a href="/pl/ataki/metoda-powtorzenia.html">Atak metodą powtórzenia</a></li>
+          <li><a href="/pl/ataki/atak-homograficzny.html">Atak homograficzny</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-ataki -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/attacks/meet-in-the-middle.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atak Meet-in-the-Middle | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Za pomocą ataków tego typu można łamać szyfry, które używają dwóch lub więcej różnych kluczy do wielokrotnego szyfrowania za pomocą tego samego algorytmu.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/ataki/meet-in-the-middle.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/meet-in-the-middle.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/meet-in-the-middle.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/meet-in-the-middle.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Atak Meet-in-the-Middle | Kryptografia">
+  <meta property="og:description" content="Za pomocą ataków tego typu można łamać szyfry, które używają dwóch lub więcej różnych kluczy do wielokrotnego szyfrowania za pomocą tego samego algorytmu.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/ataki/meet-in-the-middle.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Atak meet-in-the-middle",
+        "description": "Za pomocą ataków tego typu można łamać szyfry, które używają dwóch lub więcej różnych kluczy do wielokrotnego szyfrowania za pomocą tego samego algorytmu.",
+        "inLanguage": "pl",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/ataki/meet-in-the-middle.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ataki",
+            "item": "https://www.crypto-it.net/pl/ataki/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Atak meet-in-the-middle"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/" aria-current="true">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/attacks/meet-in-the-middle.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/ataki/">Ataki</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Atak meet-in-the-middle</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Opublikowano <time datetime="2020-03-09">9 marca 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Atak meet-in-the-middle to jeden z&nbsp;rodzajów <a href="/pl/ataki/znany-tekst-jawny.html">ataków ze&nbsp;znanym tekstem jawnym</a>. Napastnik musi znać fragmenty tekstu jawnego i&nbsp;odpowiadające im szyfrogramy. Za&nbsp;pomocą ataków tego typu można łamać szyfry, które używają dwóch lub&nbsp;więcej różnych kluczy do&nbsp;wielokrotnego szyfrowania za&nbsp;pomocą tego samego algorytmu. Przykładem takiego szyfrowania jest szyfr <a href="/pl/symetryczne/3des.html">3DES</a>. Atak meet-in-the-middle został po raz pierwszy zademonstrowany przez kryptologów Diffiego i&nbsp;Hellmana przy&nbsp;okazji analizy algorytmu <a href="/pl/symetryczne/des.html">DES</a>.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           Szyfr, który może być celem ataku meet-in-the-middle, można zdefiniować jako parę dwóch algorytmów, szyfrującego i&nbsp;deszyfrującego. Każdy z&nbsp;nich składa się z&nbsp;dwóch prostych algorytmów:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">C = E<sub>b</sub>(k<sub>b</sub>, E<sub>a</sub>(k<sub>a</sub>, P))</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">P = D<sub>a</sub>(k<sub>a</sub>, D<sub>b</sub>(k<sub>b</sub>, C))</span>
+           <div class="definition__note">
+           gdzie:
+           <ul>
+           <li>C to szyfrogram (od ang. ciphertext),</li>
+           <li>P to tekst jawny (od ang. plaintext),</li>
+           <li>E to algorytm szyfrujący (od ang. encryption),</li>
+           <li>D to algorytm deszyfrujący (od ang. decryption),</li>
+           <li>k<sub>a</sub> i k<sub>b</sub> to dwa sekretne klucze.</li>
+           </ul>
+           </div>
+          </aside>
+          <p>Dla&nbsp;tak zdefiniowanego szyfru, można zapisać następujące równanie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">D<sub>b</sub>(k<sub>b</sub>, C) = E<sub>a</sub>(k<sub>a</sub>, P)</span><br> Gdzie <span class="term">C</span> to znany napastnikowi szyfrogram odpowiadający znanej napastnikowi wiadomości <span class="term">P</span>.</p>
+          <p>Pierwszy krok ataku polega na&nbsp;utworzeniu tabeli wszystkich możliwych wartości dla&nbsp;jednej ze&nbsp;stron równania. Można wyliczyć więc wszystkie możliwe szyfrogramy znanego tektu jawnego&nbsp;<span class="term">P</span>, powstałe po&nbsp;zakodowaniu go przy&nbsp;użyciu pierwszego z&nbsp;sekretnych kluczy, czyli&nbsp;<span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span>. Tablica będzie miała długość równą liczbie możliwych sekretnych kluczy. Dobrze jest potem posortować otrzymaną tablicę względem otrzymanych wartości szyfrogramów&nbsp;<span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span>, w&nbsp;celu ułatwienia jej późniejszego przeszukiwania.</p>
+          <p>Drugim krokiem ataku jest wyliczanie wartości&nbsp;<span class="term">D<sub>b</sub>(k<sub>b</sub>,C)</span> dla&nbsp;drugiej strony równania. Należy porównywać je z&nbsp;otrzymanymi wsześniej i&nbsp;przechowywanymi w&nbsp;tabeli wartościami wyliczonymi dla&nbsp;pierwszej strony równania. Atakujący szuka takiej pary sekretnych kluczy <span class="term">k<sub>a</sub></span> i <span class="term">k<sub>b</sub></span>, dla których znaleziona w tabeli wartość&nbsp;<span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span> i&nbsp;aktualnie wyliczona wartość&nbsp;<span class="term">D<sub>b</sub>(k<sub>b</sub>,C)</span> są równe.</p>
+          <figure class="figure">
+           <img src="/assets/img/attacks/attack-mitm-simple-pl.webp" alt="Schemat ataku meet-in-the-middle" width="500" height="220" loading="lazy">
+           <figcaption>Schemat ataku meet-in-the-middle</figcaption>
+          </figure>
+          <p>Atakowane mogą być również szyfry, dla&nbsp;których oba algorytmy szyfrujące&nbsp;<span class="term">E</span> są różne (i&nbsp;używają kluczy o&nbsp;niekoniecznie takiej samej wartości). W&nbsp;takim wypadku, tablicę w&nbsp;pierwszym kroku tworzy się dla&nbsp;słabszego z&nbsp;dwóch algorytmów szyfrujących.</p>
+          <h2 id="zlozonosc-obliczeniowa-meet-in-the-middle">Złożoność obliczeniowa meet-in-the-middle</h2>
+          <p>Atak meet-in-the-middle umożliwia dużo szybsze złamanie zabezpieczeń niż przy&nbsp;użyciu zwykłego <a href="/pl/ataki/atak-silowy.html">ataku siłowego</a>. Złożoności czasowa i&nbsp;obliczeniowa zależą od&nbsp;wielkości dwóch kluczy szyfrujących <span class="term">k<sub>a</sub></span> i&nbsp;<span class="term">k<sub>b</sub></span>. Można je przedstawić jako sumę dwóch iloczynów:</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">2<sup>dł(k<sub>a</sub>)</sup>&nbsp;log(2<sup>dł(k<sub>a</sub>)</sup>) + 2<sup>dł(k<sub>b</sub>)</sup>&nbsp;log(2<sup>dł(k<sub>a</sub>)</sup>)</span></p>
+          Gdzie:
+          <ul>
+           <li><var>2<sup>dł(k<sub>a</sub>)</sup></var>&nbsp;- tworzenie tabeli zawierającej wszystkie możliwe wartości&nbsp;<span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span>,</li>
+           <li><var>log(2<sup>dł(k<sub>a</sub>)</sup>)</var>&nbsp;- sortowanie tabeli zawierającej wszystkie wartości&nbsp;<span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span>,</li>
+           <li><var>2<sup>dł(k<sub>b</sub>)</sup></var>&nbsp;- obliczanie wszystich możliwych wartości&nbsp;<span class="term">D<sub>b</sub>(k<sub>b</sub>,C)</span>,</li>
+           <li><var>log(2<sup>dł(k<sub>a</sub>)</sup>)</var>&nbsp;- przeszukiwanie posortowanej tabeli zawierającej wartości&nbsp;<span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span>.</li>
+          </ul>
+          <p>Jeśli długości kluczy&nbsp;<span class="term">k<sub>a</sub></span> i&nbsp;<span class="term">k<sub>b</sub></span> są równe i&nbsp;wynoszą <span class="term">dk</span>, to złożoność obliczeniową ataku meet-in-the-middle można przedstawić jako <span class="term">O(2<sup>dk+1</sup>)</span>. Wykorzystanie pamięci wynosi natomiast <span class="term">O(2<sup>dk</sup>)</span>. Złożoność obliczeniowa zwykłego ataku siłowego jest dużo większa, wynosi bowiem <span class="term">O(2<sup>dk+dk</sup>)</span>. Z&nbsp;drugiej strony atak siłowy wykorzystuje jedynie <span class="term">O(1)</span> pamięci.</p>
+          <h2 id="atak-meet-in-the-middle-2d">Atak meet-in-the-middle 2D</h2>
+          <p>Można rozważać sytuację, w&nbsp;której w&nbsp;procesie działania algorytmu szyfrującego da&nbsp;się wyodrębnić pewien stan przejściowy. Jeżeli wielkość tego stanu przejściowego jest mniejsza niż długość klucza, atakując go można zastosować tak zwany dwuwymiarowy atak meet-in-the-middle. We&nbsp;współczesnych szyfrach blokowych przypadek operowania na&nbsp;niewielkich blokach danych przy&nbsp;użyciu długiego klucza jest bardzo częsty.</p>
+          <p>Oznaczając stan przejściowy jako&nbsp;<span class="term">S</span> można przedstawić złożony szyfr jako:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">C = E<sub>1</sub>(k<sub>1</sub>,&nbsp;E<sub>2</sub>(k<sub>2</sub>,&nbsp;P))</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">P = D<sub>2</sub>(k<sub>2</sub>,&nbsp;D<sub>1</sub>(k<sub>1</sub>,&nbsp;C))</span><br> Gdzie wartości&nbsp;<span class="term">E<sub>2</sub>(k<sub>2</sub>,P)</span> należą do&nbsp;zbioru zawierającego wszystkie możliwe wartości stanu przejściowego&nbsp;<span class="term">S</span>.</p>
+          <p>Oba algorytmy szyfrujące <span class="term">E<sub>1</sub></span> i&nbsp;<span class="term">E<sub>2</sub></span> można łamać za&nbsp;pomocą dwuwymiarowego ataku meet-in-the-middle. Schemat ataku przedstawiony jest na&nbsp;poniższym rysunku:</p>
+          <figure class="figure"><img src="/assets/img/attacks/attack-mitm-2d-pl.webp" alt="Schemat dwuwymiarowego ataku meet-in-the-middle" width="800" height="300" loading="lazy"></figure>
+          <p>W&nbsp;calu złamania szyfru za&nbsp;pomocą dwuwymiarowego ataku meet-in-the-middle należy wykonać następujące kroki:</p>
+          <ol class="steps">
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">E<sub>a<sub>1</sub></sub>(k<sub>a<sub>1</sub></sub>,P)</span> (dla znanego&nbsp;<span class="term">P</span> i&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>a<sub>1</sub></sub></span>), a następnie umieścić je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>a<sub>1</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">E<sub>a<sub>1</sub></sub>(k<sub>a<sub>1</sub></sub>,P)</span>.</li>
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">D<sub>b<sub>2</sub></sub>(k<sub>b<sub>2</sub></sub>,C)</span> (dla znanego&nbsp;<span class="term">C</span> opowiadającego&nbsp;<span class="term">P</span> i&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>b<sub>2</sub></sub></span>), a następnie umieścić je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>b<sub>2</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">D<sub>b<sub>2</sub></sub>(k<sub>b<sub>2</sub></sub>,C)</span>.</li>
+           <li>
+           Dla&nbsp;każdej możliwej wartości stanu pośredniego <span class="term">S</span>:
+           <ol class="steps">
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">D<sub>b<sub>1</sub></sub>(k<sub>b<sub>1</sub></sub>,S)</span> (dla&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>b<sub>1</sub></sub></span>), a następnie umieścić&nbsp;je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>b<sub>1</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">D<sub>b<sub>1</sub></sub>(k<sub>b<sub>1</sub></sub>,S)</span>.</li>
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">E<sub>a<sub>2</sub></sub>(k<sub>a<sub>2</sub></sub>,S)</span> (dla&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>a<sub>2</sub></sub></span>), a następnie umieścić je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>a<sub>2</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">E<sub>a<sub>2</sub></sub>(k<sub>a<sub>2</sub></sub>,S)</span>.</li>
+           <li>Porównać wartości w&nbsp;czterech utworzonych tabelach, poszukując równości <span class="term">E<sub>a<sub>1</sub></sub>(k<sub>a<sub>1</sub></sub>,P)</span> = <span class="term">D<sub>b<sub>1</sub></sub>(k<sub>b<sub>1</sub></sub>,S)</span> (uzyska się w ten sposób parę kluczy <span class="term">(k<sub>a<sub>1</sub></sub>,k<sub>b<sub>1</sub></sub>)</span>) oraz <span class="term">E<sub>a<sub>2</sub></sub>(k<sub>a<sub>2</sub></sub>,S)</span> = <span class="term">D<sub>b<sub>2</sub></sub>(k<sub>b<sub>2</sub></sub>,C)</span> (para kluczy <span class="term">(k<sub>a<sub>2</sub></sub>,k<sub>b<sub>2</sub></sub>)</span>). Wszystkie kombinacje tych&nbsp;dwóch par kluczy stanowią kandydatów na&nbsp;poszukiwany sekretny klucz całego szyfru. Należy wybrać właściwą kombinację par poprzez sprawdzenie uzyskanego klucza na&nbsp;innych znanych fragmentach tekstu jawnego i&nbsp;szyfrogramu.</li>
+           </ol>
+           </li>
+          </ol>
+          <p>Zwykle cztery wyodrębnione klucze <span class="term">k<sub>a<sub>1</sub></sub></span>, <span class="term">k<sub>b<sub>1</sub></sub></span>, <span class="term">k<sub>a<sub>2</sub></sub></span> i&nbsp;<span class="term">k<sub>b<sub>2</sub></sub></span> mają niektóre bity wspólne. Sposobem, który umożliwia kryptoanalizę w takim przypadku jest traktowanie każdego bitu oddzielnie i&nbsp;przyporządkowanie mu niezależnej zmiennej.</p>
+          <h2 id="atak-meet-in-the-middle-nd">Atak meet-in-the-middle nD</h2>
+          <p>Opisane postępowanie można uogólnić do&nbsp;przypadku, kiedy szyfr złożony jest dzielony na&nbsp;większą ilość prostszych szyfrów. W&nbsp;ogólnym przypadku należy założyć, że da się wyodrębnić <span class="term">n</span>&nbsp;stanów przejściowych oraz <span class="term">n+1</span> algorytmów szyfrujących możliwych do&nbsp;złamania za&nbsp;pomocą metody meet-in-the-middle. Taka sytuacja jest przedstawiona na&nbsp;schemacie poniżej:</p>
+          <figure class="figure"><img src="/assets/img/attacks/attack-mitm-nd-pl.webp" alt="Schemat wielowymiarowego ataku meet-in-the-middle" width="880" height="300" loading="lazy"></figure>
+          <p>W&nbsp;calu złamania szyfru za&nbsp;pomocą wielowymiarowego ataku meet-in-the-middle należy wykonać następujące kroki:</p>
+          <ol class="steps">
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">E<sub>a<sub>1</sub></sub>(k<sub>a<sub>1</sub></sub>,P)</span> (dla znanego&nbsp;<span class="term">P</span> i&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>a<sub>1</sub></sub></span>), a następnie umieścić je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>a<sub>1</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">E<sub>a<sub>1</sub></sub>(k<sub>a<sub>1</sub></sub>,P)</span>.</li>
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">D<sub>b<sub>n+1</sub></sub>(k<sub>b<sub>n+1</sub></sub>,C)</span> (dla znanego&nbsp;<span class="term">C</span> opowiadającego&nbsp;<span class="term">P</span> i&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>b<sub>n+1</sub></sub></span>), a następnie umieścić je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>b<sub>n+1</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">D<sub>b<sub>n+1</sub></sub>(k<sub>b<sub>n+1</sub></sub>,C)</span>.</li>
+           <li>
+           Dla&nbsp;każdej możliwej wartości stanu pośredniego <span class="term">S<sub>1</sub></span>:
+           <ol class="steps">
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">D<sub>b<sub>1</sub></sub>(k<sub>b<sub>1</sub></sub>,S<sub>1</sub>)</span> (dla&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>b<sub>1</sub></sub></span>), a następnie umieścić&nbsp;je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>b<sub>1</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">D<sub>b<sub>1</sub></sub>(k<sub>b<sub>1</sub></sub>,S<sub>1</sub>)</span>.</li>
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">E<sub>a<sub>2</sub></sub>(k<sub>a<sub>2</sub></sub>,S<sub>1</sub>)</span> (dla&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>a<sub>2</sub></sub></span>), a następnie umieścić je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>a<sub>2</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">E<sub>a<sub>2</sub></sub>(k<sub>a<sub>2</sub></sub>,S<sub>1</sub>)</span>.</li>
+           <li>
+           Dla&nbsp;każdej możliwej wartości stanu pośredniego <span class="term">S<sub>2</sub></span>:
+           <ol class="steps">
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">D<sub>b<sub>2</sub></sub>(k<sub>b<sub>2</sub></sub>,S<sub>2</sub>)</span> (dla&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>b<sub>2</sub></sub></span>), a następnie umieścić&nbsp;je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>b<sub>2</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">D<sub>b<sub>2</sub></sub>(k<sub>b<sub>2</sub></sub>,S<sub>2</sub>)</span>.</li>
+           <li><span class="term">...</span>powtarzać analogiczne operacje aż do przejściowego stanu <span class="term">S<sub>n</sub></span><span class="term">...</span></li>
+           <li>
+           Dla&nbsp;każdej możliwej wartości stanu pośredniego <span class="term">S<sub>n</sub></span>:
+           <ol class="steps">
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">D<sub>b<sub>n</sub></sub>(k<sub>b<sub>n</sub></sub>,S<sub>n</sub>)</span> (dla&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>b<sub>n</sub></sub></span>), a następnie umieścić&nbsp;je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>b<sub>n</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">D<sub>b<sub>n</sub></sub>(k<sub>b<sub>n</sub></sub>,S<sub>n</sub>)</span>.</li>
+           <li>Obliczyć wszystkie możliwe wartości <span class="term">E<sub>a<sub>n+1</sub></sub>(k<sub>a<sub>n+1</sub></sub>,S<sub>n</sub>)</span> (dla&nbsp;wszystkich możliwych wartości klucza&nbsp;<span class="term">k<sub>a<sub>n+1</sub></sub></span>), a następnie umieścić je w&nbsp;tabeli razem z&nbsp;wartościami odpowiadających im kluczy <span class="term">k<sub>a<sub>n+1</sub></sub></span>. Tabela powinna być posortowana względem wyliczonych wartości <span class="term">E<sub>a<sub>n+1</sub></sub>(k<sub>a<sub>n+1</sub></sub>,S<sub>n</sub>)</span>.</li>
+           <li>Przeanalizować wartości we&nbsp;wszystkich utworzonych tabelach, porównując odpowiednie wielkości <span class="term">E<sub>a<sub>i</sub></sub></span> z&nbsp;<span class="term">D<sub>b<sub>i</sub></sub></span>. Wynikiem będzie pewna ilość kombinacji par odpowiadających sobie kluczy <span class="term">(k<sub>a<sub>i</sub></sub>,k<sub>b<sub>i</sub></sub>)</span>. Należy wybrać właściwą kombinację par poprzez sprawdzenie uzyskanego klucza na&nbsp;innych znanych fragmentach tekstu jawnego i&nbsp;szyfrogramu.</li>
+           </ol>
+           </li>
+           </ol>
+           </li>
+           </ol>
+           </li>
+          </ol>
+          <p>Kolejność analizowania poszczególnych stanów przejściowych może być dowolnie wybrana. Z&nbsp;racji tego, że stany przejściowe mają mniejszą wielkość niż klucze szyfrujące, tworzone tabele zajmują mniej więcej tyle samo miejsca co&nbsp;tabele tworzone podczas zwykłego jednowymiarowego ataku meet-in-the-middle.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/ataki/atak-statystyczny.html" rel="prev"><small>← Poprzedni</small>Atak statystyczny</a>
+          <a class="pager__next" href="/pl/ataki/metoda-powtorzenia.html" rel="next"><small>Następny →</small>Atak metodą powtórzenia</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fmeet-in-the-middle.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fmeet-in-the-middle.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fmeet-in-the-middle.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-ataki -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/ataki/">Ataki</a></h2>
+        <ul>
+          <li><a href="/pl/ataki/znany-tekst-jawny.html">Atak ze znanym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/wybrany-tekst-jawny.html">Atak z wybranym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/znany-szyfrogram.html">Atak z szyfrogramami</a></li>
+          <li><a href="/pl/ataki/wybrany-szyfrogram.html">Atak z wybranym szyfrogramem</a></li>
+          <li><a href="/pl/ataki/wybrany-klucz.html">Atak z wybranym kluczem</a></li>
+          <li><a href="/pl/ataki/atak-silowy.html">Atak siłowy</a></li>
+          <li><a href="/pl/ataki/dos.html">DoS</a></li>
+          <li><a href="/pl/ataki/man-in-the-middle.html">Atak man-in-the-middle</a></li>
+          <li><a href="/pl/ataki/two-time-pad.html">Atak na two-time pad</a></li>
+          <li><a href="/pl/ataki/krack.html">Atak KRACK</a></li>
+          <li><a href="/pl/ataki/atak-statystyczny.html">Atak statystyczny</a></li>
+          <li><a href="/pl/ataki/meet-in-the-middle.html" aria-current="page">Atak meet-in-the-middle</a></li>
+          <li><a href="/pl/ataki/metoda-powtorzenia.html">Atak metodą powtórzenia</a></li>
+          <li><a href="/pl/ataki/atak-homograficzny.html">Atak homograficzny</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-ataki -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

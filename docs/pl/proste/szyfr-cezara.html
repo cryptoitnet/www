@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/caesar-cipher.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfr Cezara | Prosty Podstawieniowy | Crypto-IT</title>
+  <meta name="description" content="Szyfr Cezara to prosty szyfr podstawieniowy, który zastępuje każdą literę tekstu jawnego inną literą alfabetu.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/szyfr-cezara.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/caesar-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-cezara.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/caesar-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfr Cezara | Prosty Podstawieniowy">
+  <meta property="og:description" content="Szyfr Cezara to prosty szyfr podstawieniowy, który zastępuje każdą literę tekstu jawnego inną literą alfabetu.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/szyfr-cezara.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfr Cezara",
+        "description": "Szyfr Cezara to prosty szyfr podstawieniowy, który zastępuje każdą literę tekstu jawnego inną literą alfabetu.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/szyfr-cezara.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Proste szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/proste-szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Szyfr Cezara"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/caesar-cipher.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a></li>
+            <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfr Cezara</h1>
+          <p class="article__subtitle">Prosty szyfr podstawieniowy</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Szyfr Cezara to prosty szyfr podstawieniowy, który zastępuje każdą literę tekstu jawnego inną literą alfabetu. Nazwa tego szyfru pochodzi od <button type="button" class="note-ref" popovertarget="note-cezar">przydomka</button> Gajusza Juliusza Cezara (100&nbsp;p.n.e. - 44&nbsp;p.n.e.), który używał go podczas komunikacji ze&nbsp;swoimi przyjaciółmi i&nbsp;stronnikami.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Juliusz Cezar szyfrował korespondencję na&nbsp;wiele różnych sposobów, między innymi zapisując tekst od&nbsp;tyłu lub&nbsp;zapisując tekst w&nbsp;języku łacińskim przy użyciu greckich liter. Autorzy starożytni (m.in. rzymski historyk Gaius Suetonius Tranquillus, żyjący w&nbsp;pierwszym wieku naszej ery) zaświadczają stosowanie przez&nbsp;niego również tego prostego szyfru podstawieniowego z&nbsp;przesunięciem o&nbsp;jeden lub o&nbsp;trzy znaki.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Szyfr Cezara to jeden z&nbsp;najprostszych szyfrów podstawieniowych.</p>
+          <p>Każda litera tekstu jawnego jest zastępowana inną literą, która jest od&nbsp;niej oddalona o&nbsp;stałą liczbę pozycji w alfabecie (zawsze w&nbsp;tym samym kierunku). Jeśli algorytm wskazywałby na&nbsp;pozycję, która wychodzi poza ostatnią literę w&nbsp;alfabecie, to przechodzi się na&nbsp;początek alfabetu.</p>
+          <p>Można to zapisać w&nbsp;formie wzorów matematycznych na&nbsp;szyfrowanie i&nbsp;deszyfrowanie danej litery:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">E<sub>n</sub>(x)&nbsp;= (x+n) mod&nbsp;26</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">D<sub>n</sub>(x)&nbsp;= (x-n) mod&nbsp;26</span><br> gdzie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="term">n</span>&nbsp;to wybrane przesunięcie liter, z&nbsp;kolei <span class="term">26</span>&nbsp;to liczba liter w&nbsp;alfabecie łacińskim (dla&nbsp;innych alfabetów należy oczywiście użyć innej liczby).</p>
+          <h2 id="kryptoanaliza-szyfru-cezara">Kryptoanaliza szyfru Cezara</h2>
+          <p>Szyfr Cezara może zostać łatwo złamany, za&nbsp;pomocą <a href="/pl/ataki/atak-silowy.html">ataku siłowego</a>. Wystarczy sprawdzić wszystkie możliwe 26&nbsp;(dla alfabetu łacińskiego) przesunięć liter, aby znaleźć poszukiwany tekst jawny.</p>
+          <p>Podobnie jak każdy szyfr podstawieniowy, szyfr Cezara może zostać również złamany za&nbsp;pomocą <a href="/pl/ataki/znany-szyfrogram.html">ataków ze&nbsp;znanym szyfrogramem</a> oraz <a href="/pl/ataki/atak-statystyczny.html">analizy częstotliwości</a> występowania poszczególnych liter w&nbsp;szyfrogramie.</p>
+          <h2 id="implementacja">Implementacja</h2>
+          <p>Proste funkcje szyfrująca i&nbsp;deszyfrująca zaimplementowane w&nbsp;Pythonie:</p>
+          <pre><code>KLUCZ = 3
+
+def szyfruj(tekst):
+  zaszyfrowany = ""
+  for ch in tekst:
+    if ord(ch) &gt;= ord('a') and ord(ch) &lt;= ord('z'):
+      nowyKod = ord(ch) + KLUCZ
+      if (nowyKod &gt; ord('z')):
+        nowyKod -= 26
+      zaszyfrowany += chr(nowyKod)
+    if ord(ch) &gt;= ord('A') and ord(ch) &lt;= ord('Z'):
+      nowyKod = ord(ch) + KLUCZ
+      if (nowyKod &gt; ord('Z')):
+        nowyKod -= 26
+      zaszyfrowany += chr(nowyKod)
+  return zaszyfrowany
+
+def deszyfruj(tekst):
+  odszyfrowany = ""
+  for ch in tekst:
+    if ord(ch) &gt;= ord('a') and ord(ch) &lt;= ord('z'):
+      nowyKod = ord(ch) - KLUCZ
+      if (nowyKod &lt; ord('a')):
+        nowyKod += 26
+      odszyfrowany += chr(nowyKod)
+    if ord(ch) &gt;= ord('A') and ord(ch) &lt;= ord('Z'):
+      nowyKod = ord(ch) - KLUCZ
+      if (nowyKod &lt; ord('A')):
+        nowyKod += 26
+      odszyfrowany += chr(nowyKod)
+  return odszyfrowany</code></pre>
+          <div class="note" id="note-cezar" popover>
+           <p>W ówczesnym Rzymie imiona generalnie miały budowę trójczłonową. <em>Gajusz</em> było imieniem, <em>Juliusz</em> było nazwiskiem, natomiast słowo <em>Cezar</em> było tzw. przydomkiem rodzinnym.</p>
+           <button type="button" class="note__close" popovertarget="note-cezar" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/proste-szyfry-podstawieniowe.html" rel="prev"><small>← Poprzedni</small>Proste szyfry podstawieniowe</a>
+          <a class="pager__next" href="/pl/proste/rot13.html" rel="next"><small>Następny →</small>ROT13</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-cezara.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-cezara.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-cezara.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html" aria-current="page">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

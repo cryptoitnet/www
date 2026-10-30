@@ -1,0 +1,55 @@
+<section class="tool" id="online" aria-labelledby="online-title"
+         data-tool="rail-fence"
+         data-msg-rails="Liczba poziomów musi wynosić co najmniej 2."
+         data-msg-offset="Przesunięcie musi być zerem lub liczbą dodatnią."
+         data-msg-copied="Skopiowano">
+  <h2 id="online-title">Szyfr płotkowy online</h2>
+  <div class="tool__grid">
+    <div>
+      <div class="field">
+        <label for="rf-rails">Liczba poziomów</label>
+        <select id="rf-rails" data-role="rails">
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+        <small>Wysokość wyobrażonego płotka, po którym tekst biegnie zygzakiem.</small>
+      </div>
+      <div class="field">
+        <label for="rf-offset">Przesunięcie</label>
+        <input type="number" id="rf-offset" data-role="offset" value="0" min="0" step="1">
+        <small>Ile kroków zygzaka pominąć przed pierwszą literą. Pozostaw 0 dla klasycznego szyfru.</small>
+      </div>
+      <fieldset>
+        <legend class="visually-hidden">Kierunek</legend>
+        <div class="segmented">
+          <label><input type="radio" name="direction" value="encrypt" checked> Szyfruj</label>
+          <label><input type="radio" name="direction" value="decrypt"> Deszyfruj</label>
+        </div>
+      </fieldset>
+    </div>
+    <figure>
+      <table class="matrix" data-role="fence" aria-label="Siatka płotka"></table>
+    </figure>
+  </div>
+
+  <div class="field">
+    <label for="rf-input">Tekst</label>
+    <textarea id="rf-input" data-role="input" spellcheck="false">We are discovered, run at once</textarea>
+    <small>Uwzględniane są tylko litery; spacje, cyfry i znaki interpunkcyjne są pomijane, a znaki diakrytyczne usuwane.</small>
+  </div>
+
+  <p class="tool__error" data-role="error" role="alert"></p>
+
+  <div class="field">
+    <label for="rf-output">Wynik</label>
+    <textarea id="rf-output" data-role="output" readonly></textarea>
+  </div>
+  <div class="tool__actions">
+    <button type="button" class="button" data-role="copy">Kopiuj wynik</button>
+    <button type="button" class="button" data-role="swap">Użyj wyniku jako wejścia</button>
+  </div>
+</section>

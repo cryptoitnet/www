@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/attacks/dos.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atak DoS | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Atak DoS polega na zdalnym unieruchomieniu serwera i uniemożliwieniu mu reagowania na zapytania kierowane przez jego użytkowników i klientów.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/ataki/dos.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/dos.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/dos.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/dos.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Atak DoS | Kryptografia">
+  <meta property="og:description" content="Atak DoS polega na zdalnym unieruchomieniu serwera i uniemożliwieniu mu reagowania na zapytania kierowane przez jego użytkowników i klientów.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/ataki/dos.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Atak DoS",
+        "description": "Atak DoS polega na zdalnym unieruchomieniu serwera i uniemożliwieniu mu reagowania na zapytania kierowane przez jego użytkowników i klientów.",
+        "inLanguage": "pl",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/ataki/dos.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ataki",
+            "item": "https://www.crypto-it.net/pl/ataki/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Atak DoS"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/" aria-current="true">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/attacks/dos.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/ataki/">Ataki</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Atak DoS</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Opublikowano <time datetime="2020-03-09">9 marca 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Atak DoS (ang. <i>Denial-of-Service</i>, czyli <em>odmowa dostępu</em>) polega na zakłóceniu pracy serwera, poprzez uniemożliwienie jego użytkownikom połączenie się z nim z Internetu. Jeśli atak zakończy się sukcesem, to wytypowany komputer przestanie odpowiadać na zapytania i nikt nie będzie w stanie się z nim połączyć.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="techniki-dos">Techniki DoS</h2>
+          <p>Istnieje wiele sposobów, na jakie można wyłączyć znajdujący się w Internecie serwer.</p>
+          <h3 id="ograniczenie-wydajnosci">Ograniczenie wydajności</h3>
+          <p>Najpopularniejsze techniki DoS polegają na zasypaniu atakowanego systemu tysiącami fałszywych wiadomości. Zaatakowany serwer zostaje zmuszony do przetwarzania każdej z nich, co czyni go niezdolnym do reagowania na prawdziwe wiadomości od rzeczywistych użytkowników lub klientów.</p>
+          <p>Wiadomości wysyłane do atakowanego systemu mogą zostać starannie przygotowane w taki sposób, aby sprawić maksymalne trudności przetwarzającemu je atakowanemu komputerowi. Im bardziej skomplikowane będą wysyłane zapytania, tym więcej czasu procesora będzie potrzeba, żeby się z nimi uporać.</p>
+          <h3 id="zuzywanie-zasobow">Zużywanie zasobów</h3>
+          <p>Zamiast przesyłania losowych wiadomości, mających na celu jedynie zmuszenie procesora do przetwarzania ich, atakujący może się zdecydować na takie dobranie wiadomości, aby w maksymalny sposób zablokować zasoby pewnego typu, znajdujące się na serwerze. Przykładowo, wiadomości mogą mieć za zadanie zużycie maksymalnej ilości dostępnych połączeń sieciowych hosta, czyniąc go w ten sposób niezdolnym do odpowiadania na inne pakiety otrzymane z sieci.</p>
+          <p>Przykładem takiego ataku jest tak zwany <strong>SYN flood</strong>, czyli atak polegający na wysłaniu ofierze tysięcy fałszywych pakietów TCP/SYN. Serwer zostaje zmuszony do otwarcia oddzielnego <a href="/pl/teoria/protokoly-tcp-ip.html">połączenia TCP</a> dla każdego z nich.</p>
+          <p>Analogicznie, wiadomości mogą być zdefiniowane w taki sposób, żeby powodowały zapełnienie się całej pamięci RAM atakowanego systemu lub jego dysków twardych (na przykład, za pomocą dużych ilości logów lub plików raportów błędów).</p>
+          <h3 id="zawieszenie-systemu">Zawieszenie systemu</h3>
+          <p>Trzecim sposobem wyłączenia serwera za pomocą ataków DoS jest zdalne zawieszenie go, przy użyciu jakichś znanych podatności zainstalowanego na nim oprogramowania.</p>
+          <p>Można to osiągnąć, na przykład, wysyłając niewłaściwie sformatowane wiadomości, z którymi nie poradzą sobie procesy odbierające wiadomość na serwerze. Wiele systemów operacyjnych było podatnych na ataki tego typu, które operowały w Warstwie Internetowej (czyli błędy występowały na poziomie przetwarzania adresów IP).</p>
+          <h2 id="atakowanie-poszczegolnych-warstw">Atakowanie poszczególnych warstw</h2>
+          <p>Tworząc wiadomości we właściwy sposób, napastnik może zdeterminować, które warstwy sieciowe atakowanego komputera będą afektowane w największym stopniu. Zwykle, ataki przeprowadza się przeciwko protokołom <a href="/pl/teoria/protokoly-aplikacji.html">warstwy aplikacji</a> lub popularnym protokołom niższej warstwy, TCP lub UDP. Złożoność protokołów wysokiego poziomu pozwala napastnikom konstruować wiele rodzajów skomplikowanych wiadomości, które będą afektować rozmaite podatności bibliotek sieciowych w atakowanych systemach.</p>
+          <p>Bardziej skomplikowane ataki obierają na cel <a href="/pl/teoria/protokoly-tcp-ip.html">niższe warstwy</a> modelu sieciowego TCP/IP. Przykładowo, istnieje wiele narzędzi działająsych podobnie do popularnych programów typu ping. Wysyłają one olbrzymie ilości pakietów IP, w celu ograniczenia przepustowości sieci komputerowych. Pakiety mogą być poprawne (wtedy atak nazywa się <strong>ICMP flooding</strong>, ang. <i>powódź ICMP</i>) lub nieprawidłowe (co prowadzi do tak zwanego <strong>ataków Nuke</strong>).</p>
+          <p>Popularnym atakiem przeciwko niskopoziomowym warstwom jest tak zwany <strong>ping of death</strong> (ang. <i>ping śmierci</i>). Jest to specjalnie sformatowany pakiet ping, który prowadzi do zawieszenia się odbierających go komputerów.</p>
+          <h2 id="cel-ataku">Cel ataku</h2>
+          <p>Wyłączenie atakowanego komputera może być celem samym w sobie. Jest tak często w przypadku różnego rodzaju ataków politycznych, kiedy napastnicy chcą głównie zamanifestować swoją obecność i postulaty.</p>
+          <p>Często samo wyłączenie lub utrudnienie pracy wybranego komputera (lub nawet jedynie groźba uczynienia tego) jest wystarczające, jeśli napastnicy planują zażądanie okupu za zaprzestanie ataku.</p>
+          <p>Istnieją również dużo bardziej skomplikowane ataki DoS, w których wyłączenie usług online jest jedynie pierwszym krokiem. Atak będzie kontynuowany w celu wykorzystania istniejących (lub powstałych w wyniku zakłóconej pracy) podatności atakowanego systemu. Często po usunięciu oryginalnego serwera, napastnicy tworzą ich własny identycznie wyglądający serwer, który ma za zadanie imitowanie oryginalnego w Internecie. Posiadając fałszywą kopię systemu, napastnicy mogą wykorzystać ją do ukradzenia danych jego nieświadomych użytkowników.</p>
+          <p>Najbardziej szkodliwymi atakami są prawdopodobnie ataki, które skutkują uszkodzeniem sprzętu w afektowanym systemie. Są one nazywane atakami <strong>permanent denial-of-service</strong> lub <strong>phlashing</strong>iem. Dobrze zaprojektowany atak może wyłączyć elementy systemu, które są kluczowe dla poprawnego działania urządzeń mechanicznych, uszkadzając je w ten sposób i zmuszając administratorów do przeinstalowania oprogramowania lub wymiany sprzętu.</p>
+          <h2 id="ddos">DDoS (rozproszony DoS)</h2>
+          <p>Rozproszony Atak DoS (ang. <i>distributed denial-of-service</i>) polega na zalaniu atakowanego systemu wiadomościami wysłanymi równocześnie z olbrzymiej ilości innych maszyn, często znajdujących się w różnych miejscach, czasami rozsianych na całym świecie. Złożoność takiej akcji jest dużo większa, ze względu na konieczność skonfigurowania i skoordynowania bardzo wielu komputerów. Z drugiej strony, moc obliczeniowa wszystkich połączonych urządzeń jest również dużo większa, co czyni takie ataki znacznie niebezpieczniejszymi.</p>
+          <p>Dzięki zastosowaniu tysięcy komputerów, ilość wysłanych wiadomości, które muszą zostać obsłużone przez atakowany system, jest naprawdę olbrzymia. Obecnie, największe ataki DDoS generują terabity danych na sekundę.</p>
+          <h2 id="degradacja-dostepu">Degradacja dostępu</h2>
+          <p>Ataki Degradacji Dostępu (ang. <i>Degradation-of-Service</i>) są podobne do typowych ataków odmowy dostępu, z tą różnicą, że ich celem jest nie tyle całkowite zablokowanie serwera, ale raczej utrudnienie jego pracy i zredukowanie wydajności. Ilość wysłanych wiadomości jest dużo mniejsza, więc atakowany serwer powinien poradzić sobie ze zwiększonych obciążeniem.</p>
+          <p>Ataki tego typu nie są tak niebezpieczne jak normalne ataki DoS. Zamiarem atakującego jest zredukowanie wydajności atakowanego komputera, zasianie niezadowolenia wśród jego klientów i zmuszenie jego administratorów do konkretnych działań, w celu poprawy wydajności serwera. Wszystko to skutkuje zwiększonymi kosztami utrzymania i stratami finansowymi dotykającymi atakowany system.</p>
+          <p>Dobrze przeprowadzone ataki degradacji dostępu są zaprojektowane w taki sposób, że z punktu widzenia administratorów nie jest oczywiste czy jakikolwiek atak ma miejsce, czy też doświadczają oni jedynie wzmożonego ruchu.</p>
+          <h2 id="atak-odbijajacy-sfalszowany">Atak odbijający (sfałszowany)</h2>
+          <p>Atak Odbijający (ang. <i>reflected</i>), nazywany również Atakiem Sfałszowanym (ang. <i>spoofed</i>) jest podobny do <a href="#ddos">ataków DDoS</a> ponieważ on również polega na zalewaniu atakowanego systemu tysiącami wiadomości pochodzących z wielu różnych komputerów i lokalizacji. Różnica polega na tym, że napastnik nie wysyła ich bezpośrednio do atakowanego komputera, ale do innych maszyn, które odbijają je i przekierowują do ofiary.</p>
+          <p>Ataki tego typu są również określane jako <strong>DRDoS</strong> (co jest skrótem od angielskiego <i>distributed reflected denial-of-service</i>).</p>
+          <p>W celu przeprowadzenia tego ataku, należy przygotować specjalne wiadomości, z odpowiednimi polami w nagłówkach wskazującymi, że zostały one wysłane z komputera ofiary (czyli z fałszywym źródłowym adresem IP). Następnie, te wiadomości są przesyłane do wielu komputerów, często nie mających nic wspólnego z napastnikiem i znajdujących się w wielu miejscach na świecie. Z punktu widzenia serwerów, które je otrzymały wiadomości są niespodziewane, ale mniej lub bardziej prawidłowe. Jedyną sensowną reakcję jest wysłanie wiadomości zwrotnej do komputera ofiary, z informacją o błędzie. W wyniku tego, atakowany system otrzyma tysiące niespodziewanych wiadomości (komunikatów o błędach), które będzie musiał przetworzyć.</p>
+          <h2 id="ataki-slowloris">Ataki slowloris</h2>
+          <p>Podczas ataków Slowloris napastnik rzadko wysyła pakiety, za to w wielkich ilościach. Atakowany system musi utrzymywać wszystkie otwierane kanały komunikacji otwarte, ponieważ zostały one zainicjowane w całkowicie poprawny sposób. Nie istnieją wobec tego podstawy, aby przerwać nawiązane połączenia.</p>
+          <p>Sytuacja taka skutkuje zużyciem wszystkich dostępnych zasobów umożliwiających obsługę połączeń po stronie serwera.</p>
+          <p>Ataki tego typu wymagają od napastników użycia mniej zaawansowanego sprzętu oraz utrudniają zarówno wykrywanie jak i przeciwdziałanie istniejącym atakom.</p>
+          <h3 id="atak-dos-http-post">Atak DoS HTTP post</h3>
+          <p>Przykładem ataków tego typu są ataki DoS HTTP Post. Wiadomość HTTP wysłana przez napastnika zawiera <a href="/pl/teoria/protokoly-aplikacji.html">nagłówek HTTP</a> <em>Content-Length</em> z przypisaną do niego jakąś wielką liczbą.</p>
+          <p>Początek wiadomości (część zawierająca nagłówek) jest odbierana sprawnie przez atakowany serwer, ale reszta pakietu jest przesyłana do niego w małych częściach, w bardzo wolnym tempie. Z uwagi na fakt, że wiadomość jest poprawna, serwer nie może jej odrzucić i oddzielny proces utworzony na serwerze kontynuuje oczekiwanie na wolno przychodzące bajty.</p>
+          <p>Oczywiście, napastnik tworzy setki lub tysiące takich połączeń, zużywając zasoby atakowanego systemu.</p>
+          <h3 id="atak-ryjowki">Atak ryjówki</h3>
+          <p>Atak Ryjówki (ang. <i>shrew attack</i>) jest innym przykładem ataków DoS, które polegają na wysyłaniu wiadomości do atakowanego systemu w niewielkim tempie. Atak ten skierowany jest przeciwko protokołowi TCP, więc operuje na niższym poziomie niż atak DoS HTTP Post, opisany powyżej.</p>
+          <p>Napastnik wysyła wiadomości w specjalnie dobranym tempie, wykorzystując podatności mechanizmu retransmisji TCP. Połączenia TCP nie mogą zostać zamknięte, z racji trwającej komunikacji, co szybko prowadzi do zakłóceń całej komunikacji TCP.</p>
+          <h2 id="komputery-zombi">Komputery zombi</h2>
+          <p>Ataki DoS są często przeprowadzane pośrednio. Oznacza to, że wiadomości są wysyłane nie z komputera napastnika, ale z innych maszyn, które są przez niego kontrolowane. Takie maszyny noszą nazwę <em>zombi</em>, ponieważ ich prawdziwi użytkownicy nie mają nad nimi pełnej kontroli. komputery zombi są zwykle kontrolowane przez specjalne szkodliwe oprogramowanie, które oczekuje na rozkaz od ludzi, którzy go kontrolują. Po otrzymaniu stosownego polecenia, ukryte aplikacje zaczynają wysyłać pakiety do atakowanego systemu, w sposób, który również może zostać określony przez napastników. Użytkownicy pracujący na tych maszynach mogą nawet nie być świadomi, że uczestniczą w przeprowadzaniu ataku DoS.</p>
+          <p>Używanie komputerów zombi ma przynajmniej dwie zalety. Po pierwsze, umożliwia stworzenie wielkich sieci zainfekowanych komputerów, które wspólnie zaatakują wskazany system. Połączona moc obliczeniowa wielu (setek lub tysięcy) połączonych zombi, działających w skoordynowany sposób, jest dużo większa niż moc jakiejkolwiek innej sieci, która mogłaby być zbudowana przez napastników.</p>
+          <p>Po drugie, podobnie jak w przypadku innych ataków kryptograficznych, dodatkowa separacja pomiędzy atakowanym systemem a napastnikami utrudnia wszelkie działania obronne, które mogłyby być powzięte przez administratorów. Przykładowo, zablokowanie adresów IP komputerów zombi znajdujących się na całym świecie i należących do różnych dostawców jest dużo bardziej skomplikowane i ryzykowne niż zablokowanie dostępu z jednej tylko organizacji lub regionu.</p>
+          <h2 id="narzedzia">Narzędzia</h2>
+          <p>W Internecie dostępnych jest wiele narzędzi i aplikacji, które umożliwiają przeprowadzenie wielu typów ataków DoS. Umiejętnie szukając, można natrafić na przeróżne produkty, różniące się funkcjonalnościami i cenami. Jednymi z popularniejszych programów są <em>GCHQ</em>, <em>HOIC</em> lub <em>MyDoom</em>.</p>
+          <p>Warte wspomnienia są również dwa programy pochodzące z Wielkiej Brytanii, które umożliwiają organizowanie ataków DDoS: <em>Predators Face</em> oraz <em>Rolling Thunder</em>.</p>
+          <p>Istnieją również narzędzia, które można wykorzystać do przeprowadzania ataków Slowloris, jak <em>PyLoris</em>, <em>QSlowloris</em> i&nbsp;<em>Goloris</em>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/ataki/atak-silowy.html" rel="prev"><small>← Poprzedni</small>Atak siłowy</a>
+          <a class="pager__next" href="/pl/ataki/man-in-the-middle.html" rel="next"><small>Następny →</small>Atak man-in-the-middle</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fdos.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fdos.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fdos.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-ataki -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/ataki/">Ataki</a></h2>
+        <ul>
+          <li><a href="/pl/ataki/znany-tekst-jawny.html">Atak ze znanym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/wybrany-tekst-jawny.html">Atak z wybranym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/znany-szyfrogram.html">Atak z szyfrogramami</a></li>
+          <li><a href="/pl/ataki/wybrany-szyfrogram.html">Atak z wybranym szyfrogramem</a></li>
+          <li><a href="/pl/ataki/wybrany-klucz.html">Atak z wybranym kluczem</a></li>
+          <li><a href="/pl/ataki/atak-silowy.html">Atak siłowy</a></li>
+          <li><a href="/pl/ataki/dos.html" aria-current="page">DoS</a></li>
+          <li><a href="/pl/ataki/man-in-the-middle.html">Atak man-in-the-middle</a></li>
+          <li><a href="/pl/ataki/two-time-pad.html">Atak na two-time pad</a></li>
+          <li><a href="/pl/ataki/krack.html">Atak KRACK</a></li>
+          <li><a href="/pl/ataki/atak-statystyczny.html">Atak statystyczny</a></li>
+          <li><a href="/pl/ataki/meet-in-the-middle.html">Atak meet-in-the-middle</a></li>
+          <li><a href="/pl/ataki/metoda-powtorzenia.html">Atak metodą powtórzenia</a></li>
+          <li><a href="/pl/ataki/atak-homograficzny.html">Atak homograficzny</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-ataki -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/symetryczne/css.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS (Content Scramble System) | Symmetric Cipher | Crypto-IT</title>
+  <meta name="description" content="CSS is a symmetric stream cipher designed to protect DVD content.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/symmetric/css.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/css.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/css.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/css.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="CSS (Content Scramble System) | Symmetric Cipher">
+  <meta property="og:description" content="CSS is a symmetric stream cipher designed to protect DVD content.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/symmetric/css.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "CSS (Content Scramble System)",
+        "description": "CSS is a symmetric stream cipher designed to protect DVD content.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/symmetric/css.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Symmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Stream ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/stream-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "CSS (Content Scramble System)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/" aria-current="true">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/symetryczne/css.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/symmetric/">Symmetric ciphers</a></li>
+            <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">CSS (Content Scramble System)</h1>
+          <p class="article__subtitle">Stream cipher with symmetric secret key</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Key length = 40 bits</li>
+          </ul>
+          <p>CSS was presented by the DVD Forum organization in 1996, as a means to encrypt DVDs content.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>Because of its poor design, the effective key size is about 16 bits long.</p>
+          <p>It was compromised in 1999 by brute force attack. In this year, the <button type="button" class="note-ref" popovertarget="note-decss">DeCSS</button> application was published, which was able to quite fast break the CSS protection.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>CSS is a stream cipher. The internal state machine is initialized using a 5-byte long secret key. The state machine has 42 bits and contains two <button type="button" class="note-ref" popovertarget="note-lfsr">linear feedback shift registers - <strong>LFSR</strong></button>. The stream of bytes is generated by registers and added XOR to stream of input data. Before addition, data bytes are changing in a lookup table and keystream bytes move through optional inverters. There are some lookup tables defined and they contain different coefficients.</p>
+          <p>The CSS cipher is created to protect audiovisual data on DVDs. There are a few different keys in the whole CSS system. They are used to mutual authentication, encryption of sectors and whole files. Some keys are stored encrypted and they must be decrypted before usage (using CSS cipher, where the encrypted data are bytes of wanted secret key).</p>
+          <p>Because of many different types of tasks of CSS - working with audiovisual data and different kind of keys - a few modes of CSS algorithm exist. All of them are generally similar but there are some differences in detail (for example coefficients in tables).</p>
+          <p>When CSS algorithm decrypts one of the secret key, 5 encoded bytes of this key are mixed with bytes received from registers in more complicated way. Instead of simple lookup tables and addition XOR with keystream, there is a key mangling operation. Each byte goes through two lookup tables and is added XOR twice with one byte from keystream.</p>
+          <h2 id="css-modes">CSS Modes</h2>
+          <ul>
+           <li>authentication and establishing connection - the host establishes communication with DVD and both sides create a bus key,</li>
+           <li>disc key decryption - the host receives and decrypts a disc key using one of its player keys,</li>
+           <li>title key decryption - the host receives and decrypts a title key using the obtained disc key,</li>
+           <li>audiovisual data decryption - using the obtained title key and a sector key read from a DVD, the host decrypts audiovisual data stored in one sector of the DVD.</li>
+          </ul>
+          <h2 id="css-keys">CSS Keys</h2>
+          <ul>
+           <li>player keys - stored in a DVD driver; they are used for decryption of a disc key (which is stored on DVD),</li>
+           <li>disk key - encrypted on DVD and decrypted by the DVD driver using its player keys; it is used for decryption of a title key,</li>
+           <li>sector key - stored unencrypted in each sector of the DVD and read by the DVD driver; it is used together with a title key for decryption of audiovisual data in one DVD sector,</li>
+           <li>title keys - encrypted on DVD and decrypted by the DVD driver using the disc key obtained earlier; they are used for decryption of audiovisual data,</li>
+           <li>session key or bus key - random key created during authentication between the host and DVD drive; it is used for encryption of future communication between them.</li>
+          </ul>
+          <h2 id="css-system">CSS System</h2>
+          <p>The whole CSS system consists of three elements: a DVD, a DVD driver and a host (a computer, an application for playing DVDs).</p>
+          <p>Every DVD contains an encoded unique disc key. Similarly, each DVD driver has a few player keys. Each DVD has a hidden sector, which contains a disc key encrypted in many copies using each of the 409 existing player keys. On writeable DVDs, the hidden sector is cleared and can't be changed. A DVD driver tries to read a DVD and uses its player keys to decrypt one of the copy of the encrypted disc key on DVD.</p>
+          <p>After each try and obtaining a result, which may be a correct disc key, the DVD driver performs the following test: using received 5 bytes, which may be a disc key it tries to decrypt a test sequence (stored on DVD), which is the real disc key, encrypted using the real disc key. If the DVD driver receives the same 5 bytes like the 5 bytes it used as a key, then it is certain that those 5 bytes are the real and correct disc key.</p>
+          <p>A DVD contains usually a few encoded title keys. Each of them protect one part of the movie, called <span class="term">VTS</span> (Video Title Set). Each <span class="term">VTS</span> contains a set of files named as <span class="term">VTS_AA_B.CCC</span>, where every <span class="term">A</span> and <span class="term">B</span> means one digit. <span class="term">CCC</span> may be one of three possible file extensions: (<span class="term">.VOB</span>, <span class="term">.BUP</span> or <span class="term">.IFO</span>). All the files which have the same number <span class="term">AA</span> belong to the same <span class="term">VTS</span>. Title keys are decrypted using the disc key.</p>
+          <p>Each data sector on DVD is 2048-byte long (so it has the same size as sectors on CD-ROMs). A sector starts with a MPEG-2 PACK header, 128-byte long. After the header there are either audiovisual data (called stream data; for example MPEG-2 data or AC-3 data) or other information (PCI or DSI). A sector key is stored unencrypted in bytes 80-84 in the header.</p>
+          <p>If a sector contains audiovisual data, then after the MPEG-2 PACK header it is stored a header of audiovisual data (stream header), which contains 2 bits determining encryption type.</p>
+          <ul>
+           <li>00 - no encryption</li>
+           <li>01 - CSS encryption</li>
+           <li>10 - reserved/not used</li>
+           <li>11 - CPRM encryption</li>
+          </ul>
+          <p>If a sector doesn't contain audiovisual data, those bits are not stored in this sector (because not-stream data are not encrypted).</p>
+          <p>For decryption of data stored on DVD, they are used two keys - a sector key (different value for every sector) and a title key (each DVD contains usually a few title keys, one for each <span class="term">VTS</span>). First two bytes of the title key are added XOR with two first bytes of the sector key (bytes 80-81 of the sector header) and then passed into the <var>LFSR-17</var> register. Last three bytes of the title key are added XOR with three last bytes of the sector key (bytes 82-84 of the sector header) and passed into the <var>LFSR-25</var> register. The host obtains the title key using the disc key decrypted earlier.</p>
+          <p>On each DVD it is stored also a region code, which determine a part of world where the DVD can be played.</p>
+          <h2 id="css-protocol">CSS Protocol</h2>
+          <ol class="steps">
+           <li>
+           Mutual authentication
+           <p>For decryption of a DVD in a DVD driver, a host must authenticate itself to the DVD using a challenge-response protocol and CSS encryption. Theoretically, the DVD must also authenticate itself to the host, however a host's application usually skips this checking. During the authentication both sides use a predefined authentication key - <span class="term">F4 10 45 A3 E2</span>.</p>
+           <p>The authentication requires the following steps:</p>
+           <ol class="steps">
+           <li>The host receives an AGID (Authentication Grant ID) number from the DVD drive. AGID is used as a session ID for the current communication. <button type="button" class="note-ref" popovertarget="note-request-for-agid">Click here to find out more.</button></li>
+           <li>The host generates 10 random bytes and sends them to the DVD driver. The driver encrypts them and sends back to the host 5-byte long sequence. <button type="button" class="note-ref" popovertarget="note-challenge-for-drive">Click here to find out more.</button></li>
+           <li>The host decrypts driver's answer and checks if the result is the same as challenge previously sent to the driver. The DVD driver can answer using one of 32 variants, so the host must make 32 tests to check which of them has been chosen by the driver. <button type="button" class="note-ref" popovertarget="note-calculate-variant">Click here to find out more.</button></li>
+           <li>The DVD driver generates a random 10-byte long sequence and sends it to the host. The host encrypts it. <button type="button" class="note-ref" popovertarget="note-challenge-from-drive">Click here to find out more.</button></li>
+           <li>The host sends back to the driver the encrypted sequence - the new key <span class="term">KEY2</span>. <button type="button" class="note-ref" popovertarget="note-response-for-drive">Click here to find out more.</button></li>
+           <p>At this point, both the host and driver know all 10 bytes - two keys created by the host and the driver. The bus key is created by encryption using the 10-byte long sequence using CSS in mode 3. It is 5-byte long and prevents to eavesdrop future communication (particularly sending title and disc keys).</p>
+           <li>The host reads a disk key from a hidden sector on DVD. <button type="button" class="note-ref" popovertarget="note-reading-disk-key">Click here to find out more.</button></li>
+           <p>If the last step is succeeded, the host will be able to read a DVD using ordinary commands SCSI <span class="term">read</span>. Otherwise, the authentication fails.</p>
+           </ol>
+           </li>
+           <li>
+           Decoding a disk key
+           <p>A DVD driver decrypts a disc key from a DVD using all its player keys. Each manufacturer of DVD drivers usually possesses one or a few player keys and uses them in his products.</p>
+           </li>
+           <li>
+           Reading and decoding title keys
+           <p>Encrypted title keys are sent from a DVD to a host. Transmitting of title keys, as well as the entire transmission in general, is encrypted using a bus key.</p>
+           </li>
+           <li>
+           Sending encrypted data
+           <p>A host reads from a DVD the whole sector of encrypted data.</p>
+           </li>
+           <li>
+           Decoding encrypted data
+           <p>A host decrypts the whole sector using an obtained title key and a sector key stored in the header of each DVD sector.</p>
+           </li>
+          </ol>
+          <h2 id="block-diagram-of-css-algorithm-for-audiovisual-data">Block Diagram of CSS Algorithm for Audiovisual Data</h2>
+          <figure class="figure"><img src="/assets/img/css/algorithm-scheme-eng.webp" alt="Scheme of CSS algorithm for stream data" width="605" height="265" loading="lazy"></figure>
+          <h2 id="block-diagram-of-css-algorithm-for-key-bytes">Block Diagram of CSS Algorithm for Key Bytes</h2>
+          <figure class="figure"><img src="/assets/img/css/algorithm-key-scheme-eng.webp" alt="Scheme of CSS algorithm for keys" width="605" height="265" loading="lazy"></figure>
+          <h2 id="block-diagram-of-css-additional-encryption-of-keys">Block Diagram of CSS Additional Encryption of Keys</h2>
+          <figure class="figure"><img src="/assets/img/css/key-encryption-eng.webp" alt="Scheme of CSS additional key encryption" width="828" height="604" loading="lazy"></figure>
+          <h2 id="block-diagram-of-css-lfsr-registers">Block Diagram of CSS LFSR Registers</h2>
+          <figure class="figure"><img src="/assets/img/css/lfsr-out-scheme-eng.webp" alt="Scheme of LFSR working" width="673" height="367" loading="lazy"></figure>
+          <h2 id="maths">Maths</h2>
+          <h3 id="initialisation-of-registers">Initialisation of Registers</h3>
+          <p>Based on the secret 40-bit long key, two <button type="button" class="note-ref" popovertarget="note-lfsr">linear feedback shift registers - <strong>LFSR</strong></button>, <var>LFSR-17</var> (17-bit length) and <var>LFSR-25</var> (25-bit length) and one more additional bit <var>CC</var> are created.</p>
+          <p>All 40 bits are divided into two LFSR registers. By assigning one letter to each bit of the key, the first order of bits may be presented as below:</p>
+          <p><span class="math"> KEY = jklmnopq abcdefgh QRSTUWXY IJKLMNOP ABCDEFGH</span><br> <span class="math"> LFSR-17 = q ponmlkji hgfedcba</span><br> <span class="math"> LFSR-25 = Y XWVUTSRQ PONMLKJI HGFEDCBA</span></p>
+          <p>Bits in LFSR registers are filled in the reverse order as in the key.</p>
+          <p>Bits <var>V</var> and <var>i</var> are set to <span class="math">1</span> (to prevent <button type="button" class="note-ref" popovertarget="note-null-cycling">initialisation of the LFSR registers by zeros</button>) and bit <var>CC</var> is set to <span class="math">0</span>.</p>
+          <h3 id="lfsr-17-operations">LFSR-17 Operations</h3>
+          <p>Bits are shifted right by one position. A new bit which appears in the leftmost position of the register and at the output is a sum of the first and fifteenth bits.</p>
+          <figure class="figure">
+           <img src="/assets/img/css/lfsr17-eng.webp" alt="Rejestr LFSR-17" width="510" height="253" loading="lazy">
+           <figcaption>LFSR-17 register operations</figcaption>
+          </figure>
+          <h3 id="lfsr-25-operations">LFSR-25 Operations</h3>
+          <p>Bits are shifted right by one position. A new bit which appears in the leftmost position of the register and at the output is a sum of four bits from the register.</p>
+          <figure class="figure">
+           <img src="/assets/img/css/lfsr25-eng.webp" alt="Rejestr LFSR-25" width="567" height="276" loading="lazy">
+           <figcaption>LFSR-25 register operations</figcaption>
+          </figure>
+          <h3 id="inverter-modes">Inverter Modes</h3>
+          <p>Depending on the current CSS mode, the inverters reverse or do not reverse output bits from <var>LFSR</var> registers.</p>
+          <p>The following table presents which registers and in which CSS modes reverse order of bits in each byte.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix table--bold">
+           <caption>Table of inverters operations</caption>
+           <tr>
+           <th><div>Mode</div></th>
+           <th><div>LFSR-17</div></th>
+           <th><div>LFSR-25</div></th>
+           </tr>
+           <tr>
+           <td>Authentication</td>
+           <td>yes</td>
+           <td>no</td>
+           </tr>
+           <tr>
+           <td>Disc key</td>
+           <td>no</td>
+           <td>no</td>
+           </tr>
+           <tr>
+           <td>Title key</td>
+           <td>no</td>
+           <td>yes</td>
+           </tr>
+           <tr>
+           <td>Audiovisual data</td>
+           <td>yes</td>
+           <td>no</td>
+           </tr>
+           </table>
+          </div>
+          <h3 id="lookup-table">Lookup Table</h3>
+          <p>Each byte for encryption or decryption is replaced by another byte, based on one of five lookup tables using in CSS. There are different tables for encryption and decryption and different tables for different CSS modes.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>Lookup table for decrypting of audiovisual data from a DVD</caption>
+           <tr>
+           <td>33</td>
+           <td>73</td>
+           <td>3B</td>
+           <td>26</td>
+           <td>63</td>
+           <td>23</td>
+           <td>6B</td>
+           <td>76</td>
+           <td>3E</td>
+           <td>7E</td>
+           <td>36</td>
+           <td>2B</td>
+           <td>6E</td>
+           <td>2E</td>
+           <td>66</td>
+           <td>7B</td>
+           </tr>
+           <tr>
+           <td>D3</td>
+           <td>93</td>
+           <td>DB</td>
+           <td>06</td>
+           <td>43</td>
+           <td>03</td>
+           <td>4B</td>
+           <td>96</td>
+           <td>DE</td>
+           <td>9E</td>
+           <td>D6</td>
+           <td>0B</td>
+           <td>4E</td>
+           <td>0E</td>
+           <td>46</td>
+           <td>9B</td>
+           </tr>
+           <tr>
+           <td>57</td>
+           <td>17</td>
+           <td>5F</td>
+           <td>82</td>
+           <td>C7</td>
+           <td>87</td>
+           <td>CF</td>
+           <td>12</td>
+           <td>5A</td>
+           <td>1A</td>
+           <td>52</td>
+           <td>8F</td>
+           <td>CA</td>
+           <td>8A</td>
+           <td>C2</td>
+           <td>1F</td>
+           </tr>
+           <tr>
+           <td>D9</td>
+           <td>99</td>
+           <td>D1</td>
+           <td>00</td>
+           <td>49</td>
+           <td>09</td>
+           <td>41</td>
+           <td>90</td>
+           <td>D8</td>
+           <td>98</td>
+           <td>D0</td>
+           <td>01</td>
+           <td>48</td>
+           <td>08</td>
+           <td>40</td>
+           <td>91</td>
+           </tr>
+           <tr>
+           <td>3D</td>
+           <td>7D</td>
+           <td>35</td>
+           <td>24</td>
+           <td>6D</td>
+           <td>2D</td>
+           <td>65</td>
+           <td>74</td>
+           <td>3C</td>
+           <td>7C</td>
+           <td>34</td>
+           <td>25</td>
+           <td>6C</td>
+           <td>2C</td>
+           <td>64</td>
+           <td>75</td>
+           </tr>
+           <tr>
+           <td>DD</td>
+           <td>9D</td>
+           <td>D5</td>
+           <td>04</td>
+           <td>4D</td>
+           <td>0D</td>
+           <td>45</td>
+           <td>94</td>
+           <td>DC</td>
+           <td>9C</td>
+           <td>D4</td>
+           <td>05</td>
+           <td>4C</td>
+           <td>0C</td>
+           <td>44</td>
+           <td>95</td>
+           </tr>
+           <tr>
+           <td>59</td>
+           <td>19</td>
+           <td>51</td>
+           <td>80</td>
+           <td>C9</td>
+           <td>89</td>
+           <td>C1</td>
+           <td>10</td>
+           <td>58</td>
+           <td>18</td>
+           <td>50</td>
+           <td>81</td>
+           <td>C8</td>
+           <td>88</td>
+           <td>C0</td>
+           <td>11</td>
+           </tr>
+           <tr>
+           <td>D7</td>
+           <td>97</td>
+           <td>DF</td>
+           <td>02</td>
+           <td>47</td>
+           <td>07</td>
+           <td>4F</td>
+           <td>92</td>
+           <td>DA</td>
+           <td>9A</td>
+           <td>D2</td>
+           <td>0F</td>
+           <td>4A</td>
+           <td>0A</td>
+           <td>42</td>
+           <td>9F</td>
+           </tr>
+           <tr>
+           <td>53</td>
+           <td>13</td>
+           <td>5B</td>
+           <td>86</td>
+           <td>C3</td>
+           <td>83</td>
+           <td>CB</td>
+           <td>16</td>
+           <td>5E</td>
+           <td>1E</td>
+           <td>56</td>
+           <td>8B</td>
+           <td>CE</td>
+           <td>8E</td>
+           <td>C6</td>
+           <td>1B</td>
+           </tr>
+           <tr>
+           <td>B3</td>
+           <td>F3</td>
+           <td>BB</td>
+           <td>A6</td>
+           <td>E3</td>
+           <td>A3</td>
+           <td>EB</td>
+           <td>F6</td>
+           <td>BE</td>
+           <td>FE</td>
+           <td>B6</td>
+           <td>AB</td>
+           <td>EE</td>
+           <td>AE</td>
+           <td>E6</td>
+           <td>FB</td>
+           </tr>
+           <tr>
+           <td>37</td>
+           <td>77</td>
+           <td>3F</td>
+           <td>22</td>
+           <td>67</td>
+           <td>27</td>
+           <td>6F</td>
+           <td>72</td>
+           <td>3A</td>
+           <td>7A</td>
+           <td>32</td>
+           <td>2F</td>
+           <td>6A</td>
+           <td>2A</td>
+           <td>62</td>
+           <td>7F</td>
+           </tr>
+           <tr>
+           <td>B9</td>
+           <td>F9</td>
+           <td>B1</td>
+           <td>A0</td>
+           <td>E9</td>
+           <td>A9</td>
+           <td>E1</td>
+           <td>F0</td>
+           <td>B8</td>
+           <td>F8</td>
+           <td>B0</td>
+           <td>A1</td>
+           <td>E8</td>
+           <td>A8</td>
+           <td>E0</td>
+           <td>F1</td>
+           </tr>
+           <tr>
+           <td>5D</td>
+           <td>1D</td>
+           <td>55</td>
+           <td>84</td>
+           <td>CD</td>
+           <td>8D</td>
+           <td>C5</td>
+           <td>14</td>
+           <td>5C</td>
+           <td>1C</td>
+           <td>54</td>
+           <td>85</td>
+           <td>CC</td>
+           <td>8C</td>
+           <td>C4</td>
+           <td>15</td>
+           </tr>
+           <tr>
+           <td>BD</td>
+           <td>FD</td>
+           <td>B5</td>
+           <td>A4</td>
+           <td>ED</td>
+           <td>AD</td>
+           <td>E5</td>
+           <td>F4</td>
+           <td>BC</td>
+           <td>FC</td>
+           <td>B4</td>
+           <td>A5</td>
+           <td>EC</td>
+           <td>AC</td>
+           <td>E4</td>
+           <td>F5</td>
+           </tr>
+           <tr>
+           <td>39</td>
+           <td>79</td>
+           <td>31</td>
+           <td>20</td>
+           <td>69</td>
+           <td>29</td>
+           <td>61</td>
+           <td>70</td>
+           <td>38</td>
+           <td>78</td>
+           <td>30</td>
+           <td>21</td>
+           <td>68</td>
+           <td>28</td>
+           <td>60</td>
+           <td>71</td>
+           </tr>
+           <tr>
+           <td>B7</td>
+           <td>F7</td>
+           <td>BF</td>
+           <td>A2</td>
+           <td>E7</td>
+           <td>A7</td>
+           <td>EF</td>
+           <td>F2</td>
+           <td>BA</td>
+           <td>FA</td>
+           <td>B2</td>
+           <td>AF</td>
+           <td>EA</td>
+           <td>AA</td>
+           <td>E2</td>
+           <td>FF</td>
+           </tr>
+           </table>
+          </div>
+          <div class="note" id="note-lfsr" popover>
+           <p>Linear Feedback Shift Registers - <strong>LFSR</strong> - it is a shift register, whose input bit is a linear function of its previous state.</p>
+           <p>The most popular linear function of single bits is XOR, so usually the input bit to LFSR is driven by the XOR function called for register's bits. The initial value of the LFSR is called the seed. All operations of the register are deterministic because next values produced by the register are completely determined by its current state. Because the register has a finite number of possible states, after some time it begins to produce repeating values.</p>
+           <p>LFSR registers are commonly used in counters, applications for generating pseudo-random numbers, in telecommunication and cryptography. Both software and hardware implementations are popular.</p>
+           <button type="button" class="note__close" popovertarget="note-lfsr" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-decss" popover>
+           <p>Before breaking the CSS, there aren't any DVD players working in Linux environment. It was caused by huge license fees, which must be paid to the owners of CSS rights by producers of hardware and software. After publishing a code of DeCSS in the Internet, global corporations have been trying unsuccessfully to block sharing the application.</p>
+           <button type="button" class="note__close" popovertarget="note-decss" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-null-cycling" popover>
+           <p>Initialisation of the <strong>LFSR</strong> register by zeros causes that it will be producing only zeros and its state will remain zero.</p>
+           <button type="button" class="note__close" popovertarget="note-null-cycling" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-request-for-agid" popover>
+           <p>The host sends SCSI command <span class="term">REPORT_KEY</span> with subcode <span class="term">INVALIDATE_AGID</span> to reset the drive.</p>
+           <p>Then it sends the same command <span class="term">REPORT_KEY</span> with subcode <span class="term">GET_AGID</span>, to obtain the <span>AGID</span> number.</p>
+           <p>The <span class="term">AGID</span> value may be either <span class="term">0x00</span>, <span class="term">0x40</span>, <span class="term">0x80</span> or <span class="term">0xC0</span>.</p>
+           <p>This number is added to subcodes in next SCSI commands <span class="term">REPORT_KEY</span> and <span class="term">SEND_KEY</span> to provide identification of the application to the drive.</p>
+           <button type="button" class="note__close" popovertarget="note-request-for-agid" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-challenge-for-drive" popover>
+           <p>The host sends SCSI command <span class="term">SEND_KEY</span> with subcode <span class="term">SEND_CHALLENGE_KEY</span> and <span class="term">AGID</span> number. It attachs a random (10-byte long) challenge sequence.</p>
+           <p>Then it sends SCSI command <span class="term">REPORT_KEY</span> with subcode <span class="term">GET_KEY1</span> and <span class="term">AGID</span> number.</p>
+           <p>The host receives from the driver 5-byte long response - a key <span class="term">KEY1</span>.</p>
+           <button type="button" class="note__close" popovertarget="note-challenge-for-drive" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-calculate-variant" popover>
+           <p>The host determines the variant which is used by the driver, by encrypting its challenge (10-byte long). It uses CSS algorithm in mode 3 for key <span class="term">KEY1</span>.</p>
+           <p>The host encrypts the challenge 32 times, once for each variant (from 0 to 31). Then it takes the variant for which <span class="term">KEY1</span> received from the driver and <span class="term">KEY1</span> calculated by itself are the same.</p>
+           <button type="button" class="note__close" popovertarget="note-calculate-variant" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-challenge-from-drive" popover>
+           <p>The host sends SCSI command <span class="term">REPORT_KEY</span> with subcode <span class="term">GET_CHALLENGE</span> and <span class="term">AGID</span> number.</p>
+           <p>The driver returns a 10-byte long challenge.</p>
+           <p>Then the host encrypts the challenge using CSS algorithm in mode 3 for key <span class="term">KEY2</span> and the variant calculated in the previous step. The result is a 5-byte long <span class="term">KEY2</span>.</p>
+           <button type="button" class="note__close" popovertarget="note-challenge-from-drive" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-response-for-drive" popover>
+           <p>The host sends <span class="term">KEY2</span> to the DVD driver using SCSI command <span class="term">SEND_KEY</span> with the subcode <span class="term">SEND_KEY2</span> and <span class="term">AGID</span> number.</p>
+           <p>The bus key is calculated using the CSS algorithm in mode 3 for bus key (<span class="term">BUSKEY</span>) and using the variant specified before. Keys <span class="term">KEY1</span> and <span class="term">KEY2</span> are concatenated and sent to encryption. A 5-byte long bus key is received as a result.</p>
+           <button type="button" class="note__close" popovertarget="note-response-for-drive" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-reading-disk-key" popover>
+           <p>The host sends to the driver an SCSI command <span class="term">READ_DVD_STRUCTURE</span> with subcodes <span class="term">GET_DISK_KEY</span> and <span class="term">AGID</span> number.</p>
+           <p>The received disc key is adding XOR with the bus key.</p>
+           <button type="button" class="note__close" popovertarget="note-reading-disk-key" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/symmetric/salsa20.html" rel="prev"><small>← Previous</small>Salsa20</a>
+          <a class="pager__next" href="/eng/symmetric/block-ciphers.html" rel="next"><small>Next →</small>Block ciphers</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fcss.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fcss.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fcss.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/symmetric/">Symmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/otp.html">OTP</a></li>
+              <li><a href="/eng/symmetric/rc4.html">RC4</a></li>
+              <li><a href="/eng/symmetric/salsa20.html">Salsa20</a></li>
+              <li><a href="/eng/symmetric/css.html" aria-current="page">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/des.html">DES</a></li>
+              <li><a href="/eng/symmetric/rc2.html">RC2</a></li>
+              <li><a href="/eng/symmetric/3des.html">Triple DES</a></li>
+              <li><a href="/eng/symmetric/aes.html">AES</a></li>
+              <li><a href="/eng/symmetric/blowfish.html">Blowfish</a></li>
+              <li><a href="/eng/symmetric/camellia.html">Camellia</a></li>
+              <li><a href="/eng/symmetric/serpent.html">Serpent</a></li>
+              <li><a href="/eng/symmetric/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

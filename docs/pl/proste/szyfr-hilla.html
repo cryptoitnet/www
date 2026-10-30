@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/hill-cipher.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfr Hilla | Poligramowy Szyfr Podstawieniowy | Crypto-IT</title>
+  <meta name="description" content="Szyfr Hilla jest poligramowym szyfrem podstawieniowym, który zastępuje każdą parę liter tekstu jawnego inną parą liter, określoną za pomocą jednej tabeli.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/szyfr-hilla.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/hill-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-hilla.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/hill-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfr Hilla | Poligramowy Szyfr Podstawieniowy">
+  <meta property="og:description" content="Szyfr Hilla jest poligramowym szyfrem podstawieniowym, który zastępuje każdą parę liter tekstu jawnego inną parą liter, określoną za pomocą jednej tabeli.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/szyfr-hilla.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfr Hilla",
+        "description": "Szyfr Hilla jest poligramowym szyfrem podstawieniowym, który zastępuje każdą parę liter tekstu jawnego inną parą liter, określoną za pomocą jednej tabeli.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/szyfr-hilla.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Poligramowe szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/poligramowe-szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Szyfr Hilla"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/hill-cipher.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a></li>
+            <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfr Hilla</h1>
+          <p class="article__subtitle">Poligramowy szyfr podstawieniowy</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Szyfr&nbsp;ten jest uważany za&nbsp;pierwszy podstawieniowy szyfr poligramowy, w którym da&nbsp;się praktycznie i&nbsp;efektywnie operować na&nbsp;więcej niż trzech znakach równocześnie.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Szyfr Hilla został stworzony w roku&nbsp;1929 przez Lestera S.&nbsp;Hilla, amerykańskiego matematyka.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>W szyfrowaniu za&nbsp;pomocą szyfru Hilla każdej literze alfabetu łacińskiego przyporządkowuje się unikalny numer, z&nbsp;przedziału od&nbsp;0 do&nbsp;25. Najczęściej stosowane jest najprostsze przyporządkowanie (A&nbsp;=&nbsp;0, B&nbsp;=&nbsp;1,&nbsp;..., Z&nbsp;=&nbsp;25), ale można wybrać również inną kombinację.</p>
+          <p>Tekst jawny jest na&nbsp;początku dzielony na <span class="term">n</span>-literowe bloki tekstu. Szyfrowanie polega na&nbsp;przemnożeniu wszystkich bloków tekstu jawnego przez jedną sekretną macierz o&nbsp;wymiarach <span class="term">n&nbsp;x&nbsp;n</span>, zawierającą również liczby z&nbsp;przedziału od&nbsp;0 do&nbsp;25. Wszystkie liczby powstałe w wyniku mnożenia powinny być podzielone modulo przez&nbsp;26. Macierz może być zdefiniowana na&nbsp;podstawie sekretnego słowa kluczowego, które zawiera <span class="term">n<sup>2</sup></span>&nbsp;liter (wystarczy zignorować pozostałe niepotrzebne litery).</p>
+          <p>Algorytm używany do&nbsp;deszyfrowania jest podobny do&nbsp;procesu enkrypcji. Należy podzielić szyfrogram na&nbsp;bloki (każdy z <span class="term">n</span>&nbsp;literami), a następnie mnożyć bloki z&nbsp;macierzą odwrotną modulo&nbsp;26 do&nbsp;macierzy użytej podczas szyfrowania.</p>
+          <h3 id="szyfrowanie-i-deszyfrowanie">Szyfrowanie i deszyfrowanie</h3>
+          <p>Aby zaszyfrować wiadomość o&nbsp;treści <i>vino</i> przy użyciu macierzy <span class="term">2&nbsp;x&nbsp;2</span>, należy podzielić ją na&nbsp;dwa dwuliterowe bloki i&nbsp;zamienić litery na&nbsp;liczby według standardowego przyporządkowania A&nbsp;=&nbsp;0, B&nbsp;=&nbsp;1,&nbsp;…, Z&nbsp;=&nbsp;25 (V&nbsp;=&nbsp;21, I&nbsp;=&nbsp;8, N&nbsp;=&nbsp;13, O&nbsp;=&nbsp;14):</p>
+          <div class="equation"><table class="eq-matrix"><tbody><tr><td>V</td></tr><tr><td>I</td></tr></tbody></table><span>,</span><table class="eq-matrix"><tbody><tr><td>N</td></tr><tr><td>O</td></tr></tbody></table><span>→</span><table class="eq-matrix"><tbody><tr><td>21</td></tr><tr><td>8</td></tr></tbody></table><span>,</span><table class="eq-matrix"><tbody><tr><td>13</td></tr><tr><td>14</td></tr></tbody></table></div>
+          <p>Jako sekretny klucz przyjęto poniższą macierz:</p>
+          <div class="equation"><span>K =</span><table class="eq-matrix"><tbody><tr><td>3</td><td>3</td></tr><tr><td>2</td><td>5</td></tr></tbody></table></div>
+          <p>Jej wyznacznik wynosi 3·5&nbsp;−&nbsp;3·2&nbsp;=&nbsp;9, a&nbsp;odwrotnością liczby 9 modulo&nbsp;26 jest 3 (ponieważ 9·3&nbsp;=&nbsp;27&nbsp;≡&nbsp;1). Po&nbsp;pomnożeniu macierzy dołączonej przez&nbsp;3 i&nbsp;redukcji modulo&nbsp;26 otrzymuje się macierz odwrotną klucza, używaną podczas deszyfrowania:</p>
+          <div class="equation"><span>K<sup>-1</sup> =</span><table class="eq-matrix"><tbody><tr><td>15</td><td>17</td></tr><tr><td>20</td><td>9</td></tr></tbody></table></div>
+          <p>Szyfrowanie polega na&nbsp;przemnożeniu każdego bloku tekstu jawnego przez&nbsp;macierz klucza:</p>
+          <div class="equation"><span>K</span><span>×</span><table class="eq-matrix"><tbody><tr><td>21</td></tr><tr><td>8</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>87 mod 26</td></tr><tr><td>82 mod 26</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>9</td></tr><tr><td>4</td></tr></tbody></table></div>
+          <div class="equation"><span>K</span><span>×</span><table class="eq-matrix"><tbody><tr><td>13</td></tr><tr><td>14</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>81 mod 26</td></tr><tr><td>96 mod 26</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>3</td></tr><tr><td>18</td></tr></tbody></table></div>
+          <p>Wynikiem są liczby <i>9 4 3 18</i>, czyli szyfrogram <i>jeds</i>. Deszyfrowanie przebiega analogicznie: litery szyfrogramu są zamieniane na&nbsp;liczby, dzielone na&nbsp;dwa bloki i&nbsp;mnożone przez&nbsp;macierz odwrotną klucza&nbsp;<span class="term">K<sup>-1</sup></span>:</p>
+          <div class="equation"><span>K<sup>-1</sup></span><span>×</span><table class="eq-matrix"><tbody><tr><td>9</td></tr><tr><td>4</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>203 mod 26</td></tr><tr><td>216 mod 26</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>21</td></tr><tr><td>8</td></tr></tbody></table></div>
+          <div class="equation"><span>K<sup>-1</sup></span><span>×</span><table class="eq-matrix"><tbody><tr><td>3</td></tr><tr><td>18</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>351 mod 26</td></tr><tr><td>222 mod 26</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>13</td></tr><tr><td>14</td></tr></tbody></table></div>
+          <p>Cztery otrzymane liczby <i>21 8 13 14</i> odpowiadają oryginalnemu tekstowi <i>vino</i>.</p>
+          <h2 id="sila-szyfru-hilla">Siła szyfru Hilla</h2>
+          <p>Podstawowa wersja szyfru Hilla jest podatna na <a href="/pl/ataki/znany-tekst-jawny.html">ataki ze&nbsp;znanym tekstem jawnym</a>, ponieważ cały proces enkrypcji jest liniowy. Napastnik, który dysponuje <span class="term">n<sup>2</sup></span> parami liter odpowiadających sobie znaków tekstu jawnego i&nbsp;szyfrogramu może zbudować liniowy system równań, stosunkowo łatwy do&nbsp;rozwiązania. Dodając parę dodatkowych par, umożliwia się wybranie właściwego rozwiązania, w&nbsp;przypadku otrzymania więcej niż jednego. Rozwiązywanie równań liniowych zajmuje zwykle mało czasu i&nbsp;nie jest skomplikowane.</p>
+          <h2 id="liczba-mozliwych-kluczy-szyfrujacych">Liczba możliwych kluczy szyfrujących</h2>
+          <p>Istnieje <span class="term">26<sup>n<sup>2</sup></sup></span>&nbsp;różnych macierzy o&nbsp;wymiarach <span class="term">n&nbsp;x&nbsp;n</span>, które zawierają jedynie numery od&nbsp;0 do&nbsp;26. Jednakże, aby macierz mogła być sekretnym kluczem szyfrującym, musi być odwracalna.</p>
+          <p>Ilość odwracalnych macierzy może zostać określona przy&nbsp;użyciu <em>chińskiego twierdzenia o resztach</em> (ang. <i>the&nbsp;Chinese Remainder Theorem</i>). Macierz jest odwracalna modulo&nbsp;26 wtedy i&nbsp;tylko wtedy jeśli jest odwracalna modulo&nbsp;13 i modulo&nbsp;2.</p>
+          <p>Liczba macierzy odwracalnych <span class="term">n&nbsp;x&nbsp;n</span> modulo&nbsp;2 jest określona przez&nbsp;rząd pełnej grupy liniowej <span class="term">GL(n,Z<sub>2</sub>)</span>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">2<sup>n<sup>2</sup></sup>(1&nbsp;-&nbsp;1/2) (1&nbsp;-&nbsp;1/2<sup>2</sup>) ... (1&nbsp;-&nbsp;1/2<sup>n</sup>)</span></p>
+          <p>Podobnie, liczba macierzy odwracalnych <span class="term">n&nbsp;x&nbsp;n</span> modulo&nbsp;13 może być obliczona w&nbsp;podobny sposób:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">13<sup>n<sup>2</sup></sup>(1&nbsp;-&nbsp;1/13) (1&nbsp;-&nbsp;1/13<sup>2</sup>) ... (1&nbsp;-&nbsp;1/13<sup>n</sup>)</span></p>
+          <p>Wreszcie, można określić ilość możliwych macierzy odwracalnych modulo&nbsp;26, która jest równa iloczynowi dwóch poprzednich wielkości:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">26<sup>n<sup>2</sup></sup>(1&nbsp;-&nbsp;1/2) (1&nbsp;-&nbsp;1/2<sup>2</sup>) ... (1&nbsp;-&nbsp;1/2<sup>n</sup>)(1&nbsp;-&nbsp;1/13) (1&nbsp;-&nbsp;1/13<sup>2</sup>) ... (1&nbsp;-&nbsp;1/13<sup>n</sup>)</span></p>
+          <p>Wielkość ta może być określona przez mniej więcej <span class="term">4,64&nbsp;n<sup>2</sup> -&nbsp;1,7</span>, co jest równe około 116&nbsp;bitom dla&nbsp;macierzy <span class="term">5&nbsp;x&nbsp;5</span>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/czterokwadratowy.html" rel="prev"><small>← Poprzedni</small>Szyfr czterokwadratowy</a>
+          <a class="pager__next" href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html" rel="next"><small>Następny →</small>Wieloalfabetowe szyfry podstawieniowe</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-hilla.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-hilla.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-hilla.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html" aria-current="page">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

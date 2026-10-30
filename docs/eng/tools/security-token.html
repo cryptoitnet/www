@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/narzedzia/token-kryptograficzny.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security Tokens | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Security tokens are tools that allow to prove one&#x27;s identity electronically. They improve the security of protected systems.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/tools/security-token.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/security-token.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/token-kryptograficzny.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/tools/security-token.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Security Tokens | Cryptography">
+  <meta property="og:description" content="Security tokens are tools that allow to prove one&#x27;s identity electronically. They improve the security of protected systems.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/tools/security-token.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Security Tokens",
+        "description": "Security tokens are tools that allow to prove one's identity electronically. They improve the security of protected systems.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/tools/security-token.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Software",
+            "item": "https://www.crypto-it.net/eng/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Security Tokens"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/" aria-current="true">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/narzedzia/token-kryptograficzny.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/tools/">Software</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Security Tokens</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Security tokens are tools that allow to prove one's identity electronically. They are usually used as additional means of authentication, typically together with passwords.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>The tokens may be either physical devices or pure software applications, operating on computers or mobile devices. Depending on their implementation, security tokens may be referred to as authentication tokens, cryptographic tokens, hardware or software tokens, USB tokens, or key fobs.</p>
+          <p>Irrespective of the type, the main functionality of all security tokens is basically the same. Every token provides some kind of authentication code for the users, which allows them to access a particular service (for example, an online bank account).</p>
+          <p>Another typical application of tokens are <em>hardware dongles</em>. They are required by some applications to prove ownership of the software. During the startup, the program queries the token connected to the USB port and checks the authentication code.</p>
+          <p>Usually a security token requires a password to release the internal authentication code. The password is usually in a form of a short pin number. Sometimes more sophisticated ways of authentication are implemented, for example fingerprint readers.</p>
+          <p>The way the authentication code is produced may also vary between tokens. The simplest (and the most popular) method is to display the code on the device display, so that the user may use it later when required. Other tokens use <button type="button" class="note-ref" popovertarget="note-nfc">NFC</button> or bluetooth technologies for transmitting the password, or require to be connected in another way, for example to the computer USB port or a smart card reader.</p>
+          <p>Tokens may use different means for generating authentication codes.</p>
+          <h2 id="static-password-tokens">Static password tokens</h2>
+          <p>The tokens with a static password are the simplest type of security tokens. The secret code is stored inside the token and it is released when the user asks for it.</p>
+          <p>It is quite obvious that such tokens do not provide good security.</p>
+          <h2 id="time-synchronized-tokens">Time-synchronized tokens</h2>
+          <p>The time-synchronized tokens generate a password based on the current time. They must contain a timer which is synchronized with another timer, operating on the authentication server side. The passwords generated by time-synchronized tokens change constantly at a set time interval, for example every minute.</p>
+          <p>The time-synchronized tokens may, over time, become unsynchronized. In such a case, the passwords generated by them cannot be used to access the protected service, until a resynchronization is performed.</p>
+          <h2 id="asynchronous-tokens">Asynchronous tokens</h2>
+          <p>The passwords generated by asynchronous tokens change every time they are generated. The algorithms may be based on <a href="/eng/theory/one-way-function.html#hash">hash functions</a> that generate series of one-time codes based on a shared secret symmetric key.</p>
+          <p>Each created password must be unpredictable to guess, even if all the previously generated passwords are known. One of the popular algorithms used in asynchronous tokens is the <a href="http://openauthentication.org" rel="noopener" target="_blank">OATH algorithm</a>.</p>
+          <h2 id="tokens-with-public-and-private-keys">Tokens with public and private keys</h2>
+          <p>If the token contains a private key, the server may use the corresponding public key to authenticate it, without the need of transmitting the private key outside the token environment.</p>
+          <p>Usually the server sends the data encrypted with the public key. After decrypting the message, the token sends it back to the server, allowing it to confirm the token identity. In such a case, a direct communication between the token and the server must be established.</p>
+          <div class="note" id="note-nfc" popover>
+           <p>NFC (Near Field Communication) is a set of short-range two-way and one-way communication standards, which operate on radio frequency and are used mainly by mobile devices.</p>
+           <button type="button" class="note__close" popovertarget="note-nfc" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/tools/jca-and-jce.html" rel="prev"><small>← Previous</small>JCA and JCE</a>
+          <a class="pager__next" href="/eng/tools/key-based-authentication.html" rel="next"><small>Next →</small>Key-based authentication</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fsecurity-token.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fsecurity-token.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fsecurity-token.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-tools -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/tools/">Software</a></h2>
+        <ul>
+          <li><a href="/eng/tools/jca-and-jce.html">JCA and JCE</a></li>
+          <li><a href="/eng/tools/security-token.html" aria-current="page">Security tokens</a></li>
+          <li><a href="/eng/tools/key-based-authentication.html">Key-based authentication</a></li>
+          <li><a href="/eng/tools/docker.html">Docker</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-tools -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

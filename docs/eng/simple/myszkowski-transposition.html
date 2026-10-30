@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/szyfr-myszkowskiego.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Myszkowski Transposition | Transposition Ciphers | Crypto-IT</title>
+  <meta name="description" content="The Myszkowski Transposition rearranges the plaintext letters, based on a matrix filled with letters in the order determined by the secret keyword.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/myszkowski-transposition.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/myszkowski-transposition.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-myszkowskiego.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/myszkowski-transposition.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Myszkowski Transposition | Transposition Ciphers">
+  <meta property="og:description" content="The Myszkowski Transposition rearranges the plaintext letters, based on a matrix filled with letters in the order determined by the secret keyword.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/myszkowski-transposition.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Myszkowski Transposition",
+        "description": "The Myszkowski Transposition rearranges the plaintext letters, based on a matrix filled with letters in the order determined by the secret keyword.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/myszkowski-transposition.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Transposition ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/transposition-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Myszkowski Transposition"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/szyfr-myszkowskiego.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Myszkowski Transposition</h1>
+          <p class="article__subtitle">Transposition Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The Myszkowski Transposition rearranges the plaintext letters, based on a matrix filled with letters in the order determined by the secret keyword.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>The Myszkowski Transposition is a very similar cipher to the <a href="/eng/simple/columnar-transposition.html">Columnar Transposition</a>. It was proposed by &Eacute;mile Victor Th&eacute;odore Myszkowski in 1902.</p>
+          <p>The encryption and decryption can be performed by hand, using a piece of paper and a simple matrix, into which the user enters the letters of the message.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>Similarly to the <a href="/eng/simple/columnar-transposition.html">Columnar Transposition</a>, both encryption and decryption are performed by using a matrix. The number of columns of the matrix is determined by the secret key.</p>
+          <p>The Myszkowski Transposition requires the secret key that is usually a word (or just a sequence of letters). It should be converted into a sequence of numbers. The numbers are defined by an alphabetical order of the letters in the keyword. The letter which is first in the alphabet will be the number <var>1</var>, the second letter in the alphabetical order will be <var>2</var>, and so on.</p>
+          <p>Contrary to the Columnar Transposition, the keyword has to contain some recurrent letters. Identical letters should have the same numbers assigned (which is again, different from the Columnar Transposition).</p>
+          <p>For example, the keyword:<br> <span class="term"> SWINDON</span><br> would produce the following sequence of numbers:<br> <span class="term"> &nbsp;5623143</span><br> We can see, that we converted both letters N into two threes.</p>
+          <p>To encrypt a message, all the letters should be entered into the matrix, row by row, from left to right. The size of the matrix depends on the length of the message. The only known dimension is width, which is determined by the length of the secret keyword (which is the same as the length of the corresponding sequence of numbers), and known to both sides of the communication.</p>
+          <p>If, after entering the whole message, there are some empty cells in the bottom row of the matrix, one of two approaches can be taken:</p>
+          <ol class="steps">
+           <li>The cells may be left empty, and just ignored during all further operations.</li>
+           <li>The sender may enter there some rare letters, and treat them as a part of the plaintext. After decryption, the receiver should be able to determine, that the letters have no sense, and that they should be ignored.</li>
+          </ol>
+          <p>Next, the letters should be read off in a specific way, and written down to form the ciphertext. The order of reading the letters is determined by the sequence of numbers, produced from the keyword. They should be read column by column, from top to bottom, starting from the column, which position is the same as the position of the number <var>1</var> in the key sequence. The next column to read off is determined by the number <var>2</var> in the key sequence, and so on, until all the columns are read off.</p>
+          <p>If several columns have the same numbers assigned to them (and as we know, this is a requirement for this cipher), the letters from those columns should be read off together, row by row. This procedure is different from the one which is performed in the Columnar Transposition, which results in a different ciphertext being produced from both ciphers, even if all other parameters are the identical.</p>
+          <p>To make this step easier, and to allow the user to quickly locate each column, it is recommended to write the sequence numbers above the corresponding columns.</p>
+          <p>For example, let's encrypt a message <em>A Midsummer Night's Dream</em>, which is a comedy written by Shakespeare (this is the same message we encrypted with the Columnar Transposition). We will use the secret key mentioned above. The number sequence derived from this keyword is <span class="term">5623143</span>, so the matrix created for the encryption will have seven columns.</p>
+          <p>After removing all non-letter characters, and changing the letters to upper case, the message should be entered into the table:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix table--plain" aria-label="Myszkowski Transposition encryption matrix">
+           <tr>
+           <td>5</td>
+           <td>6</td>
+           <td>2</td>
+           <td>3</td>
+           <td>1</td>
+           <td>4</td>
+           <td>3</td>
+           </tr>
+           <tr>
+           <td>A</td>
+           <td>M</td>
+           <td>I</td>
+           <td>D</td>
+           <td>S</td>
+           <td>U</td>
+           <td>M</td>
+           </tr>
+           <tr>
+           <td>M</td>
+           <td>E</td>
+           <td>R</td>
+           <td>N</td>
+           <td>I</td>
+           <td>G</td>
+           <td>H</td>
+           </tr>
+           <tr>
+           <td>T</td>
+           <td>S</td>
+           <td>D</td>
+           <td>R</td>
+           <td>E</td>
+           <td>A</td>
+           <td>M</td>
+           </tr>
+           </table>
+          </div>
+          <p>There are numbers derived from the keyword written above the message. These numbers determine the order, in which the columns should be read (top to bottom), and appended to the produced ciphertext. In our example, the first column will be <span class="term">SIE</span>, and the second will be <span class="term">IRD</span>. Then, there are two columns which have threes assigned: <span class="term">DNR</span> and <span class="term">MHM</span>. The letters from them should be read off row by row, starting from the top. All the remaining columns should be dealt with in a usual way. The produced ciphertext is:<br> <span class="term"> SIE IRD DMNHRM UGA AMT MES</span></p>
+          <p>Finally, after removing the spaces, which were added to indicate separate columns, we receive the encrypted message:<br> <span class="term"> SIEIRDDMNHRMUGAAMTMES</span></p>
+          <p>To decrypt a received ciphertext, the receiver has to perform the following steps:</p>
+          <ol class="steps">
+           <li>Knowing the secret keyword, and the length of the received message, the table of the same size, as the one used for encryption, should be created.</li>
+           <li>The ciphertext should be entered into columns, from the leftmost columns to the rightmost column, from top to bottom. The columns with the same numbers should be filled together, row by row.</li>
+           <li>The columns should be rearranged, and put into the order defined by the keyword.</li>
+           <li>The decrypted message should be read out, row by row, starting from the top row, and from left to right.</li>
+          </ol>
+          <h2 id="security-of-the-myszkowski-transposition">Security of the Myszkowski Transposition</h2>
+          <p>The Myszkowski Transposition provides a quite comparable level of protection as the Columnar Transposition.</p>
+          <p>To break the ciphertext, an attacker should act in a similar way. That is, he should create the tables of different sizes, enter the encrypted message down into the columns, and for each table look for anagrams appearing in rows.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/double-transposition.html" rel="prev"><small>← Previous</small>Double transposition</a>
+          <a class="pager__next" href="/eng/simple/rotor-machines.html" rel="next"><small>Next →</small>Rotor machines</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fmyszkowski-transposition.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fmyszkowski-transposition.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fmyszkowski-transposition.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html" aria-current="page">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/narzedzia/docker.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docker | Virtual Containers | Crypto-IT</title>
+  <meta name="description" content="Docker application is used for deploying and running software sandbox containers, which are far more efficient than traditional virtual machines.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/tools/docker.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/docker.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/docker.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/tools/docker.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Docker | Virtual Containers">
+  <meta property="og:description" content="Docker application is used for deploying and running software sandbox containers, which are far more efficient than traditional virtual machines.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/tools/docker.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Docker",
+        "description": "Docker application is used for deploying and running software sandbox containers, which are far more efficient than traditional virtual machines.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/tools/docker.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Software",
+            "item": "https://www.crypto-it.net/eng/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Docker"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/" aria-current="true">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/narzedzia/docker.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/tools/">Software</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Docker</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Docker is an application that allows deploying programs inside sandbox packages called containers, which provide far more efficiency than commonly used virtual machines. Docker was released in 2013 by Solomon Hykes and the team of dotCloud, a San Francisco-based company (later renamed Docker, Inc.). The official website of the project is <a href="http://www.docker.com" rel="noopener" target="_blank">www.docker.com</a>.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Docker allows a user to create a sandbox container that contains the application with all the required dependencies. The container may be later used for running the prepared software multiple times, or for future software development.</p>
+          <p>Docker may be used for creating and managing distributed software systems, due to the fact that the user is able to relatively quickly modify the application by changing the containers that form its services and processes. By adding new containers to the network, the user can easily improve performance and effectiveness of the produced system. Docker containers may work on many physical or virtual machines, and their internal environment is not affected by their hosts configurations.</p>
+          <p>Software containers are not purely cryptographic tools. However, due to portability, efficiency and flexibility of sandboxes, they are a great way for deploying and testing security solutions, and for performing all types of software operations.</p>
+          <p>At present, there exist a few more container solutions but Docker is definitely one of the most popular ones. It is worth mentioning that a lot of popular cloud service providers, like Amazon or Microsoft, added support for Docker images.</p>
+          <h2 id="sandboxes">Sandboxes</h2>
+          <p>The overhead caused by adding additional layers by Docker is much smaller than the cost of running the whole virtual machine. Instead of creating another fully operational operating system, Docker containers use the low level functionalities of the host, modifying only the necessary functionalities located in the upper layers of the host system.</p>
+          <p>At first, Docker was available only for Linux operating systems, but over time the support for Windows was added. Docker uses modern functionalities available in operating systems that provide various types of resource isolation. For example, when running on Linux, Docker takes advantage of kernel features, like <em>namespaces</em>, <em>cgroups</em>, <em>aufs file system</em> and virtualization interfaces (<em>libcontainer</em>, <em>libvirt</em>, and <em>LXC</em>).</p>
+          <p>The application that runs inside Docker is isolated from the host operating system in terms of the file system, other processes and users, CPU and memory, network interfaces, and input/output devices.</p>
+          <h2 id="docker-api">Docker API</h2>
+          <p>One of the reasons of Docker popularity is the simplicity of its usage. After creating a Docker image, the user can carry out the work by using a few simple commands.</p>
+          <p>A Docker image is the package containing the application which is going to be used, together with all its dependencies and configuration parameters. Each time an image is started, Docker creates a new container and initiates it with fresh parameters. Of course, a number of separate containers based on the same image can be created and run at one time. Every created container receives its own unique <em>id number</em>.</p>
+          <ul>
+           <li><strong>docker pull</strong> <span class="term">image_name</span>: downloads the specified image from Docker repository.</li>
+           <li><strong>docker images</strong>: lists all available images.</li>
+           <li><strong>docker run</strong> <span class="term">image_name</span>: starts the specified image, and performs the predefined operations. Each time the command <span class="term">run</span> is used, a new container is created.</li>
+           <li><strong>docker ps</strong>: lists all currently running images.</li>
+           <li><strong>docker stop</strong> <span class="term">container_id</span>: stops the specified container.</li>
+           <li><strong>docker rm</strong> <span class="term">container_id</span>: removes the specified container.</li>
+          </ul>
+          <h2 id="creating-docker-images">Creating Docker images</h2>
+          <p>At present, there exist hundreds of available Docker images in public repositories. It is possible to download them by using the <span class="term">docker pull</span> command, and work with the containers created from them.</p>
+          <p>It is also possible to create custom Docker images, by modifying the existing ones. It may be easily achieved by creating a customized <span class="term">Dockerfile</span>.</p>
+          <p>A <span class="term">Dockerfile</span> usually consists of just a few lines, and each line contains a keyword and a corresponding value. The first line should specify the parent image which is going to be modified (keyword: <span class="term">FROM</span>). The next lines contain additional dependencies that should be loaded into the image (keyword: <span class="term">ADD</span>), the scripts and applications that should be installed or run (keyword: <span class="term">RUN</span>, <span class="term">CMD</span>), the ports that should be exposed (keyword: <span class="term">EXPOSE</span>), and so on.</p>
+          <p>Having the file, a new Docker image is created by the command <span class="term">docker build</span>, which takes as parameters a target image name (combined with an optional user and a tag) and the <span class="term">Dockerfile</span>.</p>
+          <p>The created Docker image can be uploaded to the specified registry by the command:<br> <strong>docker push</strong> <span class="term">image_name</span></p>
+          <h2 id="docker-networks">Docker networks</h2>
+          <p>It is possible to create multiple Docker images that would be connected via network and that would be able to exchange data. Generally, it is recommended to create many Docker images, each one of them running just one service, and allow them all to work together within one network.</p>
+          <p>A Docker network can be created by using a command:<br> <strong>docker network create</strong> <span class="term">network_name</span></p>
+          <p>After that, the user can specify which network should be used by a Docker container by adding a <span class="term">--net</span> parameter to the <span class="term">run</span> command. To make a few Docker containers cooperate, they should be run in the same Docker network.</p>
+          <p>An additional tool, called <em>Docker Compose</em>, was created to make communication between containers even easier. It allows packing multiple images into groups, defined by a <span class="term">docker-compose.yml</span> file, and managing them by using two commands <span class="term">docker-compose up</span> and <span class="term">docker-compose stop</span>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/tools/key-based-authentication.html" rel="prev"><small>← Previous</small>Key-based authentication</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fdocker.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fdocker.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fdocker.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-tools -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/tools/">Software</a></h2>
+        <ul>
+          <li><a href="/eng/tools/jca-and-jce.html">JCA and JCE</a></li>
+          <li><a href="/eng/tools/security-token.html">Security tokens</a></li>
+          <li><a href="/eng/tools/key-based-authentication.html">Key-based authentication</a></li>
+          <li><a href="/eng/tools/docker.html" aria-current="page">Docker</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-tools -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

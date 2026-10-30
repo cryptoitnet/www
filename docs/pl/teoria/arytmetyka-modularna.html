@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/modular-arithmetic.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arytmetyka Modularna | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Arytmetyka modularna to system liczb całkowitych, w którym liczby zerują się po osiągnięciu pewnej przyjętej wartości.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/arytmetyka-modularna.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/modular-arithmetic.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/arytmetyka-modularna.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/modular-arithmetic.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Arytmetyka Modularna | Kryptografia">
+  <meta property="og:description" content="Arytmetyka modularna to system liczb całkowitych, w którym liczby zerują się po osiągnięciu pewnej przyjętej wartości.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/arytmetyka-modularna.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Arytmetyka modularna (arytmetyka reszt)",
+        "description": "Arytmetyka modularna to system liczb całkowitych, w którym liczby zerują się po osiągnięciu pewnej przyjętej wartości.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/arytmetyka-modularna.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Arytmetyka modularna (arytmetyka reszt)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/modular-arithmetic.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Arytmetyka modularna (arytmetyka reszt)</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Arytmetyka modularna to system liczb całkowitych, w&nbsp;którym wartości liczb zerują się i&nbsp;zaczynają zwiększać od&nbsp;początku po&nbsp;osiągnięciu pewnej przyjętej wartości, nazywanej modułem (<i>modulo</i>). Arytmetyka modularna jest powszechnie wykorzystywana w&nbsp;systemach informatycznych i&nbsp;kryptografii.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Oznaczmy jako&nbsp;<span class="term">Z<sub>N</sub></span> zbiór wszystkich nieujemnych liczb całkowitych, mniejszych niż&nbsp;<span class="term">N</span>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">Z<sub>N</sub> = {0,1,2,...,N-1}</span>
+           <div class="definition__note">
+           gdzie:
+           <ul>
+           <li><var>N</var> jest dodatnią liczbą całkowitą,</li>
+           <li>jeżeli&nbsp;<var>N</var> jest liczbą pierwszą, to będzie oznaczana jako&nbsp;<var>p</var> (cały zbiór będzie oznaczony jako&nbsp;<var>Z<sub>p</sub></var>).</li>
+           </ul>
+           </div>
+          </aside>
+          <p>Aby wyznaczyć wartość dowolnej liczby całkowitej dla modułu&nbsp;<span class="term">N</span> należy podzielić tę liczbę przez <span class="term">N</span> i&nbsp;za jej wartość w&nbsp;<span class="term">Z<sub>N</sub></span> przyjąć resztę z&nbsp;tego dzielenia. W arytmetyce modularnej można zdefiniować wszystkie takie typowe działania, co w&nbsp;zwykłej arytmetyce. Charakteryzują się one analogicznymi właściwościami (m.in. prawami przemienności, łączności).</p>
+          <h2 id="liczby-odwrotne-w-arytmetyce-modularnej">Liczby odwrotne w&nbsp;arytmetyce modularnej</h2>
+          <p>Liczby całkowite rozpatrywane w&nbsp;arytmetyce modularnej mogą (ale nie muszą) posiadać liczby odwrotne.</p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Liczbą odwrotną do liczby&nbsp;<span class="term">x</span> w&nbsp;<span class="term">Z<sub>N</sub></span> jest taki element <span class="term">y</span> należący do&nbsp;<span class="term">Z<sub>N</sub></span>, który spełnia równanie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">x &middot; y = 1</span> (w <span class="math">Z<sub>N</sub>)</span>
+           <div class="definition__note">
+           gdzie:
+           <ul>
+           <li><var>y</var> jest oznaczane jako&nbsp;<var>x<sup>-1</sup></var></li>
+           </ul>
+           </div>
+          </aside>
+          <p>Przykładowo, jeśli <span class="term">N</span> jest dowolną nieparzystą liczbą, to odwrotność <span class="term">2</span> w <span class="term">Z<sub>N</sub></span> wynosi <span class="term">(N+1)/2</span>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">x &middot; (N+1)/2 = N + 1 = 1</span> (w <span class="math">Z<sub>N</sub>)</span></p>
+          <aside class="definition">
+           <p class="definition__title">Twierdzenie</p>
+           Dowolna liczba&nbsp;<span class="term">x</span> posiada liczbę odwrotną w&nbsp;<span class="term">Z<sub>N</sub></span> wtedy i&nbsp;tylko wtedy gdy liczby <span class="term">x</span> oraz <span class="term">N</span> są względnie pierwsze.
+           <div class="definition__note">
+           <ul>
+           <li>Twierdzenie&nbsp;to można udowodnić korzystając z&nbsp;tego, że największy wspólny dzielnik dwóch liczb całkowitych może być zawsze przedstawiony jako suma dwóch iloczynów każdej z&nbsp;tych dwóch liczb z&nbsp;inną odpowiednio dobraną liczbą całkowitą:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="term">a&middot;x&nbsp;+&nbsp;b&middot;y&nbsp;= gcd(x,y)</span></li>
+           </ul>
+           </div>
+          </aside>
+          <p>Wyznaczenie liczb odwrotnych w&nbsp;<span class="term">Z<sub>N</sub></span> umożliwia rozwiązywanie równań liniowych w&nbsp;arytmetyce modularnej:<br> &nbsp;&nbsp;&nbsp;&nbsp;równanie:&nbsp;&nbsp;&nbsp;<span class="math">a &middot; x + b = 0</span> (w <span class="math">Z<sub>N</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;ma rozwiązanie:&nbsp;&nbsp;&nbsp;<span class="math">x = -b &middot; a<sup>-1</sup></span> (w <span class="math">Z<sub>N</sub>)</span></p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Symbol&nbsp;<span class="term">Z<sup>*</sup><sub>N</sub></span> oznacza zbiór wszystkich elementów <span class="term">Z<sub>N</sub></span>, dla których można wyznaczyć liczby odwrotne; czyli zbiór takich liczb <span class="term">x</span> należących do&nbsp;<span class="term">Z<sub>N</sub></span>, że <span class="term">x</span> oraz <span class="term">N</span> są względnie pierwsze.
+           <div class="definition__note">
+           <ul>
+           <li>przykładowo dla liczby pierwszej&nbsp;<var>p</var>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="term">Z<sup>*</sup><sub>p</sub></span>&nbsp;&nbsp;=&nbsp; <span class="term">Z<sub>p</sub>&nbsp;\&nbsp;{0} = {1,&nbsp;2,&nbsp;&hellip;,&nbsp;p&nbsp;-&nbsp;1}</span></li>
+           </ul>
+           </div>
+          </aside>
+          <h2 id="wyznaczanie-liczb-odwrotnych-w-zn">Wyznaczanie liczb odwrotnych w&nbsp;Z<sub>N</sub></h2>
+          <p>Liczby odwrotne w&nbsp;<span class="term">Z<sub>N</sub></span> można wyznaczyć w czasie&nbsp;<span class="term">O(log<sub>2</sub>N)</span> za&nbsp;pomocą <button type="button" class="note-ref" popovertarget="note-algorytm-euklidesa">algorytmu Euklidesa</button>, który służy do&nbsp;wyliczenia największego wspólnego dzielnika dwóch liczb całkowitych.</p>
+          <p>Rozszerzona wersja algorytmu Euklidesa znajduje dodatkowo całkowite współczynniki <span class="term">a</span> oraz <span class="term">b</span> spełniające tożsamość Bezouta:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a&middot;x&nbsp;+&nbsp;b&middot;y&nbsp;= gcd(x,y)</span></p>
+          <p>W celu otrzymania liczby odwrotnej należy przeprowadzić następujące przekształcenia:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a&middot;x&nbsp;+&nbsp;b&middot;y&nbsp;= 1</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">b&middot;y&nbsp;= 1</span> (w <span class="math">Z<sub>a</sub>)</span><br> Czyli <span class="term">b</span> jest liczbą odwrotną do&nbsp;<span class="term">y</span> w&nbsp;<span class="term">Z<sub>a</sub></span>.</p>
+          <p>Współczynniki <span class="term">a</span> oraz <span class="term">b</span> należy wyliczać w&nbsp;każdym kroku algorytmu Euklidesa, za pomocą otrzymywanych ilorazów oraz wartości współczynników z&nbsp;dwóch poprzednich kroków:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a<sub>i</sub>&nbsp;= a<sub>i-2</sub>&nbsp;-&nbsp;q<sub>i-1</sub>&middot;a<sub>i-1</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">b<sub>i</sub>&nbsp;= b<sub>i-2</sub>&nbsp;-&nbsp;q<sub>i-1</sub>&middot;b<sub>i-1</sub></span></p>
+          <p>Jeżeli kroki algorytmu numerowane są od <span class="term">1</span>, to należy przyjąć następujące wartości początkowe współczynników:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a<sub>-1</sub>&nbsp;= 1</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a<sub>0</sub>&nbsp;= 0</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">b<sub>-1</sub>&nbsp;= 0</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">b<sub>0</sub>&nbsp;= 1</span></p>
+          <p>Końcowe wartości współczynników <span class="term">a</span> oraz <span class="term">b</span> otrzymywane są w kroku, z którego pobierana jest również wartość największego wspólnego dzielnika liczb <span class="term">x</span> oraz <span class="term">y</span> (czyli w&nbsp;kroku z&nbsp;ostatnią niezerową resztą).</p>
+          <div class="note" id="note-algorytm-euklidesa" popover>
+           <p>Aby znaleźć największy wspólny dzielnik liczb <span class="term">a</span> oraz <span class="term">b</span> (gdzie <span class="term">a&nbsp;&gt;&nbsp;b</span>) za&nbsp;pomocą algorytmu Euklidesa należy podzielić <span class="term">a</span> przez <span class="term">b</span>, a otrzymany wynik zapisać w formie ilorazu i reszty z dzielenia:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a&nbsp;/&nbsp;b = q<sub>1</sub> + r<sub>1</sub></span></p>
+           <p>Następnie trzeba wykonać kolejne dzielenie, w którym <span class="term">b</span> pełni rolę <span class="term">a</span> oraz <span class="term">r<sub>1</sub></span> pełni rolę <span class="term">b</span>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">b&nbsp;/&nbsp;r<sub>1</sub> = q<sub>2</sub> + r<sub>2</sub></span></p>
+           <p>Kroki należy powtarzać analogicznie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">r<sub>1</sub>&nbsp;/&nbsp;r<sub>2</sub> = q<sub>3</sub> + r<sub>3</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">&hellip; &hellip;</span><br> aż do otrzymania zerowej reszty z dzielenia.</p>
+           <p>Ostatnia niezerowa reszta jest największym wspólnym dzielnikiem liczb <span class="term">a</span> oraz <span class="term">b</span>.</p>
+           <p>Można wykazać, że algorytm Euklidesa działa w&nbsp;czasie proporcjonalnym do&nbsp;wielkości większej liczby: <span class="term">O(log<sub>2</sub>a)</span>.</p>
+           <button type="button" class="note__close" popovertarget="note-algorytm-euklidesa" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html" rel="prev"><small>← Poprzedni</small>Szacowanie czasu działań matematycznych</a>
+          <a class="pager__next" href="/pl/teoria/bezpieczenstwo-szyfrow.html" rel="next"><small>Następny →</small>Bezpieczeństwo szyfrów</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Farytmetyka-modularna.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Farytmetyka-modularna.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Farytmetyka-modularna.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html" aria-current="page">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/prf-i-prp.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pseudorandom Functions and Permutations | Crypto-IT</title>
+  <meta name="description" content="Pseudorandom functions and permutations produce pseudorandom data indistinguishable from random sequences. They are used in many cryptographic algorithms.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/prf-and-prp.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/prf-and-prp.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/prf-i-prp.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/prf-and-prp.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Pseudorandom Functions and Permutations">
+  <meta property="og:description" content="Pseudorandom functions and permutations produce pseudorandom data indistinguishable from random sequences. They are used in many cryptographic algorithms.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/prf-and-prp.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Pseudorandom Functions and Permutations",
+        "description": "Pseudorandom functions and permutations produce pseudorandom data indistinguishable from random sequences. They are used in many cryptographic algorithms.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/prf-and-prp.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Pseudorandom Functions and Permutations"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/prf-i-prp.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Pseudorandom Functions and Permutations</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Pseudorandom functions are efficient and deterministic functions which return pseudorandom output indistinguishable from random sequences. They are made based on <a href="/eng/theory/pseudorandom-generator.html">pseudorandom generators</a> but contrary to them, in addition to the internal state, they can accept any input data. The input may be arbitrary but the output must always look completely random.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>A pseudorandom function, which output is indistinguishable from random sequences, is called a secure one.</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           The pseudorandom function (<var>PRF</var>) defined over <span class="math">(K, X, Y)</span> is an efficient and deterministic function which returns a pseudorandom output sequence:<br> <span class="math">F: K </span><span class="math">x</span><span class="math"> X</span> <span class="math">-&gt;</span> <span class="math">Y</span>
+          </aside>
+          <p>Pseudorandom permutations can be defined in a similar way. They create output data indistinguishable from random sequences.</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           The pseudorandom permutation (<var>PRP</var>) defined over <span class="math">(K, X)</span> is an efficient and deterministic function which returns a pseudorandom output sequence:<br> <span class="math">E: K </span><span class="math">x</span><span class="math"> X</span> <span class="math">-&gt;</span> <span class="math">X</span>
+           <ul>
+           <li>the function <span class="math">E (k, .)</span> is one-to-one</li>
+           <li>there exists an efficient inversion algorithm <span class="math">D (k, x)</span></li>
+           </ul>
+          </aside>
+          <p>Pseudorandom permutations which produce output sequences that are indistinguishable from random sequences, are called secure <var>PRP</var>s. It can be proved that secure <var>PRP</var> defined over large enough <span class="term">X</span> is also a secure <var>PRF</var> (according to the <em>PRF Switching Lemma</em>).</p>
+          <h2 id="creating-prf-from-prg">Creating PRF from PRG</h2>
+          <p>Let <span class="term">G</span> be a secure pseudorandom generator. Having <span class="term">G</span>, it is possible to create a secure pseudorandom function <span class="term">F</span>.</p>
+          <h3 id="1-bit-pseudorandom-function">1-bit pseudorandom function</h3>
+          <figure class="figure figure--right"><img src="/assets/img/theory/generator-g.webp" alt="Pseudorandom generator G" width="270" height="160" loading="lazy"></figure>
+          <p>Let <span class="term">G</span> return two times more bits than it has bits in its internal state:<br> <span class="math">G: K</span> <span class="math">-&gt;</span> <span class="math">K<sup>2</sup></span></p>
+          <p>It is possible to define a 1-bit pseudorandom function:<br> <span class="math">F: K x {0, 1}</span> <span class="math">-&gt;</span> <span class="math">K</span><br> as:<br> <span class="math">F(k, b) = G(k)[b]</span><br> where:<br> <var>b</var> can be equal to either <span class="term">0</span> or <span class="term">1</span>.</p>
+          <p>The function <span class="term">F</span> returns the first or the second half of generator's output data, based on the received input bit.</p>
+          <p>If the generator <span class="term">G</span> is secure, then the function <span class="term">F</span> is also secure.</p>
+          <h3 id="2-bit-pseudorandom-function">2-bit pseudorandom function</h3>
+          <figure class="figure figure--right"><img src="/assets/img/theory/generator-g1.webp" alt="Pseudorandom generator G1" width="390" height="240" loading="lazy"></figure>
+          <p>Having the generator <span class="term">G</span>, one can expand it and define a new generator <span class="term">G<sub>1</sub></span>:<br> <span class="math">G<sub>1</sub>: K</span> <span class="math">-&gt;</span> <span class="math">K<sup>4</sup></span><br> as:<br> <span class="math">G<sub>1</sub>(k) = G(G(k)[0]) || G(G(k)[1])</span></p>
+          <p>Analogously, it is possible to define an expanded pseudorandom function <span class="term">F<sub>1</sub></span>, which takes 2 bits as its input:<br> <span class="math">F<sub>1</sub>: K x {0, 1}<sup>2</sup></span> <span class="math">-&gt;</span> <span class="math">K</span><br> as:<br> <span class="math">F<sub>1</sub>(k, c) = G<sub>1</sub>(k)[c]</span><br> where:<br> <var>c</var> is any two bits.</p>
+          <h3 id="n-bit-pseudorandom-function">N-bit pseudorandom function</h3>
+          <p>The presented procedure can be repeated any number of times and one can receive a pseudorandom function which could be of any size. This method of creating pseudorandom functions is known as <strong>Goldreich-Goldwasser-Micali Construction</strong>, based on the names of people who invented it.</p>
+          <p>It can be proved that if the generator <span class="term">G</span> is secure, then a pseudorandom function working on input data of length of <var>n</var> bits and defined in a way described above is also secure.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/pseudorandom-generator.html" rel="prev"><small>← Previous</small>Pseudorandom generator</a>
+          <a class="pager__next" href="/eng/theory/one-way-function.html" rel="next"><small>Next →</small>One-way function</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fprf-and-prp.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fprf-and-prp.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fprf-and-prp.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html" aria-current="page">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/symmetric/rc4.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RC4 Strumieniowy Szyfr Symetryczny | Crypto-IT</title>
+  <meta name="description" content="RC4 to symetryczny szyfr strumieniowy, szczególnie znany i ceniony za prostotę implementacji i szybkość działania.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/symetryczne/rc4.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/rc4.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/rc4.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/rc4.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="RC4 Strumieniowy Szyfr Symetryczny">
+  <meta property="og:description" content="RC4 to symetryczny szyfr strumieniowy, szczególnie znany i ceniony za prostotę implementacji i szybkość działania.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/symetryczne/rc4.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "RC4",
+        "description": "RC4 to symetryczny szyfr strumieniowy, szczególnie znany i ceniony za prostotę implementacji i szybkość działania.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/symetryczne/rc4.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Szyfry symetryczne",
+            "item": "https://www.crypto-it.net/pl/symetryczne/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry strumieniowe",
+            "item": "https://www.crypto-it.net/pl/symetryczne/szyfry-strumieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "RC4"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/" aria-current="true">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/symmetric/rc4.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/symetryczne/">Szyfry symetryczne</a></li>
+            <li><a href="/pl/symetryczne/szyfry-strumieniowe.html">Szyfry strumieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">RC4</h1>
+          <p class="article__subtitle">Szyfr strumieniowy z kluczem symetrycznym</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Długość klucza: maksymalnie 2048 bitów</li>
+          </ul>
+          <p>RC4 to symetryczny szyfr strumieniowy, szczególnie znany i ceniony za prostotę implementacji i szybkość działania.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Autorem szyfru RC4 jest amerykański profesor Ron Rivest, który zaprojektował go w 1987&nbsp;roku. Jest on założycielem firmy RSA Security. Szczegóły implementacji szyfru RC4 nie były znane aż do&nbsp;roku&nbsp;1994, kiedy to zostały anonimowo wysłane na&nbsp;listę mailingową Cypherpunks. Szyfr RC4 jest często określany jako ARCFOUR lub ARC4 dla&nbsp;uniknięcia problemów prawnych z&nbsp;zastrzeżoną nazwą RC4. Skrót RC4 pochodzi oficjalnie od "Rivest Cipher&nbsp;4", ale akronim&nbsp;RC jest też alternatywnie rozumiany jako "Ron's&nbsp;Code" (ang. <i>kod Rona</i>).</p>
+          <p>RC4 jest jednym z&nbsp;najbardziej popularnych szyfrów symetrycznych. Jest wykorzystywany w&nbsp;wielu protokołach, na&nbsp;przykład do&nbsp;ochrony komunikacji w&nbsp;Internecie - <a href="/pl/teoria/protokoly-aplikacji.html#SSLTLS">TLS (ang. <i>Transport Layer Security</i>)</a> lub w&nbsp;zabezpieczeniach sieci bezprzewodowych - WEP (ang. <i>Wired Equivalent Privacy</i>).</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>RC4 jest szyfrem strumieniowym. Jego działanie polega na tworzeniu długich sekwencji bajtów klucza, które są następnie dodawane do bajtów danych.</p>
+          <p>Szyfrowanie za pomocą RC4 polega na&nbsp;sumowaniu XOR kolejnych bajtów wiadomości z&nbsp;kolejnymi bajtami strumienia klucza. Cały algorytm RC4 koncentruje się na tworzeniu kolejnych bajtów strumienia. Strumień bajtów klucza otrzymywany jest z&nbsp;jednowymiarowej tablicy, nazywanej tabelą&nbsp;<var>T</var>.</p>
+          <h2 id="inicjowanie-tabeli">Inicjowanie tabeli</h2>
+          <p>Tabela&nbsp;<var>T</var> ma długość 256 bajtów. Jest wypełniana bajtami na podstawie wartości sekretnego klucza, przed rozpoczęciem operacji szyfrowania lub deszyfrowania. Następujące operacje powinny zostać wykonane, aby utworzyć tabelę:</p>
+          <ol class="steps">
+           <li>W&nbsp;każdą komórkę tablicy wpisywana jest liczba odpowiadająca numerowi jej pozycji (licząc od&nbsp;zera).</li>
+           <li>Tworzona jest zmienna pomocnicza i inicjowana na&nbsp;<var>0</var>.</li>
+           <li>
+           Dla każdej liczby w tablicy (numery przyjmują wartości kolejno od&nbsp;<var>0</var> do&nbsp;<var>255</var>) wykonywane są dwie operacje:
+           <ol class="steps">
+           <li>Wartość zmiennej pomocniczej jest modyfikowana (patrz: <em>Funkcje Matematyczne</em>).</li>
+           <li>Liczba w&nbsp;tablicy w&nbsp;aktualnej pozycji jest zamieniana miejscem z&nbsp;liczbą w&nbsp;tabeli w pozycji określonej przez zmienną pomocniczą.</li>
+           </ol>
+           </li>
+          </ol>
+          <h2 id="szyfrowanie-i-deszyfrowanie">Szyfrowanie i deszyfrowanie</h2>
+          <p>W trakcie szyfrowania i deszyfrowania generowane są bajty strumienia klucza, które następnie sumuje się XOR z bajtami wiadomości. Bajty strumienia klucza produkowane są na&nbsp;podstawie tablicy&nbsp;<var>T</var>. Następujące kroki są wykonywane:</p>
+          <ol class="steps">
+           <li>Tworzone są dwie zmienne pomocnicze <var>p<sub>1</sub></var> i <var>p<sub>2</sub></var>, obie inicjowane są na&nbsp;<var>0</var>.</li>
+           <li>Do&nbsp;zmiennej <var>p<sub>1</sub></var> dodaje się&nbsp;<var>1</var>, a wynik dzieli modulo przez&nbsp;<var>256</var>.</li>
+           <li>Do&nbsp;zmiennej <var>p<sub>2</sub></var> dodaje się wartość tablicy na&nbsp;pozycji <var>p<sub>1</sub></var> (czyli <var>T[p<sub>1</sub>]</var>), a wynik dzieli modulo przez&nbsp;<var>256</var>.</li>
+           <li>Zamienia się miejscami wartości tablicy na&nbsp;pozycjach <var>p<sub>1</sub></var> i&nbsp;<var>p<sub>2</sub></var>.</li>
+           <li>Sumuje się dwie wartości tablicy na&nbsp;pozycjach <var>p<sub>1</sub></var> i&nbsp;<var>p<sub>2</sub></var>, a wynik dzieli modulo przez&nbsp;<var>256</var>. Następnie wynik przypisuje się do&nbsp;nowej zmiennej pomocniczej <var>p<sub>3</sub></var>.</li>
+           <li>Wartość tablicy na&nbsp;pozycji <var>p<sub>3</sub></var> jest kolejnym bajtem strumienia klucza.</li>
+           <li>Jeśli potrzebne są kolejne bajty strumienia klucza, to należy wrócić do punktu&nbsp;II i&nbsp;powtórzyć powyższe kroki.</li>
+          </ol>
+          <h2 id="szybkosc-rc4">Szybkość RC4</h2>
+          <p>Algorytm RC4 jest zaprojektowany specjalnie do&nbsp;stosowania w&nbsp;programach komputerowych, ponieważ jedynymi wykonywanymi operacjami są działania na&nbsp;pojedynczych bajtach. W&nbsp;przeciwieństwie do&nbsp;wielu szyfrów strumieniowych nie&nbsp;wykorzystuje się rejestrów <button type="button" class="note-ref" popovertarget="note-lfsr">LFSR</button>, które dobrze sprawdzają się w&nbsp;rozwiązaniach sprzętowych, ale znacznie gorzej w&nbsp;implementacjach programistycznych.</p>
+          <h2 id="sila-zabezpieczen-rc4">Siła zabezpieczeń RC4</h2>
+          <p>Szyfr&nbsp;RC4 został zaprojektowany już jakiś czas temu i w związku z tym ma kilka słabości, które zostały poprawione w&nbsp;nowszych algorytmach szyfrów strumieniowych. Można zauważyć, że niektóre kombinacje bajtów w strumieniu klucza są nieco bardziej prawdopodobne niż inne. Szereg takich kombinacji został znalezionych w ciągu ostatnich 20&nbsp;lat oraz powstało kilka ataków bazujących na tej&nbsp;podatności.</p>
+          <p>Prawdopodobnie największą słabością szyfru&nbsp;RC4 jest niewystarczające mieszanie bajtów sekretnego klucza. Sprawia&nbsp;to, że można wydobyć pewne informacje odnośnie bajtów w sekretnym kluczu, analizując początkowe znaki strumienia klucza. Z tego powodu, zalecane jest odrzucanie pewnej liczby początkowych bajtów tworzonego strumienia klucza. Taki ulepszony algorytm jest określany jako <strong>RC4-dropN</strong>, gdzie <var>N</var>&nbsp;jest zwykle wielokrotnością liczby&nbsp;256.</p>
+          <p>Oprócz sekretnego klucza, algorytm RC4 nie pobiera dodatkowego numeru <em>nonce</em> dla każdej operacji szyfrowania. Wobec tego, system kryptograficzny musi samodzielnie zadbać o to, żeby wartości, z&nbsp;których tworzony jest strumień klucza były unikalne, czyli w&nbsp;jaki sposób połączyć oryginalny klucz szyfrujący z&nbsp;unikalnym numerem nonce. Najlepszym sposobem byłoby użycie funkcji haszujących na bajtach połączonych klucza i&nbsp;nonce, a następnie wykorzystać wyjście z&nbsp;tej funkcji do&nbsp;zainicjowania strumienia bajtów klucza dla szyfru&nbsp;RC4. Niestety, wiele aplikacji po&nbsp;prostu łączy bajty klucza i&nbsp;bajty nonce w&nbsp;jeden ciąg, który następnie jest używany do&nbsp;szyfrowania. Takie systemy stają się podatne na&nbsp;ataki opierające się na&nbsp;<em>podobieństwie kluczy szyfrujących</em>. Ta&nbsp;słabość szyfru&nbsp;RC4 była użyta podczas ataku Fluhrera, Mantina i&nbsp;Shamira (FMS) przeciwko zabezpieczeniom WEP, opublikowanym w roku&nbsp;2001.</p>
+          <h2 id="schemat-blokowy-szyfru-rc4">Schemat blokowy szyfru RC4</h2>
+          <figure class="figure"><img src="/assets/img/rc4/algorithm-scheme-pl.webp" alt="Schemat blokowy algorytmu RC4" width="737" height="529" loading="lazy"></figure>
+          <h2 id="matematyka">Matematyka</h2>
+          <h3 id="modyfikacja-zmiennej-pomocniczej-podczas-tworzenia-tablicy-b">Modyfikacja zmiennej pomocniczej podczas tworzenia tablicy bajtów strumienia klucza</h3>
+          <p>Podczas inicjowania tablicy <var>T</var> o długości 256 bajtów służącej do późniejszego generowania bajtów strumienia klucza, dla każdego elementu tablicy modyfikuje się wartość zmiennej pomocniczej. Liczba ta jest następnie wykorzystywana do zamiany wartości elementów tej tablicy.</p>
+          <span class="math"> &nbsp;&nbsp;&nbsp;&nbsp;x<sub>help</sub>&nbsp;= (x<sub>help</sub>&nbsp;+ w<sub>current</sub>&nbsp;+ k<sub>current mod len(K)</sub>) mod&nbsp;256 </span>,<br> gdzie:
+          <ul>
+           <li><span class="math">x<sub>pom</sub></span> - zmienna pomocnicza,</li>
+           <li><span class="math">w<sub>akt</sub></span> - wartość aktualnej pozycji w&nbsp;tabeli&nbsp;<var>T</var>,</li>
+           <li><span class="math">k<sub>akt mod dł(K)</sub></span> - wartość bajtu klucza w aktualnej pozycji podzielonej modulo przez długość klucza (ponieważ sekretny klucz może być krótszy niż 256&nbsp;bajtów),</li>
+           <li><span class="math">mod&nbsp;256</span> - to dzielenie modulo przez&nbsp;256 (czyli pobranie reszty z dzielenia)</li>
+          </ul>
+          <p>Po wyliczeniu wartości zmiennej pomocniczej w sposób przedstawiony powyżej, algorytm szyfrujący RC4 zamienia miejscami numery w tablicy&nbsp;<var>T</var> na&nbsp;pozycjach aktualnej i&nbsp;określonej przez zmienną pomocniczą. Pozycje w&nbsp;tabeli numeruje się od&nbsp;0.</p>
+          <h2 id="implementacja">Implementacja</h2>
+          <h2 id="inicjalizacja-strumienia-klucza">Inicjalizacja strumienia klucza</h2>
+          <p>Inicjalizacja tablicy <var>T</var> służącej do&nbsp;generowania bajtów strumienia klucza. Zmienna <var>K</var>&nbsp;to wektor bajtów sekretnego klucza o&nbsp;długości <var>k_len</var>.</p>
+          <p>for i from 0 to&nbsp;255<br> &nbsp;&nbsp; &nbsp;T[i] := i<br> endfor<br> x_temp := 0<br> for i from 0 to&nbsp;255<br> &nbsp;&nbsp; &nbsp;x_temp := (x_temp + T[i] + K[i&nbsp;mod&nbsp;k_len]) mod&nbsp;256<br> &nbsp;&nbsp; &nbsp;swap(T[i], T[x_temp])<br> endfor</p>
+          <h2 id="generowanie-bajtow-klucza">Generowanie bajtów klucza</h2>
+          <p>Podczas generowanie bajtów klucza, poniższa pętla wykonuje się tak długo, jak długo nowe bajty są potrzebne.</p>
+          <p>p1 := 0<br> p2 := 0<br> while GeneratingOutput<br> &nbsp;&nbsp; &nbsp;p1 := (p1 + 1) mod&nbsp;256<br> &nbsp;&nbsp; &nbsp;p2 := (p2 + T[p1]) mod&nbsp;256<br> &nbsp;&nbsp; &nbsp;swap(T[p1], T[p2])<br> &nbsp;&nbsp; &nbsp;send(T[(T[p1] + T[p2]) mod&nbsp;256])<br> endwhile</p>
+          <div class="note" id="note-lfsr" popover>
+           <p>Rejestr przesuwający z&nbsp;liniowym sprzężeniem zwrotnym, <strong>LFSR</strong> (ang. <i>Linear Feedback Shift Registers</i>), to&nbsp;rejestr, którego bit wejściowy jest funkcją liniową jego poprzedniego stanu.</p>
+           <p>Najbardziej popularną funkcją liniową stosowaną na&nbsp;bitach jest XOR, więc zwykle bit wejściowy do&nbsp;LFSR konstruowany jest za&nbsp;pomocą funkcji XOR wywołanej na&nbsp;bitach rejestru. Początkowa wartość rejestru nazywana jest ziarnem, zarodkiem (ang. <i>seed</i>). Dalsze operacje na rejestrze są deterministyczne, a kolejne wartości rejestru są wyznaczane przez ich aktualny stan. Z&nbsp;powodu ograniczonej ilości dostępnych stanów, po&nbsp;pewnym czasie wartości w&nbsp;rejestrze zaczynają się powtarzać.</p>
+           <p>Rejestry LFSR są wykorzystywane w&nbsp;licznikach, aplikacjach generujących pseudo-losowe liczby, w&nbsp;telekomunikacji i&nbsp;kryptografii. Implementowane są zarówno programistycznie, jak i&nbsp;sprzętowo.</p>
+           <button type="button" class="note__close" popovertarget="note-lfsr" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/symetryczne/otp.html" rel="prev"><small>← Poprzedni</small>OTP</a>
+          <a class="pager__next" href="/pl/symetryczne/salsa20.html" rel="next"><small>Następny →</small>Salsa20</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Frc4.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Frc4.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Frc4.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symetryczne -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/symetryczne/">Szyfry symetryczne</a></h2>
+        <ul>
+          <li><a href="/pl/symetryczne/szyfry-strumieniowe.html">Szyfry strumieniowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/otp.html">OTP</a></li>
+              <li><a href="/pl/symetryczne/rc4.html" aria-current="page">RC4</a></li>
+              <li><a href="/pl/symetryczne/salsa20.html">Salsa20</a></li>
+              <li><a href="/pl/symetryczne/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/symetryczne/szyfry-blokowe.html">Szyfry blokowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/des.html">DES</a></li>
+              <li><a href="/pl/symetryczne/rc2.html">RC2</a></li>
+              <li><a href="/pl/symetryczne/3des.html">3 DES</a></li>
+              <li><a href="/pl/symetryczne/aes.html">AES</a></li>
+              <li><a href="/pl/symetryczne/blowfish.html">Blowfish</a></li>
+              <li><a href="/pl/symetryczne/camellia.html">Camellia</a></li>
+              <li><a href="/pl/symetryczne/serpent.html">Serpent</a></li>
+              <li><a href="/pl/symetryczne/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symetryczne -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/columnar-transposition.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kolumnowy Szyfr Przestawieniowy | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Szyfr Kolumnowy Przestawieniowy zmienia pozycje liter w szyfrowanej wiadomości, bazując na tabeli wypełnionej literami w kolejności wskazanej przez sekretny…">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/szyfr-kolumnowy.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/columnar-transposition.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-kolumnowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/columnar-transposition.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Kolumnowy Szyfr Przestawieniowy | Kryptografia">
+  <meta property="og:description" content="Szyfr Kolumnowy Przestawieniowy zmienia pozycje liter w szyfrowanej wiadomości, bazując na tabeli wypełnionej literami w kolejności wskazanej przez sekretny…">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/szyfr-kolumnowy.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Kolumnowy szyfr przestawieniowy",
+        "description": "Szyfr Kolumnowy Przestawieniowy zmienia pozycje liter w szyfrowanej wiadomości, bazując na tabeli wypełnionej literami w kolejności wskazanej przez sekretny…",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/szyfr-kolumnowy.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry przestawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-przestawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Kolumnowy szyfr przestawieniowy"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/columnar-transposition.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Kolumnowy szyfr przestawieniowy</h1>
+          <p class="article__subtitle">Szyfr przestawieniowy</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Szyfr Kolumnowy jest szyfrem przestawieniowym. Jego działanie polega na przestawieniu pozycji liter oryginalnej wiadomości, bazując na tabeli wypełnionej literami w kolejności wskazanej przez sekretny klucz.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Kolumnowy Szyfr Przestawieniowy może być stosowany ręcznie, bez potrzeby używania dodatkowych urządzeń elektronicznych. Był znany od bardzo długiego czasu i używany powszechnie w dwudziestym wieku przeróżnych sytuacjach przez dyplomatów, wojskowych i szpiegów.</p>
+          <p>Operacje szyfrowania i deszyfrowania za pomocą Kolumnowego Szyfru Przestawieniowego przeprowadza się zwykle na kartce papieru, na której rysuje się tabelę, zawierającą wszystkie litery przetwarzanej wiadomości.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Nazwa tego szyfru bierze się od operacji przeprowadzanych na tabeli podczas szyfrowania i deszyfrowania wiadomości. Liczba kolumn w tej tabeli jest określona przez sekretny klucz.</p>
+          <p>Kluczem sekretnym w Kolumnowym Szyfrze Przestawieniowym jest zwykle jedno słowo lub po prostu ciąg liter. Sekretne słowo należy przekonwertować na odpowiadający jemu ciąg liczb, o takiej samej długości. Wszystkie liczby określane są przez miejsca, jakie litery słowa zajmują w alfabecie. Literze sekretnego słowa, która zajmuje najniższe miejsce w alfabecie należy przypisać liczbę <var>1</var>, druga z kolei litera alfabetu otrzyma numer <var>2</var>, i tak&nbsp;dalej.</p>
+          <p>Jeżeli w słowie kluczowym znajduje się kilka identycznych liter, to każdemu kolejnemu pojawieniu się tej samej litery powinna zostać przypisana liczba o jeden większa niż liczba przypisana poprzedniemu pojawieniu się tej litery.</p>
+          <p>Przykładowo, jeśli za słowo kluczowe przyjmie się nazwę pewnego miasta w Anglii:<br> <span class="term">&nbsp;&nbsp;SWINDON</span><br> to odpowiadająca mu sekwencja liczb będzie wynosić:<br> <span class="term">&nbsp;&nbsp;6723154</span><br> Jak widać, litery N otrzymały odpowiednio liczby&nbsp;3 (pierwsze wystąpienie) oraz 4 (drugie wystąpienie).</p>
+          <p>W celu zaszyfrowania wiadomości, wszystkie jej litery powinny zostać wpisane do tabeli, wierszami, od lewej do prawej. Wielkość tabeli zależy od długości wiadomości. Jedynym z góry określonym wymiarem jest szerokość tabeli, która jest zdefiniowana przez długość sekretnego słowa kluczowego (która równa jest długości ciągu liczb, utworzonego na jego podstawie). Sekretne słowo kluczowe jest oczywiście znane obu komunikującym się stronom.</p>
+          <p>Jeżeli po wpisaniu do tabeli całej wiadomości, niektóre pola w dolnym wierszu tabeli pozostały wolne, to jeden z dwóch możliwych sposobów traktowania ich może zostać wybrany:</p>
+          <ol class="steps">
+           <li>Komórki tabeli mogą pozostać puste i powinny być ignorowane podczas wszystkich późniejszych operacji szyfrowania.</li>
+           <li>Nadawca może wpisać do nich jakieś rzadkie litery i podczas dalszego szyfrowania traktować je jako część tekstu jawnego. Po odszyfrowaniu, odbiorca powinien być w stanie określić, że te dodatkowe litery nie mają sensu i, że powinny zostać zignorowane.</li>
+          </ol>
+          <p>Następnie, litery powinny zostać odczytane z tabeli w specyficzny sposób i dopisane do tworzonego szyfrogramu. Kolejność czytania liter jest określona przez ciąg numerów, zbudowany na podstawie słowa kluczowego. Należy ją odczytywać kolumnami, z góry do dołu, startując od kolumny, której pozycja odpowiada pozycji numeru&nbsp;<var>1</var> w ciągu numerów. Następna kolumna jest wskazana przez numer&nbsp;<var>2</var> w tym ciągu, i tak dalej, aż do odczytania liter za wszystkich kolumn tabeli. Aby ułatwić ten krok, zaleca się zapisanie numerów z ciągu nad odpowiadającymi im kolumnami.</p>
+          <p>Przykładowo, poniżej przedstawiono kroki, które należy wykonać, aby zaszyfrować tytuł jednej z komedii Szekspira <em>A Midsummer Night's Dream</em>. W tym celu wykorzystano sekretne słowo kluczowe przedstawione powyżej. Odpowiadający mu ciąg numerów wynosi <span class="term">6723154</span>, więc tabela, która będzie użyta podczas szyfrowania ma siedem kolumn.</p>
+          <p>Po usunięciu wszystkich znaków, które nie są literami, oraz zamienieniu wszystkich liter na wielkie litery, wiadomość powinna zostać wpisania do tabeli:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix table--plain" aria-label="Tabela szyfrująca Kolumnowego Szyfru Przestawieniowego">
+           <tr>
+           <td>6</td>
+           <td>7</td>
+           <td>2</td>
+           <td>3</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           </tr>
+           <tr>
+           <td>A</td>
+           <td>M</td>
+           <td>I</td>
+           <td>D</td>
+           <td>S</td>
+           <td>U</td>
+           <td>M</td>
+           </tr>
+           <tr>
+           <td>M</td>
+           <td>E</td>
+           <td>R</td>
+           <td>N</td>
+           <td>I</td>
+           <td>G</td>
+           <td>H</td>
+           </tr>
+           <tr>
+           <td>T</td>
+           <td>S</td>
+           <td>D</td>
+           <td>R</td>
+           <td>E</td>
+           <td>A</td>
+           <td>M</td>
+           </tr>
+           </table>
+          </div>
+          <p>Nad wiadomością zapisano numery uzyskane ze słowa kluczowego. Określają one kolejność, w jakiej należy brać kolumny, z których następnie wszystkie litery powinny zostać odczytane (od góry do dołu) i dopisane do tworzonego szyfrogramu. W zaprezentowanym przykładzie jako pierwsza powinna zostać odczytana kolumna <span class="term">SIE</span>, jako druga kolumna <span class="term">IRD</span>, i tak&nbsp;dalej. Utworzony szyfrogram będzie wyglądał:<br> <span class="term">&nbsp;&nbsp;SIE IRD DNR MHM UGA AMT MES</span></p>
+          <p>Wreszcie, po usunięciu spacji, które zostały dodane w celu zaznaczenia oddzielnych kolumn, otrzymuje się zaszyfrowaną wiadomość:<br> <span class="term">&nbsp;&nbsp;SIEIRDDNRMHMUGAAMTMES</span></p>
+          <p>Aby odszyfrować otrzymany szyfrogram, odbiorca powinien wykonać następujące kroki:</p>
+          <ol class="steps">
+           <li>Znając sekretne słowo kluczowe oraz długość wiadomości, tabela o takiej samej długości, jaką miała tabela użyta do szyfrowania, powinna zostać utworzona.</li>
+           <li>Szyfrogram powinien zostać wpisany do kolumn tabeli, poczynając od najbardziej lewej kolumny do najbardziej prawej, od góry do dołu.</li>
+           <li>Kolumny powinny zostać poprzestawiane i umieszczone w pozycjach, w których powinny się znajdować według słowa kluczowego.</li>
+           <li>Odszyfrowana wiadomość może zostać odczytana wierszami, startując od górnego wiersza, od lewej do prawej.</li>
+          </ol>
+          <h2 id="partSecurity">Siła kolumnowego szyfru przestawieniowego</h2>
+          <p>Kolumnowy Szyfr Przestawieniowy był wykorzystywany do poważnych celów na całym świecie, aż do początku drugiej połowy dwudziestego wieku.</p>
+          <p>Aby złamać ten szyfr, atakujący powinien zbudować szereg tabel o różnych wielkościach, powpisywać do nich litery szyfrogramu (kolumnami), a następnie szukać w nich pojawiających się w wierszach anagramów rzeczywistych słów.</p>
+          <h2 id="implementacja">Implementacja</h2>
+          <h3 id="szyfrowanie">Szyfrowanie</h3>
+          <p>Poniżej przedstawiono funkcje napisane w Pythonie, które umożliwiają szyfrowanie za pomocą Kolumnowego Szyfru Przestawieniowego. Parametrami wejściowymi są wiadomość i sekretne słowo kluczowe. Główna funkcja, <span class="term">szyfruj</span>, wykorzystuje dwie funkcje pomocnicze w celu utworzenia tabeli i sekwencji liczb słowa kluczowego.</p>
+          <pre><code>def szyfruj(wiadomosc, klucz):
+  tabela = utworzTabeleSzyfrujaca(len(klucz), wiadomosc)
+  kluczSequence = sekwencjaKlucza(klucz)
+
+  szyfrogram = "";
+  for num in range(len(kluczSequence)):
+    pos = kluczSequence.index(num+1)
+    for row in range(len(tabela)):
+      if len(tabela[row]) &gt; pos:
+        szyfrogram += tabela[row][pos]
+  return szyfrogram
+
+
+def utworzTabeleSzyfrujaca(szerokosc, wiadomosc):
+  r = 0
+  c = 0
+  tabela = [[]]
+  for pos, ch in enumerate(wiadomosc):
+    tabela[r].append(ch)
+    c += 1
+    if c &gt;= szerokosc:
+      c = 0
+      r += 1
+      tabela.append([])
+
+  return tabela
+
+
+def sekwencjaKlucza(klucz):
+  sekwencja = []
+  for pos, ch in enumerate(klucz):
+    poprzednieLitery = klucz[:pos]
+    nowyNumer = 1
+    for prevPos, prevCh in enumerate(poprzednieLitery):
+      if prevCh &gt; ch:
+        sekwencja[prevPos] += 1
+      else:
+        nowyNumer += 1
+    sekwencja.append(nowyNumer)
+  return sekwencja</code></pre>
+          <h3 id="deszyfrowanie">Deszyfrowanie</h3>
+          <p>Poniższe funkcję napisane w Pythonie umożliwiają deszyfrowanie szyfrogramów Kolumnowego Szyfru Przestawieniowego. Parametrami wejściowymi są wiadomość i sekretne słowo kluczowe. Główna funkcja, <span class="term">deszyfruj</span>, wykorzystuje funkcje pomocnicze w celu utworzenia tabeli i sekwencji liczb słowa kluczowego.</p>
+          <pre><code>def decrypt(wiadomosc, klucz):
+  tabela = utworzTabeleDeszyfrujaca(sekwencjaKlucza(klucz), wiadomosc)
+
+  tekstJawny = "";
+  for r in range(len(tabela)):
+    for c in range (len(tabela[r])):
+      tekstJawny += tabela[r][c]
+  return tekstJawny
+
+
+def utworzTabeleDeszyfrujaca(kluczSequence, wiadomosc):
+  szerokosc = len(kluczSequence)
+  wysokosc = len(wiadomosc) / szerokosc
+  if wysokosc * szerokosc &lt; len(wiadomosc):
+    wysokosc += 1
+
+  tabela = utworzPustaTabele(szerokosc, wysokosc, len(wiadomosc))
+
+  pos = 0
+  for num in range(len(kluczSequence)):
+    column = kluczSequence.index(num+1)
+
+    r = 0
+    while (r &lt; len(tabela)) and (len(tabela[r]) &gt; column):
+      tabela[r][column] = wiadomosc[pos]
+      r += 1
+      pos += 1
+
+  return tabela
+
+
+def utworzPustaTabele(szerokosc, wysokosc, dlugosc):
+  tabela = []
+  iloscDodanych = 0
+  for r in range(wysokosc):
+    tabela.append([])
+    for c in range(szerokosc):
+      if iloscDodanych &gt;= dlugosc:
+        return tabela
+      tabela[r].append('')
+      iloscDodanych += 1
+  return tabela
+
+
+def sekwencjaKlucza(klucz):
+  sekwencja = []
+  for pos, ch in enumerate(klucz):
+    poprzednieLitery = klucz[:pos]
+    nowyNumer = 1
+    for prevPos, prevCh in enumerate(poprzednieLitery):
+      if prevCh &gt; ch:
+        sekwencja[prevPos] += 1
+      else:
+        nowyNumer += 1
+    sekwencja.append(nowyNumer)
+  return sekwencja</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/szyfr-sciezkowy.html" rel="prev"><small>← Poprzedni</small>Szyfr ścieżkowy</a>
+          <a class="pager__next" href="/pl/proste/podwojny-szyfr-kolumnowy.html" rel="next"><small>Następny →</small>Podwójny kolumnowy szyfr przestawieniowy</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-kolumnowy.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-kolumnowy.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-kolumnowy.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html" aria-current="page">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Playfair tests</title>
+<!-- Open in a browser through a local server (see README.md). The result is shown on the page
+     and in the title; headless Chrome can read it with --dump-dom. -->
+<pre id="result">running…</pre>
+<script type="module">
+  import { normalize, buildTable, toDigraphs, encrypt, decrypt, PlayfairError } from '../docs/assets/js/tools/playfair.js';
+
+  const results = [];
+  const eq = (name, actual, expected) =>
+    results.push(actual === expected ? `ok   ${name}` : `FAIL ${name}: got ${JSON.stringify(actual)}, expected ${JSON.stringify(expected)}`);
+  const throws = (name, fn, code) => {
+    try { fn(); results.push(`FAIL ${name}: no error`); }
+    catch (e) { eq(name, e instanceof PlayfairError && e.code, code); }
+  };
+
+  // Wikipedia example (keyword "playfair example")
+  eq('wikipedia encrypt', encrypt('Hide the gold in the tree stump', 'playfair example').output, 'BMODZBXDNABEKUDMUIXMMOUVIF');
+  eq('wikipedia decrypt', decrypt('BMODZBXDNABEKUDMUIXMMOUVIF', 'playfair example').output, 'HIDETHEGOLDINTHETREXESTUMP');
+
+  // Example from the article
+  eq('article table', buildTable('pecunia non olet'), 'PECUNIAOLTBDFGHKMQRSVWXYZ');
+  eq('article encrypt', encrypt('Meet me at the old bridge', 'pecunia non olet').output, 'WANAWAOIHSCAAGGKABDU');
+
+  // Text preparation
+  eq('every J becomes I', normalize('Jaja jest'), 'IAIAIEST');
+  eq('polish letters', normalize('Zażółć gęślą jaźń'), 'ZAZOLCGESLAIAZN');
+  eq('no-q drops every Q', normalize('QUIQUE', 'no-q'), 'UIUE');
+  eq('doubled letters', toDigraphs('BALLOON').join(' '), 'BA LX LO ON');
+  eq('double X uses Q', toDigraphs('AXX').join(' '), 'AX XQ');
+  eq('lone last letter', toDigraphs('ABC').join(' '), 'AB CX');
+  eq('no-x filler is Q', toDigraphs('LL', 'no-x').join(' '), 'LQ LQ');
+  eq('no-q, double X uses Z', toDigraphs('XX', 'no-q').join(' '), 'XZ XZ');
+  eq('table has 25 letters in every mode', ['j-as-i', 'no-q', 'no-x'].map((m) => buildTable('secret', m).length).join(), '25,25,25');
+
+  // Round trip in every mode (texts without filler letters)
+  for (const mode of ['j-as-i', 'no-q', 'no-x']) {
+    const plain = normalize('The quick brown fox jumps over a lazy dog', mode);
+    const cipher = encrypt(plain, 'keyword', mode);
+    const back = decrypt(cipher.output, 'keyword', mode).output;
+    eq(`round trip ${mode}`, back, cipher.digraphs.join(''));
+  }
+
+  // Errors
+  throws('odd ciphertext', () => decrypt('ABC', 'key'), 'odd');
+  throws('doubled ciphertext pair', () => decrypt('AABC', 'key'), 'double');
+
+  const failed = results.filter((r) => r.startsWith('FAIL')).length;
+  document.getElementById('result').textContent = `${results.join('\n')}\n\n${failed ? `${failed} FAILED` : 'ALL PASSED'}`;
+  document.title = failed ? 'FAILED' : 'PASSED';
+</script>

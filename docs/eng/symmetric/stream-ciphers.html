@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/symetryczne/szyfry-strumieniowe.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stream Symmetric Ciphers | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Stream ciphers use one secret key bit (or byte) at a time, and use it to encrypt a corresponding bit (or byte) of input data.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/symmetric/stream-ciphers.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/stream-ciphers.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/szyfry-strumieniowe.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/stream-ciphers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Stream Symmetric Ciphers | Cryptography">
+  <meta property="og:description" content="Stream ciphers use one secret key bit (or byte) at a time, and use it to encrypt a corresponding bit (or byte) of input data.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/symmetric/stream-ciphers.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Stream Symmetric Ciphers",
+        "description": "Stream ciphers use one secret key bit (or byte) at a time, and use it to encrypt a corresponding bit (or byte) of input data.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/symmetric/stream-ciphers.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Symmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Stream Symmetric Ciphers"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/" aria-current="true">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/symetryczne/szyfry-strumieniowe.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/symmetric/">Symmetric ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Stream Symmetric Ciphers</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Stream ciphers are based on generating a possible <em>infinite</em> cryptographic keystream of random data. They take one output bit (or byte) at a time, and use it to encrypt the corresponding bit (or byte) of input data.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Stream ciphers work on continuous stream of plaintext data and they do not divide it into smaller blocks.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a class="pager__next" href="/eng/symmetric/otp.html" rel="next"><small>Next →</small>OTP</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fstream-ciphers.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fstream-ciphers.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fstream-ciphers.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/symmetric/">Symmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/symmetric/stream-ciphers.html" aria-current="page">Stream ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/otp.html">OTP</a></li>
+              <li><a href="/eng/symmetric/rc4.html">RC4</a></li>
+              <li><a href="/eng/symmetric/salsa20.html">Salsa20</a></li>
+              <li><a href="/eng/symmetric/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/des.html">DES</a></li>
+              <li><a href="/eng/symmetric/rc2.html">RC2</a></li>
+              <li><a href="/eng/symmetric/3des.html">Triple DES</a></li>
+              <li><a href="/eng/symmetric/aes.html">AES</a></li>
+              <li><a href="/eng/symmetric/blowfish.html">Blowfish</a></li>
+              <li><a href="/eng/symmetric/camellia.html">Camellia</a></li>
+              <li><a href="/eng/symmetric/serpent.html">Serpent</a></li>
+              <li><a href="/eng/symmetric/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

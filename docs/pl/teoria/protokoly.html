@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/protocols.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protokoły | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Protokoły opisują czynności, które należy wykonać, aby osiągnąć zamierzone efekty. Są niezbędne w niemal wszystkich operacjach kryptograficznych.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/protokoly.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/protocols.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/protocols.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Protokoły | Kryptografia">
+  <meta property="og:description" content="Protokoły opisują czynności, które należy wykonać, aby osiągnąć zamierzone efekty. Są niezbędne w niemal wszystkich operacjach kryptograficznych.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/protokoly.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Protokoły",
+        "description": "Protokoły opisują czynności, które należy wykonać, aby osiągnąć zamierzone efekty. Są niezbędne w niemal wszystkich operacjach kryptograficznych.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/protokoly.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Protokoły"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/protocols.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Protokoły</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Protokół to&nbsp;szereg czynności, przewidzianych dla dwóch lub&nbsp;więcej stron, które należy wykonać w&nbsp;celu zrealizowania jakiegoś zadania. Uczestnicy postępujący krok po&nbsp;kroku, wspólnie doprowadzają wykonanie ustalonej procedury do&nbsp;końca.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Komputery i&nbsp;urządzenia elektroniczne wykorzystują protokoły komunikacyjne do&nbsp;nawiązywania połączenia i&nbsp;wymiany danych. Dzięki globalnemu upowszechnieniu się wielu rodzajów protokołów i&nbsp;standardów komunikacyjnych, stało się możliwe łatwe porozumiewanie się maszyn znajdujących się w&nbsp;odległych miejscach i&nbsp;zbudowanych w&nbsp;różny sposób.</p>
+          <p>Protokoły kryptograficzne są takimi protokołami, które wykorzystują w&nbsp;swoim działaniu kryptografię. Muszą gwarantować, że w&nbsp;trakcie ich wykonywania żadna ze&nbsp;stron nie&nbsp;będzie w&nbsp;stanie uzyskać więcej informacji lub uprawnień niż zostało&nbsp;to w&nbsp;nich przewidziane. Do protokołów kryptograficznych zaliczają się różne rodzaje szyfrowania oraz algorytmy <a href="/pl/teoria/mac.html">uwierzytelniania wiadomości</a> i negocjacji sekretnego klucza szyfrującego.</p>
+          <h2 id="protokoly-arbitrazowe">Protokoły arbitrażowe</h2>
+          <p>W&nbsp;protokołach arbitrażowych, oprócz stron nawiązujących komunikację, bierze udział jeszcze jedna dodatkowa strona, nazywana <strong>arbitrem</strong>. Z&nbsp;definicji arbiter nie jest zainteresowany przebiegiem komunikacji i&nbsp;jest darzony zaufaniem przez pozostałe strony. Można go przyrównać do&nbsp;pracownika banku, pośredniczącego w&nbsp;transakcji finansowej.</p>
+          <p>Protokoły arbitrażowe upraszczają wiele zadań, które wykonuje się za&nbsp;pomocą komputerów. Obecność arbitra ułatwia rozwiązywanie sporów i bezpieczną wymianę sekretnych danych. Z&nbsp;drugiej strony, stosowanie protokołów arbitrażowych jest niewygodne przynajmniej z&nbsp;paru powodów:</p>
+          <ul>
+           <li>Trzeba znaleźć arbitra, który może znajdować się daleko od komunikujących się stron, i&nbsp;którego wszystkie strony są gotowe obdarzyć swoim zaufaniem.</li>
+           <li>Trzeba ponosić koszty utrzymania serwerów pełniących rolę arbitrów.</li>
+           <li>Arbiter jest "wąskim gardłem" transakcji. Uszkodzenie, zaatakowanie lub&nbsp;błąd arbitra odbija się negatywnie na reszcie komunikujących się ze sobą stron.</li>
+          </ul>
+          <p>Większość współczesnych systemów finansowych służących do transferowania pieniędzy, takich jak karty kredytowe lub PayPal, wymaga udziału zaufanych pośredników, w szczególności banków lub firm obsługujących karty płatnicze, do przelewu pieniędzy.</p>
+          <h2 id="protokoly-rozjemcze">Protokoły rozjemcze</h2>
+          <p>Protokół rozjemczy to taki&nbsp;typ protokołu arbitrażowego, do&nbsp;którego arbiter włącza się dopiero w&nbsp;razie potrzeby. Jeśli komunikacja przebiega bezproblemowo, to biorące w niej udział strony sprawnie wykonują zadanie i kończą wymianę informacji samodzielnie, bez&nbsp;udziału arbitra. Jedynie w&nbsp;przypadku wystąpienia problemu&nbsp;- błędu, nieprzewidzianej okoliczności lub oszustwa którejś ze&nbsp;stron&nbsp;- na pomoc wzywany jest arbiter, który dysponuje informacjami i&nbsp;uprawnieniami pozwalającymi naprawić zaistniałą sytuację.</p>
+          <p>Protokoły rozjemcze są tańsze i&nbsp;łatwiejsze w stosowaniu niż protokoły arbitrażowe. Zwykle sama nieuchronność zainterweniowania arbitra przeciwdziała oszustwom. Fakt, że arbiter zwykle nie musi brać udziału w komunikacji, eliminuje największą wadę protokołów arbitrażowych.</p>
+          <h2 id="protokoly-samowymuszajace">Protokoły samowymuszające</h2>
+          <p>W protokołach samowymuszających cała komunikacja odbywa się bez udziału arbitra. Algorytmy są zbudowane w&nbsp;taki sposób, że w&nbsp;przypadku próby oszustwa dowolnej ze&nbsp;stron, pozostali uczestnicy są w&nbsp;stanie od razu to wykryć i&nbsp;właściwie zareagować, nie ponosząc samemu żadnych strat.</p>
+          <p>Niewątpliwie tego rodzaju protokoły mają najwięcej zalet i&nbsp;eliminują potrzebę angażowania dodatkowych stron. Niestety, nie&nbsp;wszystkie zadania mogą zostać zrealizowane za&nbsp;pomocą protokołów samowymuszających.</p>
+          <h2 id="lamanie-protokolow">Łamanie protokołów</h2>
+          <p>Ataki na protokoły komunikacyjne można podzielić na ataki czynne i&nbsp;bierne.</p>
+          <ul>
+           <li><strong>Ataki bierne</strong>: napastnik jedynie podsłuchuje część lub całość komunikacji, ale w&nbsp;żaden sposób nie jest w&nbsp;stanie ingerować w&nbsp;wymianę wiadomości.</li>
+           <li><strong>Ataki czynne</strong>: napastnik może usiłować zmienić protokół&nbsp;- wysyłać nowe wiadomości oraz zmieniać i&nbsp;usuwać istniejące, a nawet ingerować w&nbsp;cały kanał łączności.</li>
+          </ul>
+          <p>Celem ataku biernego jest jedynie podsłuchanie komunikacji. Cele ataku czynnego natomiast mogą być znacznie bardziej zróżnicowane, a skutki takich ataków są zwykle znacznie groźniejsze dla&nbsp;ofiar. W&nbsp;najbardziej złożonych atakach czynnych bierze udział wielu napastników, uderzających w&nbsp;różne punkty atakowanego systemu.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/steganografia.html" rel="prev"><small>← Poprzedni</small>Steganografia</a>
+          <a class="pager__next" href="/pl/teoria/protokoly-tcp-ip.html" rel="next"><small>Następny →</small>Protokoły TCP/IP</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprotokoly.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprotokoly.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprotokoly.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html" aria-current="page">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

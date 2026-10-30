@@ -1,0 +1,61 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Four-square tests</title>
+<!-- Open through a local server. Result shown on the page and in the title. -->
+<pre id="result">running…</pre>
+<script type="module">
+  import { normalize, plainSquare, buildTable, toDigraphs, encrypt, decrypt, FourSquareError }
+    from '../docs/assets/js/tools/four-square.js';
+
+  const results = [];
+  const eq = (name, actual, expected) =>
+    results.push(actual === expected ? `ok   ${name}` : `FAIL ${name}: got ${JSON.stringify(actual)}, expected ${JSON.stringify(expected)}`);
+  const throws = (name, fn, code) => {
+    try { fn(); results.push(`FAIL ${name}: no error`); }
+    catch (e) { eq(name, e instanceof FourSquareError && e.code, code); }
+  };
+
+  // Wikipedia four-square (keywords EXAMPLE / KEYWORD, Q dropped):
+  // "help me obi wan kenobi" -> FYGMKYHOBXMFKKKIMD
+  eq('wikipedia encrypt',
+     encrypt('help me obi wan kenobi', 'EXAMPLE', 'KEYWORD', 'no-q').output,
+     'FYGMKYHOBXMFKKKIMD');
+  eq('wikipedia decrypt',
+     decrypt('FYGMKYHOBXMFKKKIMD', 'EXAMPLE', 'KEYWORD', 'no-q').output,
+     'HELPMEOBIWANKENOBI');
+
+  // Squares
+  eq('plain square (j-as-i)', plainSquare('j-as-i'), 'ABCDEFGHIKLMNOPQRSTUVWXYZ');
+  eq('plain square (no-q)', plainSquare('no-q'), 'ABCDEFGHIJKLMNOPRSTUVWXYZ');
+  eq('keyword square', buildTable('EXAMPLE', 'no-q'), 'EXAMPLBCDFGHIJKNORSTUVWYZ');
+  eq('all squares 25 long',
+     [plainSquare('no-q').length, buildTable('x', 'no-q').length].join(), '25,25');
+
+  // Normalization
+  eq('polish letters', normalize('Źdźbło', 'j-as-i'), 'ZDZBLO');
+  eq('j becomes i', normalize('Jam', 'j-as-i'), 'IAM');
+
+  // Digraphs
+  eq('odd length padded', toDigraphs('ABCDE', 'j-as-i').join(' '), 'AB CD EX');
+  eq('no-x pad is Z', toDigraphs('A', 'no-x').join(' '), 'AZ');
+
+  // Round trips in every mode
+  for (const mode of ['j-as-i', 'no-q', 'no-x']) {
+    const plain = toDigraphs(normalize('Attack at dawn from the north', mode), mode).join('');
+    const enc = encrypt(plain, 'first', 'second', mode).output;
+    const back = decrypt(enc, 'first', 'second', mode).output;
+    eq(`round trip ${mode}`, back, plain);
+  }
+
+  // No keywords: both keyword squares are alphabetical, but four-square still swaps
+  // columns between squares, so it is NOT the identity. Check it round-trips instead.
+  eq('no keywords round trips',
+     decrypt(encrypt('ATTACK', '', '', 'j-as-i').output, '', '', 'j-as-i').output, 'ATTACK');
+
+  // Errors
+  throws('invalid mode', () => encrypt('abc', 'k', 'k', 'bogus'), 'mode');
+
+  const failed = results.filter((r) => r.startsWith('FAIL')).length;
+  document.getElementById('result').textContent = `${results.join('\n')}\n\n${failed ? `${failed} FAILED` : 'ALL PASSED'}`;
+  document.title = failed ? 'FAILED' : 'PASSED';
+</script>

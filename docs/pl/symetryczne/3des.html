@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/symmetric/3des.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3DES Szyfr Blokowy Symetryczny | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="3DES (Triple DES) jest symetrycznym szyfrem blokowym, zbudowanym na bazie szyfru DES oraz po raz pierwszy opublikowanym w roku 1998.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/symetryczne/3des.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/3des.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/3des.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/3des.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="3DES Szyfr Blokowy Symetryczny | Kryptografia">
+  <meta property="og:description" content="3DES (Triple DES) jest symetrycznym szyfrem blokowym, zbudowanym na bazie szyfru DES oraz po raz pierwszy opublikowanym w roku 1998.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/symetryczne/3des.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "3DES",
+        "description": "3DES (Triple DES) jest symetrycznym szyfrem blokowym, zbudowanym na bazie szyfru DES oraz po raz pierwszy opublikowanym w roku 1998.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/symetryczne/3des.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Szyfry symetryczne",
+            "item": "https://www.crypto-it.net/pl/symetryczne/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry blokowe",
+            "item": "https://www.crypto-it.net/pl/symetryczne/szyfry-blokowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "3DES"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/" aria-current="true">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/symmetric/3des.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/symetryczne/">Szyfry symetryczne</a></li>
+            <li><a href="/pl/symetryczne/szyfry-blokowe.html">Szyfry blokowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">3DES</h1>
+          <p class="article__subtitle">Szyfr blokowy z kluczem symetrycznym</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Długość bloku = 64 bitów</li>
+           <li>Długość klucza = 56, 112, lub 168 bitów</li>
+          </ul>
+          <p>Szyfr 3DES jest blokowym szyfrem symetrycznym, zbudowanym na bazie <a href="/pl/symetryczne/des.html">DES</a>. Został po raz pierwszy opublikowany pod koniec roku&nbsp;1998, w ramach standardu ANS&nbsp;X9.52. Inną nazwą tego szyfru jest <i>Triple Data Encryption Algorithm</i> (w skrócie TDEA).</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Szyfr 3DES jest zbudowany na&nbsp;bazie algorytmu DES, będąc zaprojektowanym we wczesnych latach siedemdziesiątych i&nbsp;posiadając klucz sekretny o&nbsp;długości jedynie 56&nbsp;bitów, okazał się zbyt słaby i&nbsp;łatwy do&nbsp;złamania za&nbsp;pomocą <a href="/pl/ataki/atak-silowy.html">ataków siłowych</a> przeprowadzanych przez komputery z końca lat dziewięćdziesiątych. Zakłada się, że siła algorytmu 3DES wynosi 112&nbsp;bitów, jeśli napastnik zastosuje najbardziej efektywne ataki typu <a href="/pl/ataki/meet-in-the-middle.html">meet-in-the-middle</a>.</p>
+          <p>Przez wiele lat 3DES był stosowany do ochrony płatności internetowych (standard EMV). Nawet obecnie (koniec roku 2016) wciąż tworzone są i utrzymywane nowe protokoły bazujące na tym szyfrze. 3DES był również używany w&nbsp;niektórych produktach Microsoftu (Microsoft Outlook 2007, Microsoft OneNote, Microsoft System Center Configuration Manager 2012) w&nbsp;celu ochrony ustawień i&nbsp;danych użytkowników.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Szyfrowanie 3DES polega na&nbsp;trzykrotnym wywołaniu zwykłego <a href="/pl/symetryczne/des.html">algorytmu DES</a>. W&nbsp;najsilniejszej wersji 3DES, jako wejście do&nbsp;algorytmu przekazuje się sekretny klucz szyfrujący o&nbsp;długości 168&nbsp;bitów, który następnie dzielony jest na&nbsp;trzy oddzielne klucze o&nbsp;długości 56&nbsp;bitów każdy.</p>
+          <h3 id="szyfrowanie-3des">Szyfrowanie 3DES</h3>
+          <ol class="steps">
+           <li>zaszyfrowanie za pomocą pierwszego sekretnego klucza</li>
+           <li>deszyfrowanie za pomocą drugiego sekretnego klucza</li>
+           <li>zaszyfrowanie za pomocą trzeciego sekretnego klucza</li>
+          </ol>
+          <p>Operacje szyfrowania i deszyfrowania mogą zostać przedstawione za pomocą równań matematycznych.</p>
+          <p>Szyfrowanie:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">c&nbsp;= E<sub>3</sub>(D<sub>2</sub>(E<sub>1</sub>(m)))</span></p>
+          <p>Deszyfrowanie:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">m&nbsp;= D<sub>1</sub>(E<sub>2</sub>(D<sub>3</sub>(c)))</span></p>
+          <h3 id="3des-z-krotszymi-kluczami">3DES z krótszymi kluczami</h3>
+          <p>Użycie operacji deszyfrowania DES jako drugiego kroku podczas szyfrowania 3DES zapewnia kompatybilność ze&nbsp;zwykłym algorytmem DES. Aby szyfr 3DES zwracał taki sam wynik jak DES, należy użyć krótszego klucza. Za&nbsp;klucze pierwszy i&nbsp;drugi, ewentualnie drugi i&nbsp;trzeci, przyjmuje się dowolny taki sam klucz, którego wartość jest nieistotna.</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">c&nbsp;= E<sub>3</sub>(D<sub>1</sub>(E<sub>1</sub>(m)))&nbsp;= E<sub>3</sub>(m)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">c&nbsp;= E<sub>3</sub>(D<sub>3</sub>(E<sub>1</sub>(m)))&nbsp;= E<sub>1</sub>(m)</span></p>
+          <p>Możliwe jest też użycie szyfru 3DES z&nbsp;sekretnym kluczem o&nbsp;długości 112&nbsp;bitów. W&nbsp;takim przypadku, klucze pierwszy i&nbsp;trzeci powinny być identyczne. Daje to większe bezpieczeństwo niż zaszyfrowanie danych dwa razy za&nbsp;pomocą algorytmu DES (z&nbsp;dwoma różnymi kluczami), ponieważ zapewnia lepszą obronę przed <a href="/pl/ataki/meet-in-the-middle.html">atakami meet-in-the-middle</a>.</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">c&nbsp;= E<sub>1</sub>(D<sub>2</sub>(E<sub>1</sub>(m)))</span></p>
+          <h2 id="schemat-blokowy-szyfrowania-3des">Schemat blokowy szyfrowania 3DES</h2>
+          <figure class="figure"><img src="/assets/img/3des/encryption-scheme-pl.webp" alt="Schemat szyfrowania 3DES" width="567" height="529" loading="lazy"></figure>
+          <h2 id="schemat-blokowy-deszyfrowania-3des">Schemat blokowy deszyfrowania 3DES</h2>
+          <figure class="figure"><img src="/assets/img/3des/decryption-scheme-pl.webp" alt="Schemat deszyfrowania 3DES" width="567" height="529" loading="lazy"></figure>
+          <h2 id="matematyka">Matematyka</h2>
+          <h3 id="algorytm-3des">Algorytm 3DES</h3>
+          <p>3DES używa do&nbsp;szyfrowania i&nbsp;deszyfrowania dokładnie tych samych operacji co&nbsp;szyfr DES</p>
+          <p>W każdej iteracji algorytmu DES, następujące operacje są wykonywane dla&nbsp;wszystkich bloków danych wejściowych: permutacja początkowa, 16&nbsp;cykli funkcji Feistela i&nbsp;permutacja końcowa.</p>
+          <p>Natomiast podczas manipulowania bitami klucza, przeprowadzane są następujące operacje: przesunięcie bitów, permutacja PC-1 i permutacja PC-2.</p>
+          <p>Więcej szczegółów można znaleźć w&nbsp;opisie <a href="/pl/symetryczne/des.html#Maths">algorytmu DES</a>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/symetryczne/rc2.html" rel="prev"><small>← Poprzedni</small>RC2</a>
+          <a class="pager__next" href="/pl/symetryczne/aes.html" rel="next"><small>Następny →</small>AES</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2F3des.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2F3des.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2F3des.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symetryczne -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/symetryczne/">Szyfry symetryczne</a></h2>
+        <ul>
+          <li><a href="/pl/symetryczne/szyfry-strumieniowe.html">Szyfry strumieniowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/otp.html">OTP</a></li>
+              <li><a href="/pl/symetryczne/rc4.html">RC4</a></li>
+              <li><a href="/pl/symetryczne/salsa20.html">Salsa20</a></li>
+              <li><a href="/pl/symetryczne/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/symetryczne/szyfry-blokowe.html">Szyfry blokowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/des.html">DES</a></li>
+              <li><a href="/pl/symetryczne/rc2.html">RC2</a></li>
+              <li><a href="/pl/symetryczne/3des.html" aria-current="page">3 DES</a></li>
+              <li><a href="/pl/symetryczne/aes.html">AES</a></li>
+              <li><a href="/pl/symetryczne/blowfish.html">Blowfish</a></li>
+              <li><a href="/pl/symetryczne/camellia.html">Camellia</a></li>
+              <li><a href="/pl/symetryczne/serpent.html">Serpent</a></li>
+              <li><a href="/pl/symetryczne/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symetryczne -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,43 @@
+<section class="tool" id="online" aria-labelledby="online-title"
+         data-tool="utf-8"
+         data-msg-format="Unknown output format."
+         data-msg-parse="The input is not a valid list of bytes for the chosen format."
+         data-msg-invalid="The bytes are not a valid UTF-8 sequence."
+         data-msg-copied="Copied">
+  <h2 id="online-title">UTF-8 converter</h2>
+
+  <fieldset>
+    <legend class="visually-hidden">Direction</legend>
+    <div class="segmented">
+      <label><input type="radio" name="direction" value="encode" checked> Text → bytes</label>
+      <label><input type="radio" name="direction" value="decode"> Bytes → text</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Byte format</legend>
+    <div class="options">
+      <label><input type="radio" name="format" value="hex" checked> Hexadecimal</label>
+      <label><input type="radio" name="format" value="decimal"> Decimal</label>
+      <label><input type="radio" name="format" value="binary"> Binary</label>
+      <label><input type="radio" name="format" value="entities"> HTML entities</label>
+    </div>
+  </fieldset>
+
+  <div class="field">
+    <label for="u8-input">Input</label>
+    <textarea id="u8-input" data-role="input" spellcheck="false">Zażółć gęślą jaźń 😀</textarea>
+    <small>When decoding, enter the bytes in the selected format (space- or comma-separated; HTML entities look like <code>&amp;#196;</code>).</small>
+  </div>
+
+  <p class="tool__error" data-role="error" role="alert"></p>
+
+  <div class="field">
+    <label for="u8-output">Result</label>
+    <textarea id="u8-output" data-role="output" readonly></textarea>
+  </div>
+  <div class="tool__actions">
+    <button type="button" class="button" data-role="copy">Copy result</button>
+    <button type="button" class="button" data-role="swap">Use result as input</button>
+  </div>
+</section>

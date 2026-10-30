@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/symmetric/otp.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OTP | Szyfr Symetryczny z Kluczem Jednorazowym | Crypto-IT</title>
+  <meta name="description" content="OTP jest strumieniowym szyfrem symetrycznym, cechującym się bardzo prostym algorytmem i bardzo dobrym poziomem zapewnianego bezpieczeństwa.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/symetryczne/otp.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/otp.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/otp.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/otp.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="OTP | Szyfr Symetryczny z Kluczem Jednorazowym">
+  <meta property="og:description" content="OTP jest strumieniowym szyfrem symetrycznym, cechującym się bardzo prostym algorytmem i bardzo dobrym poziomem zapewnianego bezpieczeństwa.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/symetryczne/otp.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "One-Time pad (OTP)",
+        "description": "OTP jest strumieniowym szyfrem symetrycznym, cechującym się bardzo prostym algorytmem i bardzo dobrym poziomem zapewnianego bezpieczeństwa.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/symetryczne/otp.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Szyfry symetryczne",
+            "item": "https://www.crypto-it.net/pl/symetryczne/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry strumieniowe",
+            "item": "https://www.crypto-it.net/pl/symetryczne/szyfry-strumieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "One-Time pad (OTP)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/" aria-current="true">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/symmetric/otp.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/symetryczne/">Szyfry symetryczne</a></li>
+            <li><a href="/pl/symetryczne/szyfry-strumieniowe.html">Szyfry strumieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">One-Time pad (OTP)</h1>
+          <p class="article__subtitle">Szyfr strumieniowy z kluczem symetrycznym</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Długość klucza = długość wiadomości</li>
+          </ul>
+          <p>Opracowany w roku&nbsp;1917 przez Gilberta Vernama, pracownika amerykańskiej firmy AT&amp;T w&nbsp;USA.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Poprawnie stosowany szyfr OTP zapewnia <a href="/pl/teoria/bezpieczenstwo-szyfrow.html">całkowite bezpieczeństwo</a> (ang.&nbsp;<i>perfect secrecy</i>) i&nbsp;umożliwia bardzo szybkie szyfrowanie i&nbsp;deszyfrowanie przesyłanej wiadomości. Wadą tego algorytmu jest długość klucza, która nie&nbsp;może być mniejsza od&nbsp;długości nadawanej wiadomości, co czyni go niewygodnym przy próbach zastosowania do&nbsp;przesyłu większej ilości danych.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Szyfrowanie i&nbsp;deszyfrowanie danych w&nbsp;OTP przebiega w&nbsp;taki sam sposób. Dysponując wiadomością do&nbsp;zaszyfrowania lub&nbsp;odszyfrowania oraz&nbsp;sekretnym kluczem, należy dodawać za&nbsp;pomocą operacji&nbsp;XOR kolejne bajty wiadomości i&nbsp;klucza.</p>
+          <p>Odpowiadające sobie bajty wiadomości i&nbsp;sekretnego klucza dodawane są jeden po drugim. Każda taka operacja produkuje jeden bajt wyjściowy:</p>
+          <p>&nbsp;&nbsp;&nbsp;<span class="math">m<sub>i</sub></span>&nbsp;XOR&nbsp;<span class="math">k<sub>i</sub> = c<sub>i</sub></span><br> &nbsp;&nbsp;&nbsp;<span class="math">c<sub>i</sub></span>&nbsp;XOR&nbsp;<span class="math">k<sub>i</sub> = m<sub>i</sub></span></p>
+          <h3 id="wielokrotne-uzycie-klucza">Wielokrotne użycie klucza</h3>
+          <p>Każda część klucza szyfrującego może być użyta tylko jeden&nbsp;raz, do zaszyfrowania tylko jednego fragmentu wiadomości (oczywiście, o&nbsp;takiej samej długości). Użycie tych samych bajtów klucza więcej niż jeden raz, umożliwia napastnikowi uzyskanie dwóch oryginalnych wiadomości zsumowanych XOR:</p>
+          <p>&nbsp;&nbsp;&nbsp;<span class="math">M<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">K = C<sub>1</sub></span><br> &nbsp;&nbsp;&nbsp;<span class="math">M<sub>2</sub></span>&nbsp;XOR&nbsp;<span class="math">K = C<sub>2</sub></span><br> &nbsp;&nbsp;&nbsp;<span class="math">C<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">C<sub>2</sub></span> = <span class="math">M<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">K</span>&nbsp;XOR&nbsp;<span class="math">M<sub>2</sub></span>&nbsp;XOR&nbsp;<span class="math">K</span> = <span class="math">M<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">M<sub>2</sub></span></p>
+          <p>Na&nbsp;tak otrzymaną kombinację oryginalnych wiadomości, można przeprowadzać ataki bazujące na&nbsp;cechach kodowania znaków i&nbsp;<a href="/pl/ataki/atak-statystyczny.html">cechach językowych</a>.</p>
+          <h3 id="brak-integralnosci">Brak integralności</h3>
+          <p>Szyfr OTP nie zapewnia integralności danych. Oznacza to, że możliwe jest zmodyfikowanie zaszyfrowanego tekstu, bez pozostawienia śladu po tej&nbsp;operacji. Dodatkowo, wynik takiej zmiany będzie miał przewidywalny wpływ na odszyfrowany potem przez odbiorcę tekst&nbsp;jawny.</p>
+          <p>&nbsp;&nbsp;&nbsp;<span class="math">m</span>&nbsp;<span class="math">→</span>&nbsp;enc<span class="math">(m, k)</span>&nbsp;<span class="math">→</span>&nbsp;<span class="math">m</span>&nbsp;XOR&nbsp;<span class="math">k</span><br> &nbsp;&nbsp;&nbsp;<span class="math">(m</span>&nbsp;XOR&nbsp;<span class="math">k)</span>&nbsp;XOR&nbsp;<span class="math">p = m</span>&nbsp;XOR&nbsp;<span class="math">k</span>&nbsp;XOR&nbsp;<span class="math">p</span><br> &nbsp;&nbsp;&nbsp;<span class="math">m</span>&nbsp;XOR&nbsp;<span class="math">k</span>&nbsp;XOR&nbsp;<span class="math">p</span>&nbsp;<span class="math">→</span>&nbsp;dec<span class="math">(m</span>&nbsp;XOR&nbsp;<span class="math">p, k)</span>&nbsp;<span class="math">-&gt;</span>&nbsp;<span class="math">m</span>&nbsp;XOR&nbsp;<span class="math">p</span><br><br> &nbsp;&nbsp;&nbsp;gdzie <span class="term">p</span> jest zmianą wprowadzoną przez napastnika.</p>
+          <h3 id="dzielenie-sekretu">Dzielenie sekretu</h3>
+          <p>OTP pozwala na współdzielenie sekretnego klucza przez pewną liczbę osób. W&nbsp;takim przypadku szyfrogram może być odkodowany tylko wtedy, jeśli wszystkie współdzielące&nbsp;go strony użyją swoich części klucza. Każda taka osoba będzie znała tylko swój podklucz.</p>
+          <p>Aby zaszyfrować tekst o&nbsp;długości <var>n</var>&nbsp;znaków przy użyciu sekretnego klucza współdzielonego przez <var>m</var>&nbsp;osób, należy przygotować <var>m*n</var>&nbsp;znaków klucza. Dzięki temu, każdy podklucz będzie składał się z <var>n</var>&nbsp;znaków i pozwoli zaszyfrować tekst o&nbsp;długości maksymalnie <var>n</var>&nbsp;znaków.</p>
+          <p>Przykładowo, jeśli sekretny klucz jest współdzielony pomiędzy trzema stronami, to wszystkie trzy podklucze będą musiały być dodane&nbsp;XOR do szyfrogramu w&nbsp;celu otrzymania oryginalnej wiadomości.</p>
+          <p>&nbsp;&nbsp;&nbsp;<span class="math">K = K<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">K<sub>2</sub></span>&nbsp;XOR&nbsp;<span class="math">K<sub>3</sub></span><br> &nbsp;&nbsp;&nbsp;<span class="math">C = M</span>&nbsp;XOR&nbsp;<span class="math">K<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">K<sub>2</sub></span>&nbsp;XOR&nbsp;<span class="math">K<sub>3</sub></span><br> &nbsp;&nbsp;&nbsp;<span class="math">M = C</span>&nbsp;XOR&nbsp;<span class="math">K<sub>1</sub></span>&nbsp;XOR&nbsp;<span class="math">K<sub>2</sub></span>&nbsp;XOR&nbsp;<span class="math">K<sub>3</sub></span><br></p>
+          <h2 id="schemat-blokowy-algorytmu-otp">Schemat blokowy algorytmu OTP</h2>
+          <figure class="figure"><img src="/assets/img/otp/otp-scheme.webp" alt="Schemat algorytmu OTP" width="718" height="378" loading="lazy"></figure>
+          <h2 id="matematyka">Matematyka</h2>
+          <h3 id="xor">XOR</h3>
+          <p>Jedyną operacją wykonywaną podczas szyfrowania i&nbsp;deszyfrowania w&nbsp;OTP jest <strong>sumowanie bitów modulo&nbsp;2</strong> (XOR). Wszystkie bajty danych są sumowane XOR po kolei z&nbsp;odpowiadającymi im bajtami klucza.</p>
+          <p>Sumowanie XOR bajtów polega na&nbsp;dodawaniu XOR odpowiadających sobie kolejnych bitów w&nbsp;każdym bajcie.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>Tablica prawdy dla dodawania XOR</caption>
+           <tr>
+           <th>b<sub>1</sub></th>
+           <th>b<sub>2</sub></th>
+           <th>b<sub>1</sub> XOR b<sub>2</sub></th>
+           </tr>
+           <tr>
+           <td>0&nbsp;</td>
+           <td>0&nbsp;</td>
+           <td>0&nbsp;&nbsp;&nbsp;</td>
+           </tr>
+           <tr>
+           <td>0&nbsp;</td>
+           <td>1&nbsp;</td>
+           <td>1&nbsp;&nbsp;&nbsp;</td>
+           </tr>
+           <tr>
+           <td>1&nbsp;</td>
+           <td>0&nbsp;</td>
+           <td>1&nbsp;&nbsp;&nbsp;</td>
+           </tr>
+           <tr>
+           <td>1&nbsp;</td>
+           <td>1&nbsp;</td>
+           <td>0&nbsp;&nbsp;&nbsp;</td>
+           </tr>
+           </table>
+          </div>
+          <h2 id="implementacja">Implementacja</h2>
+          <p>Szyfrowanie OTP zaimplementowane w&nbsp;C++:</p>
+          <pre><code>string otp(const string &amp; tekst_jawny, const string &amp; klucz) {
+    size_t dlug = tekst_jawny.size() &lt; klucz.size() ?
+                  tekst_jawny.size() : klucz.size();
+
+    string szyfrogram;
+    szyfrogram.resize(dlug);
+
+    for (size_t i = 0; i &lt; dlug; ++i) {
+        szyfrogram[i] = ((short int)tekst_jawny[i]) ^
+                        ((short int)klucz[i]);
+    }
+
+    return szyfrogram;
+}</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/symetryczne/szyfry-strumieniowe.html" rel="prev"><small>← Poprzedni</small>Szyfry strumieniowe</a>
+          <a class="pager__next" href="/pl/symetryczne/rc4.html" rel="next"><small>Następny →</small>RC4</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Fotp.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Fotp.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Fotp.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symetryczne -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/symetryczne/">Szyfry symetryczne</a></h2>
+        <ul>
+          <li><a href="/pl/symetryczne/szyfry-strumieniowe.html">Szyfry strumieniowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/otp.html" aria-current="page">OTP</a></li>
+              <li><a href="/pl/symetryczne/rc4.html">RC4</a></li>
+              <li><a href="/pl/symetryczne/salsa20.html">Salsa20</a></li>
+              <li><a href="/pl/symetryczne/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/symetryczne/szyfry-blokowe.html">Szyfry blokowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/des.html">DES</a></li>
+              <li><a href="/pl/symetryczne/rc2.html">RC2</a></li>
+              <li><a href="/pl/symetryczne/3des.html">3 DES</a></li>
+              <li><a href="/pl/symetryczne/aes.html">AES</a></li>
+              <li><a href="/pl/symetryczne/blowfish.html">Blowfish</a></li>
+              <li><a href="/pl/symetryczne/camellia.html">Camellia</a></li>
+              <li><a href="/pl/symetryczne/serpent.html">Serpent</a></li>
+              <li><a href="/pl/symetryczne/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symetryczne -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

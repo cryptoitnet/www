@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/index-of-coincidence.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Indeks Koincydencji | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Indeks koincydencji określa jak bardzo prawdopodobna jest sytuacja, że w trakcie porównywania dwóch tekstów litera po literze, oba porównywane znaki będą…">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/indeks-koincydencji.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/index-of-coincidence.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/indeks-koincydencji.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/index-of-coincidence.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Indeks Koincydencji | Kryptografia">
+  <meta property="og:description" content="Indeks koincydencji określa jak bardzo prawdopodobna jest sytuacja, że w trakcie porównywania dwóch tekstów litera po literze, oba porównywane znaki będą…">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/indeks-koincydencji.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Indeks koincydencji",
+        "description": "Indeks koincydencji określa jak bardzo prawdopodobna jest sytuacja, że w trakcie porównywania dwóch tekstów litera po literze, oba porównywane znaki będą…",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/indeks-koincydencji.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Indeks koincydencji"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/index-of-coincidence.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Indeks koincydencji</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Indeks koincydencji (ang. <i>index of coincidence</i>) to współczynnik określający jak bardzo prawdopodobna jest sytuacja, że w&nbsp;trakcie porównywania dwóch dowolnych tekstów litera po&nbsp;literze, oba porównywane znaki będą takie same.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Wartość indeksu koincydencji wylicza się biorąc pod uwagę prawdopodobieństwo wystąpienia danej litery w&nbsp;tekście i&nbsp;określając prawdopodobieństwo porównania jej&nbsp;z taką samą literą w&nbsp;drugim tekście (które zależy oczywiście od&nbsp;prawdopodobieństwa pojawienia się tej litery w&nbsp;drugim tekście). Dla&nbsp;tekstu o&nbsp;długości&nbsp;<var>N</var> i&nbsp;alfabecie o&nbsp;długości&nbsp;<var>c</var> (przykładowo, dla&nbsp;języka angielskiego <span class="term">c = 26</span>) wartość współczynnika koincydencji&nbsp;<var>IC</var> (<strong><i>I</i></strong><i>ndex of </i><strong><i>C</i></strong><i>oincidence</i>) przy&nbsp;porównywaniu tego tekstu z&nbsp;nim samym, tyle że przesuniętym o&nbsp;losową liczbę pozycji można wyrazić wzorem:<br> <span class="math"> &nbsp;&nbsp;&nbsp;&nbsp;IC = (n<sub>1</sub>(n<sub>1</sub>-1) + ... + n<sub>c</sub>(n<sub>c</sub>-1)) / (N(N-1) / c) </span>,<br> gdzie <var>n<sub>i</sub></var> to liczba wystąpień danej litery w całym&nbsp;tekście. <button type="button" class="note-ref" popovertarget="note-ic-wzor">Kliknij tutaj, aby dowiedzieć się skąd ten wzór.</button></p>
+          <p>W&nbsp;szczególności, analizując częstotliwości występowania kolejnych liter w danym języku&nbsp;(<var>f<sub>i</sub></var>) można określić spodziewany współczynnik koincydencji dla&nbsp;danego języka (czyli podczas porównywania dwóch tekstów napisanych w&nbsp;tym samym języku):<br> <span class="math"> &nbsp;&nbsp;&nbsp;&nbsp;IC<sub>spodziewany</sub> = (f<sub>1</sub><sup>2</sup> + ... + f<sub>c</sub><sup>2</sup>) / (1/c) </span></p>
+          <p>Jeżeli w danych języku wszystkie litery występowałyby jednakowo często, łatwo zauważyć, że spodziewana wartość współczynnika koincydencji wynosiłaby&nbsp;<span class="term">1</span>. Oczywiście, we&nbsp;wszystkich językach różne litery występują różnie często i&nbsp;dlatego współczynniki koincydencji dla poszczególnych języków różnią się między sobą. Na przykład, dla&nbsp;języka angielskiego ta wartość wynosi&nbsp;<span class="term">1,73</span>.</p>
+          <p>Można zauważyć, że indeks koincydencji wyliczony dla&nbsp;dwóch tekstów napisanych w&nbsp;różnych językach będzie zwykle zauważalnie mniejszy od&nbsp;spodziewanych indeksów koincydencji dla&nbsp;tych języków. Bierze się to&nbsp;stąd, że litery występujące często w jednym tekście, w&nbsp;drugim tekście (napisanym w&nbsp;innym języku) niekoniecznie muszą być równie popularne, więc prawdopodobieństwo spotkań tych samych liter w&nbsp;obu porównywanych tekstach jest mniejsze.</p>
+          <h2 id="zastosowanie-w-kryptografii">Zastosowanie w kryptografii</h2>
+          <p>Indeks koincydencji jest wykorzystywany w kryptografii do łamania szyfrów podstawieniowych i&nbsp;prostych szyfrów&nbsp;XOR.</p>
+          <p>Przykładowo, mając wiadomość zaszyfrowaną za&nbsp;pomocą szyfru podstawieniowego lub&nbsp;szyfru&nbsp;XOR można wyznaczyć długość sekretnego klucza szyfrującego. Robi się to&nbsp;porównując zaszyfrowany tekst litera po&nbsp;literze (lub&nbsp;odpowiednio bajt po&nbsp;bajcie) z&nbsp;tym samym tekstem, tyle że przesuniętym względem początku o ilość pozycji równą aktualnie sprawdzanej długości klucza. Dla&nbsp;każdego sprawdzanego przypadku (czyli dla każdej długości klucza od&nbsp;<span class="term">1</span> do&nbsp;momentu znalezienia rozwiązania) należy wyliczyć wartość indeksu koincydencji i&nbsp;ją zapamiętać.</p>
+          <p>Kiedy natrafi się na właściwe przesunięcie tekstów, równe długości sekretnego klucza, zniekształcenia wprowadzone przez nieznany klucz zniosą się i&nbsp;w&nbsp;ogólnym rozrachunku znikną:</p>
+          <ul>
+           <li>w&nbsp;przypadku szyfru podstawieniowego litery w górnym i&nbsp;dolnym tekście na&nbsp;odpowiadających sobie pozycjach będą przesunięte o&nbsp;taką samą liczbę znaków,</li>
+           <li>w&nbsp;przypadku szyfru&nbsp;XOR modyfikacje bitów w odpowiadających sobie sprawdzanych bajtach będą takie same.</li>
+          </ul>
+          <p>Po&nbsp;natrafieniu na&nbsp;właściwe przesunięcie, poszczególne porównywane znaki w&nbsp;pierwszym i&nbsp;drugim tekście -mimo, że nieznane- są znakami należącymi do&nbsp;tego samego języka, więc wyliczając dla&nbsp;nich współczynnik koincydencji, otrzyma się w&nbsp;wyniku wartość zbliżoną do&nbsp;wartości spodziewanej dla&nbsp;danego języka i&nbsp;znacznie odbiegającą od&nbsp;pozostałych, otrzymywanych wcześniej wartości współczynnika koincydencji. Podczas porównywania dwóch tekstów z&nbsp;niewłaściwym przesunięciem, litery (bajty) w&nbsp;górnym i&nbsp;dolnym tekście były zniekształcone inaczej, więc można przyjąć, że były zapisane w&nbsp;dwóch różnych językach, z&nbsp;różnymi częstotliwościami występowania poszczególnych liter w pierwszym i&nbsp;drugim tekście.</p>
+          <p>Poprawna, zauważalnie większa wartość współczynnika koincydencji będzie powtarzać się dla każdego przesunięcia tekstów, równego długości klucza lub będącego jej całkowitą wielokrotnością (ponieważ ten sam sekretny klucz powtarza się cyklicznie).</p>
+          <h2 id="wartosci-spodziewane-wspolczynnika-koincydencji">Wartości spodziewane współczynnika koincydencji</h2>
+          <p>Współczynniki koincydencji można oszacować dla różnych języków, biorąc pod uwagę częstotliwości występowania liter. Oczywiście są to wartości średnie, ponieważ w poszczególnych rodzajach tekstów (teksty naukowe, literatura piękna,&nbsp;itd.) częstotliwości występowania konkretnych liter nieznacznie się od&nbsp;siebie różnią.</p>
+          <ul>
+           <li>język angielski - 1.73</li>
+           <li>język rosyjski - 1.76</li>
+           <li>język hiszpański - 1.94</li>
+           <li>język portugalski - 1.94</li>
+           <li>język włoski - 1.94</li>
+           <li>język francuski - 2.02</li>
+           <li>język niemiecki - 2.05</li>
+          </ul>
+          <p>Czasami wartości współczynników koincydencji wygodniej jest podać bez&nbsp;uwzględnienia znormalizowania, zależnego od&nbsp;ilości liter w&nbsp;alfabecie. Przykładowo, dla języka angielskiego wartość współczynnika koincydencji bez normalizacji wynosi:<br> <span class="math"> &nbsp;&nbsp;&nbsp;&nbsp;1,73 / 26 = 0,067 </span></p>
+          <div class="note" id="note-ic-wzor" popover>
+           <p>Prawdopodobieństwo spotkania się dwóch takich samych liter przy&nbsp;porównywaniu takich samych tekstów przesuniętych względem siebie o&nbsp;losową liczbę znaków, można porównać do&nbsp;prawdopodobieństwa wylosowania dwóch takich samych liter z jednego takiego tekstu.</p>
+           <p>Jest ono równe sumie prawdopodobieństw wylosowania każdej możliwej pary liter (czyli prawdopodobieństwu wylosowania dwóch liter&nbsp;<var>a</var> +&nbsp;prawdopodobieństwu wylosowania dwóch liter&nbsp;<var>b</var> i&nbsp;tak dalej).</p>
+           <p>Z&nbsp;kolei prawdopodobieństwo wylosowania pary dwóch takich samych konkretnych liter (określmy tę literę jako <var>x</var>, a ilość jej wystąpień w&nbsp;tekście o&nbsp;długości <var>N</var> jako&nbsp;<var>n<sub>x</sub></var>) jest równe iloczynowi liczb:<br> <span class="math">A&nbsp;=&nbsp;n<sub>x</sub>&nbsp;/&nbsp;N</span><br> oraz:<br> <span class="math">B&nbsp;=&nbsp;(n<sub>x</sub>-1)&nbsp;/&nbsp;(N-1)</span>,<br> gdzie:</p>
+           <ul>
+           <li><var>A</var> to prawdopodobieństwo wylosowania jednej z&nbsp;<var>n<sub>x</sub></var> liter <var>x</var> z&nbsp;tekstu o&nbsp;długości <var>N</var>,</li>
+           <li><var>B</var> to prawdopodobieństwo wylosowania jednej z&nbsp;<var>n<sub>x</sub>-1</var> pozostałych liter <var>x</var> z&nbsp;pozostałych <var>N-1</var>&nbsp;liter.</li>
+           </ul>
+           <p>Po&nbsp;przemnożeniu i&nbsp;zsumowaniu wszystkich prawdopodobieństw pozostaje już tylko pomnożyć wynik przez&nbsp;<var>c</var>, czyli długość alfabetu w&nbsp;danym języku, tak aby współczynniki koincydencji w&nbsp;różnych językach były porównywalne.</p>
+           <button type="button" class="note__close" popovertarget="note-ic-wzor" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/podpisywanie-oprogramowania.html" rel="prev"><small>← Poprzedni</small>Podpisywanie oprogramowania</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Findeks-koincydencji.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Findeks-koincydencji.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Findeks-koincydencji.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html" aria-current="page">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

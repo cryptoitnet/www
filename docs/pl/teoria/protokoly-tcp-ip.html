@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/tcp-ip-protocols.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protokoły TCP/IP | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Protokoły TCP/IP są jednymi z najpopularniejszych protokołów używanych w sieciach komputerowych.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/protokoly-tcp-ip.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/tcp-ip-protocols.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly-tcp-ip.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/tcp-ip-protocols.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Protokoły TCP/IP | Kryptografia">
+  <meta property="og:description" content="Protokoły TCP/IP są jednymi z najpopularniejszych protokołów używanych w sieciach komputerowych.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/protokoly-tcp-ip.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Protokoły TCP/IP",
+        "description": "Protokoły TCP/IP są jednymi z najpopularniejszych protokołów używanych w sieciach komputerowych.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/protokoly-tcp-ip.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Protokoły TCP/IP"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/tcp-ip-protocols.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Protokoły TCP/IP</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>TCP/IP (ang. <i>Transmission Control Protocol/Internet Protocol</i>) to zbiór protokołów służących do transmisji danych przez sieci komputerowe. Model TCP/IP implementuje najważniejsze funkcjonalności siedmiu warstw standardowego <button type="button" class="note-ref" popovertarget="note-osi-model">modelu OSI</button>. Poniższy schemat przedstawia odpowiadające sobie warstwy modeli TCP/IP i&nbsp;OSI.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <figure class="figure"><img src="/assets/img/theory/tcpip/tcpip-osi-pl.webp" alt="Porównanie warstw modeli TCP/IP i OSI" width="457" height="359" loading="lazy"></figure>
+          <p>Każda wiadomość wysłana przez aplikację przechodzi przez wszystkie warstwy&nbsp;TCP/IP, od&nbsp;warstwy aplikacji do najniższej warstwy dostępu do sieci. Następnie jest transmitowana przez sieć do&nbsp;drugiego komputera. Na koniec przechodzi przez wszystkie warstwy w przeciwnym kierunku, aż do&nbsp;warstwy aplikacji i&nbsp;docelowego procesu.</p>
+          <p>Podczas przesyłania danych z&nbsp;aplikacji do&nbsp;sieci, każda warstwa dodaje swój własny nagłówek (ang. <i>header</i>) do każdej wiadomości. Każdy z&nbsp;tych nagłówków jest potem odczytywany przez odpowiednią warstwę w&nbsp;komputerze odbierającym wiadomość (gdzie, jak to już było powiedziane wcześniej, wiadomości są przesyłane z&nbsp;sieci do warstwy aplikacji i&nbsp;dalej). Zarówno zawartość jak i&nbsp;wielkość nagłówków zależą od&nbsp;użytych protokołów.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/tcpip/tcpip-flow-send-pl.webp" alt="Wysyłanie wiadomości w TCP/IP" width="1145" height="794" loading="lazy">
+           <figcaption>Wysyłanie wiadomości w TCP/IP</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/tcpip/tcpip-flow-receive-pl.webp" alt="Odbieranie wiadomości w TCP/IP" width="1145" height="794" loading="lazy">
+           <figcaption>Odbieranie wiadomości w TCP/IP</figcaption>
+          </figure>
+          <h2 id="warstwa-aplikacji">Warstwa aplikacji</h2>
+          <p>Pierwsza z czterech warstw TCP/IP pośredniczy w komunikacji pomiędzy programami komputerowymi i&nbsp;protokołami niższych warstw, umożliwiając w ten sposób aplikacjom korzystanie z&nbsp;sieci. Programy mogą wykorzystywać różne protokoły warstwy aplikacji do przeprowadzania różnych operacji w&nbsp;sieci.</p>
+          <p>Istnieje wiele protokołów warstwy aplikacji, które wykorzystują transmisję TCP/IP. Jednymi z&nbsp;ważniejszych protokołów warstwy aplikacji są:</p>
+          <ul>
+           <li>HTTP, HTTPS - do przeglądania stron&nbsp;www,</li>
+           <li>FTP, TFTP, NFS - do transmisji plików,</li>
+           <li>SMTP - do wysyłania wiadomości email,</li>
+           <li>POP3 - do otrzymywania wiadomości email,</li>
+           <li>IMAP - do zarządzania wiadomościami email na serwerach,</li>
+           <li>Telnet, rLogin - do zdalnego logowania się na innych komputerach,</li>
+           <li>SNMP - do zarządzania sieciami komputerowymi,</li>
+           <li>DNS - DNS - do znajdowania adresów IP przypisanych do adresów WWW,</li>
+           <li><a href="/pl/teoria/protokoly-aplikacji.html#IRC">IRC - do czatów online</a></li>
+          </ul>
+          <p>Budowa wiadomości warstwy aplikacji różni się w&nbsp;zależności od&nbsp;protokołu, który został użyty. Każdy protokół może wymagać różnych danych wejściowych i&nbsp;produkować różne zapytania, które będą wysłane do warstwy transportowej. Niezależnie od formy wiadomości utworzonej przez warstwę aplikacji, warstwa transportowa traktuje każdą otrzymaną wiadomość jako <em>dane</em> i&nbsp;nie wnika w ich&nbsp;zawartość.</p>
+          <h3 id="gniazda-sieciowe">Gniazda sieciowe</h3>
+          <span>(ang. <i>internet sockets</i>)</span>
+          <p>Gniazda sieciowe to struktury, które są wykorzystywane podczas komunikacji pomiędzy warstwami aplikacji i&nbsp;transportową. Każdy proces i&nbsp;aplikacja, który próbuje połączyć się z siecią, musi powiązać swoje kanały transmisji danych wejściowych i&nbsp;wyjściowych poprzez utworzenie właściwego obiektu gniazda sieciowego.</p>
+          <p>Obiekt gniazda sieciowego zawiera informacje o adresie&nbsp;IP, numerze portu i&nbsp;użytym protokole warstwy transportowej. Unikalna kombinacja tych trzech parametrów pozwala na zidentyfikowanie właściwego procesu, do którego wiadomość powinna być dostarczona.</p>
+          <p>Numer portu może zostać przypisany automatycznie przez system operacyjny, ręcznie przez użytkownika lub może być mu przypisana wartość domyślna, właściwa pewnym popularnym aplikacjom. Numer portu jest 16-bitową liczbą całkowitą (0&nbsp;-&nbsp;65535).</p>
+          <p>Niektóre popularne protokoły warstwy aplikacji używają domyślnych i publicznie znanych numerów porów. Na przykład, HTTP używa portu&nbsp;80, HTTPS używa portu&nbsp;443, SMTP portu&nbsp;25, Telnet portu&nbsp;23, natomiast FTP używa dwóch portów: 20&nbsp;do transmisji danych i 21&nbsp;kontroli transmisji. Lista domyślnych numerów portów jest zarządzana przez organizację Internet Assigned Numbers Authority.</p>
+          <p>Proces powiązywania aplikacji i&nbsp;gniazda jest nazywany przypisaniem (ang. <i>binding</i>). Po zakończonym sukcesem przypisaniu, aplikacja nie musi zajmować się już zarządzaniem siecią, ponieważ wszystkie dalsze operacje leżą w gestii niższych warstw&nbsp;TCP/IP.</p>
+          <p>Niektóre systemy operacyjne wymagają specjalnych uprawnień do przypisania numerów portów mniejszych niż&nbsp;1024. Wiele aplikacji preferuje więc używanie portów o&nbsp;wyższych numerach, alokowanych dla nich na krótkie okresy czasu. Takie porty nazywane są <em>portami dynamicznymi</em> (ang. <i>ephemeral ports</i>).</p>
+          <p>Użytkownik może sprecyzować numer portu w adresie&nbsp;URL. Na przykład, użycie poniższego URL sprawi, że przeglądarka będzie łączyć się ze stroną&nbsp;www przy użyciu portu&nbsp;8080, zamiast domyślnego portu HTTP, o numerze&nbsp;80:</p>
+          <pre><code>http://www.example.com:8080/path</code></pre>
+          <h2 id="warstwa-transportowa">Warstwa transportowa</h2>
+          <p>Warstwa transportowa otrzymuje wiadomości z&nbsp;warstwy aplikacji. Dzieli je na mniejsze pakiety, dodaje swój własny nagłówek i wysyła wiadomości dalej w&nbsp;dół do warstwy internetowej. Nagłówek zawiera szereg informacji kontrolnych, w&nbsp;szczególności numery portów nadawcy i&nbsp;odbiorcy.</p>
+          <p>Numery portów są wykorzystywane przez warstwę transportową w&nbsp;czasie obsługiwania pakietów przychodzących z warstwy internetowej (czyli w czasie odbierania danych). Dzięki numerom portów jest możliwe określenie typu zawartości, który znajduje się w&nbsp;przychodzącej wiadomości. Na tej podstawie można wybrać właściwy protokół warstwy aplikacji, który powinien otrzymać wiadomość. Przykładowo pakiet, którego docelowy numer portu wynosi&nbsp;25, będzie dostarczony do&nbsp;protokołu połączonego z tym portem, zwykle SMTP. W tym przypadku, protokół SMTP dostarczy dane do&nbsp;aplikacji email, która ich zażądała.</p>
+          <h3 id="tcp">TCP</h3>
+          <p>Najpopularniejszym protokołem warstwy transportowej jest TCP (ang. <i>Transmission Control Protocol</i>). Podczas transmisji danych, TCP zestawia połączenie pomiędzy komunikującymi się stronami (ang. <i>connection oriented</i>) przez zainicjowanie tzw.&nbsp;sesji (ang. <i>session</i>). TCP jest protokołem niezawodnym (ang. <i>reliable</i>), w którym odbiorca potwierdza otrzymanie każdej wiadomości (ang. <i>acknowledge</i>). Wszystkie wiadomości dostarczane są w takiej samej kolejności, w&nbsp;jakiej zostały wysłane (ang. <i>ordering</i>).</p>
+          <p>Wszystkie cechy wymienione powyżej są zapewniane prze warstwę TCP. Oznacza to, że TCP może współdziałać z&nbsp;innymi, bardziej zawodnymi protokołami niższych warstw i nie powinno to afektować komunikacji z&nbsp;perspektywy warstwy aplikacji.</p>
+          <h4>Niezawodność TCP</h4>
+          <span>(ang. reliability)</span>
+          <p>W czasie wysyłanie danych, TCP zapewnia, że wszystkie wiadomości zostały dostarczone do&nbsp;miejsca przeznaczenia. Odbiorca testuje każdy otrzymany pakiet pod kątem błędów transmisji (poprzez wyliczanie sumy kontrolnej danych). Jeśli wiadomość jest poprawna, odbiorca wysyła potwierdzenie (ang. <i>acknowledgement</i>) do nadawcy. Jeśli nadawca nie otrzyma potwierdzenia w&nbsp;przeciągu określonego (konfigurowalnego) czasu, to ponownie wysyła zagubiony pakiet.</p>
+          <p>Po kilku nieudanych próbach, TCP zakłada, że odbiorca jest nieosiągalny i&nbsp;informuje warstwę aplikacji, że transmisja zakończyła się niepowodzeniem.</p>
+          <h4>Uszeregowanie pakietów w TCP</h4>
+          <span>(ang. ordering)</span>
+          <p>Jedno z pól nagłówka TCP zawiera numer sekwencyjny wiadomości. Numer sekwencyjny jest zwiększany o&nbsp;jeden dla każdej wysłanej wiadomości. Podczas odbierania wiadomości, TCP układa pakiety we właściwej kolejności. Dzięki temu, warstwa aplikacji nie musi w ogóle zajmować się kolejnością przychodzących pakietów sieciowych.</p>
+          <h4>Nagłówek TCP</h4>
+          <p>Nagłówek TCP składa się z 20 lub więcej bajtów. Dokładna wielkość zależy od tego czy opcjonalne pole <em>opcji</em> (ang. <i>options</i>) jest używane. Maksymalna wielkość tego pola to 40&nbsp;bajtów, więc maksymalna wielkość całego nagłówka to 60&nbsp;bajtów.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/tcpip/tcp-header-pl.webp" alt="Struktura nagłówka TCP" width="794" height="378" loading="lazy">
+           <figcaption>Struktura nagłówka TCP</figcaption>
+          </figure>
+          <br>
+          <h4>Sesja TCP</h4>
+          <p>W celu wymiany danych przy pomocy TCP, dwie aplikacje muszą najpierw zainicjować sesję (ang. <i>session</i>). TCP wymaga wymiany trzech wiadomości żeby utworzyć sesję:</p>
+          <ol class="steps">
+           <li><strong>SYN</strong> - pierwsza aplikacja (klient) wysyła pakiet <i>synchronize</i> do serwera. Wiadomość zawiera losowy numer sekwencyjny, który został wybrany przez klienta.</li>
+           <li><strong>SYN-ACK</strong> - serwer odpowiada do klienta. Otrzymany numer sekwencyjny jest zwiększany o jeden i załączany do odpowiedzi jako numer potwierdzenia. Dodatkowo, odpowiedź zawiera inny numer sekwencyjny, losowo wybrany przez serwer.</li>
+           <li><strong>ACK</strong> - klient potwierdza otrzymanie odpowiedzi od serwera. Wiadomość zawiera oba otrzymane numery zwiększone o&nbsp;jeden.</li>
+          </ol>
+          <p>Kiedy transmisja pomiędzy klientem i&nbsp;serwerem zostanie zakończona, sesja powinna zostać zamknięta. Każda strona komunikacji może zakończyć trwającą sesję. Druga strona powinna odpowiedzieć na to, wysyłając odpowiednie potwierdzenie.</p>
+          <h4>Zastosowanie TCP</h4>
+          <p>TCP jest szeroko wykorzystywane w protokołach i aplikacjach, które wymagają wysokiej niezawodności. Nie jest tak szybkie jak UDP, ale -jeśli skonfigurowane poprawnie- TCP zapewnia wciąż dobrą szybkość transmisji połączoną z dobrą jakością przesyłanych danych.</p>
+          <p>Można wymienić wiele protokołów warstwy aplikacji, które używane są głównie razem z&nbsp;TCP. Jednymi z najpopularniejszych są:</p>
+          <ul>
+           <li>HTTP, HTTPS</li>
+           <li>FTP</li>
+           <li>SMTP</li>
+           <li>Telnet</li>
+          </ul>
+          <h3 id="udp">UDP</h3>
+          <p>Drugim popularnym protokołem używanym w warstwie transportowej jest&nbsp;UDP (ang. <i>User Datagram Protocol</i> lub <i>Universal Datagram Protocol</i>). Jest to prostszy protokół, w którym komunikacja odbywa się bez nawiązywania żadnego stałego połączenia pomiędzy aplikacjami. Wszystkie pakiety wysyłane są niezależnie od&nbsp;siebie.</p>
+          <p>Dzięki swojej prostocie UDP jest szybsze niż TCP. Z&nbsp;drugiej jednak strony, nie zapewnia takiej niezawodności działania jak&nbsp;TCP. Przede wszystkim UDP nie gwarantuje, że wiadomości rzeczywiście dotarły do&nbsp;odbiorcy. UDP nie dostarcza pakietów w&nbsp;takiej samej kolejności, w jakiej zostały one wysłane. Ciężar uporządkowania otrzymywanych wiadomości i&nbsp;sprawdzenia czy nie nastąpiły błędy transmisji spoczywa na otrzymującej&nbsp;je aplikacji.</p>
+          <h4>Nagłówek UDP</h4>
+          <p>Nagłówek UDP składa się z 8&nbsp;bajtów, jest więc znacznie krótszy niż odpowiadający mu nagłówek&nbsp;TCP.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/tcpip/udp-header-pl.webp" alt="Struktura nagłówka UDP" width="794" height="144" loading="lazy">
+           <figcaption>Struktura nagłówka UDP</figcaption>
+          </figure>
+          <br>
+          <h4>Zastosowanie UDP</h4>
+          <p>UDP jest preferowane jeśli przesyłane pakiety danych są nieistotne lub komunikacja musi odbywać się z&nbsp;wyjątkowo dużą prędkością. Przykładowo UDP jest używane do przesyłania zapytań DNS (z powodu bardzo dużej liczby zapytań kierowanych do relatywnie niewielu serwerów DNS). UDP jest używane również podczas transmisji audio i&nbsp;video, gdzie utrata pewnej liczby pakietów nie jest bardzo uciążliwa dla&nbsp;odbiorcy.</p>
+          <p>Istnieje wiele protokołów warstwy aplikacji, które używają&nbsp;UDP, na&nbsp;przykład:</p>
+          <ul>
+           <li>DNS</li>
+           <li>DHCP</li>
+           <li>TFTP</li>
+           <li>SNMP</li>
+           <li>RIP</li>
+           <li>VOIP</li>
+          </ul>
+          <h3 id="dccp">DCCP</h3>
+          <p><i>Datagram Congestion Control Protocol</i> jest protokołem, który umożliwia aplikacjom kontrolowanie przepływu danych w&nbsp;celu zapobiegania przeciążeniom sieci (ang. <i>congestion control</i>) i&nbsp;utrzymywania stabilnych połączeń. DCCP nie zapewnia niezawodnej (ang. <i>reliable</i>) komunikacji z&nbsp;zachowaniem kolejności wysyłanych pakietów.</p>
+          <p>DCCP jest wykorzystywany przez aplikacje, które operują na szybko zmieniających się danych (dane audio i&nbsp;video, gry online, VoIP). W takich sytuacjach często preferuje się użycie nowej porcji dostępnych danych, zamiast proszenia o retransmitowanie starego uszkodzonego pakietu.</p>
+          <h3 id="rsvp">RSVP</h3>
+          <p><i>Resource Reservation Protocol</i> umożliwia zdalne rezerwowanie zasobów przy użyciu sieci komputerowych. Jest używany głównie przez routery i&nbsp;serwery w&nbsp;celu zapewnienia usług o&nbsp;określonej jakości (ang. <i>quality of service</i>, QoS) dla klientów.</p>
+          <p>RSVP jest w&nbsp;stanie rezerwować pasma transmisji dla komunikacji pomiędzy dwoma komputerami oraz pomiędzy jednym serwerem i&nbsp;wieloma klientami. Wymiana wiadomości w ramach RSVP jest inicjowana przez klienta (odbiorcę), który prosi router (serwer) o&nbsp;zarezerwowanie zasobów.</p>
+          <h3 id="sctp">SCTP</h3>
+          <p><i>Stream Control Transmission Protocol</i> umożliwia przesyłanie wielu strumieni danych spakowanych razem w&nbsp;pojedynczym strumieniu. Podobnie jak TCP, SCTP zapewnia niezawodną (ang. <i>reliable</i>) transmisję z zachowaniem kolejności pakietów i zapobieganiem przeciążeniom (ang. <i>congestion control</i>), dodatkowo rozbudowując jego funkcjonalności o&nbsp;umieszczanie pokrewnych strumieni danych w&nbsp;tych samych wiadomościach.</p>
+          <p>Ogólnie rzecz biorąc SCTP, jest bardzo rozbudowanym protokołem zapewniającym dobrą jakość komunikacji. Niestety, z&nbsp;racji braku wspierania tego protokołu przez najpopularniejsze routery i systemy operacyjne, nie jest on popularny i&nbsp;szerzej używany.</p>
+          <h2 id="warstwa-internetu">Warstwa internetu</h2>
+          <p>Warstwa internetu dodaje swój nagłówek do wiadomości otrzymywanych z&nbsp;warstwy transportowej. Najważniejszymi polami nowego nagłówka są adresy&nbsp;IP nadawcy i&nbsp;obiorcy. Adres&nbsp;IP jest unikalnym wirtualnym numerem, który umożliwia znajdowanie urządzenia w&nbsp;sieci.</p>
+          <p>Każde urządzenie sieciowe posiada również inny numer, specjalnie przypisany do niego, nazywany adresem&nbsp;MAC. Jest to unikalny numer, który nie może zostać zmieniony (jest przechowywany w pamięci ROM) i&nbsp;pozwala na jednoznaczne zidentyfikowanie urządzenia na całym świecie. Niestety, zlokalizowanie urządzenia w globalnej sieci na podstawie adresu&nbsp;MAC jest praktycznie niemożliwe, ponieważ numer MAC jest ściśle związany ze sprzętem i&nbsp;producentem urządzenia i&nbsp;nie mówi nic o&nbsp;jego faktycznej fizycznej lokalizacji. Z kolei adres&nbsp;IP pozwala na odnalezienie każdego komputera przy użyciu zapytań do serwerów&nbsp;DNS.</p>
+          <p>Najogólniej rzecz ujmując, wiadomości sieciowe przechodzą przez wiele routerów zanim osiągną docelowy komputer (wskazywany przez adres IP odbiorcy). Żeby poznać trasę pomiędzy komputerem i docelowym serwerem, można posłużyć się komendą Windowsową:</p>
+          <pre><code>tracert www.google.co.uk</code></pre>
+          <p>Istnieje kilka popularnych protokołów, które działają w&nbsp;warstwie internetowej. Najpopularniejszym i najważniejszym z nich jest IP (<i>Internet Protocol</i>), ale warto wymienić też inne protokoły warstwy internetowej:</p>
+          <ul>
+           <li>ARP (Address Resolution Protocol)</li>
+           <li>RARP (Reverse Address Resolution Protocol)</li>
+           <li>ICMP (Internet Control Message Protocol)</li>
+          </ul>
+          <h3 id="ip">IP</h3>
+          <p>IP służy do przesyłania pakietów danych przez sieć. Obecnie używane są dwie wersje tego protokołu, IPv4 (<i>IP version&nbsp;4</i>) i IPv6 (<i>IP version&nbsp;6</i>).</p>
+          <p>IP nie zapewnia żadnego systemu potwierdzania dostarczenia wiadomości, co oznacza, że nie jest niezawodnym (ang. <i>reliable</i>) protokołem. Obowiązek upewniania się, że wszystkie dane zostały dostarczone spoczywa na protokole TCP operującym w warstwie transportowej. Cale połączenie TCP/IP jest więc niezawodne.</p>
+          <h4>Datagramy IP</h4>
+          <p>Pakiety danych otrzymywane z&nbsp;warstwy transportowej są dzielone na mniejsze datagramy. Każdy datagram zawiera nagłówek IP oraz bajty otrzymane z&nbsp;warstwy transportowej. Maksymalna wielkość datagramu zależy od wersji&nbsp;IP: 2<sup>16</sup>−1 bajtów dla&nbsp;IPv4 oraz 2<sup>32</sup>−1 dla&nbsp;IPv6. Jeśli pakiet otrzymany z warstwy transportowej jest zbyt duży, zostanie podzielony na kilka datagramów o&nbsp;odpowiedniej wielkości.</p>
+          <p>Zwykle dane dzielone są na mniejsze datagramy niż wynikałoby&nbsp;to z ograniczeń protokołu&nbsp;IP. Jest&nbsp;to spowodowane ograniczonymi możliwościami fizycznymi sieci komputerowych. Na przykład, maksymalna wielkość ethernetowych pakietów wynosi 1&nbsp;500 bajtów, więc zwykle datagramy tworzone w&nbsp;warstwie internetowej operującej na ethernecie będą nieco mniejsze niż 1&nbsp;500 bajtów (aby umożliwić niższym warstwom dodanie swoich nagłówków). Maksymalna wielkość datagramu w&nbsp;sieci jest nazywana MTU (<i>Maximum Transfer Unit</i>).</p>
+          <p>IP umożliwia dzielenie datagramów na mniejsze datagramy, jeśli przechodzą one przez sieć z mniejszą wartością&nbsp;MTU. Kiedy mniejsze datagramy docierają znowu do sieci o większej wartości MTU, mogą zostać ponownie zebrane do większego pakietu. W nagłówku&nbsp;IP jest specjalne pole pozwalające na przeprowadzanie takich operacji (nazywające się <i>Fragment Offset</i>).</p>
+          <h2 id="warstwa-dostepu-do-sieci">Warstwa dostępu do&nbsp;sieci</h2>
+          <p>Warstwa dostępu do sieci umożliwia przesłanie datagramów z&nbsp;warstwy internetowej, przez fizyczną sieć do drugiego komputera, gdzie są one przesyłane przez odpowiadającą jej warstwę dostępu do&nbsp;sieci do&nbsp;warstwy internetowej, a następnie poprzez pozostałe warstwy do&nbsp;docelowej aplikacji. Obecnie, większość komputerów jest podłączona do sieci ethernetowych, które mogą być zarówno przewodowe jak i bezprzewodowe. Wobec tego protokoły TCP/IP wyższych warstw najczęściej są używane razem z&nbsp;zestawem protokołów ethernetowych.</p>
+          <p>Istnieją trzy warstwy ethernetowe. Pierwsze dwie, <strong>Logic Link Control&nbsp;(LLC)</strong> i <strong>Media Access Control&nbsp;(MAC)</strong>, odpowiadają warstwie łącza danych w modelu&nbsp;OSI. Trzecia, najniższa warstwa to <strong>warstwa fizyczna</strong>, podobnie jak w modelu&nbsp;OSI.</p>
+          <figure class="figure"><img src="/assets/img/theory/tcpip/network-interface-pl.webp" alt="Podział warstwy dostępu do sieci na podwarstwy" width="559" height="224" loading="lazy"></figure>
+          <h3 id="warstwa-logic-link-control">Warstwa logic link control</h3>
+          <p>Najważniejszym zadaniem pierwszej warstwy ethernetu jest przekazanie informacji do docelowej maszyny odnośnie tego jaki protokół powinien być użyty w&nbsp;warstwie transportowej. Umożliwia to poprawne odczytanie przychodzącej wiadomości przez odbiorcę.</p>
+          <p>Warstwa LLC dopisuje informacje o protokole użytym w&nbsp;warstwie internetowej i o&nbsp;protokole, który powinien otrzymać wiadomość. Pozwala to warstwie&nbsp;LLC na docelowym komputerze poprawnie dostarczyć otrzymane datagramy.</p>
+          <p>Dokumentację dotyczącą warstwy LLC można znaleźć na stronie <a href="https://standards.ieee.org/standard/802_2-1989.html" rel="noopener" target="_blank">IEEE&nbsp;802.2</a>.</p>
+          <h3 id="warstwa-media-access-control">Warstwa media access control</h3>
+          <p>Warstwa MAC jest odpowiedzialna za tworzenie końcowej wiadomości ethernetowej (<i>Ethernet frame</i>), która będzie wysłana przez sieć komputerową.</p>
+          <p>Podobnie jak inne warstwy, warstwa MAC tworzy swój własny nagłówek i&nbsp;dodaje go do wiadomości. Nagłówek zawiera adresy MAC nadawcy i&nbsp;odbiorcy, czyli fizyczne adresy dwóch komunikujących się maszyn. Jeśli docelowa maszyna znajduje się za routerem, w&nbsp;innej sieci, to pole adresu odbiorcy będzie miało wartość adresu MAC routera. Adres MAC odbiorcy będzie zmieniony na&nbsp;inny przez router, kiedy będzie on przetwarzał wiadomość.</p>
+          <p>Warstwa MAC dodaje również 4&nbsp;kontrolne bajty CRC, które mogą być wykorzystane do naprawienia uszkodzonej wiadomości.</p>
+          <p>Warstwa MAC dla sieci przewodowych jest zdefiniowana przez standard <a href="https://standards.ieee.org/standard/802_3-2018.html" rel="noopener" target="_blank">IEEE&nbsp;802.3</a>. Sieci bezprzewodowe są zdefiniowane przez <a href="https://standards.ieee.org/standard/802_11-2016.html" rel="noopener" target="_blank">IEEE&nbsp;802.11</a>.</p>
+          <h3 id="warstwa-fizyczna">Warstwa fizyczna</h3>
+          <p>Warstwa fizyczna jest odpowiedzialna za przekształcanie wiadomości w (zależności od typu sieci) impulsy elektryczne lub fale elektromagnetyczne oraz za transmitowanie ich przez sieć fizyczna pomiędzy komunikującymi się maszynami.</p>
+          <p>Jest zdefiniowana przez te same specyfikacje co warstwa MAC, <a href="https://standards.ieee.org/standard/802_3-2018.html" rel="noopener" target="_blank">IEEE&nbsp;802.3</a> i <a href="https://standards.ieee.org/standard/802_11-2016.html" rel="noopener" target="_blank">IEEE&nbsp;802.11</a>.</p>
+          <div class="note" id="note-osi-model" popover>
+           <p>Model OSI (ang. <i>Open Systems Interconnection</i>) jest teoretycznym modelem opisującym główne funkcjonalności systemu komunikacyjnego, poprzez podzielenie go na szereg abstrakcyjnych warstw. Dla każdej warstwy zdefiniowano zestaw najważniejszych funkcji. W zamierzeniu każda warstwa ma obsługiwać warstwę powyżej niej i być obsługiwaną przez warstwę znajdującą się poniżej.</p>
+           <p>Standard ten został utworzony w latach osiemdziesiątych jako próba wprowadzenia jednego ogólnego standardu architektury systemów sieciowych. Specyfikacja modelu OSI jest zdefiniowana przez <a href="http://www.iso.org/iso/catalogue_detail.htm?csnumber=20269" rel="noopener" target="_blank">ISO/IEC&nbsp;7498-1.</a></p>
+           <button type="button" class="note__close" popovertarget="note-osi-model" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/protokoly.html" rel="prev"><small>← Poprzedni</small>Protokoły</a>
+          <a class="pager__next" href="/pl/teoria/protokoly-aplikacji.html" rel="next"><small>Następny →</small>Protokoły warstwy aplikacji</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprotokoly-tcp-ip.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprotokoly-tcp-ip.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprotokoly-tcp-ip.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html" aria-current="page">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

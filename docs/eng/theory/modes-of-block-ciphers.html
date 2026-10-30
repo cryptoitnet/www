@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/tryby-szyfrow-blokowych.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Block Ciphers Modes of Operation | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Using various modes of operation of block ciphers allows operating on large data streams, without the risk of compromising the provided security.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/tryby-szyfrow-blokowych.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Block Ciphers Modes of Operation | Cryptography">
+  <meta property="og:description" content="Using various modes of operation of block ciphers allows operating on large data streams, without the risk of compromising the provided security.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Block Ciphers Modes of Operation",
+        "description": "Using various modes of operation of block ciphers allows operating on large data streams, without the risk of compromising the provided security.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Block Ciphers Modes of Operation"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/tryby-szyfrow-blokowych.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Block Ciphers Modes of Operation</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The modes of operation of block ciphers are configuration methods that allow those ciphers to work with large data streams, without the risk of compromising the provided security.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>It is not recommended, however it is possible while working with block ciphers, to use the same secret key bits for encrypting the same plaintext parts. Using one deterministic algorithm for a number of identical input data, results in some number of identical ciphertext blocks.</p>
+          <p>This is a very dangerous situation for the cipher's users. An intruder would be able to get much information by knowing the distribution of identical message parts, even if he would not be able to break the cipher and discover the original messages.</p>
+          <p>Luckily, there exist ways to blur the cipher output. The idea is to mix the plaintext blocks (which are known) with the ciphertext blocks (which have been just created), and to use the result as the cipher input for the next blocks. As a result, the user avoids creating identical output ciphertext blocks from identical plaintext data. These modifications are called <strong>the block cipher modes of operations</strong>.</p>
+          <h2 id="ecb-electronic-codebook-mode">ECB (Electronic Codebook) Mode</h2>
+          <p>It is the simplest mode of encryption. Each plaintext block is encrypted separately. Similarly, each ciphertext block is decrypted separately. Thus, it is possible to encrypt and decrypt by using many threads simultaneously. However, in this mode the created ciphertext is not blurred.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ecb-encryption.webp" alt="encryption in ECB mode" width="800" height="246" loading="lazy">
+           <figcaption>Encryption in the ECB mode</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ecb-decryption.webp" alt="decryption in ECB mode" width="800" height="246" loading="lazy">
+           <figcaption>Decryption in the ECB mode</figcaption>
+          </figure>
+          <p>A typical example of weakness of encryption using ECB mode is encoding a bitmap image (for example a .bmp file). Even a strong encryption algorithm used in ECB mode cannot blur efficiently the plaintext.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/logo-original.webp" alt="An original image" width="225" height="225" loading="lazy"><br> <img src="/assets/img/theory/modes/logo-des-ecb.webp" alt="An image encrypted using DES ECB" width="225" height="225" loading="lazy"> <img src="/assets/img/theory/modes/logo-des-cbc.webp" alt="An image encrypted using DES CBC" width="225" height="225" loading="lazy"><br>
+           <figcaption>The bitmap image encrypted using <a href="/eng/symmetric/des.html">DES</a> and the same secret key. The ECB mode was used for the middle image and the more complicated CBC mode was used for the bottom image.</figcaption>
+          </figure>
+          <br>
+          <p>A message that is encrypted using the ECB mode should be extended until a size that is equal to an integer multiple of the single block length. A popular method of aligning the length of the last block is about appending an additional bit equal to <span class="term">1</span> and then filling the rest of the block with bits equal to <span class="term">0</span>. It allows to determine precisely the end of the original message. There exist more <a href="/eng/theory/padding.html">methods of aligning the message size</a>.</p>
+          <p>Apart from revealing the hints regarding the content of plaintext, the ciphers that are used in ECB mode are also more vulnerable to <a href="/eng/attacks/replay.html">replay attacks</a>.</p>
+          <h2 id="TrybCbc">CBC (Cipher-Block Chaining) Mode</h2>
+          <p>The CBC encryption mode was invented in IBM in 1976. This mode is about adding XOR each plaintext block to the ciphertext block that was previously produced. The result is then encrypted using the cipher algorithm in the usual way. As a result, every subsequent ciphertext block depends on the previous one. The first plaintext block is added XOR to a random initialization vector (commonly referred to as <span class="term">IV</span>). The vector has the same size as a plaintext block.</p>
+          <p>Encryption in CBC mode can only be performed by using one thread. Despite this disadvantage, this is a very popular way of using block ciphers. CBC mode is used in many applications.</p>
+          <p>During decrypting of a ciphertext block, one should add XOR the output data received from the decryption algorithm to the previous ciphertext block. Because the receiver knows all the ciphertext blocks just after obtaining the encrypted message, he can decrypt the message using many threads simultaneously.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/cbc-encryption.webp" alt="encryption in CBC mode" width="800" height="275" loading="lazy">
+           <figcaption>Encryption in the CBC mode</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/cbc-decryption.webp" alt="decryption in CBC mode" width="800" height="258" loading="lazy">
+           <figcaption>Decryption in the CBC mode</figcaption>
+          </figure>
+          <p>If one bit of a plaintext message is damaged (for example because of some earlier transmission error), all subsequent ciphertext blocks will be damaged and it will be never possible to decrypt the ciphertext received from this plaintext. As opposed to that, if one ciphertext bit is damaged, only two received plaintext blocks will be damaged. It might be possible to recover the data.</p>
+          <p>A message that is to be encrypted using the CBC mode, should be <a href="/eng/theory/padding.html">extended</a> till the size that is equal to an integer multiple of a single block length (similarly, as in the case of using the ECB mode).</p>
+          <h2 id="security-of-the-cbc-mode">Security of the CBC mode</h2>
+          <p>The initialization vector IV should be created randomly by the sender. During transmission it should be concatenated with ciphertext blocks, to allow decryption of the message by the receiver. If an intruder could predict what vector would be used, then the encryption would not be resistant to <a href="/eng/attacks/chosen-plaintext.html">chosen-plaintext attacks</a>:</p>
+          <figure class="figure"><img src="/assets/img/attacks/cbc-attack-cpa.webp" alt="Schemat ataku CPA na CBC" width="680" height="265" loading="lazy"></figure>
+          <br>
+          <p>In the example presented above, if the intruder is able to predict that the vector <span class="term">IV<sub>1</sub></span> will be used by the attacked system to produce the response <span class="term">c<sub>1</sub></span>, they can guess which one of the two encrypted messages <span class="term">m<sub>0</sub></span> or <span class="term">m<sub>1</sub></span> is carried by the response <span class="term">c<sub>1</sub></span>. This situation breaks the rule that the intruder shouldn't be able to distinguish between two ciphertexts even if they have chosen both plaintexts. Therefore, the attacked system is vulnerable to chosen-plaintext attacks.</p>
+          <p>If the vector <span class="term">IV</span> is generated based on non-random data, for example the user password, it should be encrypted before use. One should use a separate secret key for this activity.</p>
+          <p>The initialization vector <span class="term">IV</span> should be changed after using the secret key a number of times. It can be shown that even properly created <span class="term">IV</span> used too many times, makes the system vulnerable to chosen-plaintext attacks. For <a href="/eng/symmetric/aes.html">AES</a> cipher it is estimated to be 2<sup>48</sup> blocks, while for <a href="/eng/symmetric/3des.html">3DES</a> it is about 2<sup>16</sup> plaintext blocks.</p>
+          <h2 id="pcbc-propagating-or-plaintext-cipher-block-chaining-mode">PCBC (Propagating or Plaintext Cipher-Block Chaining) Mode</h2>
+          <p>The PCBC mode is similar to the previously described CBC mode. It also mixes bits from the previous and current plaintext blocks, before encrypting them. In contrast to the CBC mode, if one ciphertext bit is damaged, the next plaintext block and all subsequent blocks will be damaged and unable to be decrypted correctly.</p>
+          <p>In the PCBC mode both encryption and decryption can be performed using only one thread at a time.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/pcbc-encryption.webp" alt="encryption in PCBC mode" width="800" height="275" loading="lazy">
+           <figcaption>Encryption in the PCBC mode</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/pcbc-decryption.webp" alt="decryption in PCBC mode" width="800" height="258" loading="lazy">
+           <figcaption>Decryption in the PCBC mode</figcaption>
+          </figure>
+          <h2 id="cfb-cipher-feedback-mode">CFB (Cipher Feedback) Mode</h2>
+          <p>The CFB mode is similar to the CBC mode described above. The main difference is that one should encrypt ciphertext data from the previous round (so not the plaintext block) and then add the output to the plaintext bits. It does not affect the cipher security but it results in the fact that the same encryption algorithm (as was used for encrypting plaintext data) should be used during the decryption process.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/cfb-encryption.webp" alt="encryption in CFB mode" width="800" height="243" loading="lazy">
+           <figcaption>Encryption in the CFB mode</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/cfb-decryption.webp" alt="decryption in CFB mode" width="800" height="233" loading="lazy">
+           <figcaption>Decryption in the CFB mode</figcaption>
+          </figure>
+          <p>If one bit of a plaintext message is damaged, the corresponding ciphertext block and all subsequent ciphertext blocks will be damaged. Encryption in CFB mode can be performed only by using one thread.</p>
+          <p>On the other hand, as in CBC mode, one can decrypt ciphertext blocks using many threads simultaneously. Similarly, if one ciphertext bit is damaged, only two received plaintext blocks will be damaged.</p>
+          <p>As opposed to the previous block cipher modes, the encrypted message doesn't need to be extended till the size that is equal to an integer multiple of a single block length.</p>
+          <h2 id="ofb-output-feedback-mode">OFB (Output Feedback) Mode</h2>
+          <p>Algorithms that work in the OFB mode create keystream bits that are used for encryption subsequent data blocks. In this regard, the way of working of the block cipher becomes similar to the way of working of a typical stream cipher.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ofb-encryption.webp" alt="encryption in OFB mode" width="800" height="243" loading="lazy">
+           <figcaption>Encryption in the OFB mode</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ofb-decryption.webp" alt="decryption in OFB mode" width="800" height="243" loading="lazy">
+           <figcaption>Decryption in the OFB mode</figcaption>
+          </figure>
+          <p>Because of the continuous creation of keystream bits, both encryption and decryption can be performed using only one thread at a time. Similarly, as in the CFB mode, both data encryption and decryption uses the same cipher encryption algorithm.</p>
+          <p>If one bit of a plaintext or ciphertext message is damaged (for example because of a transmission error), only one corresponding ciphertext or respectively plaintext bit is damaged as well. It is possible to use various correction algorithms to restore the previous value of damaged parts of the received message.</p>
+          <p>The biggest drawback of OFB is that the repetition of encrypting the initialization vector may produce the same state that has occurred before. It is an unlikely situation but in such a case the plaintext will start to be encrypted by the same data as previously.</p>
+          <h2 id="ctr-counter-mode">CTR (Counter) Mode</h2>
+          <p>Using the CTR mode makes block cipher way of working similar to a stream cipher. As in the OFB mode, keystream bits are created regardless of content of encrypting data blocks. In this mode, subsequent values of an increasing counter are added to a <em>nonce</em> value (the nonce means a number that is unique: <i>number used once</i>) and the results are encrypted as usual. The nonce plays the same role as initialization vectors in the previous modes.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ctr-encryption.webp" alt="encryption in CTR mode" width="800" height="243" loading="lazy">
+           <figcaption>Encryption in the CTR mode</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ctr-decryption.webp" alt="decryption in CTR mode" width="800" height="243" loading="lazy">
+           <figcaption>Decryption in the CTR mode</figcaption>
+          </figure>
+          <p>It is one of the most popular block ciphers modes of operation. Both encryption and decryption can be performed using many threads at the same time.</p>
+          <p>If one bit of a plaintext or ciphertext message is damaged, only one corresponding output bit is damaged as well. Thus, it is possible to use various correction algorithms to restore the previous value of damaged parts of received messages.</p>
+          <p>The CTR mode is also known as the <strong>SIC</strong> mode (<strong>Segment Integer Counter</strong>).</p>
+          <h2 id="security-of-the-ctr-mode">Security of the CTR mode</h2>
+          <p>As in the case of the CBC mode, one should change the secret key after using it for encrypting a number of sent messages. It can be proved that the CTR mode generally provides quite good security and that the secret key needs to be changed less often than in the CBC mode.</p>
+          <p>For example, for the <a href="/eng/symmetric/aes.html">AES</a> cipher the secret key should be changed after about 2<sup>64</sup> plaintext blocks.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/padding.html" rel="prev"><small>← Previous</small>Padding</a>
+          <a class="pager__next" href="/eng/theory/pseudorandom-generator.html" rel="next"><small>Next →</small>Pseudorandom generator</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fmodes-of-block-ciphers.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fmodes-of-block-ciphers.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fmodes-of-block-ciphers.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html" aria-current="page">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

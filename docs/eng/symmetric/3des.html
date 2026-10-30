@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/symetryczne/3des.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3DES Symmetric Block Cipher | Cryptography | Crypto-IT</title>
+  <meta name="description" content="3DES (Triple DES) is a popular symmetric block cipher, which was created based on DES cipher and first publish in 1998.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/symmetric/3des.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/3des.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/3des.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/3des.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="3DES Symmetric Block Cipher | Cryptography">
+  <meta property="og:description" content="3DES (Triple DES) is a popular symmetric block cipher, which was created based on DES cipher and first publish in 1998.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/symmetric/3des.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Triple DES (3DES)",
+        "description": "3DES (Triple DES) is a popular symmetric block cipher, which was created based on DES cipher and first publish in 1998.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/symmetric/3des.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Symmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Block ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/block-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Triple DES (3DES)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/" aria-current="true">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/symetryczne/3des.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/symmetric/">Symmetric ciphers</a></li>
+            <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Triple DES (3DES)</h1>
+          <p class="article__subtitle">Block cipher with symmetric secret key</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Block length = 64 bits</li>
+           <li>Key length = 56, 112, or 168 bits</li>
+          </ul>
+          <p>3DES cipher is quite popular block symmetric cipher, created based on <a href="/eng/symmetric/des.html">DES</a> cipher. It was presented in 1998, and described as a standard ANS X9.52. It is also called Triple Data Encryption Algorithm (TDEA).</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>3DES cipher was developed because DES encryption, invented in the early 1970s and protected by a 56-bit key, turned out to be too weak and easy to break using modern computers of that time. The effective security which 3DES provides is 112 bits, when an attacker uses <a href="/eng/attacks/meet-in-the-middle.html">meet-in-the-middle attacks</a>.</p>
+          <p>For several years, Triple DES was often used for electronic payments (for example, in EMV standard). New protocols based on the cipher are still being created and maintained (as for 2016). It was also used in several Microsoft products (for example, in Microsoft Outlook 2007, Microsoft OneNote, Microsoft System Center Configuration Manager 2012) for protecting user configuration and user data.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>Triple DES algorithm performs three iterations of a typical <a href="/eng/symmetric/des.html">DES algorithm</a>. In its strongest version, it uses a secret key which consists of 168 bits. The key is then divided into three 56-bit keys.</p>
+          <h3 id="3des-encryption">3DES Encryption</h3>
+          <ol class="steps">
+           <li>Encryption using the first secret key</li>
+           <li>Decryption using the second secret key</li>
+           <li>Encryption using the third secret key</li>
+          </ol>
+          <p>The encryption and decryption operations may be presented as mathematical equations.</p>
+          <p>Encryption:<br> <span class="math">c = E<sub>3</sub>(D<sub>2</sub>(E<sub>1</sub>(m)))</span></p>
+          <p>Decryption:<br> <span class="math">m = D<sub>1</sub>(E<sub>2</sub>(D<sub>3</sub>(c)))</span></p>
+          <h3 id="3des-with-shorter-keys">3DES with shorter keys</h3>
+          <p>Using DES decryption operation in the second step of 3DES encryption provides backward compatibility with the original DES algorithm. In this case, the first and second secret keys, or the second and third secret keys should be identical, and their value is not important.</p>
+          <p> <span class="math">c = E<sub>3</sub>(D<sub>1</sub>(E<sub>1</sub>(m))) = E<sub>3</sub>(m)</span><br> <span class="math">c = E<sub>3</sub>(D<sub>3</sub>(E<sub>1</sub>(m))) = E<sub>1</sub>(m)</span></p>
+          <p>It is also possible to use the 3DES cipher with a secret key of size of 112 bits. In this case, the first and third secret keys should be identical. Such an approach is stronger than simple DES encryption used twice (with two separate 56-bit keys) because it provides better protection against <a href="/eng/attacks/meet-in-the-middle.html">meet-in-the-middle attacks</a>.</p>
+          <p> <span class="math">c = E<sub>1</sub>(D<sub>2</sub>(E<sub>1</sub>(m)))</span></p>
+          <h2 id="block-diagram-of-3des-encryption">Block Diagram of 3DES Encryption</h2>
+          <figure class="figure"><img src="/assets/img/3des/encryption-scheme-eng.webp" alt="Scheme of 3DES encryption" width="567" height="529" loading="lazy"></figure>
+          <h2 id="block-diagram-of-3des-decryption">Block Diagram of 3DES Decryption</h2>
+          <figure class="figure"><img src="/assets/img/3des/decryption-scheme-eng.webp" alt="Scheme of 3DES decryption" width="567" height="529" loading="lazy"></figure>
+          <h2 id="maths">Maths</h2>
+          <h3 id="transformations-in-3des">Transformations in 3DES</h3>
+          <p>3DES is using exactly the same operations for decrypting and encrypting as DES algorithm</p>
+          <p>Each iteration of DES algorithm executes the following operations for all input data blocks: the initial permutation, 16 iterations of Feistel functions, and the final permutation.</p>
+          <p>During key manipulation, the following operations are executed: binary rotation, PC-1 permutation, and PC-2 permutation.</p>
+          <p>For more details, please visit the description of <a href="/eng/symmetric/des.html#Maths">DES encryption</a>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/symmetric/rc2.html" rel="prev"><small>← Previous</small>RC2</a>
+          <a class="pager__next" href="/eng/symmetric/aes.html" rel="next"><small>Next →</small>AES</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2F3des.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2F3des.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2F3des.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/symmetric/">Symmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/otp.html">OTP</a></li>
+              <li><a href="/eng/symmetric/rc4.html">RC4</a></li>
+              <li><a href="/eng/symmetric/salsa20.html">Salsa20</a></li>
+              <li><a href="/eng/symmetric/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/des.html">DES</a></li>
+              <li><a href="/eng/symmetric/rc2.html">RC2</a></li>
+              <li><a href="/eng/symmetric/3des.html" aria-current="page">Triple DES</a></li>
+              <li><a href="/eng/symmetric/aes.html">AES</a></li>
+              <li><a href="/eng/symmetric/blowfish.html">Blowfish</a></li>
+              <li><a href="/eng/symmetric/camellia.html">Camellia</a></li>
+              <li><a href="/eng/symmetric/serpent.html">Serpent</a></li>
+              <li><a href="/eng/symmetric/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

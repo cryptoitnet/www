@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/vic.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfr VIC | Wieloalfabetowy Szyfr Podstawieniowy | Crypto-IT</title>
+  <meta name="description" content="Szyfr VIC jest wieloalfabetowym szyfrem podstawieniowym używanym przez radzieckich szpiegów w XX wieku.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/vic.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/vic.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/vic.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/vic.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfr VIC | Wieloalfabetowy Szyfr Podstawieniowy">
+  <meta property="og:description" content="Szyfr VIC jest wieloalfabetowym szyfrem podstawieniowym używanym przez radzieckich szpiegów w XX wieku.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/vic.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "VIC cipher",
+        "description": "Szyfr VIC jest wieloalfabetowym szyfrem podstawieniowym używanym przez radzieckich szpiegów w XX wieku.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/vic.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Wieloalfabetowe szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "VIC cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/vic.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a></li>
+            <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">VIC cipher</h1>
+          <p class="article__subtitle">Wieloalfabetowy szyfr podstawieniowy</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Stosowany przez&nbsp;szpiegów radzieckich na&nbsp;całym świecie, w&nbsp;połowie dwudziestego wieku. Nazwa tego&nbsp;szyfru pochodzi od&nbsp;pseudonimu VICTOR, który należał do&nbsp;agenta działającego w&nbsp;USA pod&nbsp;nazwiskiem Reino Häyhänen. W&nbsp;roku 1957 oddał się w&nbsp;ręce Amerykanów i&nbsp;ujawnił szczegóły dotyczące tego&nbsp;szyfru.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Szyfr VIC jest zaawansowaną odmianą szyfru Nihilist. Jest uważany za&nbsp;jeden z&nbsp;najsilniejszych szyfrów, których można używać ręcznie bez&nbsp;wykorzystania komputerów. Do&nbsp;momentu ujawnienia jego działania w&nbsp;wyniku zdrady, kontrwywiad amerykański nie&nbsp;zdołał złamać jego&nbsp;zabezpieczeń.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Szyfr VIC wykorzystuje w&nbsp;swoim działaniu tablicę, umożliwiającą zamianę liter na&nbsp;liczby. Nosi&nbsp;ona angielską nazwę <i>straddling checkerboard</i>.</p>
+          <p>Od&nbsp;innych tablic wykorzystywanych w&nbsp;prostych szyfrach podstawieniowych różni się przede&nbsp;wszystkim tym, że produkowane ciągi liczb są krótsze (wobec tego wygodniejsze w&nbsp;przekazaniu drugiej stronie).</p>
+          <p><i>Straddling checkerboard</i> może mieć następującą formę:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <tr>
+           <td>&nbsp;</td>
+           <td>0</td>
+           <td>1</td>
+           <td>2</td>
+           <td>3</td>
+           <td>4</td>
+           <td>5</td>
+           <td>6</td>
+           <td>7</td>
+           <td>8</td>
+           <td>9</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>E</td>
+           <td>T</td>
+           <td>&nbsp;</td>
+           <td>A</td>
+           <td>O</td>
+           <td>N</td>
+           <td>&nbsp;</td>
+           <td>R</td>
+           <td>I</td>
+           <td>S</td>
+           </tr>
+           <tr>
+           <td>2</td>
+           <td>B</td>
+           <td>C</td>
+           <td>D</td>
+           <td>F</td>
+           <td>G</td>
+           <td>H</td>
+           <td>J</td>
+           <td>K</td>
+           <td>L</td>
+           <td>M</td>
+           </tr>
+           <tr>
+           <td>6</td>
+           <td>P</td>
+           <td>Q</td>
+           <td>/</td>
+           <td>U</td>
+           <td>V</td>
+           <td>W</td>
+           <td>X</td>
+           <td>Y</td>
+           <td>Z</td>
+           <td>.</td>
+           </tr>
+           </table>
+          </div>
+          <p>Najwyższy wiersz wypełniany jest cyframi od&nbsp;0 do&nbsp;9. Do&nbsp;drugiego wiersza wpisuje się najpopularniejsze litery w&nbsp;dowolnej kolejności. W&nbsp;języku angielskim za&nbsp;najczęstsze uznaje się litery tworzące frazę ESTONIA-R. Należy pozostawić wolne miejsce pod&nbsp;dwiema cyframi i w&nbsp;skrajnie lewej kolumnie.</p>
+          <p>Dwóm dolnym wierszom przyporządkowuje się cyfry, które pozostały niewykorzystane w&nbsp;drugim wierszu. Następnie wypełnia się je pozostałymi literami w&nbsp;kolejności alfabetycznej. Ze&nbsp;względu na&nbsp;wolne miejsce, można wstawić do&nbsp;nich również dwa inne dowolne znaki, które mogą mieć w&nbsp;przyszłości specjalne, ustalone wcześniej między stronami znaczenie.</p>
+          <p>Szyfrowanie w&nbsp;VIC polega na&nbsp;zastępowaniu kolejnych liter wiadomości liczbami utworzonymi przez&nbsp;numery wiersza i&nbsp;kolumny. Najpopularniejsze litery będą zastąpione tylko przez&nbsp;jedną cyfrę kolumny (przyczynia się to do&nbsp;zmniejszenia długości wynikowego szyfrogramu).</p>
+          <p>Przykładowo, szyfrując imię sławnej królowej szkockiej za&nbsp;pomocą takiej tabeli otrzyma się:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <tr>
+           <td>M</td>
+           <td>A</td>
+           <td>R</td>
+           <td>Y</td>
+           <td>Q</td>
+           <td>U</td>
+           <td>E</td>
+           <td>E</td>
+           <td>N</td>
+           <td>O</td>
+           <td>F</td>
+           <td>S</td>
+           <td>C</td>
+           <td>O</td>
+           <td>T</td>
+           <td>S</td>
+           </tr>
+           <tr>
+           <td>29</td>
+           <td>3</td>
+           <td>7</td>
+           <td>67</td>
+           <td>61</td>
+           <td>63</td>
+           <td>0</td>
+           <td>0</td>
+           <td>5</td>
+           <td>4</td>
+           <td>23</td>
+           <td>9</td>
+           <td>21</td>
+           <td>4</td>
+           <td>1</td>
+           <td>9</td>
+           </tr>
+           </table>
+          </div>
+          <p>Można zauważyć, że w&nbsp;otrzymanym ciągu liczb, wiele z&nbsp;nich jest jednocyfrowa.</p>
+          <p>Następnym krokiem jest dodawanie do&nbsp;kolejnych cyfr pewnego z&nbsp;góry ustalonego ciągu liczbowego. Dodawać należy kolejne cyfry przekształconej wiadomości do&nbsp;kolejnych cyfr ustalonego sekretnego ciągu, przechodząc do&nbsp;pierwszej cyfry sekretnego ciągu po&nbsp;wyczerpaniu się jego cyfr. Dodawanie odbywa się modulo dziesięć, czyli jeśli dwie zsumowane cyfry dadzą w&nbsp;wyniku więcej niż dziesięć, jako wynik należy przyjąć tylko cyfrę jedności.</p>
+          <p>Kontynuując przykład, można dodać do&nbsp;otrzymanych powyżej liczb sekretny ciąg cyfr, oznaczający rok urodzenia się królowej (1542):</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <tr>
+           <td>&nbsp;</td>
+           <td>2</td>
+           <td>9</td>
+           <td>3</td>
+           <td>7</td>
+           <td>6</td>
+           <td>7</td>
+           <td>6</td>
+           <td>1</td>
+           <td>6</td>
+           <td>3</td>
+           <td>0</td>
+           <td>0</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>3</td>
+           <td>9</td>
+           <td>2</td>
+           <td>1</td>
+           <td>4</td>
+           <td>1</td>
+           <td>9</td>
+           </tr>
+           <tr>
+           <td>+</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>5</td>
+           </tr>
+           <tr>
+           <td>=</td>
+           <td>3</td>
+           <td>4</td>
+           <td>7</td>
+           <td>9</td>
+           <td>7</td>
+           <td>2</td>
+           <td>0</td>
+           <td>3</td>
+           <td>7</td>
+           <td>8</td>
+           <td>4</td>
+           <td>2</td>
+           <td>6</td>
+           <td>9</td>
+           <td>6</td>
+           <td>5</td>
+           <td>0</td>
+           <td>7</td>
+           <td>5</td>
+           <td>6</td>
+           <td>2</td>
+           <td>4</td>
+           </tr>
+           </table>
+          </div>
+          <p>Otrzymane cyfry można traktować jako szyfrogram i w&nbsp;takiej formie wysłać do&nbsp;odbiorcy. Można też zmienić cyfry z&nbsp;powrotem na&nbsp;litery, wykorzystując tę samą tablicę, co&nbsp;podczas szyfrowania. Zamiana liczb na&nbsp;litery jest intuicyjna. Po&nbsp;natrafieniu na&nbsp;jedną z&nbsp;dwóch cyfr, które są przyporządkowane do&nbsp;dwóch dolnych wierszy, należy użyć liczby dwucyfrowej.</p>
+          <p>Otrzymany powyżej przykładowy ciąg cyfr, po&nbsp;zamianie na&nbsp;litery miałby następującą postać:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <tr>
+           <td>3</td>
+           <td>4</td>
+           <td>7</td>
+           <td>9</td>
+           <td>7</td>
+           <td>20</td>
+           <td>3</td>
+           <td>7</td>
+           <td>8</td>
+           <td>4</td>
+           <td>26</td>
+           <td>9</td>
+           <td>65</td>
+           <td>0</td>
+           <td>7</td>
+           <td>5</td>
+           <td>62</td>
+           <td>4</td>
+           </tr>
+           <tr>
+           <td>A</td>
+           <td>O</td>
+           <td>R</td>
+           <td>S</td>
+           <td>R</td>
+           <td>B</td>
+           <td>A</td>
+           <td>R</td>
+           <td>I</td>
+           <td>O</td>
+           <td>J</td>
+           <td>S</td>
+           <td>W</td>
+           <td>E</td>
+           <td>R</td>
+           <td>N</td>
+           <td>/</td>
+           <td>O</td>
+           </tr>
+           </table>
+          </div>
+          <p>Deszyfrowanie może być przeprowadzone przy użyciu tej&nbsp;samej tablicy <i>straddling checkerboard</i> i&nbsp;sekretnego numeru oraz&nbsp;przekształceń dokonywanych w&nbsp;odwrotnej kolejności. Cyfry wybranego numeru są podczas deszyfrowanie odejmowane od&nbsp;cyfr szyfrowaniu. Jeśli wynik miałby być mniejszy niż zero, to do&nbsp;cyfry szyfrogramu dodaje się dziesięć.</p>
+          <h2 id="sila-szyfru-vic">Siła szyfru VIC</h2>
+          <p>Szyfr VIC jest dość dobrym szyfrem. Wprowadza spore zakłócenia w&nbsp;częstotliwościach występowania znaków i&nbsp;czyni analizę szyfrogramu dość czasochłonną.</p>
+          <p>Istnieją liczne modyfikacje szyfru VIC. Pierwsze zmiany można wprowadzić już w&nbsp;tablicy <i>straddling checkerboard</i>, dowolnie dobierając kolejność liter. Można również pozostawić niektóre komórki puste, utrudniając kryptoanalizę.</p>
+          <p>Otrzymane znaki szyfrogramu można poddać na&nbsp;końcu przekształceniom korzystając z&nbsp;algorytmów szyfrów przestawieniowych.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/nihilist.html" rel="prev"><small>← Poprzedni</small>Szyfr Nihilist</a>
+          <a class="pager__next" href="/pl/proste/szyfry-przestawieniowe.html" rel="next"><small>Następny →</small>Szyfry przestawieniowe</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fvic.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fvic.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fvic.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html" aria-current="page">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

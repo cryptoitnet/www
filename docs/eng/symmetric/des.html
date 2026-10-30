@@ -1,0 +1,1621 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/symetryczne/des.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DES Symmetric Cipher | Cryptography | Crypto-IT</title>
+  <meta name="description" content="DES (Data Encryption Standard) is a symmetric block cipher, one of the first modern ciphers, which were widely implemented programmatically.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/symmetric/des.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/des.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/des.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/des.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="DES Symmetric Cipher | Cryptography">
+  <meta property="og:description" content="DES (Data Encryption Standard) is a symmetric block cipher, one of the first modern ciphers, which were widely implemented programmatically.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/symmetric/des.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "DES (Data Encryption Standard)",
+        "description": "DES (Data Encryption Standard) is a symmetric block cipher, one of the first modern ciphers, which were widely implemented programmatically.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/symmetric/des.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Symmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Block ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/block-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "DES (Data Encryption Standard)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/" aria-current="true">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/symetryczne/des.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/symmetric/">Symmetric ciphers</a></li>
+            <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">DES (Data Encryption Standard)</h1>
+          <p class="article__subtitle">Block cipher with symmetric secret key</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Block length = 64 bits</li>
+           <li>Key length = 56 bits</li>
+          </ul>
+          <p>DES was one of the most popular block symmetric ciphers. It was created in the early 1970s at IBM and adopted as a federal standard by <button type="button" class="note-ref" popovertarget="note-nbs">NBS</button> in 1976.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>DES is one of the most thoroughly examined encryption algorithms. In 1981 it was included in ANSI standards as Data Encryption Algorithm for private sector.</p>
+          <p>At the beginning of the 21st century, DES started to be considered insecure, mainly due to its relatively short secret key length, what makes it vulnerable to <a href="/eng/attacks/brute-force.html">brute force attacks</a>. In 2001 DES cipher was replaced by <a href="/eng/symmetric/aes.html">AES</a>. DES is still one of the most popular ciphers.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>DES uses the key which is 64-bit long, however only 56 bits are actually used by the algorithm. Every 8th bit of the key is a control one and it can be used for parity control.</p>
+          <p>In the encryption process, the data is first divided into 64-bit long blocks. Then, each block undergoes the following operations:</p>
+          <ol class="steps">
+           <li>Initial permutation rearranges bits in a certain, predefined way. This step does not enhance the security of algorithm. It was introduced to make passing data into encryption machines easier, at the times when the cipher was invented.</li>
+           <li>The input data is divided into two 32-bit parts: the left one and the right one.</li>
+           <li>56 bits are selected from the 64-bit key (Permutation PC-1). They are then divided into two 28-bit parts.</li>
+           <li>
+           Sixteen rounds of the following operations (so called <strong>Feistel functions</strong>) are then performed:
+           <ol class="steps">
+           <li>Both halves of key are rotated left by one or two bits (specified for each round). Then 48 subkey bits are selected by Permutation PC-2.</li>
+           <li>The right half of data is expanded to 48 bits using the Expansion Permutation.</li>
+           <li>The expanded half of data is combined using XOR operation with the 48-bit subkey chosen earlier.</li>
+           <li>The combined data is divided into eight 6-bit pieces. Each part is then an input to one of the S-Boxes (the first 6-bit part is the input to the first S-Box, the second 6-bit part enters the second S-Box, and so on). The first and the last bits stand for the row, and the rest of bits define the column of an S-Box table. After determining the location in the table, the value is read and converted to binary format. The output from each S-Box is 4-bit long, so the output from all S-Boxes is 32-bit long. Each S-box has a different structure.</li>
+           <li>The output bits from S-Boxes are combined, and they undergo P-Box Permutation.</li>
+           <li>Then, the bits of the changed right side are added to the bits of the left side.</li>
+           <li>The modified left half of data becomes a new right half, and the previous right half becomes a new left side.</li>
+           </ol>
+           </li>
+           <li>After all sixteen rounds, the left and the right halves of data are combined using the XOR operation.</li>
+           <li>The Final Permutation is performed.</li>
+          </ol>
+          <p>During decryption, the same set of operations is performed but in reverse order. The subkeys are also selected in reverse order (compared to encryption).</p>
+          <h3 id="weak-keys-in-des">Weak keys in DES</h3>
+          <p>A weak key in the DES cipher is a key which generates the same subkeys in all the successive rounds of encryption algorithm. There are four known weak keys in DES (expressed in hexadecimal):</p>
+          <ul>
+           <li><span class="term">0x00000000000000</span> (only zeros)</li>
+           <li><span class="term">0xFFFFFFFFFFFFFF</span> (only ones)</li>
+           <li><span class="term">0x0000000FFFFFFF</span> (only zeros and ones)</li>
+           <li><span class="term">0xFFFFFFF0000000</span> (only ones and zeros)</li>
+          </ul>
+          <h3 id="semiweak-keys-in-des">Semiweak keys in DES</h3>
+          <p>A semiweak key in the DES cipher is a key for which one can find another key that produces the same encrypted ciphertext from the same given plaintext. There are twelve known semiweak keys in DES (expressed in hexadecimal, along with parity bits):</p>
+          <ul>
+           <li><span class="term">0x01E001E001F101F1</span> and <span class="term">0xE001E001F101F101</span></li>
+           <li><span class="term">0xFE01FE01FE01FE01</span> and <span class="term">0x01FE01FE01FE01FE</span></li>
+           <li><span class="term">0x1FE01FE00EF10EF1</span> and <span class="term">0xE01FE01FF10EF10E</span></li>
+           <li><span class="term">0xE0FEE0FEF1FEF1FE</span> and <span class="term">0xFEE0FEE0FEF1FEF1</span></li>
+           <li><span class="term">0x1F011F010E010E01</span> and <span class="term">0x011F011F010E010E</span></li>
+           <li><span class="term">0xFE1FFE1FFE0EFE0E</span> and <span class="term">0x1FFE1FFE0EFE0EFE</span></li>
+          </ul>
+          <h3 id="initial-and-final-permutations-in-des">Initial and Final Permutations in DES</h3>
+          <p>The Initial and Final Permutations have no influence on security. They don't use a secret key and can be undone by anybody. They were introduced to make hardware implementation easier in some contexts. A hardware circuit which receives data over an 8-bit bus can accumulate the bits into eight shift registers, which is more efficient (in terms of circuit area) than a single 64-bit register. This process naturally performs the Initial Permutation of DES.</p>
+          <p>Let's assume that somebody is designing a hardware circuit which should do some encryption with DES. The data will be received in blocks of 8 bits. This means that there are 8 lines, each yielding one bit at each clock. A common device for accumulating data is a shift register: the input line plugs into a one-bit register, which itself plugs into another, which plugs into a third register, and so on. At each clock, each register receives the contents from the previous register, and the first register accepts the new bit. Therefore, the contents are shifted.</p>
+          <p>With an 8-bit bus, 8 shift registers are needed, each receiving 8 bits for every input block. The first register receives bits 1, 9, 17, 25, 33, 41, 49 and 57. The second register receives bits 2, 10, 18, ..., and so on. After eight clocks, eight registers received the complete 64-bit block and it is time to proceed with the DES algorithm itself.</p>
+          <p>If initial permutation was not used, then the first step of the first round would extract the 'left half' (32 bits) which, at that point, would consist of the leftmost 4 bits of each of the 8 shift registers. The 'right half' would also get bits from all the 8 shift registers. If you think of it as wires from the shift registers to the units which use the bits, then you end up with a bunch of wires which heavily cross each other. Crossing is doable but requires some circuit area, which is the expensive resource in hardware designs.</p>
+          <p>On the other hand, if you consider that the wires must extract the input bits and permute them as per the DES specification, you will find out that there is no crossing anymore. In other words, the accumulation of bits into the shift registers inherently performs a permutation of the bits, which is exactly the initial permutation of DES. By defining that initial permutation, the DES standard says: 'well, now that you have accumulated the bits in eight shift registers, just use them in that order, that's fine'.</p>
+          <p>The same thing is done again at the end of the algorithm during the Final Permutation.</p>
+          <p>DES was designed at a time when 8-bit bus were the top of the technology and one thousand transistors were an awfully expensive amount of logic.</p>
+          <h2 id="security-of-des">Security of DES</h2>
+          <p>DES is considered to be a well-designed and effective algorithm. However, just after its publication, many cryptographers believed that the size of its key is too small. At present, the 56-bit long key can be broken relatively cheaply, by using <a href="/eng/attacks/brute-force.html">brute force attacks</a> within a few days.</p>
+          <p>It is quite easy to attack DES knowing some parts of plaintext. The intruder can try all <span class="term">2<sup>56</sup></span> possible keys. He looks for a key, which used for decryption of an encrypted block of the known plaintext, produces exactly the same plaintext. In practice, it is enough to know two or three blocks of plaintext to be able to determine if the currently testing key which works for them, will be working for other blocks as well. Probability that the found key is incorrect and converts correctly only the known plaintext blocks is negligibly small.</p>
+          <p>The fastest known attacks on DES use linear cryptanalysis. They require knowing <span class="term">2<sup>43</sup></span> blocks of plaintext and their time complexity is around <span class="term">2<sup>39</sup></span> to <span class="term">2<sup>43</sup></span>.</p>
+          <h2 id="block-diagram-of-des-algorithm">Block Diagram of DES Algorithm</h2>
+          <figure class="figure"><img src="/assets/img/des/des-scheme-algorithm-eng.webp" alt="Scheme of the DES algorithm" width="737" height="945" loading="lazy"></figure>
+          <h2 id="block-diagram-of-des-feistel-function">Block Diagram of DES Feistel Function</h2>
+          <figure class="figure"><img src="/assets/img/des/des-scheme-f-fun-eng.webp" alt="Scheme of Feistel function" width="737" height="945" loading="lazy"></figure>
+          <h2 id="block-diagram-of-des-key-schedule">Block Diagram of DES Key Schedule</h2>
+          <figure class="figure"><img src="/assets/img/des/des-scheme-key-eng.webp" alt="Scheme of key schedule" width="737" height="945" loading="lazy"></figure>
+          <h2 id="Maths">Maths</h2>
+          <p>Permutations are presented in the form of tables only to make them easier to comprehend; one should bear in mind that input data is vectors, not matrices. <button type="button" class="note-ref" popovertarget="note-tabele-permutacji">Click to learn more on how to read the permutation table.</button></p>
+          <h3 id="initial-permutation">Initial Permutation</h3>
+          <p>Initial Permutation is processed on each block of input data in the beginning of encryption.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>Initial Permutation Table</caption>
+           <tr>
+           <td>58</td>
+           <td>50</td>
+           <td>42</td>
+           <td>34</td>
+           <td>26</td>
+           <td>18</td>
+           <td>10</td>
+           <td>2</td>
+           </tr>
+           <tr>
+           <td>60</td>
+           <td>52</td>
+           <td>44</td>
+           <td>36</td>
+           <td>28</td>
+           <td>20</td>
+           <td>12</td>
+           <td>4</td>
+           </tr>
+           <tr>
+           <td>62</td>
+           <td>54</td>
+           <td>46</td>
+           <td>38</td>
+           <td>30</td>
+           <td>22</td>
+           <td>14</td>
+           <td>6</td>
+           </tr>
+           <tr>
+           <td>64</td>
+           <td>56</td>
+           <td>48</td>
+           <td>40</td>
+           <td>32</td>
+           <td>24</td>
+           <td>16</td>
+           <td>8</td>
+           </tr>
+           <tr>
+           <td>57</td>
+           <td>49</td>
+           <td>41</td>
+           <td>33</td>
+           <td>25</td>
+           <td>17</td>
+           <td>9</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <td>59</td>
+           <td>51</td>
+           <td>43</td>
+           <td>35</td>
+           <td>27</td>
+           <td>19</td>
+           <td>11</td>
+           <td>3</td>
+           </tr>
+           <tr>
+           <td>61</td>
+           <td>53</td>
+           <td>45</td>
+           <td>37</td>
+           <td>29</td>
+           <td>21</td>
+           <td>13</td>
+           <td>5</td>
+           </tr>
+           <tr>
+           <td>63</td>
+           <td>55</td>
+           <td>47</td>
+           <td>39</td>
+           <td>31</td>
+           <td>23</td>
+           <td>15</td>
+           <td>7</td>
+           </tr>
+           </table>
+          </div>
+          <figure class="figure">
+           <img src="/assets/img/des/des-permutacja-poczatkowa.webp" alt="Scheme of DES Initial Permutation" width="1024" height="374" loading="lazy">
+           <figcaption>Scheme of DES Initial Permutation</figcaption>
+          </figure>
+          <h3 id="key-permutation-pc-1">Key Permutation PC-1</h3>
+          <p>56 bits are selected from 64-bit key. The key is then divided into two parts. Each part undergoes bit shifting (every eighth bit is excluded from encryption and can be used for parity control).</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>PC-1 Permutation Table</caption>
+           <tr>
+           <td colspan="7"><i>Left half</i></td>
+           </tr>
+           <tr>
+           <td>57</td>
+           <td>49</td>
+           <td>41</td>
+           <td>33</td>
+           <td>25</td>
+           <td>17</td>
+           <td>9</td>
+           </tr>
+           <tr>
+           <td>1</td>
+           <td>58</td>
+           <td>50</td>
+           <td>42</td>
+           <td>34</td>
+           <td>26</td>
+           <td>18</td>
+           </tr>
+           <tr>
+           <td>10</td>
+           <td>2</td>
+           <td>59</td>
+           <td>51</td>
+           <td>43</td>
+           <td>35</td>
+           <td>27</td>
+           </tr>
+           <tr>
+           <td>19</td>
+           <td>11</td>
+           <td>3</td>
+           <td>60</td>
+           <td>52</td>
+           <td>44</td>
+           <td>36</td>
+           </tr>
+           <tr>
+           <td colspan="7"><i>Right half</i></td>
+           </tr>
+           <tr>
+           <td>63</td>
+           <td>55</td>
+           <td>47</td>
+           <td>39</td>
+           <td>31</td>
+           <td>23</td>
+           <td>15</td>
+           </tr>
+           <tr>
+           <td>7</td>
+           <td>62</td>
+           <td>54</td>
+           <td>46</td>
+           <td>38</td>
+           <td>30</td>
+           <td>22</td>
+           </tr>
+           <tr>
+           <td>14</td>
+           <td>6</td>
+           <td>61</td>
+           <td>53</td>
+           <td>45</td>
+           <td>37</td>
+           <td>29</td>
+           </tr>
+           <tr>
+           <td>21</td>
+           <td>13</td>
+           <td>5</td>
+           <td>28</td>
+           <td>20</td>
+           <td>12</td>
+           <td>4</td>
+           </tr>
+           </table>
+          </div>
+          <figure class="figure">
+           <img src="/assets/img/des/des-permutacja-pc1.webp" alt="Scheme of DES PC-1 permutation" width="800" height="297" loading="lazy">
+           <figcaption>Scheme of DES PC-1 permutation</figcaption>
+          </figure>
+          <h3 id="expansion-permutation">Expansion Permutation</h3>
+          <p>Expansion Permutation initiates each round of Feistel functions. It expands the right half of data from 32 bits to 48 bits.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>Expansion Permutation Table</caption>
+           <tr>
+           <td>32</td>
+           <td>1</td>
+           <td>2</td>
+           <td>3</td>
+           <td>4</td>
+           <td>5</td>
+           <td>4</td>
+           <td>5</td>
+           </tr>
+           <tr>
+           <td>6</td>
+           <td>7</td>
+           <td>8</td>
+           <td>9</td>
+           <td>8</td>
+           <td>9</td>
+           <td>10</td>
+           <td>11</td>
+           </tr>
+           <tr>
+           <td>12</td>
+           <td>13</td>
+           <td>12</td>
+           <td>13</td>
+           <td>14</td>
+           <td>15</td>
+           <td>16</td>
+           <td>17</td>
+           </tr>
+           <tr>
+           <td>16</td>
+           <td>17</td>
+           <td>18</td>
+           <td>19</td>
+           <td>20</td>
+           <td>21</td>
+           <td>20</td>
+           <td>21</td>
+           </tr>
+           <tr>
+           <td>22</td>
+           <td>23</td>
+           <td>24</td>
+           <td>25</td>
+           <td>24</td>
+           <td>25</td>
+           <td>26</td>
+           <td>27</td>
+           </tr>
+           <tr>
+           <td>28</td>
+           <td>29</td>
+           <td>28</td>
+           <td>29</td>
+           <td>30</td>
+           <td>31</td>
+           <td>32</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <figure class="figure">
+           <img src="/assets/img/des/des-permutacja-rozszerzajaca.webp" alt="Scheme of DES expansion permutation" width="1024" height="469" loading="lazy">
+           <figcaption>Scheme of DES expansion permutation</figcaption>
+          </figure>
+          <h3 id="binary-rotation">Binary Rotation</h3>
+          <p>In each round of Feistel functions, the 28-bit halves of key are rotated left by one or two bits.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>Binary Rotation Table</caption>
+           <tr>
+           <th>No. of cycle</th>
+           <th>Amount of bits</th>
+           </tr>
+           <tr>
+           <td>1 </td>
+           <td>1 </td>
+           </tr>
+           <tr>
+           <td>2 </td>
+           <td>1 </td>
+           </tr>
+           <tr>
+           <td>3 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>4 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>5 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>6 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>7 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>8 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>9 </td>
+           <td>1 </td>
+           </tr>
+           <tr>
+           <td>10 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>11 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>12 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>13 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>14 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>15 </td>
+           <td>2 </td>
+           </tr>
+           <tr>
+           <td>16 </td>
+           <td>1 </td>
+           </tr>
+           </table>
+          </div>
+          <h3 id="key-permutation-pc-2">Key Permutation PC-2</h3>
+          <p>During Key Permutation PC-2 48 bits are selected from the 56-bit subkey obtained for a given round of Feistel functions.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>PC-2 Permutation Table</caption>
+           <tr>
+           <td>14</td>
+           <td>17</td>
+           <td>11</td>
+           <td>24</td>
+           <td>1</td>
+           <td>5</td>
+           <td>3</td>
+           <td>28</td>
+           </tr>
+           <tr>
+           <td>15</td>
+           <td>6</td>
+           <td>21</td>
+           <td>10</td>
+           <td>23</td>
+           <td>19</td>
+           <td>12</td>
+           <td>4</td>
+           </tr>
+           <tr>
+           <td>26</td>
+           <td>8</td>
+           <td>16</td>
+           <td>7</td>
+           <td>27</td>
+           <td>20</td>
+           <td>13</td>
+           <td>2</td>
+           </tr>
+           <tr>
+           <td>41</td>
+           <td>52</td>
+           <td>31</td>
+           <td>37</td>
+           <td>47</td>
+           <td>55</td>
+           <td>30</td>
+           <td>40</td>
+           </tr>
+           <tr>
+           <td>51</td>
+           <td>45</td>
+           <td>33</td>
+           <td>48</td>
+           <td>44</td>
+           <td>49</td>
+           <td>39</td>
+           <td>56</td>
+           </tr>
+           <tr>
+           <td>34</td>
+           <td>53</td>
+           <td>46</td>
+           <td>42</td>
+           <td>50</td>
+           <td>36</td>
+           <td>29</td>
+           <td>32</td>
+           </tr>
+           </table>
+          </div>
+          <figure class="figure">
+           <img src="/assets/img/des/des-permutacja-pc2.webp" alt="Scheme of PC-2 permutation" width="800" height="196" loading="lazy">
+           <figcaption>Scheme of PC-2 permutation</figcaption>
+          </figure>
+          <h3 id="s-blocks">S-Blocks</h3>
+          <p>In S-Boxes encryption each 6-bit input block is replaced by 4-bit output.</p>
+          <p>If input bits are marked as a1, a2, a3, a4, a5 and a6, then the a1 and a6 comprise a 2-bit figure standing for a row, and the a2, a3, a4 and a5 comprise a 2-bit figure standing for a column (both columns and rows are numbered from zero). Where the row and column cross, there is the output figure of the block. For example, if the input string of bits is 101010, the output will be 0110.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>S<sub>1</sub></caption>
+           <tr class="row-vertical">
+           <th></th>
+           <th><span class="vertical">x0000x</span></th>
+           <th><span class="vertical">x0001x</span></th>
+           <th><span class="vertical">x0010x</span></th>
+           <th><span class="vertical">x0011x</span></th>
+           <th><span class="vertical">x0100x</span></th>
+           <th><span class="vertical">x0101x</span></th>
+           <th><span class="vertical">x0110x</span></th>
+           <th><span class="vertical">x0111x</span></th>
+           <th><span class="vertical">x1000x</span></th>
+           <th><span class="vertical">x1001x</span></th>
+           <th><span class="vertical">x1010x</span></th>
+           <th><span class="vertical">x1011x</span></th>
+           <th><span class="vertical">x1100x</span></th>
+           <th><span class="vertical">x1101x</span></th>
+           <th><span class="vertical">x1110x</span></th>
+           <th><span class="vertical">x1111x</span></th>
+           </tr>
+           <tr>
+           <th>0yyyy0</th>
+           <td>14</td>
+           <td>4</td>
+           <td>13</td>
+           <td>1</td>
+           <td>2</td>
+           <td>15</td>
+           <td>11</td>
+           <td>8</td>
+           <td>3</td>
+           <td>10</td>
+           <td>6</td>
+           <td>12</td>
+           <td>5</td>
+           <td>9</td>
+           <td>0</td>
+           <td>7</td>
+           </tr>
+           <tr>
+           <th>0yyyy1</th>
+           <td>0</td>
+           <td>15</td>
+           <td>7</td>
+           <td>4</td>
+           <td>14</td>
+           <td>2</td>
+           <td>13</td>
+           <td>1</td>
+           <td>10</td>
+           <td>6</td>
+           <td>12</td>
+           <td>11</td>
+           <td>9</td>
+           <td>5</td>
+           <td>3</td>
+           <td>8</td>
+           </tr>
+           <tr>
+           <th>1yyyy0</th>
+           <td>4</td>
+           <td>1</td>
+           <td>14</td>
+           <td>8</td>
+           <td>13</td>
+           <td>6</td>
+           <td>2</td>
+           <td>11</td>
+           <td>15</td>
+           <td>12</td>
+           <td>9</td>
+           <td>7</td>
+           <td>3</td>
+           <td>10</td>
+           <td>5</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <th>1yyyy1</th>
+           <td>15</td>
+           <td>12</td>
+           <td>8</td>
+           <td>2</td>
+           <td>4</td>
+           <td>9</td>
+           <td>1</td>
+           <td>7</td>
+           <td>5</td>
+           <td>11</td>
+           <td>3</td>
+           <td>14</td>
+           <td>10</td>
+           <td>0</td>
+           <td>6</td>
+           <td>13</td>
+           </tr>
+           </table>
+          </div>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>S<sub>2</sub></caption>
+           <tr class="row-vertical">
+           <th></th>
+           <th><span class="vertical">x0000x</span></th>
+           <th><span class="vertical">x0001x</span></th>
+           <th><span class="vertical">x0010x</span></th>
+           <th><span class="vertical">x0011x</span></th>
+           <th><span class="vertical">x0100x</span></th>
+           <th><span class="vertical">x0101x</span></th>
+           <th><span class="vertical">x0110x</span></th>
+           <th><span class="vertical">x0111x</span></th>
+           <th><span class="vertical">x1000x</span></th>
+           <th><span class="vertical">x1001x</span></th>
+           <th><span class="vertical">x1010x</span></th>
+           <th><span class="vertical">x1011x</span></th>
+           <th><span class="vertical">x1100x</span></th>
+           <th><span class="vertical">x1101x</span></th>
+           <th><span class="vertical">x1110x</span></th>
+           <th><span class="vertical">x1111x</span></th>
+           </tr>
+           <tr>
+           <th>0yyyy0</th>
+           <td>15</td>
+           <td>1</td>
+           <td>8</td>
+           <td>14</td>
+           <td>6</td>
+           <td>11</td>
+           <td>3</td>
+           <td>4</td>
+           <td>9</td>
+           <td>7</td>
+           <td>2</td>
+           <td>13</td>
+           <td>12</td>
+           <td>0</td>
+           <td>5</td>
+           <td>10</td>
+           </tr>
+           <tr>
+           <th>0yyyy1</th>
+           <td>3</td>
+           <td>13</td>
+           <td>4</td>
+           <td>7</td>
+           <td>15</td>
+           <td>2</td>
+           <td>8</td>
+           <td>14</td>
+           <td>12</td>
+           <td>0</td>
+           <td>1</td>
+           <td>10</td>
+           <td>6</td>
+           <td>9</td>
+           <td>11</td>
+           <td>5</td>
+           </tr>
+           <tr>
+           <th>1yyyy0</th>
+           <td>0</td>
+           <td>14</td>
+           <td>7</td>
+           <td>11</td>
+           <td>10</td>
+           <td>4</td>
+           <td>13</td>
+           <td>1</td>
+           <td>5</td>
+           <td>8</td>
+           <td>12</td>
+           <td>6</td>
+           <td>9</td>
+           <td>3</td>
+           <td>2</td>
+           <td>15</td>
+           </tr>
+           <tr>
+           <th>1yyyy1</th>
+           <td>13</td>
+           <td>8</td>
+           <td>10</td>
+           <td>1</td>
+           <td>3</td>
+           <td>15</td>
+           <td>4</td>
+           <td>2</td>
+           <td>11</td>
+           <td>6</td>
+           <td>7</td>
+           <td>12</td>
+           <td>0</td>
+           <td>5</td>
+           <td>14</td>
+           <td>9</td>
+           </tr>
+           </table>
+          </div>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>S<sub>3</sub></caption>
+           <tr class="row-vertical">
+           <th></th>
+           <th><span class="vertical">x0000x</span></th>
+           <th><span class="vertical">x0001x</span></th>
+           <th><span class="vertical">x0010x</span></th>
+           <th><span class="vertical">x0011x</span></th>
+           <th><span class="vertical">x0100x</span></th>
+           <th><span class="vertical">x0101x</span></th>
+           <th><span class="vertical">x0110x</span></th>
+           <th><span class="vertical">x0111x</span></th>
+           <th><span class="vertical">x1000x</span></th>
+           <th><span class="vertical">x1001x</span></th>
+           <th><span class="vertical">x1010x</span></th>
+           <th><span class="vertical">x1011x</span></th>
+           <th><span class="vertical">x1100x</span></th>
+           <th><span class="vertical">x1101x</span></th>
+           <th><span class="vertical">x1110x</span></th>
+           <th><span class="vertical">x1111x</span></th>
+           </tr>
+           <tr>
+           <th>0yyyy0</th>
+           <td>10</td>
+           <td>0</td>
+           <td>9</td>
+           <td>14</td>
+           <td>6</td>
+           <td>3</td>
+           <td>15</td>
+           <td>5</td>
+           <td>1</td>
+           <td>13</td>
+           <td>12</td>
+           <td>7</td>
+           <td>11</td>
+           <td>4</td>
+           <td>2</td>
+           <td>8</td>
+           </tr>
+           <tr>
+           <th>0yyyy1</th>
+           <td>13</td>
+           <td>7</td>
+           <td>0</td>
+           <td>9</td>
+           <td>3</td>
+           <td>4</td>
+           <td>6</td>
+           <td>10</td>
+           <td>2</td>
+           <td>8</td>
+           <td>5</td>
+           <td>14</td>
+           <td>12</td>
+           <td>11</td>
+           <td>15</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <th>1yyyy0</th>
+           <td>13</td>
+           <td>6</td>
+           <td>4</td>
+           <td>9</td>
+           <td>8</td>
+           <td>15</td>
+           <td>3</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>2</td>
+           <td>12</td>
+           <td>5</td>
+           <td>10</td>
+           <td>14</td>
+           <td>7</td>
+           </tr>
+           <tr>
+           <th>1yyyy1</th>
+           <td>1</td>
+           <td>10</td>
+           <td>13</td>
+           <td>0</td>
+           <td>6</td>
+           <td>9</td>
+           <td>8</td>
+           <td>7</td>
+           <td>4</td>
+           <td>15</td>
+           <td>14</td>
+           <td>3</td>
+           <td>11</td>
+           <td>5</td>
+           <td>2</td>
+           <td>12</td>
+           </tr>
+           </table>
+          </div>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>S<sub>4</sub></caption>
+           <tr class="row-vertical">
+           <th></th>
+           <th><span class="vertical">x0000x</span></th>
+           <th><span class="vertical">x0001x</span></th>
+           <th><span class="vertical">x0010x</span></th>
+           <th><span class="vertical">x0011x</span></th>
+           <th><span class="vertical">x0100x</span></th>
+           <th><span class="vertical">x0101x</span></th>
+           <th><span class="vertical">x0110x</span></th>
+           <th><span class="vertical">x0111x</span></th>
+           <th><span class="vertical">x1000x</span></th>
+           <th><span class="vertical">x1001x</span></th>
+           <th><span class="vertical">x1010x</span></th>
+           <th><span class="vertical">x1011x</span></th>
+           <th><span class="vertical">x1100x</span></th>
+           <th><span class="vertical">x1101x</span></th>
+           <th><span class="vertical">x1110x</span></th>
+           <th><span class="vertical">x1111x</span></th>
+           </tr>
+           <tr>
+           <th>0yyyy0</th>
+           <td>7</td>
+           <td>13</td>
+           <td>14</td>
+           <td>3</td>
+           <td>0</td>
+           <td>6</td>
+           <td>9</td>
+           <td>10</td>
+           <td>1</td>
+           <td>2</td>
+           <td>8</td>
+           <td>5</td>
+           <td>11</td>
+           <td>12</td>
+           <td>4</td>
+           <td>15</td>
+           </tr>
+           <tr>
+           <th>0yyyy1</th>
+           <td>13</td>
+           <td>8</td>
+           <td>11</td>
+           <td>5</td>
+           <td>6</td>
+           <td>15</td>
+           <td>0</td>
+           <td>3</td>
+           <td>4</td>
+           <td>7</td>
+           <td>2</td>
+           <td>12</td>
+           <td>1</td>
+           <td>10</td>
+           <td>14</td>
+           <td>9</td>
+           </tr>
+           <tr>
+           <th>1yyyy0</th>
+           <td>10</td>
+           <td>6</td>
+           <td>9</td>
+           <td>0</td>
+           <td>12</td>
+           <td>11</td>
+           <td>7</td>
+           <td>13</td>
+           <td>15</td>
+           <td>1</td>
+           <td>3</td>
+           <td>14</td>
+           <td>5</td>
+           <td>2</td>
+           <td>8</td>
+           <td>4</td>
+           </tr>
+           <tr>
+           <th>1yyyy1</th>
+           <td>3</td>
+           <td>15</td>
+           <td>0</td>
+           <td>6</td>
+           <td>10</td>
+           <td>1</td>
+           <td>13</td>
+           <td>8</td>
+           <td>9</td>
+           <td>4</td>
+           <td>5</td>
+           <td>11</td>
+           <td>12</td>
+           <td>7</td>
+           <td>2</td>
+           <td>14</td>
+           </tr>
+           </table>
+          </div>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>S<sub>5</sub></caption>
+           <tr class="row-vertical">
+           <th></th>
+           <th><span class="vertical">x0000x</span></th>
+           <th><span class="vertical">x0001x</span></th>
+           <th><span class="vertical">x0010x</span></th>
+           <th><span class="vertical">x0011x</span></th>
+           <th><span class="vertical">x0100x</span></th>
+           <th><span class="vertical">x0101x</span></th>
+           <th><span class="vertical">x0110x</span></th>
+           <th><span class="vertical">x0111x</span></th>
+           <th><span class="vertical">x1000x</span></th>
+           <th><span class="vertical">x1001x</span></th>
+           <th><span class="vertical">x1010x</span></th>
+           <th><span class="vertical">x1011x</span></th>
+           <th><span class="vertical">x1100x</span></th>
+           <th><span class="vertical">x1101x</span></th>
+           <th><span class="vertical">x1110x</span></th>
+           <th><span class="vertical">x1111x</span></th>
+           </tr>
+           <tr>
+           <th>0yyyy0</th>
+           <td>2</td>
+           <td>12</td>
+           <td>4</td>
+           <td>1</td>
+           <td>7</td>
+           <td>10</td>
+           <td>11</td>
+           <td>6</td>
+           <td>8</td>
+           <td>5</td>
+           <td>3</td>
+           <td>15</td>
+           <td>13</td>
+           <td>0</td>
+           <td>14</td>
+           <td>9</td>
+           </tr>
+           <tr>
+           <th>0yyyy1</th>
+           <td>14</td>
+           <td>11</td>
+           <td>2</td>
+           <td>12</td>
+           <td>4</td>
+           <td>7</td>
+           <td>13</td>
+           <td>1</td>
+           <td>5</td>
+           <td>0</td>
+           <td>15</td>
+           <td>10</td>
+           <td>3</td>
+           <td>9</td>
+           <td>8</td>
+           <td>6</td>
+           </tr>
+           <tr>
+           <th>1yyyy0</th>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>11</td>
+           <td>10</td>
+           <td>13</td>
+           <td>7</td>
+           <td>8</td>
+           <td>15</td>
+           <td>9</td>
+           <td>12</td>
+           <td>5</td>
+           <td>6</td>
+           <td>3</td>
+           <td>0</td>
+           <td>14</td>
+           </tr>
+           <tr>
+           <th>1yyyy1</th>
+           <td>11</td>
+           <td>8</td>
+           <td>12</td>
+           <td>7</td>
+           <td>1</td>
+           <td>14</td>
+           <td>2</td>
+           <td>13</td>
+           <td>6</td>
+           <td>15</td>
+           <td>0</td>
+           <td>9</td>
+           <td>10</td>
+           <td>4</td>
+           <td>5</td>
+           <td>3</td>
+           </tr>
+           </table>
+          </div>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>S<sub>6</sub></caption>
+           <tr class="row-vertical">
+           <th></th>
+           <th><span class="vertical">x0000x</span></th>
+           <th><span class="vertical">x0001x</span></th>
+           <th><span class="vertical">x0010x</span></th>
+           <th><span class="vertical">x0011x</span></th>
+           <th><span class="vertical">x0100x</span></th>
+           <th><span class="vertical">x0101x</span></th>
+           <th><span class="vertical">x0110x</span></th>
+           <th><span class="vertical">x0111x</span></th>
+           <th><span class="vertical">x1000x</span></th>
+           <th><span class="vertical">x1001x</span></th>
+           <th><span class="vertical">x1010x</span></th>
+           <th><span class="vertical">x1011x</span></th>
+           <th><span class="vertical">x1100x</span></th>
+           <th><span class="vertical">x1101x</span></th>
+           <th><span class="vertical">x1110x</span></th>
+           <th><span class="vertical">x1111x</span></th>
+           </tr>
+           <tr>
+           <th>0yyyy0</th>
+           <td>12</td>
+           <td>1</td>
+           <td>10</td>
+           <td>15</td>
+           <td>9</td>
+           <td>2</td>
+           <td>6</td>
+           <td>8</td>
+           <td>0</td>
+           <td>13</td>
+           <td>3</td>
+           <td>4</td>
+           <td>14</td>
+           <td>7</td>
+           <td>5</td>
+           <td>11</td>
+           </tr>
+           <tr>
+           <th>0yyyy1</th>
+           <td>10</td>
+           <td>15</td>
+           <td>4</td>
+           <td>2</td>
+           <td>7</td>
+           <td>12</td>
+           <td>9</td>
+           <td>5</td>
+           <td>6</td>
+           <td>1</td>
+           <td>13</td>
+           <td>14</td>
+           <td>0</td>
+           <td>11</td>
+           <td>3</td>
+           <td>8</td>
+           </tr>
+           <tr>
+           <th>1yyyy0</th>
+           <td>9</td>
+           <td>14</td>
+           <td>15</td>
+           <td>5</td>
+           <td>2</td>
+           <td>8</td>
+           <td>12</td>
+           <td>3</td>
+           <td>7</td>
+           <td>0</td>
+           <td>4</td>
+           <td>10</td>
+           <td>1</td>
+           <td>13</td>
+           <td>11</td>
+           <td>6</td>
+           </tr>
+           <tr>
+           <th>1yyyy1</th>
+           <td>4</td>
+           <td>3</td>
+           <td>2</td>
+           <td>12</td>
+           <td>9</td>
+           <td>5</td>
+           <td>15</td>
+           <td>10</td>
+           <td>11</td>
+           <td>14</td>
+           <td>1</td>
+           <td>7</td>
+           <td>6</td>
+           <td>0</td>
+           <td>8</td>
+           <td>13</td>
+           </tr>
+           </table>
+          </div>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>S<sub>7</sub></caption>
+           <tr class="row-vertical">
+           <th></th>
+           <th><span class="vertical">x0000x</span></th>
+           <th><span class="vertical">x0001x</span></th>
+           <th><span class="vertical">x0010x</span></th>
+           <th><span class="vertical">x0011x</span></th>
+           <th><span class="vertical">x0100x</span></th>
+           <th><span class="vertical">x0101x</span></th>
+           <th><span class="vertical">x0110x</span></th>
+           <th><span class="vertical">x0111x</span></th>
+           <th><span class="vertical">x1000x</span></th>
+           <th><span class="vertical">x1001x</span></th>
+           <th><span class="vertical">x1010x</span></th>
+           <th><span class="vertical">x1011x</span></th>
+           <th><span class="vertical">x1100x</span></th>
+           <th><span class="vertical">x1101x</span></th>
+           <th><span class="vertical">x1110x</span></th>
+           <th><span class="vertical">x1111x</span></th>
+           </tr>
+           <tr>
+           <th>0yyyy0</th>
+           <td>4</td>
+           <td>11</td>
+           <td>2</td>
+           <td>14</td>
+           <td>15</td>
+           <td>0</td>
+           <td>8</td>
+           <td>13</td>
+           <td>3</td>
+           <td>12</td>
+           <td>9</td>
+           <td>7</td>
+           <td>5</td>
+           <td>10</td>
+           <td>6</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <th>0yyyy1</th>
+           <td>13</td>
+           <td>0</td>
+           <td>11</td>
+           <td>7</td>
+           <td>4</td>
+           <td>9</td>
+           <td>1</td>
+           <td>10</td>
+           <td>14</td>
+           <td>3</td>
+           <td>5</td>
+           <td>12</td>
+           <td>2</td>
+           <td>15</td>
+           <td>8</td>
+           <td>6</td>
+           </tr>
+           <tr>
+           <th>1yyyy0</th>
+           <td>1</td>
+           <td>4</td>
+           <td>11</td>
+           <td>13</td>
+           <td>12</td>
+           <td>3</td>
+           <td>7</td>
+           <td>14</td>
+           <td>10</td>
+           <td>15</td>
+           <td>6</td>
+           <td>8</td>
+           <td>0</td>
+           <td>5</td>
+           <td>9</td>
+           <td>2</td>
+           </tr>
+           <tr>
+           <th>1yyyy1</th>
+           <td>6</td>
+           <td>11</td>
+           <td>13</td>
+           <td>8</td>
+           <td>1</td>
+           <td>4</td>
+           <td>10</td>
+           <td>7</td>
+           <td>9</td>
+           <td>5</td>
+           <td>0</td>
+           <td>15</td>
+           <td>14</td>
+           <td>2</td>
+           <td>3</td>
+           <td>12</td>
+           </tr>
+           </table>
+          </div>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>S<sub>8</sub></caption>
+           <tr class="row-vertical">
+           <th></th>
+           <th><span class="vertical">x0000x</span></th>
+           <th><span class="vertical">x0001x</span></th>
+           <th><span class="vertical">x0010x</span></th>
+           <th><span class="vertical">x0011x</span></th>
+           <th><span class="vertical">x0100x</span></th>
+           <th><span class="vertical">x0101x</span></th>
+           <th><span class="vertical">x0110x</span></th>
+           <th><span class="vertical">x0111x</span></th>
+           <th><span class="vertical">x1000x</span></th>
+           <th><span class="vertical">x1001x</span></th>
+           <th><span class="vertical">x1010x</span></th>
+           <th><span class="vertical">x1011x</span></th>
+           <th><span class="vertical">x1100x</span></th>
+           <th><span class="vertical">x1101x</span></th>
+           <th><span class="vertical">x1110x</span></th>
+           <th><span class="vertical">x1111x</span></th>
+           </tr>
+           <tr>
+           <th>0yyyy0</th>
+           <td>13</td>
+           <td>2</td>
+           <td>8</td>
+           <td>4</td>
+           <td>6</td>
+           <td>15</td>
+           <td>11</td>
+           <td>1</td>
+           <td>10</td>
+           <td>9</td>
+           <td>3</td>
+           <td>14</td>
+           <td>5</td>
+           <td>0</td>
+           <td>12</td>
+           <td>7</td>
+           </tr>
+           <tr>
+           <th>0yyyy1</th>
+           <td>1</td>
+           <td>15</td>
+           <td>13</td>
+           <td>8</td>
+           <td>10</td>
+           <td>3</td>
+           <td>7</td>
+           <td>4</td>
+           <td>12</td>
+           <td>5</td>
+           <td>6</td>
+           <td>11</td>
+           <td>0</td>
+           <td>14</td>
+           <td>9</td>
+           <td>2</td>
+           </tr>
+           <tr>
+           <th>1yyyy0</th>
+           <td>7</td>
+           <td>11</td>
+           <td>4</td>
+           <td>1</td>
+           <td>9</td>
+           <td>12</td>
+           <td>14</td>
+           <td>2</td>
+           <td>0</td>
+           <td>6</td>
+           <td>10</td>
+           <td>13</td>
+           <td>15</td>
+           <td>3</td>
+           <td>5</td>
+           <td>8</td>
+           </tr>
+           <tr>
+           <th>1yyyy1</th>
+           <td>2</td>
+           <td>1</td>
+           <td>14</td>
+           <td>7</td>
+           <td>4</td>
+           <td>10</td>
+           <td>8</td>
+           <td>13</td>
+           <td>15</td>
+           <td>12</td>
+           <td>9</td>
+           <td>0</td>
+           <td>3</td>
+           <td>5</td>
+           <td>6</td>
+           <td>11</td>
+           </tr>
+           </table>
+          </div>
+          <h3 id="permutation-p">Permutation P</h3>
+          <p>Permutation P is processed on the 32-bit output block from eight S-Boxes.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>Permutation P Table</caption>
+           <tr>
+           <td>16</td>
+           <td>7</td>
+           <td>20</td>
+           <td>21</td>
+           <td>29</td>
+           <td>12</td>
+           <td>28</td>
+           <td>17</td>
+           </tr>
+           <tr>
+           <td>1</td>
+           <td>15</td>
+           <td>23</td>
+           <td>26</td>
+           <td>5</td>
+           <td>18</td>
+           <td>31</td>
+           <td>10</td>
+           </tr>
+           <tr>
+           <td>2</td>
+           <td>8</td>
+           <td>24</td>
+           <td>14</td>
+           <td>32</td>
+           <td>27</td>
+           <td>3</td>
+           <td>9</td>
+           </tr>
+           <tr>
+           <td>19</td>
+           <td>13</td>
+           <td>30</td>
+           <td>6</td>
+           <td>22</td>
+           <td>11</td>
+           <td>4</td>
+           <td>25</td>
+           </tr>
+           </table>
+          </div>
+          <figure class="figure">
+           <img src="/assets/img/des/des-permutacja-p.webp" alt="Scheme of permutation P" width="800" height="482" loading="lazy">
+           <figcaption>Scheme of permutation P</figcaption>
+          </figure>
+          <h3 id="final-permutation">Final Permutation</h3>
+          <p>Final Permutation is processed for each block of data after the last round of Feistel functions. It is the inverse of the Initial Permutation.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>Final Permutation Table</caption>
+           <tr>
+           <td>40</td>
+           <td>8</td>
+           <td>48</td>
+           <td>16</td>
+           <td>56</td>
+           <td>24</td>
+           <td>64</td>
+           <td>32</td>
+           </tr>
+           <tr>
+           <td>39</td>
+           <td>7</td>
+           <td>47</td>
+           <td>15</td>
+           <td>55</td>
+           <td>23</td>
+           <td>63</td>
+           <td>31</td>
+           </tr>
+           <tr>
+           <td>38</td>
+           <td>6</td>
+           <td>46</td>
+           <td>14</td>
+           <td>54</td>
+           <td>22</td>
+           <td>62</td>
+           <td>30</td>
+           </tr>
+           <tr>
+           <td>37</td>
+           <td>5</td>
+           <td>45</td>
+           <td>13</td>
+           <td>53</td>
+           <td>21</td>
+           <td>61</td>
+           <td>29</td>
+           </tr>
+           <tr>
+           <td>36</td>
+           <td>4</td>
+           <td>44</td>
+           <td>12</td>
+           <td>52</td>
+           <td>20</td>
+           <td>60</td>
+           <td>28</td>
+           </tr>
+           <tr>
+           <td>35</td>
+           <td>3</td>
+           <td>43</td>
+           <td>11</td>
+           <td>51</td>
+           <td>19</td>
+           <td>59</td>
+           <td>27</td>
+           </tr>
+           <tr>
+           <td>34</td>
+           <td>2</td>
+           <td>42</td>
+           <td>10</td>
+           <td>50</td>
+           <td>18</td>
+           <td>58</td>
+           <td>26</td>
+           </tr>
+           <tr>
+           <td>33</td>
+           <td>1</td>
+           <td>41</td>
+           <td>9</td>
+           <td>49</td>
+           <td>17</td>
+           <td>57</td>
+           <td>25</td>
+           </tr>
+           </table>
+          </div>
+          <figure class="figure">
+           <img src="/assets/img/des/des-permutacja-koncowa.webp" alt="Scheme of DES final permutation" width="1024" height="406" loading="lazy">
+           <figcaption>Scheme of DES final permutation</figcaption>
+          </figure>
+          <div class="note" id="note-nbs" popover>
+           <p>National Bureau of Standards (NBS) - a U.S. agency which provides measures and standards; the name was used between 1901 and 1988, the agency is now known by its old name, the National Institute of Standards and Technology (NIST).</p>
+           <button type="button" class="note__close" popovertarget="note-nbs" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-tabele-permutacji" popover>
+           <p>All permutation tables should be read row by row, from left to right, and from top to bottom.</p>
+           <p>The permutation of bits should be read as follows:</p>
+           <ul>
+           <li>the first output bit is the bit from the input block of the position taken from the first row and the first column of the table,</li>
+           <li>the second output bit is the bit from the input block of the position taken from the first row and the second column of the table,</li>
+           <li>the third output bit is the bit from the input block of the position taken from the first row and the third column of the table,</li>
+           <li>...</li>
+           <li>the last output bit is the bit from the input block of the position taken from the first row and the last column of the table.</li>
+           </ul>
+           <button type="button" class="note__close" popovertarget="note-tabele-permutacji" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/symmetric/block-ciphers.html" rel="prev"><small>← Previous</small>Block ciphers</a>
+          <a class="pager__next" href="/eng/symmetric/rc2.html" rel="next"><small>Next →</small>RC2</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fdes.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fdes.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fdes.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/symmetric/">Symmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/otp.html">OTP</a></li>
+              <li><a href="/eng/symmetric/rc4.html">RC4</a></li>
+              <li><a href="/eng/symmetric/salsa20.html">Salsa20</a></li>
+              <li><a href="/eng/symmetric/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/des.html" aria-current="page">DES</a></li>
+              <li><a href="/eng/symmetric/rc2.html">RC2</a></li>
+              <li><a href="/eng/symmetric/3des.html">Triple DES</a></li>
+              <li><a href="/eng/symmetric/aes.html">AES</a></li>
+              <li><a href="/eng/symmetric/blowfish.html">Blowfish</a></li>
+              <li><a href="/eng/symmetric/camellia.html">Camellia</a></li>
+              <li><a href="/eng/symmetric/serpent.html">Serpent</a></li>
+              <li><a href="/eng/symmetric/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

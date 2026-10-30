@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/attacks/krack.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atak KRACK | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="KRACK jest atakiem kryptograficznym mającym na celu odkrycie przez napastnika sekretnego klucza, zabezpieczającego komunikację bezprzewodową WPA2.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/ataki/krack.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/krack.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/krack.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/krack.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Atak KRACK | Kryptografia">
+  <meta property="og:description" content="KRACK jest atakiem kryptograficznym mającym na celu odkrycie przez napastnika sekretnego klucza, zabezpieczającego komunikację bezprzewodową WPA2.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/ataki/krack.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "KRACK",
+        "description": "KRACK jest atakiem kryptograficznym mającym na celu odkrycie przez napastnika sekretnego klucza, zabezpieczającego komunikację bezprzewodową WPA2.",
+        "inLanguage": "pl",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/ataki/krack.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ataki",
+            "item": "https://www.crypto-it.net/pl/ataki/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "KRACK"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/" aria-current="true">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/attacks/krack.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/ataki/">Ataki</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">KRACK</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Opublikowano <time datetime="2020-03-09">9 marca 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Atak KRACK (ang. <i>Key Reinstallation Attack</i>, czyli <em>Atak Powtórnego Zainstalowania Klucza</em>) jest złożonym atakiem na protokół WPA2, będącym połączeniem <a href="/pl/ataki/znany-szyfrogram.html">ataku ze znanym szyfrogramem</a> oraz <a href="/pl/ataki/man-in-the-middle.html">ataku man-in-the-middle</a>. Napastnik przeprowadza atak w czasie etapu nawiązywania połączenia przy użyciu protokołu WPA2 (jest to tak zwany <i>handshake</i> - ang. <i>uścisk dłoni</i>), wykorzystując luki w standardzie i implementacjach algorytmu.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>W momencie opublikowania szczegółów tego ataku (dnia 16. października 2017) większość istniejących implementacji algorytmu WPA2 była podatna na atak KRACK. Zgodnie z wymogami czasów, autorzy ataku przygotowali odpowiednio jego publikację, zakładając stronę internetową, tworząc filmy video, a nawet przygotowując specjalne logo (dostępne w wielu rozdzielczościach). Autorzy zaproponowali poprawki w standardzie oraz konkretne zmiany w kodzie różnych implementacji WPA2, które likwidują niebezpieczeństwo wykorzystywania tego sposobu ataku.</p>
+          <p>Wydaje się, że okres życia samego ataku KRACK nie będzie specjalnie długi (większość producentów wkrótce po ujawnieniu ataku upubliczniła poprawki łatające ten błąd; poprawki o najwyższym priorytecie), ale pobieżne przedstawienie sposobu przeprowadzenia ataku wydaje się pożądane. Jest to praktyczny przykład ataku kryptograficznego na <a href="/pl/ataki/two-time-pad.html">two-time-pad</a>.</p>
+          <h2 id="sekretny-klucz-w-wpa2">Sekretny klucz w WPA2</h2>
+          <p>Każde urządzenie podłączające się do sieci bezprzewodowej bazującej na WPA2, wymienia z routerem szereg wiadomości, na podstawie których ustalany jest wspólny sekretny klucz szyfrujący, który będzie następnie wykorzystywany do zabezpieczenia całej komunikacji. W celu zagwarantowania bezpieczeństwa, należy mieć pewność, że użyty klucz będzie unikalny, czyli w szczególności, że żaden wcześniej wynegocjowany klucz nie zostanie powtórnie wykorzystany do szyfrowania kolejnej komunikacji (przeczytaj o atakach na <a href="/pl/ataki/two-time-pad.html">two-time-pad</a> aby dowiedzieć się więcej na ten temat).</p>
+          <p>Sekretny klucz tworzony jest na bazie współdzielonego hasła dostępu do sieci. W celu zagwarantowania unikalności klucza, obie strony (klient podłączający się do sieci i router bezprzewodowy) wybierają losowe liczby (nazywane <i>nounce</i>) oraz uzależniają sekretny klucz od swoich adresów MAC.</p>
+          <p>W protokole WPA2, klient i router wymieniają cztery wiadomości, na podstawie których tworzony jest sekretny klucz. Dwie pierwsze wiadomości zawierają losowe numery wybrane przez każde z nich i przesyłanego do drugiego urządzenia. Po wymianie dwóch pierwszych wiadomości, router przesyła trzecią wiadomość do klienta. Zawiera ona tak zwany klucz grupy (który w tej chwili nie jest dla nas istotny) oraz powoduje wygenerowanie sekretnego klucza. Ostatnią wiadomością jest potwierdzenie przesłane przez klienta do routera.</p>
+          <h2 id="przebieg-ataku">Przebieg ataku</h2>
+          <p>Atak KRACK polega na wymuszeniu przez napastnika zastosowania przez komunikujące się strony tego samego sekretnego klucza ponownie.</p>
+          <p>Aby tego dokonać, pierwszym krokiem napastnika jest uzyskanie możliwości podszycia się za jedną z komunikujących się stron (atak <a href="/pl/ataki/man-in-the-middle.html">man-in-the-middle</a>). Aby tego dokonać, musi on podrobić swój adres MAC oraz być w stanie zablokować wiadomości przesyłane pomiędzy routerem a klientem.</p>
+          <p>Drugim krokiem jest przechwycenie przez napastnika trzeciej wiadomości, wymienianej podczas inicjalizacji połączenia, oraz zapamiętanie jej. Napastnik musi również przechwycić odpowiedź wysłaną przez klienta i nie dopuścić do jej otrzymania przez router.</p>
+          <p>Błąd w specyfikacji WPA2 sprawia, że oficjalny standard WPA2 zaleca, aby klient generował sekretny klucz zawsze po otrzymaniu tej trzeciej wiadomości. Umożliwia to napastnikowi powtórne wysłanie tej wiadomości, w celu powtórnego ustawienia klucza na taką samą wartość jak poprzednio (ponieważ do jego utworzenia używane są te same dane, co za poprzednim razem: hasło, <i>nounce</i> oraz adresy MAC).</p>
+          <p>W zależności od typu algorytmu używanego do szyfrowania dalszej komunikacji pomiędzy stronami, napastnik może skompromitować zabezpieczenia w różnym stopniu. Zakres ten waha się od poznania sekretnego klucza używanego do komunikacji w jedną stronę, poprzez poznanie klucza zabezpieczającego komunikację w obie strony (protokoły CCMP oraz GCMP), aż do całkowitą kompromitację klucza, z powodu zmuszenia urządzeń do korzystania z zerowego klucza szyfrującego (na niektórych wersjach Linuxa i Androida).</p>
+          <p>Należy tutaj zauważyć, że napastnik nie poznaje hasła przechowywanego na obu urządzeniach. Wykradany jest jedynie sekretny klucz, używany do szyfrowania wiadomości wymienianych podczas aktualnej sesji.</p>
+          <h2 id="ochrona-przed-krack">Ochrona przed KRACK</h2>
+          <p>Sposoby zapobiegania ataku wiążą się z niewielką modyfikacją kodu odpowiedzialnego za inicjalizację połączenia WPA2.</p>
+          <p>Przede wszystkim, po otrzymaniu <em>trzeciej wiadomości</em>, przed zresetowaniem klucza należałoby sprawdzić czy klucz nie został już wcześniej wygenerowany. Jeśli klucz już istnieje, to należy pominąć jego ponowne wyliczenie.</p>
+          <p>Ponadto, można zablokować resetowanie wartości <i>nounce</i> oraz liczników (zwiększanych przy wysyłaniu wszystkich wiadomości), jeśli aktualnie klucz już istnieje i jest używany do szyfrowania komunikacji.</p>
+          <h2 id="podsumowanie">Podsumowanie</h2>
+          <p>Przedstawiony na tej stronie atak KRACK jest ciekawym przykładem zastosowania ataku <a href="/pl/ataki/man-in-the-middle.html">man-in-the-middle</a> w celu umożliwienia zaatakowania szyfrowania <a href="/pl/ataki/two-time-pad.html">two-time-pad</a>.</p>
+          <p>Powyżej opisano jedynie najbardziej popularną wersję tego ataku. Autorzy przedstawili szereg przykładów ataków na podobne protokoły (Fast BSS, TDSL, PeerKey), bazujące na inicjowaniu połączenia w podobny sposób. Zaprezentowali również sposób wykradania klucza grupy oraz przedstawili zmodyfikowane ataki dla implementacji protokołów w różnych wersjach i systemach operacyjnych. Zainteresowanych czytelników odsyłam do pracy opisującej ten atak: <em>Key Reinstallation Attacks: Forcing Nonce Reuse in WPA2</em>, dostępnej na <a href="http://www.krackattacks.com/" rel="noopener" target="_blank">stronie autorów</a>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/ataki/two-time-pad.html" rel="prev"><small>← Poprzedni</small>Atak na two-time pad</a>
+          <a class="pager__next" href="/pl/ataki/atak-statystyczny.html" rel="next"><small>Następny →</small>Atak statystyczny</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fkrack.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fkrack.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fkrack.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-ataki -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/ataki/">Ataki</a></h2>
+        <ul>
+          <li><a href="/pl/ataki/znany-tekst-jawny.html">Atak ze znanym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/wybrany-tekst-jawny.html">Atak z wybranym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/znany-szyfrogram.html">Atak z szyfrogramami</a></li>
+          <li><a href="/pl/ataki/wybrany-szyfrogram.html">Atak z wybranym szyfrogramem</a></li>
+          <li><a href="/pl/ataki/wybrany-klucz.html">Atak z wybranym kluczem</a></li>
+          <li><a href="/pl/ataki/atak-silowy.html">Atak siłowy</a></li>
+          <li><a href="/pl/ataki/dos.html">DoS</a></li>
+          <li><a href="/pl/ataki/man-in-the-middle.html">Atak man-in-the-middle</a></li>
+          <li><a href="/pl/ataki/two-time-pad.html">Atak na two-time pad</a></li>
+          <li><a href="/pl/ataki/krack.html" aria-current="page">Atak KRACK</a></li>
+          <li><a href="/pl/ataki/atak-statystyczny.html">Atak statystyczny</a></li>
+          <li><a href="/pl/ataki/meet-in-the-middle.html">Atak meet-in-the-middle</a></li>
+          <li><a href="/pl/ataki/metoda-powtorzenia.html">Atak metodą powtórzenia</a></li>
+          <li><a href="/pl/ataki/atak-homograficzny.html">Atak homograficzny</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-ataki -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

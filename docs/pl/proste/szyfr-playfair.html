@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/playfair-cipher.html" data-published="2020-03-09" data-updated="2026-10-30">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfr Playfair – jak działa + szyfrowanie online | Crypto-IT</title>
+  <meta name="description" content="Jak działa szyfr Playfair: tabela 5×5 z klucza, zasady szyfrowania, słabości i kod. Zaszyfruj i odszyfruj tekst szyfrem Playfair online.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/szyfr-playfair.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/playfair-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-playfair.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/playfair-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfr Playfair – jak działa + szyfrowanie online">
+  <meta property="og:description" content="Jak działa szyfr Playfair: tabela 5×5 z klucza, zasady szyfrowania, słabości i kod. Zaszyfruj i odszyfruj tekst szyfrem Playfair online.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/szyfr-playfair.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+
+  <script src="/assets/js/tools/playfair.js" type="module"></script>
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfr Playfair",
+        "description": "Jak działa szyfr Playfair: tabela 5×5 z klucza, zasady szyfrowania, słabości i kod. Zaszyfruj i odszyfruj tekst szyfrem Playfair online.",
+        "inLanguage": "pl",
+        "datePublished": "2020-03-09",
+        "dateModified": "2026-10-30",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/szyfr-playfair.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Poligramowe szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/poligramowe-szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Szyfr Playfair"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/playfair-cipher.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a></li>
+            <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+
+        <header>
+          <h1 class="article__title">Szyfr Playfair</h1>
+          <p class="article__subtitle">Poligramowy szyfr podstawieniowy</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Opublikowano <time datetime="2020-03-09">9 marca 2020</time> · Zaktualizowano <time datetime="2026-10-30">30 października 2026</time></p>
+          <!-- /auto:dates -->
+        </header>
+
+        <div class="article__body">
+          <p class="article__lead">Szyfr Playfair szyfruje pary liter zamiast pojedynczych liter, korzystając z&nbsp;tabeli 5×5 utworzonej na&nbsp;podstawie tajnego klucza. Jego autorem był angielski wynalazca Charles Wheatstone, a&nbsp;pierwszy opis pochodzi z&nbsp;1854 roku. Nazwa szyfru pochodzi od&nbsp;szkockiego naukowca i&nbsp;polityka Lyona Playfaira, który przyczynił się do&nbsp;jego popularyzacji.</p>
+
+          <p><a href="#online">Wypróbuj szyfr Playfair online ↓</a></p>
+
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Dzięki wsparciu barona Playfaira szyfr został przyjęty przez armię brytyjską i&nbsp;był używany podczas drugiej wojny burskiej, a&nbsp;następnie w&nbsp;obu wojnach światowych (również przez inne państwa). Podobnie jak inne szyfry tego okresu, wyszedł z&nbsp;użycia wraz z&nbsp;nadejściem komputerów. Dziś można go szybko złamać, na&nbsp;przykład za&nbsp;pomocą <a href="/pl/ataki/atak-silowy.html">ataku siłowego</a>.</p>
+
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Playfair jest <a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">poligramowym szyfrem podstawieniowym</a>: tekst jawny dzieli się na&nbsp;grupy liter, a&nbsp;każdą grupę zastępuje się inną grupą. W&nbsp;przypadku Playfaira są to grupy dwuliterowe (digramy).</p>
+
+          <h3 id="tabela">Tworzenie tabeli</h3>
+          <p>Tabela ma wymiary 5×5 i&nbsp;zawiera 25 liter alfabetu łacińskiego. Alfabet liczy 26 liter, więc jedną trzeba pominąć: zwykle <span class="term">I</span> oraz <span class="term">J</span> traktuje się jako jedną literę albo opuszcza się rzadką literę, np. <span class="term">Q</span> lub <span class="term">X</span>.</p>
+          <p>Najpierw wpisuje się do&nbsp;tabeli litery klucza, pomijając te, które już się pojawiły. Pozostałe pola wypełnia się resztą alfabetu w&nbsp;kolejności alfabetycznej. Obie strony muszą ustalić kolejność wypełniania pól, zwykle wierszami, od&nbsp;lewej do&nbsp;prawej i&nbsp;z&nbsp;góry na&nbsp;dół.</p>
+          <p>Na przykład klucz <i lang="la">pecunia non olet</i> (sentencja przypisywana cesarzowi Wespazjanowi), przy wspólnym traktowaniu I&nbsp;oraz J, daje następującą tabelę:</p>
+          <table class="matrix" aria-label="Tabela Playfair dla klucza PECUNIA NON OLET">
+            <tbody>
+              <tr><td>p</td><td>e</td><td>c</td><td>u</td><td>n</td></tr>
+              <tr><td>i</td><td>a</td><td>o</td><td>l</td><td>t</td></tr>
+              <tr><td>b</td><td>d</td><td>f</td><td>g</td><td>h</td></tr>
+              <tr><td>k</td><td>m</td><td>q</td><td>r</td><td>s</td></tr>
+              <tr><td>v</td><td>w</td><td>x</td><td>y</td><td>z</td></tr>
+            </tbody>
+          </table>
+
+          <h3 id="szyfrowanie">Szyfrowanie</h3>
+          <p>Tekst jawny dzieli się na&nbsp;pary liter. Jeśli para składałaby się z&nbsp;dwóch takich samych liter, wstawia się między nie literę wypełniającą (zwykle <span class="term">X</span>) i&nbsp;kontynuuje od&nbsp;drugiej z&nbsp;nich. Jeśli na&nbsp;końcu zostaje pojedyncza litera, dopisuje się po&nbsp;niej literę wypełniającą. Na&nbsp;przykład <span class="term">BALON</span> daje <span class="term">BA LO NX</span>, a&nbsp;<span class="term">LATTE</span> daje <span class="term">LA TX TE</span>.</p>
+          <p>Następnie każdą parę zastępuje się według tabeli:</p>
+          <ol>
+            <li><strong>Różne wiersze i&nbsp;kolumny:</strong> litery wyznaczają przeciwległe rogi prostokąta. Każdą literę zastępuje się literą z&nbsp;tego samego wiersza, leżącą w&nbsp;drugim rogu prostokąta.</li>
+            <li><strong>Ten sam wiersz:</strong> każdą literę zastępuje się literą po&nbsp;jej prawej stronie (za&nbsp;ostatnią kolumną wraca się do&nbsp;pierwszej).</li>
+            <li><strong>Ta sama kolumna:</strong> każdą literę zastępuje się literą pod&nbsp;nią (za&nbsp;ostatnim wierszem wraca się do&nbsp;pierwszego).</li>
+          </ol>
+          <p>Z&nbsp;powyższą tabelą tekst <span class="term">MEET ME AT THE OLD BRIDGE</span> dzieli się na&nbsp;<span class="term">ME ET ME AT TH EO LD BR ID GE</span> i&nbsp;daje szyfrogram <span class="term">WANAW AOIHS CAAGG KABDU</span>. Przykładowo <span class="term">ET</span> tworzy prostokąt (→&nbsp;<span class="term">NA</span>), <span class="term">AT</span> leży w&nbsp;jednym wierszu (→&nbsp;<span class="term">OI</span>), a&nbsp;<span class="term">TH</span> w&nbsp;jednej kolumnie (→&nbsp;<span class="term">HS</span>).</p>
+
+          <h3 id="odszyfrowywanie">Odszyfrowywanie</h3>
+          <p>Odbiorca tworzy taką samą tabelę na&nbsp;podstawie klucza i&nbsp;stosuje zasady w&nbsp;odwrotnym kierunku: litery w&nbsp;jednym wierszu przesuwa w&nbsp;lewo, litery w&nbsp;jednej kolumnie w&nbsp;górę, a&nbsp;prostokąty działają tak samo jak przy szyfrowaniu. Na&nbsp;koniec usuwa litery wypełniające, które nie pasują do&nbsp;tekstu.</p>
+
+          <section class="tool" id="online" aria-labelledby="online-title"
+                   data-tool="playfair"
+                   data-msg-odd="Szyfrogram musi mieć parzystą liczbę liter."
+                   data-msg-double="Szyfrogram zawiera parę takich samych liter, więc nie powstał szyfrem Playfair z tymi ustawieniami."
+                   data-msg-copied="Skopiowano">
+            <h2 id="online-title">Szyfr Playfair online</h2>
+            <div class="tool__grid">
+              <div>
+                <div class="field">
+                  <label for="pf-keyword">Klucz</label>
+                  <input type="text" id="pf-keyword" data-role="keyword" value="pecunia non olet" autocomplete="off" spellcheck="false">
+                </div>
+                <fieldset>
+                  <legend>Litera pominięta w tabeli</legend>
+                  <div class="options">
+                    <label><input type="radio" name="mode" value="j-as-i" checked> J jako I</label>
+                    <label><input type="radio" name="mode" value="no-q"> Bez Q</label>
+                    <label><input type="radio" name="mode" value="no-x"> Bez X</label>
+                  </div>
+                </fieldset>
+              </div>
+              <figure>
+                <table class="matrix" data-role="table" aria-label="Aktualna tabela szyfrująca"></table>
+              </figure>
+            </div>
+
+            <fieldset>
+              <legend class="visually-hidden">Kierunek</legend>
+              <div class="segmented">
+                <label><input type="radio" name="direction" value="encrypt" checked> Szyfruj</label>
+                <label><input type="radio" name="direction" value="decrypt"> Odszyfruj</label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="pf-input">Tekst</label>
+              <textarea id="pf-input" data-role="input" spellcheck="false">Spotkamy się przy starym moście</textarea>
+              <small>Używane są tylko litery; spacje, cyfry i&nbsp;znaki interpunkcyjne są pomijane, polskie znaki zamieniane na&nbsp;łacińskie (ą → a).</small>
+            </div>
+
+            <p class="tool__steps">Pary: <span data-role="digraphs" aria-live="polite"></span></p>
+            <p class="tool__error" data-role="error" role="alert"></p>
+
+            <div class="field">
+              <label for="pf-output">Wynik</label>
+              <textarea id="pf-output" data-role="output" readonly></textarea>
+            </div>
+            <div class="tool__actions">
+              <button type="button" class="button" data-role="copy">Kopiuj wynik</button>
+              <button type="button" class="button" data-role="swap">Użyj wyniku jako tekstu</button>
+            </div>
+          </section>
+
+          <h2 id="bezpieczenstwo">Bezpieczeństwo</h2>
+          <p>Ogólna metoda łamania szyfru Playfair to <a href="/pl/ataki/atak-statystyczny.html">analiza częstości</a> par liter. Znając typowe częstości par w&nbsp;języku wiadomości, atakujący dopasowuje częste pary w&nbsp;szyfrogramie do&nbsp;częstych par w&nbsp;tekście jawnym.</p>
+          <p>Szyfr ma też cechy, które ułatwiają jego złamanie. Para liter i&nbsp;jej odwrotność (np. <span class="term">AC</span> i&nbsp;<span class="term">CA</span>) zawsze dają w&nbsp;szyfrogramie odwrócone pary, co pomaga rozpoznawać częste słowa. Ponadto para w&nbsp;szyfrogramie nigdy nie zawiera dwóch takich samych liter.</p>
+          <p>Inna metoda zaczyna od&nbsp;losowej tabeli i&nbsp;próby odszyfrowania wiadomości. Atakujący wprowadza drobne zmiany w&nbsp;tabeli i&nbsp;zachowuje te, po&nbsp;których odszyfrowany tekst bardziej przypomina prawdziwy język. Ta metoda (tzw. hill climbing) jest łatwa w&nbsp;implementacji.</p>
+          <p>Trzecią, bardzo skuteczną metodą jest odgadywanie fragmentów tekstu jawnego, np. zwrotu do&nbsp;adresata, daty lub miejsca nadania. Mając szyfrogram i&nbsp;kilka prawdopodobnych słów, łatwo odtworzyć tabelę. W&nbsp;ten sposób często atakowano podobne szyfry niemieckie w&nbsp;czasie II&nbsp;wojny światowej.</p>
+
+          <h2 id="implementacja">Implementacja</h2>
+          <p>Główną częścią algorytmu jest znalezienie wiersza i&nbsp;kolumny każdej litery z&nbsp;pary. Poniższa funkcja JavaScript przekształca jedną parę; <code>table</code> to 25-literowa tabela zapisana jako ciąg znaków (wierszami), a&nbsp;<code>dir</code> to <code>1</code> przy szyfrowaniu i&nbsp;<code>-1</code> przy odszyfrowywaniu:</p>
+<pre><code>function transformPair(table, pair, dir) {
+  const i1 = table.indexOf(pair[0]);
+  const i2 = table.indexOf(pair[1]);
+  const r1 = Math.floor(i1 / 5), c1 = i1 % 5;
+  const r2 = Math.floor(i2 / 5), c2 = i2 % 5;
+  const at = (r, c) =&gt; table[((r + 5) % 5) * 5 + ((c + 5) % 5)];
+
+  if (r1 === r2) return at(r1, c1 + dir) + at(r2, c2 + dir); // ten sam wiersz
+  if (c1 === c2) return at(r1 + dir, c1) + at(r2 + dir, c2); // ta sama kolumna
+  return at(r1, c2) + at(r2, c1);                            // prostokąt
+}</code></pre>
+          <p>Pełny kod narzędzia powyżej, łącznie z&nbsp;tworzeniem tabeli i&nbsp;dzieleniem tekstu na&nbsp;pary, znajduje się w&nbsp;pliku <a href="/assets/js/tools/playfair.js">playfair.js</a>.</p>
+        </div>
+
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html" rel="prev"><small>← Poprzedni</small>Poligramowe szyfry podstawieniowe</a>
+          <a class="pager__next" href="/pl/proste/dwukwadratowy.html" rel="next"><small>Następny →</small>Szyfr dwukwadratowy</a>
+        </nav>
+        <!-- /auto:pager -->
+
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-playfair.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-playfair.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-playfair.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html" aria-current="page">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

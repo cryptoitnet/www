@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/steganografia.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steganography | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Steganography is a way of securing data, by simply hiding it. Learn its history and the various methods that are used at present.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/steganography.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/steganography.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/steganografia.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/steganography.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Steganography | Cryptography">
+  <meta property="og:description" content="Steganography is a way of securing data, by simply hiding it. Learn its history and the various methods that are used at present.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/steganography.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Steganography",
+        "description": "Steganography is a way of securing data, by simply hiding it. Learn its history and the various methods that are used at present.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/steganography.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Steganography"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/steganografia.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Steganography</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Steganography is a way of sending the hidden data in such a way that nobody (apart from the sender and intended recipients) knows that the secret message was sent. There aren't any ciphers or other encryption like it is in cryptography.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="a-brief-history-of-steganography">A Brief History of Steganography</h2>
+          <p>The first information about steganography is from the 5th century BC. Herodotus described that for sending secret data, messages were not written in wax covering a wooden board (which was a common way to store information in that time) but letters were written directly on the board and after that it was covered with wax.</p>
+          <p>During World War II, many agents used so called microdots. The whole document A4 was reduced to the size of a dot and used as a part of other common text.</p>
+          <p>Steganography also includes all kinds of <button type="button" class="note-ref" popovertarget="note-atrament">invisible inks</button>. They have been used since ancient times around the world. Over time new technologies have been invented and better recipes of invisible inks have been developed. Mixtures have become more difficult to detect: more odorless, invisible under ultraviolet light, easily soluble in water, etc. In 1999 CIA refused to disclose the recipes of invisible inks that had been used during World War I, arguing that they were still important for national security.</p>
+          <h2 id="modern-steganography">Modern steganography</h2>
+          <p>With the development of technology, possibilities for data hiding have increased. For example the microdot technology is used in almost all modern printers. It allows to mark all created printouts in a way, that is invisible for users.</p>
+          <p>Currently, very popular kind of steganography is hiding information in digital pictures. There is some redundancy in storing images. All pixels in digital pictures are coded using a specified amount of bits and usually it is impossible to notice the changing of the least important bits. The least important bits can be used for storing secret information. A similar situation happens when storing digital sound.</p>
+          <p>Other clever steganography methods may include:</p>
+          <ul>
+           <li>delays in network packages,</li>
+           <li>modifying printed letters - their size, spacing, position,</li>
+           <li>using invisible and zero-width Unicode characters (for instance <em>Zero-Width Joiner</em> and <em>Zero-Width Non-Joiner</em>, that are interpreted only in Arabic language),</li>
+           <li>changing the order of elements in sets,</li>
+           <li>adding data in ignored sections of files, for example after the end of file character (<var>EOF</var>).</li>
+          </ul>
+          <div class="note" id="note-atrament" popover>
+           <p>Invisible ink is a substance that is usually unable to be seen or becoming invisible after application. It can be read afterwards by using a special method, for example ultraviolet light, heating or specific chemicals.</p>
+           <button type="button" class="note__close" popovertarget="note-atrament" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/kerckhoffs.html" rel="prev"><small>← Previous</small>Kerckhoffs&#x27;s principle</a>
+          <a class="pager__next" href="/eng/theory/protocols.html" rel="next"><small>Next →</small>Protocols</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fsteganography.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fsteganography.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fsteganography.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html" aria-current="page">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

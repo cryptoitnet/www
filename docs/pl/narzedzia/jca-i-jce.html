@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/tools/jca-and-jce.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JCA &amp; JCE | Kryptografia w Javie | Crypto-IT</title>
+  <meta name="description" content="Funkcjonalności kryptograficzne w Javie są zaimplementowane przy użyciu bibliotek Java Cryptography Architecture i Java Cryptography Extension.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/narzedzia/jca-i-jce.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/jca-and-jce.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/jca-i-jce.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/tools/jca-and-jce.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="JCA &amp; JCE | Kryptografia w Javie">
+  <meta property="og:description" content="Funkcjonalności kryptograficzne w Javie są zaimplementowane przy użyciu bibliotek Java Cryptography Architecture i Java Cryptography Extension.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/narzedzia/jca-i-jce.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Kryptografia w Javie",
+        "description": "Funkcjonalności kryptograficzne w Javie są zaimplementowane przy użyciu bibliotek Java Cryptography Architecture i Java Cryptography Extension.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/narzedzia/jca-i-jce.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Oprogramowanie",
+            "item": "https://www.crypto-it.net/pl/narzedzia/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Kryptografia w Javie"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/" aria-current="true">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/tools/jca-and-jce.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Kryptografia w Javie</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Dwiema głównymi bibliotekami kryptograficznymi w Javie są <i>Java Cryptography Architecture</i> (JCA) i <i>Java Cryptography Extension</i> (JCE). Pierwsza z nich, JCA, jest ściśle zintegrowana z rdzeniem Javy (ang. <i>core Java API</i>) i dostarcza najbardziej podstawowych kryptograficznych funkcjonalności. Z kolei druga biblioteka, JCE, implementuje wiele dodatkowych bardziej zaawansowanych operacji kryptograficznych.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>W przeszłości obie biblioteki JCA i&nbsp;JCE były poddane oddzielnym amerykańskim regulacjom eksportowym. Z upływem czasu ograniczenia zostały złagodzone i obecnie obie biblioteki są dostępne razem z Java&nbsp;SE. W&nbsp;związku z&nbsp;tym, rozgraniczenie na dwie różne biblioteki nie jest już istotne (trzeba mieć na uwadze, że nie znaczy to, że w przyszłości sytuacja znowu nie ulegnie zmianie).</p>
+          <p>Klasy i funkcje zdefiniowane w JCA i&nbsp;JCE tworzą bogate API, które umożliwia wykonywanie kryptograficznych operacji w aplikacjach Javowych. Poza konkretnymi akcjami, klasy opisują również zarówno bardziej abstrakcyjne pojęcia, jak i konkretne obiekty, związane z zagadnieniami zabezpieczeń. Publiczne klasy należące do JCA i&nbsp;JCE nazywane są silnikami (ang.&nbsp;<i>engines</i>).</p>
+          <p>Klasy zdefiniowane w&nbsp;JCA są dostępne w pakiecie <span class="term">java.security</span>, natomiast klasy należące do&nbsp;JCE są zlokalizowane w pakiecie <span class="term">javax.crypto</span>.</p>
+          <p>Najważniejsze klasy dostarczane w bibliotece JCA służą do generowania losowych liczb (<span class="term">SecureRandom</span>), do generowania i zarządzania sekretnymi kluczami (<span class="term">KeyPairGenerator</span>, <span class="term">KeyStore</span>), podpisywania wiadomości (<span class="term">MessageDigest</span>, <span class="term">Signature</span>) oraz do zarządzania certyfikatami (<span class="term">CertificateFactory</span>, <span class="term">CertPathBuilder</span>, <span class="term">CertStore</span>).</p>
+          <p>Biblioteka JCE zawiera klasy, które umożliwiają właściwe szyfrowanie i deszyfrowanie (<span class="term">Cipher</span>), generowanie i negocjowanie sekretnego klucza szyfrującego (<span class="term">KeyGenerator</span>, <span class="term">SecretKeyFactory</span>, <span class="term">KeyAgreement</span>) oraz czynności związane z uwierzytelnianiem wiadomości&nbsp;(<span class="term">Mac</span>).</p>
+          <h2 id="klasy-dostawcow">Klasy dostawców</h2>
+          <p>JCA i&nbsp;JCE definiują wszystkie kryptograficzne operacje i&nbsp;obiekty, natomiast ich konkretne implementacje są zlokalizowane w oddzielnych klasach, nazywanych dostawcami (ang. <i>providers</i>). Klasy dostawców implementują więc API, które zostało zdefiniowane w głównych klasach JCA i&nbsp;JCE, i&nbsp;to właśnie one są odpowiedzialne za dostarczenie konkretnych kryptograficznych algorytmów.</p>
+          <p>Dzięki takiemu podziałowi, cała kryptograficzna architektura w Javie jest stosunkowo elastyczna. Interfejs i&nbsp;ogólne klasy są oddzielone od swoich implementacji. Przez większość czasu, po wstępnej inicjalizacji, programiści muszę operować jedynie na abstrakcyjnych obiektach, takich jak "szyfr" lub "sekretny klucz".</p>
+          <p>Każda klasa dostawcy, zanim będzie mogła być użyta w aplikacjach Javowych, musi zostać wcześniej podpisana za pomocą certyfikatu otrzymanego od Oracle. Szczegółowe instrukcje jak tego dokonać można znaleźć w <button type="button" class="note-ref" popovertarget="note-signing-providers">dokumentacji JDK.</button></p>
+          <p>Klasy dostawców mogą zostać zainstalowane poprzez skonfigurowanie Java Runtime. W tym celu należy zainstalować pliki JAR zawierające klasy dostawców, a następnie włączyć je poprzez dopisanie ich nazw do pliku <span class="term">java.security</span>. Drugą metodą użycia klas dostawców jest załadowanie ich podczas wykonywania kodu docelowego programu (za pomocą funkcji <span class="term">Security.addProvider(..)</span>).</p>
+          <p>Każda funkcjonalność, na przykład algorytm szyfru&nbsp;AES, może być zdefiniowana w wielu różnych klasach dostawców. Podczas wywoływania funkcji API bibliotek JCA i&nbsp;JCE można sprecyzować, który dostawca powinien zostać użyty. Alternatywnie, silnik Javy może samodzielnie wybrać implementację spośród zarejestrowanych i&nbsp;aktualnie dostępnych dostawców, bazując na preferencjach kolejności zdefiniowanych w pliku <span class="term">java.security</span>.</p>
+          <h3 id="popularne-klasy-dostawcow">Popularne klasy dostawców</h3>
+          <p>Domyślny zestaw dostawców SUN (obecnie należący do Oracle) jest instalowany razem z pozostałymi głównymi bibliotekami kryptograficznymi Javy. Zawiera on wiele różnych klas dostawców SUN (SUN, SunJCE, SunPKCS11, itd.), które wykorzystywane są przez obie biblioteki JCA i&nbsp;JCE. Definiują one większość (jeśli nie wszystkie) operacji kryptograficznych i&nbsp;mogą zostać wykorzystane w aplikacjach Javowych bez potrzeby dodatkowych przygotowań.</p>
+          <p>Przykładami innych klas dostawców jest zbiór klas nazwany <i>Bouncy Castle</i>. Został on utworzony przez australijską organizację charytatywną (ang. <i>charitable</i>), w związku z tym nie dotyczą go żadne ograniczenia narzucane przez amerykańskie prawo. <i>Bouncy Castle</i> dostarcza wiele klas, które implementują cały szereg różnych kryptograficznych operacji. Dokładny opis projektu znajduje się na stronie internetowej: <a href="http://www.bouncycastle.org" rel="noopener" target="_blank">www.bouncycastle.org</a>.</p>
+          <p>Szereg innych klas dostawców zostało utworzonych przez organizację o nazwie Cryptix. Niestety ten projekt nie był aktywnie rozwijany od roku&nbsp;2005. Strona internetowa projektu Cryptix znajduje się pod adresem: <a href="http://www.cryptix.org" rel="noopener" target="_blank">www.cryptix.org</a>.</p>
+          <h2 id="pliki-policy">Pliki policy</h2>
+          <p>Domyślnie Java ogranicza wielkość wielu sekretnych kluczy szyfrujących, nie pozwalając użyć ich podczas wykonywania aplikacji. Ograniczenia&nbsp;te są związane z&nbsp;amerykańskim prawem i służą uniemożliwieniu wykorzystywania zbyt silnego szyfrowania w tworzonych aplikacjach.</p>
+          <p>Istnieje sposób na obejście tych ograniczeń, poprzez zainstalowanie właściwych plików <i>policy</i> dopuszczających stosowanie szyfrów o dowolnej sile (ang. <i>unlimited strength policy files</i>). Mogą zostać one zwykle pobrane z tej samej strony, z której można ściągnąć pliki instalacyjne samej Javy. Właściwy link do pobrania plików znajduje się zazwyczaj na dole <button type="button" class="note-ref" popovertarget="note-policy-files">strony</button>. Po uzyskaniu spakowanego archiwum, należy zapoznać się z instrukcjami zawartymi w pliku&nbsp;README.</p>
+          <div class="note" id="note-signing-providers" popover>
+           <p>Szczegółowe instrukcje odnośnie tworzenia i podpisywania własnych klas dostawców można znaleźć w dokumentacji Javy: <em>"How to Implement a&nbsp;Provider for the Java Cryptography Architecture"</em> i <em>"How to Implement a&nbsp;Provider for the Java Cryptography Extension"</em>.</p>
+           <button type="button" class="note__close" popovertarget="note-signing-providers" popovertargetaction="hide">Zamknij</button>
+          </div>
+          <div class="note" id="note-policy-files" popover>
+           <p>Pliki zawierające <i>policy</i> zezwalające na nielimitowanie silne klucze szyfrujące można znaleźć obecnie (kwiecień 2016) pod nazwą: <em>"Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files&nbsp;7"</em>.</p>
+           <button type="button" class="note__close" popovertarget="note-policy-files" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a class="pager__next" href="/pl/narzedzia/token-kryptograficzny.html" rel="next"><small>Następny →</small>Tokeny kryptograficzne</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fnarzedzia%2Fjca-i-jce.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fnarzedzia%2Fjca-i-jce.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fnarzedzia%2Fjca-i-jce.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-narzedzia -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/narzedzia/">Oprogramowanie</a></h2>
+        <ul>
+          <li><a href="/pl/narzedzia/jca-i-jce.html" aria-current="page">JCA i JCE</a></li>
+          <li><a href="/pl/narzedzia/token-kryptograficzny.html">Tokeny kryptograficzne</a></li>
+          <li><a href="/pl/narzedzia/uwierzytelnianie-kluczem.html">Uwierzytelnianie kluczem</a></li>
+          <li><a href="/pl/narzedzia/docker.html">Docker</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-narzedzia -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

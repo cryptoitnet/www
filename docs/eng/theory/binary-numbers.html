@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/liczby-binarne.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Binary Numbers | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Binary numbers are used by all computers all around the world. Learn the most popular binary systems and the most common mathematical operations.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/binary-numbers.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/binary-numbers.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/liczby-binarne.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/binary-numbers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Binary Numbers | Cryptography">
+  <meta property="og:description" content="Binary numbers are used by all computers all around the world. Learn the most popular binary systems and the most common mathematical operations.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/binary-numbers.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Binary numbers",
+        "description": "Binary numbers are used by all computers all around the world. Learn the most popular binary systems and the most common mathematical operations.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/binary-numbers.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Binary numbers"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/liczby-binarne.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Binary numbers</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Binary numbers are stored as sequences of zeros and ones. At present there are a couple of binary numeral systems in use. The most popular are:</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <ul>
+           <li>the <strong>Natural Binary System</strong> - in short <strong>NBS</strong>, which allows to store only nonnegative numbers,</li>
+           <li>the <strong>Two's Complement System</strong> - in short <strong>2C</strong>, which allows to store both positive and negative numbers.</li>
+          </ul>
+          <h2 id="notation-of-numbers-in-nbs">Notation of numbers in NBS</h2>
+          <p>A binary <var>n</var>-digit number stored in NBS, can have positive values ranging from <span class="term">0</span> to <span class="term">2<sup>n</sup>-1</span>.</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           A decimal value of a <span class="term">n</span>-digit binary number stored using the natural binary system as:<br> <span class="math">a<sub>n-1</sub> ... a<sub>2</sub>a<sub>1</sub>a<sub>0</sub></span><br> is equal to:<br> <span class="math">2<sup>n-1</sup>a<sub>n-1</sub> + ... + 2<sup>2</sup>a<sub>2</sub> + 2<sup>1</sup>a<sub>1</sub> + 2<sup>0</sup>a<sub>0</sub></span>
+           <div class="definition__note">
+           where:
+           <ul>
+           <li><var>a<sub>i</sub></var> can be equal to either <span class="term">0</span> or <span class="term">1</span>.</li>
+           </ul>
+           </div>
+          </aside>
+          <h3 id="notation-of-fractions-in-nbs">Notation of fractions in NBS</h3>
+          <p>Using the natural binary system, one can present binary fixed point numbers. A certain part of the bits is used for storage of the fractional part of the number.</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           A decimal value of a <span class="term">(n+m)</span>-digit binary number stored using the natural binary system as:<br> <span class="math">a<sub>n-1</sub> ... a<sub>2</sub>a<sub>1</sub>a<sub>0</sub> , a<sub>-1</sub>a<sub>-2</sub> ... a<sub>-m</sub></span><br> is equal to:<br> <span class="math">2<sup>n-1</sup>a<sub>n-1</sub> + ... + 2<sup>2</sup>a<sub>2</sub> + 2<sup>1</sup>a<sub>1</sub> + 2<sup>0</sup>a<sub>0</sub> + 2<sup>-1</sup>a<sub>-1</sub> + 2<sup>-2</sup>a<sub>-2</sub> + ... + 2<sup>-m</sup>a<sub>-m</sub></span>
+           <div class="definition__note">
+           where:
+           <ul>
+           <li><var>n</var> is a number of integer bits,</li>
+           <li><var>m</var> is a number of fractional bits,</li>
+           <li><var>a<sub>i</sub></var> can be equal to either <span class="term">0</span> or <span class="term">1</span>.</li>
+           </ul>
+           </div>
+          </aside>
+          <h3 id="binary-addition-in-nbs">Binary addition in NBS</h3>
+          <p>Binary addition of two numbers in NBS may be presented as simple columnar addition:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary addition of numbers 111101 + 110 in NBS">
+           <tr>
+           <td> </td>
+           <td><sup>1</sup></td>
+           <td><sup>1</sup></td>
+           <td><sup>1</sup></td>
+           <td><sup>1</sup></td>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>+</td>
+           <td> </td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <h3 id="binary-subtraction-in-nbs">Binary subtraction in NBS</h3>
+          <p>Binary subtraction of two numbers in NBS may be presented as simple columnar subtraction. One should subtract corresponding bits and if necessary borrow bits from columns on the left. The borrowed numbers have always values one greater than the base of the system is, so in this case <span class="term">10</span> (or <span class="term">2</span> in the decimal notation; for convenience the example below uses the latter number).</p>
+          <p>For example, after subtracting <span class="term">6</span> from <span class="term">19</span> in NBS, one will receive:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary subtraction of numbers 10011 - 110 in NBS">
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td><sup>1</sup></td>
+           <td><sup>2</sup></td>
+           <td> </td>
+           <td> </td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>-</td>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p>This is a correct result (<span class="term">13</span>) in the decimal numeral system as well.</p>
+          <h3 id="binary-multiplication-in-nbs">Binary multiplication in NBS</h3>
+          <p>Binary multiplication of two numbers in NBS may be presented in the same way as multiplication of decimal numbers. For example, the result of multiplication of <span class="term">22</span> and <span class="term">5</span> (equal to <span class="term">110</span>) can be calculated in the following way (all the numbers are written in NSB):</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary multiplication of numbers 10110 x 101 in NBS">
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td class="cell-border">x</td>
+           <td class="cell-border"> </td>
+           <td class="cell-border"> </td>
+           <td class="cell-border"> </td>
+           <td class="cell-border">1</td>
+           <td class="cell-border">0</td>
+           <td class="cell-border">1</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td> </td>
+           </tr>
+           <tr class="row-border">
+           <td>+</td>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td> </td>
+           <td> </td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           </table>
+          </div>
+          <h3 id="binary-division-in-nbs">Binary division in NBS</h3>
+          <p>Binary division of two numbers in NBS may be performed using shifting and subtraction.</p>
+          <p>One should write the two numbers under a horizontal line, the dividend over the divisor. The divisor should be moved left, until its most significant non-zero bit is located right under the most significant non-zero bit of the dividend.</p>
+          <p>Then the dividend should be compared to the divisor. If the dividend (the number written higher) is bigger than the divisor, one ought to subtract the divisor from the dividend and write <span class="term">1</span> above the horizontal line in the last position. During the next comparison, one should use the result of the subtraction instead of the dividend.</p>
+          <p>If the divisor is bigger than the dividend, then no subtraction is performed. One ought to write <span class="term">0</span> above the horizontal line in the last position, move the divisor (the number written lower) to the right by one position and repeat comparing.</p>
+          <p>If the divisor can't be moved to the right, then one should write <span class="term">0</span> above the horizontal line in the last position. The current result of subtraction is the remainder of division.</p>
+          <p>For example, after dividing <span class="term">11</span> by <span class="term">3</span> one will receive the result <span class="term">3</span> and the remainder <span class="term">2</span>:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary division of numbers 1011 / 11 in NBS">
+           <tr class="row-border">
+           <td> </td>
+           <td> </td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td> </td>
+           <td> </td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>- </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td> </td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>- </td>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           </table>
+          </div>
+          <p>After obtaining the remainder, it is possible to continue dividing and receive fractional digits (as during dividing of decimal numbers).</p>
+          <h2 id="notation-of-numbers-in-c2">Notation of numbers in C2</h2>
+          <p>A binary <var>n</var>-digit number stored in C2, can have positive and negative values ​​ranging from <span class="term">-2<sup>n-1</sup></span> to <span class="term">2<sup>n-1</sup>-1</span>.</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           The decimal value of a <span class="term">n</span>-digit binary number stored using the C2 system as:<br> <span class="math">a<sub>n-1</sub> ... a<sub>2</sub>a<sub>1</sub>a<sub>0</sub></span><br> is equal to:<br> <span class="math">-(2<sup>n-1</sup>)a<sub>n-1</sub> + 2<sup>n-2</sup>a<sub>n-2</sub> +... + 2<sup>2</sup>a<sub>2</sub> + 2<sup>1</sup>a<sub>1</sub> + 2<sup>0</sup>a<sub>0</sub></span>
+           <div class="definition__note">
+           where:
+           <ul>
+           <li><var>a<sub>i</sub></var> can be equal to either <span class="term">0</span> or <span class="term">1</span>.</li>
+           </ul>
+           </div>
+          </aside>
+          <p>The most-significant bit of a binary number in C2 is referred to as the sign bit and it determines if the number is positive or negative (the number is negative if the sign bit is equal to <span class="term">1</span>).</p>
+          <h3 id="sign-extension-in-c2">Sign extension in C2</h3>
+          <p>Numbers in C2 can be stored using various numbers of bits (numbers in the decimal system can also be stored using various numbers of digits, by adding zeros to the left side). In order to increase the number of bits of a binary number, one must add a new bit to the left side of binary sequence and set it to the same value as the sign bit has. This guarantees that the new number will have exactly the same value as the original one.</p>
+          <p>For example, a 4-digit binary number <span class="term">-7</span> stored in C2 (<span class="term">1001<sub>2</sub></span>), can be extended to 5 bits by copying the sign bit (<span class="term">11001<sub>2</sub></span>):<br> <span class="math"> 1001<sub>2</sub> = -2<sup>3</sup> + 2<sup>0</sup> = -8 + 1 = -7</span><br> <span class="math">11001<sub>2</sub> = -2<sup>4</sup> + 2<sup>3</sup> + 2<sup>0</sup> = -16 + 8 + 1 = -7</span></p>
+          <h3 id="the-inverse-of-a-number-in-c2">The inverse of a number in C2</h3>
+          <p>Computing the inverse of a number in C2 is performed by negation of all the bits in the number (replacing zeros by ones, and ones by zeros) and then addition the result to <span class="term">1</span>.</p>
+          <p>For example, to calculate the value of number <span class="term">11</span> in C2, knowing the binary representation of <span class="term">-11</span> in C2 (it is equal to <span class="term">110101<sub>2</sub></span>), one should in the first place negate all the bits:<br> <span class="math">~110101 = 001010</span>,<br> and then add <span class="term">1</span> to the result:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary addition of numbers 1010 + 1 in C2">
+           <tr>
+           <td> </td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr class="row-border">
+           <td>+</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p> <span class="math">2<sup>3</sup> + 2<sup>1</sup> + 2<sup>0</sup> = 8 + 2 + 1 = 11</span></p>
+          <h3 id="binary-addition-in-c2">Binary addition in C2</h3>
+          <p>Binary addition of two numbers in C2 may be presented as simple columnar addition, just like in NBS. For example, after adding <span class="term">6</span> to <span class="term">-11</span> in C2, one will receive:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary addition of numbers 110101 + 110 in C2">
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td><sup>1</sup></td>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>+</td>
+           <td> </td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p>The result is equal to <span class="term">-5</span> in the decimal numeral system:<br> <span class="math">-2<sup>5</sup> + 2<sup>4</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>0</sup> = -32 + 16 + 8 + 2 + 1 = -5</span></p>
+          <p>During performing the computations, one should remember that the result must fit within the same range to which the manipulated numbers are defined. Otherwise, the received value would have been incorrect.</p>
+          <h3 id="binary-subtraction-in-c2">Binary subtraction in C2</h3>
+          <p>Binary subtraction of two numbers in C2 may be presented as simple columnar subtraction, just like in NBS. The borrowed numbers have (like in NBS) values one greater than the base of the system is, so in this case <span class="term">10</span> (or <span class="term">2</span> in the decimal notation; to simplify the notation, the examples below use the latter number). For example, after subtracting <span class="term">6</span> from <span class="term">-11</span> in C2, one will receive:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary subtraction of numbers 110101 - 110 in C2">
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td><sup>1</sup></td>
+           <td><sup>2</sup></td>
+           <td><sup>2</sup></td>
+           <td> </td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>-</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p>This is a correct result in the decimal numeral system as well:<br> <span class="math">-2<sup>5</sup> + 2<sup>3</sup> + 2<sup>2</sup> + 2<sup>1</sup> + 2<sup>0</sup> = -32 + 8 + 4 + 2 + 1 = -17</span></p>
+          <p>Similarly, to subtract <span class="term">22</span> from <span class="term">-11</span> in C2 one should:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary subtraction of numbers 1110101 - 10110 in C2">
+           <tr>
+           <td> </td>
+           <td> </td>
+           <td> </td>
+           <td><sup>2</sup></td>
+           <td><sup>1</sup></td>
+           <td><sup>2</sup></td>
+           <td><sup>2</sup></td>
+           <td> </td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>-</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p>The result is equal to the decimal value:<br> <span class="math">-2<sup>6</sup> + 2<sup>4</sup> + 2<sup>3</sup> + 2<sup>2</sup> + 2<sup>1</sup> + 2<sup>0</sup> = -64 + 16 + 8 + 4 + 2 + 1 = -33</span></p>
+          <h3 id="binary-multiplication-in-c2">Binary multiplication in C2</h3>
+          <p>Binary multiplication in C2 is slightly more complicated than in NBS. One of the efficient algorithms is called <strong>Booth's multiplication algorithm</strong>. In order to multiply two numbers: <span class="term">X</span> of <span class="term">len<sub>X</sub></span> bits and <span class="term">Y</span> of <span class="term">len<sub>Y</sub></span> bits, both stored in C2, one should perform the following Initialization steps:</p>
+          <ol class="steps">
+           <li>If any of the given numbers (factors) is equal to the largest negative number which can be stored using as many bits as this factor has, then it should be expanded and a new bit should be added to its left side,</li>
+           <li>Calculate the inversion of <span class="term">X</span> in C2 (<span class="term">-X</span>),</li>
+           <li>Initialize the helper variable <span class="term">A</span> of size of <span class="term">len<sub>X</sub>+len<sub>Y</sub>+1</span> bits: fill the most significant <span class="term">len<sub>X</sub></span> bits of <span class="term">A</span> with all the bits of <span class="term">X</span>, and the rest <span class="term">len<sub>Y</sub>+1</span> bits of <span class="term">A</span> with zeros (<span class="term">A</span> stands for <em>addition</em>, which is performed later during the algorithm),</li>
+           <li>Initialize the helper variable <span class="term">S</span> of size of <span class="term">len<sub>X</sub>+len<sub>Y</sub>+1</span> bits: fill the most significant <span class="term">len<sub>X</sub></span> bits of <span class="term">S</span> with all the bits of <span class="term">-X</span>, and the rest <span class="term">len<sub>Y</sub>+1</span> bits of <span class="term">S</span> with zeros (<span class="term">S</span> stands for <em>shifting</em>, which is performed later during the algorithm),</li>
+           <li>Initialize the helper variable <span class="term">P</span> of size of <span class="term">len<sub>X</sub>+len<sub>Y</sub>+1</span> bits: fill the most significant <span class="term">len<sub>X</sub></span> bits of <span class="term">P</span> with zeros, then the next <span class="term">len<sub>Y</sub></span> bits of <span class="term">P</span> with all the bits of <span class="term">Y</span>, and the last (the least significant) bit of <span class="term">P</span> set to <span class="term">0</span> (<span class="term">P</span> stands for <em>product</em>, the result of multiplication).</li>
+          </ol>
+          <p>After initialization of variables, one should repeat the two steps below <span class="term">len<sub>Y</sub></span> times:</p>
+          <ol class="steps">
+           <li>If the two last bits of <span class="term">P</span> are equal to <span class="term">01</span>, then one should compute <span class="term">P+A</span> (ignoring any overflow) and assign the result to <span class="term">P</span>. Otherwise, if the two last bits of <span class="term">P</span> are equal to <span class="term">10</span>, then one should compute <span class="term">P+S</span> (ignoring any overflow) and assign the result to <span class="term">P</span>. Otherwise, if they are equal to either <span class="term">00</span> or <span class="term">11</span>, then <span class="term">P</span> should remain unchanged.</li>
+           <li>All the bits of the current number <span class="term">P</span> should be arithmetically shifted right by one position (abandoning the least significant bit and leaving unchanged the value of the most significant bit) and the result ought to be assigned to <span class="term">P</span>.</li>
+          </ol>
+          <p>Finally, after completing the steps above, one should remove the least significant bit from the received number <span class="term">P</span>. The result (the new value of <span class="term">P</span>) is the product of multiplication of the two numbers <span class="term">X</span> and <span class="term">Y</span>.</p>
+          <h4>Example of binary multiplication in C2</h4>
+          <p>Let's consider the multiplication of <span class="term">-8</span> and <span class="term">3</span>:</p>
+          <p> <span class="math">X = -8 = 1000<sub>2</sub></span><br> <span class="math">Y = 3 = 011<sub>2</sub></span></p>
+          <p>In the first step, the number <span class="term">X</span> should be extended:<br> <span class="math">X = 11000</span></p>
+          <p>Then, it is necessary to calculate the value of <span class="term">-X</span>:<br> <span class="math">-X = ~11000 + 01 = 00111 + 01 = 01000</span></p>
+          <p>Calculating the values of helper variables <span class="term">A</span>, <span class="term">S</span> and <span class="term">P</span>:<br> <span class="math">A = 1&nbsp;1000&nbsp;0000</span><br> <span class="math">S = 0&nbsp;1000&nbsp;0000</span><br> <span class="math">P = 0&nbsp;0000&nbsp;0110</span></p>
+          <p>Then the next two steps of the algorithm should be repeated three times (because the number <span class="term">Y</span> is 3-bit long):<br> <strong>Iteration 1:</strong><br> <span class="math">P = P + S = 0&nbsp;1000&nbsp;0110</span><br> <span class="math">P >> 1 = 0&nbsp;0100&nbsp;0011</span><br> <strong>Iteration 2:</strong><br> <span class="math">P >> 1 = 0&nbsp;0010&nbsp;0001</span><br> <strong>Iteration 3:</strong><br> <span class="math">P = P + A = 1&nbsp;1010&nbsp;0001</span><br> <span class="math">P >> 1 = 1&nbsp;1101&nbsp;0000</span></p>
+          <p>In the end, it is necessary to remove the least significant bit of <span class="term">P</span>:<br> <span class="math">P = 1110&nbsp;1000</span></p>
+          <p>The result is equal to:<br> <span class="math">-2<sup>7</sup> + 2<sup>6</sup> + 2<sup>5</sup> + 2<sup>3</sup> = -128 + 64 + 32 + 8 = -24</span></p>
+          <p>This is a correct result of multiplication of <span class="term">-8</span> and <span class="term">3</span>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/notation-of-numbers.html" rel="prev"><small>← Previous</small>Notation of numbers</a>
+          <a class="pager__next" href="/eng/theory/utf-8.html" rel="next"><small>Next →</small>UTF-8 encoding</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fbinary-numbers.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fbinary-numbers.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fbinary-numbers.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html" aria-current="page">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

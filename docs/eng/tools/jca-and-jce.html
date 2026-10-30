@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/narzedzia/jca-i-jce.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JCA &amp; JCE | Cryptography in Java | Crypto-IT</title>
+  <meta name="description" content="The cryptographic functionalities in Java are provided by Java Cryptography Architecture and Java Cryptography Extension libraries.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/tools/jca-and-jce.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/jca-and-jce.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/jca-i-jce.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/tools/jca-and-jce.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="JCA &amp; JCE | Cryptography in Java">
+  <meta property="og:description" content="The cryptographic functionalities in Java are provided by Java Cryptography Architecture and Java Cryptography Extension libraries.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/tools/jca-and-jce.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Cryptography in Java",
+        "description": "The cryptographic functionalities in Java are provided by Java Cryptography Architecture and Java Cryptography Extension libraries.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/tools/jca-and-jce.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Software",
+            "item": "https://www.crypto-it.net/eng/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Cryptography in Java"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/" aria-current="true">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/narzedzia/jca-i-jce.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/tools/">Software</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Cryptography in Java</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The cryptographic functionality in Java is provided mainly by two libraries, Java Cryptography Architecture (JCA) and Java Cryptography Extension (JCE). The first one, JCA, is tightly integrated with the core Java API, and delivers the most basic cryptographic features. The latter one, JCE, provides various advanced cryptographic operations.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>In the past, both JCA and JCE libraries used to be treated differently by US export policies. Over time however the regulations were relaxed, and at present they both are delivered as part of Java SE and the division is no longer important (one should keep in mind that it does not mean that the law won't change in the future).</p>
+          <p>The API functions and classes defined in JCA and JCE allow cryptographic operations to be performed in Java applications. In addition to operations, the classes describe various objects and security concepts. All classes belonging to JCA and JCE are called <strong>engines</strong>.</p>
+          <p>All JCA engines are located in the <span class="term">java.security</span> package, whereas the JCE classes are located in the <span class="term">javax.crypto</span> package.</p>
+          <p>Among others, JCA delivers engines for random number generation (<span class="term">SecureRandom</span>), key generation and management (<span class="term">KeyPairGenerator</span>, <span class="term">KeyStore</span>), message authentication (<span class="term">MessageDigest</span>, <span class="term">Signature</span>), and for certificate management (<span class="term">CertificateFactory</span>, <span class="term">CertPathBuilder</span>, <span class="term">CertStore</span>).</p>
+          <p>JCE contains engines that allow actual encryption and decryption (<span class="term">Cipher</span>), secret key generation and agreement (<span class="term">KeyGenerator</span>, <span class="term">SecretKeyFactory</span>, <span class="term">KeyAgreement</span>), and message authentication operations (<span class="term">Mac</span>).</p>
+          <h2 id="providers">Providers</h2>
+          <p>Whilst JCA and JCE define all cryptographic operations and objects, the actual implementations of functionalities are located in separate classes, called providers. The providers implement the API defined in JCA and JCE, and they are responsible for providing the actual cryptographic algorithms.</p>
+          <p>Thanks to that, the whole cryptographic architecture is relatively flexible. It separates the interfaces and generic classes from their implementations. For most of the time, after the initialization, the programmers need to deal only with abstract terms, like 'cipher' or 'secret key'.</p>
+          <p>In order to be used in Java applications, all providers must be signed by using a certificate from Oracle. A detailed instruction can be found in <button type="button" class="note-ref" popovertarget="note-signing-providers">the JDK documentation.</button></p>
+          <p>The providers can be installed by configuring the Java Runtime: installing the JAR containing the provider, and then enabling it by adding its name to the <span class="term">java.security</span> file. Alternatively, the providers may be installed during execution (by calling <span class="term">Security.addProvider(..)</span> function) by the application itself.</p>
+          <p>Each functionality, for example the AES cipher algorithm, may be defined by several providers. The application, when calling the JCA and JCE API functions, can specify which provider should be used. Alternatively, the Java engine will choose an available provider based on the preference order specified in the <span class="term">java.security</span> file.</p>
+          <h3 id="popular-providers">Popular Providers</h3>
+          <p>A default set of SUN providers (nowadays owned by Oracle) is installed together with the main Java cryptographic functionality. There are many different kinds of SUN providers (SUN, SunJCE, SunPKCS11, and so on), and they are used by both JCA and JCE libraries. They define most (if not all) cryptographic functionalities and can be used straight away in Java applications.</p>
+          <p>An example of different providers is the collection of classes called Bouncy Castle. It was developed by an Australian charitable organization, so the US law restrictions do not apply to it. Bouncy Castle provides a large number of classes implementing various cryptographic operations. The project full description may be found on the website: <a href="http://www.bouncycastle.org" rel="noopener" target="_blank">www.bouncycastle.org</a>.</p>
+          <p>Another set of providers were created by Cryptix organization, however the project has not been actively developed since 2005. Cryptix website is located at: <a href="http://www.cryptix.org" rel="noopener" target="_blank">www.cryptix.org</a>.</p>
+          <h2 id="policy-files">Policy Files</h2>
+          <p>By default, Java cryptographic functionalities have some limitations related to the size of various types of secret keys. The restrictions are related to the US law and they are supposed to prevent the application from using too strong ciphers.</p>
+          <p>One can overcome the limitations by downloading and applying the unlimited strength policy files. They can usually be acquired from the original Java download web page. The download link is usually located somewhere at the bottom of <button type="button" class="note-ref" popovertarget="note-policy-files">the page</button>. After getting the packed archive, the user should follow the instructions that can be found in the README file.</p>
+          <div class="note" id="note-signing-providers" popover>
+           <p>Refer to the Java documentation: <em>'How to Implement a Provider for the Java Cryptography Architecture'</em> and <em>'How to Implement a Provider for the Java Cryptography Extension'</em> to find the detailed instruction how to create and sign a custom provider.</p>
+           <button type="button" class="note__close" popovertarget="note-signing-providers" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-policy-files" popover>
+           <p>The full name of the unlimited strength policy files is: <em>'Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 7'</em> (as for April 2016).</p>
+           <button type="button" class="note__close" popovertarget="note-policy-files" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a class="pager__next" href="/eng/tools/security-token.html" rel="next"><small>Next →</small>Security tokens</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fjca-and-jce.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fjca-and-jce.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fjca-and-jce.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-tools -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/tools/">Software</a></h2>
+        <ul>
+          <li><a href="/eng/tools/jca-and-jce.html" aria-current="page">JCA and JCE</a></li>
+          <li><a href="/eng/tools/security-token.html">Security tokens</a></li>
+          <li><a href="/eng/tools/key-based-authentication.html">Key-based authentication</a></li>
+          <li><a href="/eng/tools/docker.html">Docker</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-tools -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

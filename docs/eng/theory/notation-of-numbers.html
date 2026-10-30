@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/zapis-liczb.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notation of Numbers | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Notation of numbers are ways of representing the numbers. They are necessary for all further mathematical operations.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/notation-of-numbers.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/notation-of-numbers.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/zapis-liczb.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/notation-of-numbers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Notation of Numbers | Cryptography">
+  <meta property="og:description" content="Notation of numbers are ways of representing the numbers. They are necessary for all further mathematical operations.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/notation-of-numbers.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Notation of Numbers",
+        "description": "Notation of numbers are ways of representing the numbers. They are necessary for all further mathematical operations.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/notation-of-numbers.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Notation of Numbers"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/zapis-liczb.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Notation of Numbers</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Notation of numbers is a way in which all numbers are represented, by using a limited set of different digits. Notation that is used currently for representing numbers is called positional notation (or place-value notation), in contrast to some ancient notations, such as Roman numerals.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           Positional notation is a method of representing numbers in that way, that each digit in a sequence is multiplied by the appropriate multiple (equal to the digit's position minus one) of a number which is considered to be a base of a positional numeral system.
+           <div class="definition__note">
+           <ul>
+           <li>For example, a four-digit number <span class="math">a<sub>3</sub>a<sub>2</sub>a<sub>1</sub>a<sub>0</sub></span> in the numeral system of base <span class="math">b</span> means: <span class="math">a<sub>3</sub>b<sup>3</sup> + a<sub>2</sub>b<sup>2</sup> + a<sub>1</sub>b<sup>1</sup> + a<sub>0</sub>b<sup>0</sup></span></li>
+           </ul>
+           </div>
+          </aside>
+          <p>Nowadays, most people use the decimal numeral system, however for example the Celts (and the Elves in Tolkien's Middle-earth) used the duodecimal system. All computers use the binary numeral system. Due to the convenience of presenting and easy conversion between binary and hexadecimal systems (one character in the hexadecimal system corresponds to exactly four characters in the binary numeral system), the hexadecimal system is often used for presenting numbers stored by computers (using the binary system).</p>
+          <p>A non-negative integer in the numeral system of base <var>b</var> may be presented as:<br> <span class="math">(d<sub>k-1</sub>d<sub>k-2</sub>...d<sub>1</sub>d<sub>0</sub>)<sub>b</sub></span><br> where:<br> <span class="math">d<sub>k-1</sub>, d<sub>k-2</sub>, ..., d<sub>1</sub>, d<sub>0</sub></span> are digits (in the range <var>0</var> to <var>b-1</var>)</p>
+          <a href="" id="base_conversion"></a>
+          <h2 id="base-conversion-algorithm">Base conversion algorithm</h2>
+          <p>To write a number <var>n</var> in the numeral system of base <var>b</var> one can use the following algorithm:</p>
+          <ol class="steps">
+           <li>Divide <var>n</var> by <var>b</var> producing a quotient and a remainder (this is called the Euclidean division).</li>
+           <li>The remainder put as the last digit of the outcome.</li>
+           <li>Put the quotient in place of <var>n</var>.</li>
+           <li>Repeat the steps above to receive the next last but one digit of the outcome and other earlier digits.</li>
+           <li>Stop the algorithm when the result of dividing is equal to <var>0</var>.</li>
+          </ol>
+          <p>For example, to present a number <var>19</var> using the binary numeral system the following steps should be executed:<br> <span class="math"> &nbsp;19/2 = 9 + 1<br> &nbsp;9/2 = 4 + 1<br> &nbsp;4/2 = 2 + 0<br> &nbsp;2/2 = 1 + 0<br> &nbsp;1/2 = 0 + 1<br> &nbsp;19 = (10011)<sub>2</sub> </span></p>
+          <p>Whereas, to present a number <var>19</var> using the numeral system of base seven one should perform the steps:<br> <span class="math"> &nbsp;19/7 = 2 + 5<br> &nbsp;2/7 = 0 + 2<br> &nbsp;19 = (25)<sub>7</sub> </span></p>
+          <p>The algorithm can also be used to change numbers that are written in the numeral system of smaller base into numbers in the numeral system of bigger base.</p>
+          <h2 id="number-of-digits">Number of digits</h2>
+          <p>An integer <var>n</var>, which satisfies the inequality <span class="math">b<sup>k-1</sup> &lt;= n &lt; b<sup>k</sup></span> has <var>k</var> digits in a numeral system of base <var>b</var>. This relationship can be represented by the logarithm:<br> number of digits<span class="math"> = [log<sub>b</sub>n] + 1</span><br> where:<br> a symbol <span class="math">[]</span> means the integer part of the number.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/application-protocols.html" rel="prev"><small>← Previous</small>Application Protocols</a>
+          <a class="pager__next" href="/eng/theory/binary-numbers.html" rel="next"><small>Next →</small>Binary numbers</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fnotation-of-numbers.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fnotation-of-numbers.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fnotation-of-numbers.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html" aria-current="page">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

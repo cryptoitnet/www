@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/application-protocols.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protokoły Warstwy Aplikacji | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Protokoły warstwy aplikacji operują w najwyższej warstwie modelu sieciowego, tworząc interfejsy dostępne dla aplikacji.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/protokoly-aplikacji.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/application-protocols.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly-aplikacji.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/application-protocols.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Protokoły Warstwy Aplikacji | Kryptografia">
+  <meta property="og:description" content="Protokoły warstwy aplikacji operują w najwyższej warstwie modelu sieciowego, tworząc interfejsy dostępne dla aplikacji.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/protokoly-aplikacji.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Protokoły warstwy aplikacji",
+        "description": "Protokoły warstwy aplikacji operują w najwyższej warstwie modelu sieciowego, tworząc interfejsy dostępne dla aplikacji.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/protokoly-aplikacji.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Protokoły warstwy aplikacji"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/application-protocols.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Protokoły warstwy aplikacji</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Protokoły warstwy aplikacji dostarczają aplikacjom interfejsy, które umożliwiają im wykorzystywanie sieci komputerowych. Warstwa aplikacji jest opisana w podobny sposób przez oba modele sieciowe, <a href="/pl/teoria/protokoly-tcp-ip.html">TCP/IP oraz OSI</a>. Obie specyfikacje różnią się jedynie w&nbsp;detalach.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <ul>
+           <li><a href="#HTTP">HTTP</a></li>
+           <li><a href="#HTTPS">HTTPS</a></li>
+           <li><a href="#SSLTLS">SSL/TLS</a></li>
+           <li><a href="#IRC">IRC</a></li>
+          </ul>
+          <h2 id="HTTP">HTTP (ang. Hypertext Transfer Protocol)</h2>
+          <p>HTTP jest najbardziej rozpowszechnionym protokołem warstwy aplikacji, używanym w&nbsp;Internecie. Pozwala zarówno na&nbsp;pobieranie danych z&nbsp;serwerów (stron internetowych) jak&nbsp;i na&nbsp;przesyłanie pewnych danych do&nbsp;serwerów.</p>
+          <p>HTTP jest tak stary jak Internet. Pierwsza wersja tego protokołu (HTTP/0.9) umożliwiała jedynie pobieranie stron HTML (<i>HyperText Markup Language</i>). Dwie nowsze wersje, HTTP/1.0 i HTTP/1.1, zostały opublikowane odpowiednio w roku 1996 i&nbsp;1997. Najnowsza dokumentacja HTTP/1.1 składa się z 6&nbsp;specyfikacji: <a href="http://tools.ietf.org/html/rfc7230" rel="noopener" target="_blank">RFC&nbsp;7230</a>, <a href="http://tools.ietf.org/html/rfc7231" rel="noopener" target="_blank">RFC&nbsp;7231</a>, <a href="http://tools.ietf.org/html/rfc7232" rel="noopener" target="_blank">RFC&nbsp;7232</a>, <a href="http://tools.ietf.org/html/rfc7233" rel="noopener" target="_blank">RFC&nbsp;7233</a>, <a href="http://tools.ietf.org/html/rfc7234" rel="noopener" target="_blank">RFC&nbsp;7234</a> oraz&nbsp;<a href="http://tools.ietf.org/html/rfc7235" rel="noopener" target="_blank">RFC&nbsp;7235</a>. Najpopularniejszą wersją protokołu jest HTTP/1.1. Niektóre starsze lub prostsze przeglądarki internetowe wykorzystują starszą wersję, HTTP/1.0. Najwcześniejsza wersja protokołu, HTTP/0.9, jest używana stosunkowo rzadko (jednakże, jest wciąż wspierana przez wiele aplikacji).</p>
+          <p>Kolejna wersja protokołu (HTTP/2) została oficjalnie opublikowana jako <a href="http://tools.ietf.org/html/rfc7540" rel="noopener" target="_blank">RFC&nbsp;7540</a> w maju 2015&nbsp;roku.</p>
+          <h3 id="dzialanie-http">Działanie HTTP</h3>
+          <p>HTTP jest protokołem typu żądanie-odpowiedź (ang. <i>request-response</i>) pomiędzy klientem a&nbsp;serwerem. Każda sesja HTTP jest inicjowana przez utworzenie połączenia&nbsp;TCP do serwera (zwykle do portu&nbsp;80), a następnie wysłanie żądania ze&nbsp;wskazanym adresem&nbsp;URL do&nbsp;pobrania. Serwer odpowiada przesyłając żądany plik (lub inne dane) i, zwykle, kończy połączenie.</p>
+          <p>W HTTP/1.1 jedno pojedyncze połączenie jest używane do&nbsp;pobrania pliku ze stroną WWW oraz wszystkich innych plików potrzebnych do&nbsp;wyświetlenia jej&nbsp;zawartości (obrazów, stylów css, skryptów). Nie ma potrzeby, tak jak w poprzednich wersjach HTTP, ustanawiania osobnych połączeń oddzielnie dla każdego pliku. Trzeba tu jednak zaznaczyć, że po przesłaniu wszystkich żądanych danych, serwer kończy połączenie z klientem i&nbsp;żadne informacje o&nbsp;współpracy dwóch komputerów nie są dłużej przechowywane (przynajmniej z punktu widzenia protokołu&nbsp;HTTP). Protokół HTTP nie utrzymuje więc trwałego połączenia pomiędzy komunikującymi się stronami.</p>
+          <p>Dodatkowo, HTTP nie&nbsp;gromadzi informacjach o&nbsp;aktualnym stanie komunikacji pomiędzy komputerami. Każda wiadomość w&nbsp;protokole HTTP traktowana jest oddzielnie i&nbsp;sposób jej&nbsp;przetwarzania nie zależy od&nbsp;wcześniejszej komunikacji pomiędzy klientem a&nbsp;serwerem. HTTP może służyć do&nbsp;transmitowania danych różnego typu, tak długo jak komunikujące się strony są w&nbsp;stanie właściwie je&nbsp;zinterpretować. Typ danych musi zostać określony przy użyciu właściwego typu&nbsp;MIME.</p>
+          <h3 id="budowa-protokolu-http">Budowa protokołu HTTP</h3>
+          <p>Najpopularniejszymi portami przypisanymi do HTTP są port&nbsp;80 oraz (rzadziej) port&nbsp;8080. Serwer HTTP nasłuchuje przychodzących połączeń na&nbsp;jednym z tych portów. Jeśli odbierze wiadomość od klienta, przesyła mu potwierdzenie jej otrzymania, a następnie właściwą odpowiedź. Odpowiedź zwykle zawiera żądany przez klienta plik, ale serwer może zwrócić też błąd lub inną informację kontrolną.</p>
+          <h4>Wiadomości w HTTP/0.9</h4>
+          <p>W HTTP/0.9 żądania wysyłane do&nbsp;serwera były dość proste. Składały się jedynie ze słowa kluczowego <span class="term">GET</span>, z następującym po nim adresem URL i znakiem nowej linii <i>newline</i>. Proste zapytanie HTTP/0.9 może wyglądać podobnie do przykładowego pokazanego poniżej:</p>
+          <pre><code>GET http://www.example.com/directory</code></pre>
+          <p>W&nbsp;odpowiedzi serwer powinien przesłać żądany dokument (tekst ASCII dokumentem HTML albo czysty tekst poprzedzony słowem kluczowym <span class="term">PLAINTEXT</span>). Serwer nie&nbsp;będzie przetrzymywał żadnych informacji związanych z&nbsp;aktualnym stanem przeglądarki użytkownika.</p>
+          <h4>Wiadomości w HTTP/1.0 i HTTP/1.1</h4>
+          <p>Obie nowe wersje protokołu, HTTP/1.0 i HTTP/1.1, pozwalają użytkownikowi przesłać dodatkowe informacje w&nbsp;zapytaniu. Po pierwsze, dostępnych jest więcej metod:</p>
+          <ul>
+           <li><strong>GET</strong> - spełnia takie same zadania jak we wcześniejszej wersji HTTP/0.9, czyli jest używany do&nbsp;pobierania z&nbsp;serwera danych wskazanych przez załączony adres&nbsp;URL,</li>
+           <li><strong>HEAD</strong> - jest podobny do GET, ale odpowiedź z serwera zawierać będzie jedynie Linię Statusu (ang. <i>Status-Line</i>), czyli wersję protokołu, kod statusu (ang. <i>Status-Code</i>) i powód przesyłania odpowiedzi (ang. <i>Reason-Phrase</i>) oraz inne informacje dotyczące serwera w nagłówku odpowiedzi (ang. <i>Response-Header</i>),</li>
+           <li><strong>POST</strong> - jest wykorzystywany do wysyłania informacji na&nbsp;serwer lub załączania plików przy użyciu formularzy&nbsp;HTML,</li>
+           <li><strong>PUT</strong> - zasób wskazywany przez załączoną ścieżkę jest zastępowany przez załączone dane,</li>
+           <li><strong>DELETE</strong> - usuwa zasoby wskazywane przez załączoną ścieżkę,</li>
+           <li><strong>CONNECT</strong> - ustanawia połączenie tunelowe do&nbsp;serwera identyfikowanego za&nbsp;pomocą załączonej ścieżki. Ta metoda jest wykorzystywana głównie przez protokoły&nbsp;SSL/TLS. Pozwala na skonfigurowanie serwera proxy, który będzie wykorzystywany do przesyłania wiadomości od&nbsp;klienta pod adres&nbsp;URL przesyłany jako parametr,</li>
+           <li><strong>TRACE</strong> - jest metodą używaną do testowania i debugowania. Dostarcza użytkownikowi logi odnośnie trasy, którą pokonują jego żądania,</li>
+           <li><strong>OPTIONS</strong> (HTTP/1.1 i nowsze) - przesyła żądanie dostarczenia jedynie informacji dotyczących konfiguracji serwera, bez przesyłania żadnych zasobów.</li>
+          </ul>
+          <p>Część metod zaprezentowanych powyżej jest uważana za bezpieczne i&nbsp;może być wykorzystywana jedynie do pobierania informacji z&nbsp;serwera (HEAD, OPTIONS, GET, TRACE). Z&nbsp;kolei, niektóre metody mogą powodować efekty uboczne na&nbsp;serwerze, lub nawet na zewnętrznych stronach (DELETE, PUT, POST). W&nbsp;praktyce sposób przetwarzania wiadomości GET nie jest ograniczony w&nbsp;żaden sposób, więc ta metoda również powinna być traktowana jako niebezpieczna.</p>
+          <p>Pierwsza linijka żądania zawiera nazwę użytej metody, z dołączonymi do&nbsp;niej adresem URL oraz&nbsp;informacjami odnośnie wersji protokołu. Może być podobna do&nbsp;przedstawionej poniżej:</p>
+          <pre><code>POST /first_directory/second_directory/doit.php HTTP/1.1</code></pre>
+          <p>Poniżej pierwszej linijki może znajdować się kilka kolejnych linii nazywanych <em>nagłówkami</em>. Każdy nagłówek zawiera parę nazwa-wartość (nazwa oddzielona jest od wartości dwukropkiem). Istnieje szereg popularnych nagłówków, załączanych do&nbsp;większości żądań klienta:</p>
+          <ul>
+           <li><strong>Host</strong> - zawiera adres URL hosta,</li>
+           <li><strong>User-Agent</strong> - przechowuje informacje o przeglądarce użytkownika,</li>
+           <li><strong>Content-Type</strong> lub <strong>Content-Length</strong> - dostarcza informacji odnośnie ewentualnych dodatkowych danych załączonych przez użytkownika na&nbsp;końcu wiadomości,</li>
+           <li><strong>Accept</strong> - informacje o&nbsp;dostępnych typach MIME (na przykład <em>audio/mpeg</em> lub <em>image/jpeg</em>),</li>
+           <li><strong>Accept-Language</strong> - informacje o dostępnych językach,</li>
+           <li><strong>Accept-Encoding</strong> - informacje o dostępnych kodowaniach,</li>
+           <li><strong>Referer</strong> (<em>pisane z błędem</em>) - dostarcza informacji odnośnie strony źródłowej.</li>
+          </ul>
+          <p>Nagłówki są zakończone pustą linijką, za którą mogą znajdować się dodatkowe dane przesyłane przez klienta (na przykład informacje z formularzy). Pozostała część żądania może wyglądać następująco:</p>
+          <pre><code>Host: www.server.com
+User-Agent: Mozilla/5.0
+Referer: www.server.com/first_directory/select_action.html
+Content-Length: 12
+Content-Type: text/plain
+
+Wykonaj pierwsze zadanie</code></pre>
+          <p>W odpowiedzi serwer wysyła własną wiadomość HTTP. Podobnie jak w przypadku żądań klienta, zaczyna się ona od Linii Statusu (ang. <i>Status-Line</i>), który zawiera takie same informacje (czyli wersję protokołu, numer <i>Status-Code</i> oraz pole tekstowe <i>Reason-Phrase</i>).</p>
+          <p>Za pierwszą linią może znajdować się szereg nagłówków odpowiedzi, na przykład:</p>
+          <ul>
+           <li><strong>Server</strong> - nazwa serwera,</li>
+           <li><strong>Via</strong> - lista serwerów proxy użytych do przesłania odpowiedzi,</li>
+           <li><strong>Connection</strong> - opcje kontrolne dla aktualnego połączenia (<i>keep-alive</i> jeśli serwer oczekuje na więcej zapytań albo <i>close</i> jeśli połączenie będzie zakończone po obsłużeniu ostatniego otrzymanego zapytania),</li>
+           <li><strong>Content-Encoding</strong> - rodzaj kompresji użytej do spakowania danych,</li>
+           <li><strong>Content-Type</strong>, <strong>Content-Length</strong>, <strong>Content-Language</strong> - dla przekazania dodatkowych informacji dotyczących przesyłanych danych.</li>
+          </ul>
+          <p>Nagłówki odpowiedzi są zakończone pustą linią, za która mogą się znajdować dodatkowe dane przesyłane przez serwer. Odpowiedź mogłaby wyglądać na przykład tak:</p>
+          <pre><code>HTTP/1.1 200 OK
+Server: Apache/2.4.1 (Unix)
+Content-Length: 19
+Content-Type: text/plain
+Connection: close
+
+Pierwsze zadanie wykonane</code></pre>
+          <p>Dane przesyłana przez serwer mogą zawierać kod&nbsp;html żądanej strony WWW. Poniżej znajduje się przykład wiadomości od serwera do klienta, która zawiera kompletną stronę internetową <span class="term">hello_world.html</span>:</p>
+          <pre><code>HTTP/1.1 200 OK
+Server: Apache/2.4.1 (Unix)
+Date: Sat, 27 Dec 2014 17:58:58 GMT
+Last-Modified: Sat, 26 Jul 2014 13:19:25 GMT
+Content-Type: text/html
+Content-Length: 87
+Connection: close
+
+&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <h3 id="bezpieczenstwo-protokolu-http">Bezpieczeństwo protokołu HTTP</h3>
+          <p>Największą słabością HTTP jest fakt, że cała komunikacja pomiędzy klientem i&nbsp;serwerem jest nieszyfrowana. Wszystkie wiadomości mogą być z&nbsp;łatwością podsłuchane w&nbsp;czasie kiedy przesyłane są z jednego komputera na&nbsp;drugi. <a href="#HTTPS">HTTPS</a> jest najpopularniejszym sposobem nawiązywania bezpiecznych połączeń&nbsp;HTTP.</p>
+          <p>Inną cechą protokołu, którą można wykorzystać jest możliwość użycia żądań z&nbsp;metodą TRACE do&nbsp;zbierania informacji związanych z&nbsp;architekturą atakowanego systemu. Można temu przeciwdziałać wyłączając obsługę metody HTTP&nbsp;TRACE za pomocą <span class="term">mod_rewrite</span>.</p>
+          <h3 id="problemy-zwiazane-z-wieloma-roznymi-implementacjami">Problemy związane z wieloma różnymi implementacjami</h3>
+          <p>Zidentyfikowanych jest szereg problemów związanych z bezpieczeństwem HTTP, powodowanych przez fakt, że różne aplikacje działające zarówno po stronie klienta, jak&nbsp;i po stronie serwera, zapewniają różny stopień wsparcia dla starszych wersji protokołu.</p>
+          <p>Specyfikacja HTTP/1.0 wymaga, aby klient był w&nbsp;stanie odbierać wiadomości przesłane zarówno przy użyciu protokołu HTTP/1.0, jak i&nbsp;HTTP/0.9. Mimo, iż w kilku <a href="https://tools.ietf.org/html/rfc2016" rel="noopener" target="_blank">innych dokumentach</a> można znaleźć inne rekomendacje, wiele przeglądarek internetowych wspiera HTTP/0.9 i&nbsp;jest przez&nbsp;to podatnych na&nbsp;ataki przy użyciu metody opisanej poniżej:</p>
+          <ol class="steps">
+           <li>Napastnik przygotowuje wiadomość zawierającą żądanie&nbsp;GET, która ma być wysłana na&nbsp;jeden z&nbsp;nieprzygotowanych na&nbsp;to portów na&nbsp;serwerze. Żądany adres URL jest błędny i zawiera tag&nbsp;<span class="term">&#x3C;html&#x3E;</span>. Pierwsza linia wiadomości może być podobna do takiej: <span class="term">GET /&#x3C;html&#x3E;&#x3C;body&#x3E;something HTTP/1.0</span>, kolejna linijka zawierałaby adres i&nbsp;numer portu serwera. Ustawienia dolnych warstw w&nbsp;wiadomości fałszywie wskazują, że pakiet został wysłany z&nbsp;atakowanego komputera ofiary.</li>
+           <li>Ponieważ serwer nie spodziewa się wiadomości HTTP na wybranym porcie, zwrócona zostanie informacja o błędzie. Informacja o błędzie nie będzie związana z protokołem HTTP w żaden sposób, więc nie będzie zrozumiała dla przeglądarki internetowej na atakowanym komputerze klienta. Jednakże, wiadomość ta może zawierać oryginalne żądanie, zacytowane w jej treści, z&nbsp;wyjaśnieniem, że jej format był niepoprawny. W&nbsp;rezultacie, przeglądarka zinterpretuje tę wiadomość w&nbsp;jedyny możliwy sposób - jako odpowiedź HTTP/0.9 zawierającą jedynie dokument HTML. Przeglądarka wyświetli stronę internetową, której zawartość zależy jedynie od tego, jakie dane zostały umieszczone przez napastnika po tagu <span class="term">&#x3C;html&#x3E;</span> w&nbsp;fałszywym żądaniu wysłanym do serwera. Cała wiadomość TCP/IP otrzymana przez klienta (czyli przez atakowany system) będzie wyglądać jak prawdziwa wiadomość otrzymana z serwera (rzeczywiście, wiadomość będzie wysłana przez serwer).</li>
+          </ol>
+          <p>Inne rodzaje problemów są związane z&nbsp;faktem, że HTTP/1.1 pozwala na&nbsp;kodowanie znaku nowej linii za&nbsp;pomocą pojedynczego znaku&nbsp;<span class="term">CR</span>. Obecnie, większość serwerów internetowych (na przykład Apache oraz IIS) nie przestrzegają tego wymagania i nie traktują pojedynczego znaku&nbsp;<span class="term">CR</span> jako wyznacznika nowej linii. Natomiast większość obecnych przeglądarek internetowych (Internet Explorer, Safari, Opera) uznaje ten znak za&nbsp;nową linię. W&nbsp;rezultacie wiadomości, które zawierają znaki <span class="term">CR</span>, mogą być różnie interpretowane przez poszczególne przeglądarki i&nbsp;serwery.</p>
+          <p>Podobny problem związany jest z ideą wielolinijkowych nagłówków wprowadzonych w&nbsp;HTTP/1.1. W teorii, linia nagłówku, która zaczyna się od spacji, powinna być traktowana jako kontynuacja poprzedniego nagłówku. Jednak, podobnie jak poprzednio, większość serwerów (w tym Apache oraz IIS) akceptuje wielolinijkowe nagłówki, w przeciwieństwie do&nbsp;większości przeglądarek (wliczając w to Internet Explorer, Safari i&nbsp;Operę). Wobec tego wiadomości zawierające wielolinijkowe nagłówki mogą być przetwarzane w&nbsp;zupełnie różny sposób.</p>
+          <p>Specyfikacja HTTP nie określa jak serwery i aplikacje klienckie powinny traktować powtarzające się lub dwuznaczne nagłówki. Jak można było się spodziewać, różne aplikacje przetwarzają je w różny sposób (akceptują pierwszy, akceptują ostatni, odrzucają wszystkie).</p>
+          <p>Kłopoty z bezpiecznym używaniem protokołu HTTP wiążą się z tymi samymi czynnikami, które sprawiają, że cały Internet jest podatny na&nbsp;różnego rodzaje nadużycia i ataki - bardzo wielu sprzedawców i&nbsp;producentów, niekompatybilne i&nbsp;tworzone bez wcześniejszego dokładnego zaprojektowania funkcjonalności oraz brak dbałości o&nbsp;zabezpieczenia we&nbsp;wczesnej fazie powstawania Internetu.</p>
+          <h2 id="HTTPS">HTTPS (ang. Hypertext Transfer Protocol Secure)</h2>
+          <p>HTTPS umożliwia przeglądanie stron internetowych przy użyciu protokołu HTTP z dodatkowym szyfrowaniem. Pierwsza wersja HTTPS została wydana w roku 1994 przez Netscape Communications.</p>
+          <p>Wszystkie wiadomości HTTP są szyfrowane za&nbsp;pomocą algorytmów SSL lub&nbsp;TLS, które działają również w&nbsp;Warstwie Aplikacji, ale poniżej protokołu&nbsp;HTTP. Ewentualny napastnik, który podsłucha komunikację, będzie w stanie zobaczyć jedynie wiadomości SSL lub&nbsp;TLS, zawierające zaszyfrowane dane. Wykorzystywany algorytm SSL/TLS używa zwykle długoterminowych kluczy publicznego i prywatnego do&nbsp;generowania sekretnych kluczy symetrycznych zabezpieczających poszczególne sesje komunikacyjne.</p>
+          <h3 id="szyfrowanie">Szyfrowanie</h3>
+          <p>Jak już to zostało powiedziane wcześniej, algorytm HTTPS składa się z&nbsp;dwóch algorytmów, HTTP i&nbsp;SSL/TLS. HTTPS operuje na protokole Warstwy Transportowej, którym zwykle jest&nbsp;TCP. Połączenie TCP nie&nbsp;jest szyfrowane, co oznacza, że adresy&nbsp;IP i&nbsp;numery portów mogą być widoczne dla postronnych obserwatorów. Ewentualny napastnik może poznać nazwę domeny, ale nie będzie w&nbsp;stanie ustalić dokładnego adresu&nbsp;URL.</p>
+          <p>Siła szyfrowania zależy od&nbsp;implementacji protokołu SSL/TLS użytego do zabezpieczenia danych&nbsp;HTTP.</p>
+          <p>Zalecane jest używanie algorytmów, które zapewniają poufność doskonałą (ang. <i>perfect forward secrecy</i>). Gwarantują one, że nawet jeśli napastnik wejdzie w&nbsp;posiadanie jednego z&nbsp;długoterminowych kluczy asymetrycznych (użytych do utworzenia sesji HTTPS), nie będzie w&nbsp;stanie uzyskać dzięki temu krótkoterminowego klucza sesji i&nbsp;odszyfrować właściwych wiadomości. Nie wszystkie algorytmy szyfrowania asymetrycznego zapewniają bezpieczeństwo takiej jakości. Dwoma znanymi algorytmami, które spełniają ten warunek są: protokół negocjowania sekretnego klucza <a href="/pl/asymetryczne/diffiego-hellmana.html">Diffiego-Hellmana</a> oraz Krzywa eliptyczna Diffiego-Hellmana.</p>
+          <h3 id="uwierzytelnianie">Uwierzytelnianie</h3>
+          <span>(ang. authentication)</span>
+          <p>Poza szyfrowaniem, HTTPS umożliwia również uwierzytelnianie stron internetowych. Zabezpiecza to przed atakami typu <a href="/pl/ataki/man-in-the-middle.html">man-in-the-middle</a>. Serwery mogą się uwierzytelnić poprzez dostarczenie odpowiednich certyfikatów do przeglądarek internetowych. Wszystkie przeglądarki mają zainstalowany zestaw certyfikatów od najważniejszych dostawców (takich jak Symantec, Comodo, GoDaddy, itd.) i&nbsp;są w&nbsp;stanie zweryfikować autentyczność drugiej strony.</p>
+          <p>Jeśli przeglądarka internetowa nie zdoła potwierdzić autentyczności strony www, z&nbsp;którą usiłuje się połączyć (na przykład z&nbsp;powodu nieprawidłowego certyfikatu), to informuje o&nbsp;tym użytkownika za pomocą odpowiedniego komunikatu. Ponadto zaszyfrowane połączenia są zwykle prezentowane użytkownikowi przy pomocy ikony zielonej kłódki umieszczonej gdzieś w pobliżu paska adresu&nbsp;URL.</p>
+          <h3 id="http-vs-https">HTTP vs. HTTPS</h3>
+          <p>URL w protokole HTTPS jest taki sam jak w&nbsp;protokole HTTP, za wyjątkiem tokena (ang. <i>scheme token</i>, <em>https://</em> vs. <em>http://</em>). Jak to już było wspomniane wcześniej, większość przeglądarek sygnalizuje używanie protokołu HTTPS za pomocą ikony przedstawiającej zieloną kłódkę.</p>
+          <p>HTTPS wykorzystuje zwykle inny numer portu niż protokół HTTP: domyślnie 443, w przeciwieństwie do portu&nbsp;80 używanego przez&nbsp;HTTP.</p>
+          <p>Aby komunikacja HTTPS była całkowicie bezpieczna, cała zawartość strony internetowej musi być przesyłana za pomocą szyfrowanego połączenia HTTPS (oznacza to, że nie tylko tekst, ale i&nbsp;obrazy, media, itd.). W&nbsp;celu uniemożliwienia podsłuchiwania i&nbsp;wielu innych typów ataków, cała komunikacja bez żadnych wyjątków musi odbywać się za pomocą protokołu&nbsp;HTTPS.</p>
+          <h2 id="SSLTLS">SSL i TLS</h2>
+          <span>(ang. Secure Socket Layer, Transport Layer Security)</span>
+          <p>Zarówno TLS jak&nbsp;i SSL odnoszą się to tego samego zestawu protokołów Warstwy Aplikacji. Służą one do ochraniania danych wymienianych przez inne protokoły Warstwy Aplikacji.</p>
+          <p>SSL zostało oryginalnie opracowane w&nbsp;amerykańskiej firmie Netscape. Istnieją trzy wersje protokołu SSL, opracowane odpowiednio w&nbsp;latach 1994, 1995 oraz&nbsp;1996. Pierwsza wersja TLS została zaprezentowana w 1999 roku, jako ulepszenie istniejącej trzeciej wersji protokołu SSL. Dwie kolejne wersje TLS zostały oficjalnie wydane po roku 1999: TLS&nbsp;1.1 w&nbsp;2006 oraz TLS&nbsp;1.2 w&nbsp;2009. Trzecia wersja, TLS&nbsp;1.3, jest aktualnie (rok 2016) przygotowywana i ma niebawem być oficjalnie wydana. Ogólnie rzecz ujmując, we wszystkich kolejnych nowszych wersjach TLS i&nbsp;SSL wprowadzano coraz lepsze protokoły kryptograficzne oraz usuwano starsze i&nbsp;mniej niezawodne wersje. Zmiana nazwy protokołu, z SSL na TLS, wynikała z chęci uniknięcia potencjalnych problemów prawnych ze strony Netscape.</p>
+          <p>Obecnie, klucze publiczne i&nbsp;prywatne wykorzystywane przez algorytmy szyfrowania asymetrycznego TLS/SSL składają się z tysięcy bitów. Istnieje wiele bibliotek implementujących protokół TLS/SSL, dostępnych dla najpopularniejszych języków programowania i systemów operacyjnych. <a href="http://openssl.com/" rel="noopener" target="_blank">OpenSSL</a> jest prawdopodobnie najpopularniejszym takim projektem.</p>
+          <p>Protokoły TLS/SSL operują na Warstwie Aplikacji, pod innymi protokołami Warstwy Aplikacji i mają za zadanie zabezpieczanie wiadomości wymienianych przez te ostatnie. Obecnie, protokoły TLS/SSL są wykorzystywane do zabezpieczania wszystkich głównych funkcjonalności w Internecie:</p>
+          <ul>
+           <li><a href="#HTTPS">Przeglądania stron WWW (HTTPS)</a></li>
+           <li>Poczty email</li>
+           <li>Voice-over-IP (VoIP)</li>
+           <li>Komunikatorów internetowych</li>
+          </ul>
+          <p>TLS/SSL zwykle współpracuje z niezawodnym (ang. <i>reliable</i>) protokołem TCP działającym na Warstwie Transportowej. Należy jednak zauważyć, że istnieją również wersje, współpracujące z&nbsp;innymi protokołami Warstwy Transportowej, między innymi z&nbsp;bardziej zawodnymi protokołami, jak&nbsp;UDP.</p>
+          <p>TLS/SSL dostarcza trzech głównych funkcjonalności:</p>
+          <ul>
+           <li><a href="#SSLTLSEncryption">Szyfrowanie</a></li>
+           <li><a href="#SSLTLSAuthentication">Autoryzacja</a></li>
+           <li><a href="#SSLTLSIntegrity">Spójność wiadomości</a></li>
+          </ul>
+          <p>Każde z tych zastosowań zostało opisane poniżej.</p>
+          <p>Protokół TLS/SSL można podzielić na dwa pod-protokoły, używane w&nbsp;różnych fazach komunikacji:</p>
+          <ul>
+           <li><a href="#SSLTLSHandshake"><strong>Handshake Protocol</strong></a>, który służy do wynegocjowania wszystkich parametrów połączenia i ustanowienia bezpiecznej sesji.</li>
+           <li><strong>Record Protocol</strong>, który zabezpiecza wszystkie wymieniane później przez powiązany protokół Warstwy Aplikacji wiadomości (czyli wiadomości, które zawierają informacje, które powinny być chronione, jak na przykład zawartość stron www lub wiadomości emailowe).</li>
+          </ul>
+          <p>Wiadomości TLS są nazywane <em>rekordami</em> (ang. <i>records</i>). Każdy rekord zawiera szereg pól, które opisują wersje protokołu, typ wiadomości, jej długość, itd. Za polami kontrolnymi znajdują się właściwe dane, a następnie (opcjonalnie) kod uwierzytelnienia wiadomości <a href="/pl/teoria/mac.html">MAC</a> oraz (również opcjonalnie) bajty <a href="/pl/teoria/dopelnienie.html">dopełnienia</a>.</p>
+          <h3 id="SSLTLSEncryption">Szyfrowanie</h3>
+          <p>Przed nawiązaniem połączenia, obie strony negocjują parametry szyfrowania podczas nawiązywania połączenia, czyli tak zwanego protokołu <a href="#SSLTLSHandshake">TLS handshake</a>. Uczestnicy muszą zgodzić się, jakiego algorytmu szyfrującego będą używali i&nbsp;utworzyć właściwe klucze szyfrujące. Używane potem do zabezpieczenia wiadomości szyfrowanie jest symetryczne, a wynegocjowane sekretne klucze symetryczne są&nbsp;zazwyczaj wykorzystywane tylko podczas tej jednej sesji.</p>
+          <p>Proces ustalania współdzielonego sekretnego klucza jest bezpieczny i potencjalny napastnik nie byłby w&nbsp;stanie uzyskać go, nawet jeśli przechwyciłby wszystkie wiadomości wymienione pomiędzy klientem a&nbsp;serwerem. Ponadto, protokół <i>handshake</i> gwarantuje, że wynegocjowany sekretny klucz nie został zmodyfikowany przez napastnika podczas transmisji (co oznacza, że komunikacja jest niezawodna (ang. <i>reliable</i>).</p>
+          <p>Cały proces nawiązywania bezpiecznego połączenia jest odporny na ataki <a href="/pl/ataki/man-in-the-middle.html">man-in-the-middle.</a></p>
+          <h3 id="SSLTLSAuthentication">Autoryzacja</h3>
+          <p>Nawiązujące połączenie strony mogą się uwierzytelnić przed utworzeniem sesji. Autoryzacja przeprowadzana jest z wykorzystaniem cyfrowych certyfikatów, podpisanych przez zaufane strony trzecie (ang. <i>trusted third parties</i>) oraz algorytmów szyfrowania asymetrycznego z kluczami publicznymi i&nbsp;prywatnymi.</p>
+          <p>Należy zauważyć, że proces uwierzytelniania nie jest obowiązkowy i&nbsp;może zostać pominięty przez jedną, lub więcej, stron. Zwykle, dla większej wygody, jedynie serwer uwierzytelnia siebie przed nawiązaniem połączenia z&nbsp;klientem.</p>
+          <p>Klient może potwierdzić tożsamość drugiej strony, za pomocą otrzymanego klucza publicznego. Klucz taki jest zwykle częścią certyfikatu, otrzymanego od zaufanych Dostawców Certyfikatów (ang. <i>Certificate Authorities</i>). Klient używa klucz publiczny do odszyfrowania porcji danych, otrzymanych wcześniej w&nbsp;formie zaszyfrowanej za pomocą klucza prywatnego serwera. Jeśli informacja może być poprawnie odszyfrowana za pomocą klucza publicznego będącego częścią cyfrowego certyfikatu, to klient może przyjąć, że druga strona naprawdę jest tym, za kogo się podaje (ponieważ posiada właściwy klucz prywatny).</p>
+          <h3 id="SSLTLSIntegrity">Spójność wiadomości</h3>
+          <p>Komunikacja ochrania za pomocą protokołu TLS/SSL jest niezawodna (ang. <i>reliable</i>). TLS/SSL gwarantuje spójność wszystkich wymienionych pomiędzy stronami wiadomości.</p>
+          <p>Sprawdzanie spójności wiadomości bazuje na wykorzystaniu <a href="/pl/teoria/mac.html">kodów uwierzytelniania wiadomości</a>, dołączanych do przesyłanych danych. Zabezpiecza to wymieniane dane przed uszkodzeniami podczas transmisji oraz celowym modyfikacjom ich&nbsp;treści.</p>
+          <p>Podobnie do innych funkcjonalności TLS/SSL, spójność wiadomości może być zapewniona przez różne algorytmy kryptograficzne, w zależności od możliwości klienta i&nbsp;serwera.</p>
+          <h3 id="SSLTLSHandshake">Protokół handshake</h3>
+          <p>Protokół <i>handshake</i> rozpoczyna się zaraz po tym, kiedy obie strony zgodzą się na używanie TLS. Klient i&nbsp;serwer wspólnie ustalają parametry bezpiecznego połączenia, które zamierzają utworzyć.</p>
+          <ol class="steps">
+           <li>Na początku klient przesyła listę wspieranych algorytmów szyfrów i funkcji haszujących.</li>
+           <li>Serwer wybiera preferowane algorytmy z otrzymanej listy i&nbsp;informuje klienta o&nbsp;swojej decyzji.</li>
+           <li>Zwykle (jest to krok opcjonalny) serwer uwierzytelnia siebie za pomocą właściwego cyfrowego certyfikatu, który zawiera szereg informacji opisujących serwer, takich jak jego nazwa i&nbsp;klucz publiczny. Klucz publiczny jest wykorzystywany przez klienta do sprawdzenia prawdziwości serwera.</li>
+           <li>Klient może wykorzystać klucz publiczny serwera do zaszyfrowania losowego numeru, który następnie jest odsyłany do&nbsp;serwera. Tylko serwer będzie w stanie odszyfrować tę liczbę (za pomocą swojego klucza prywatnego), która może pełnić role sekretnego klucza symetrycznego, podczas dalszej komunikacji pomiędzy tymi dwoma stronami.</li>
+           <li>Inną, lepszą metodą uzyskania współdzielonego klucza symetrycznego jest użycie bezpiecznego algorytmu asymetrycznego negocjowania sekretnego klucza. Szczególnie polecane są dwa algorytmy asymetryczne, które zapewniają poufność doskonałą (ang. <i>perfect forward secrecy</i>): <em>Diffiego-Hellmana</em> oraz <em>Krzywa eliptyczna Diffiego–Hellmana</em>. Użycie tych algorytmów gwarantuje, że sekretne klucze symetryczne utworzone dla każdej sesji pozostaną bezpieczne, nawet wtedy, jeśli długoterminowe klucze publiczny i prywatny używane podczas protokołu <i>handshake</i> zostaną wykradzione.</li>
+          </ol>
+          <p>Jeśli jakikolwiek z kroków przedstawionych powyżej się nie powiedzie, to połączenie jest anulowane. Druga faza komunikacji, <i>Record Protocol</i>, nie jest rozpoczynana.</p>
+          <p>Negocjowanie parametrów sesji przy pomocy algorytmów asymetrycznych jest stosunkowo kosztowną procedurą. Z tego powodu, zamiast tworzyć nowy klucz symetryczny, każda ze stron może spróbować odnowić poprzednio wykorzystywaną sesję. Jeśli druga strona zaakceptuje przywrócenie poprzedniej sesji, to komunikacja będzie szyfrowana przy pomocy wykorzystywanego w&nbsp;niej sekretnego klucza.</p>
+          <h3 id="sila-protokolu-tls-ssl">Siła protokołu TLS/SSL</h3>
+          <p>Bezpieczne połączenie TLS/SSL może być skonfigurowane z wykorzystaniem różnych symetrycznych i&nbsp;asymetrycznych algorytmów. Siła zabezpieczenia zależy więc w dużym stopniu od wybranego szyfru i&nbsp;poprawności jego implementacji.</p>
+          <p>Dwie pierwsze wersji protokołu SSL są generalnie uważane za niewystarczająco bezpieczne. Natomiast trzecia wersja SSL jest w swojej sile podobna do TLS&nbsp;1.1. Nowsze wersje TLS są dużo bardziej dopracowane i zapewniają znacznie lepszy poziom zabezpieczeń. Mimo iż istnieje szereg ataków skierowanych na różne implementacje różnych algorytmów wchodzących w skład TLS, cały zestaw protokołów TLS jest uważany za skuteczne i efektywne narzędzie zapewniania bezpieczeństwa podczas komunikowania się przez sieci komputerowe.</p>
+          <p>Zaleca się, aby sekretne klucze były negocjowane przy użyciu algorytmów zapewniających poufność doskonałą (ang. <i>perfect forward secrecy</i>). Gwarantuje to, że nawet w przypadku skompromitowania kluczy prywatnych (należących na przykład od zaufanych Dostawców Certyfikatów), zabezpieczenia chronionych przez&nbsp;nie poszczególnych sesji nie zostaną złamanie. Organizacje Dostawców Certyfikatów były w ostatnim czasie celami wielu ataków, które doprowadziły do ujawnienia wielu długoterminowych kluczy prywatnych oraz skompromitowania wielu cyfrowych certyfikatów.</p>
+          <h2 id="IRC">IRC (ang. Internet Relay Chat)</h2>
+          <p>IRC jest protokołem warstwy aplikacji, który pozwala wymieniać wiadomości tekstowe pomiędzy użytkownikami.</p>
+          <p>Protokół został stworzony w roku&nbsp;1988 przez fińskiego programistę, Jarkko Oikarinen. Miał umożliwić grupową komunikację za&nbsp;pomocą różnych forów dyskusyjnych, nazywanych kanałami (ang. <i>channels</i>), ale pozwalał również wysyłać i&nbsp;odbierać prywatne wiadomości oraz&nbsp;dane.</p>
+          <h3 id="dzialanie-irc">Działanie IRC</h3>
+          <p>IRC działa zgodnie z modelem klient-serwer. Każdy użytkownik musi zainstalować <button type="button" class="note-ref" popovertarget="note-irc-apps">aplikację kliencką</button>. Za pomocą tej aplikacji jest możliwe wysyłanie wiadomości tekstowych na serwer&nbsp;IRC, który przesyła&nbsp;je do&nbsp;innych klientów. Serwery są połączone ze&nbsp;sobą i&nbsp;tworzą większe grupy, aby móc wymieniać wiadomości między sobą.</p>
+          <p>Dodatkowo, IRC oferuje dodatkowe serwisy. Najpopularniejszymi z&nbsp;nich są boty (wysyłające wiadomości generowane przez programy komputerowe na wskazane kanały) i tzw. <i>bouncers</i>, czyli procesy działające w&nbsp;tle, które dostarczają wiadomości do użytkowników offline lub do komputerów bez zainstalowanych klientów&nbsp;IRC.</p>
+          <p>Schemat poniżej przedstawia budowę przykładowej sieci&nbsp;IRC:</p>
+          <figure class="figure"><img src="/assets/img/theory/protocols/irc-pl.webp" alt="Budowa sieci IRC" width="643" height="491" loading="lazy"></figure>
+          <h3 id="budowa-protokolu-irc">Budowa protokołu IRC</h3>
+          <p>IRC zwykle działa na protokole TCP. Oficjalnym portem TCP przypisanym do IRC jest&nbsp;194, jednakże zwykle preferuje się wyższe numery portów, w&nbsp;celu uniknięcia konieczności uruchamiania aplikacji z&nbsp;uprawnieniami administratora. Najpopularniejszymi portami dla IRC jest więc port&nbsp;6667/TCP razem z&nbsp;kilkoma kolejnymi (6660-6669 i&nbsp;7000).</p>
+          <p>Specyfikacja IRC jest zawarta w&nbsp;kilku dokumentach, RFC&nbsp;1459 oraz późniejszych: RFC&nbsp;2811, RFC&nbsp;2812 i RFC&nbsp;2813. Należy jednak zauważyć, że wspomniane dokumentacje nie są ściśle przestrzegane przez większość aplikacji klienckich i&nbsp;serwerowych.</p>
+          <p>IRC został zaprojektowany do przesyłania wiadomości tekstowych. Z początku, każdy znak był kodowany przy pomocy <button type="button" class="note-ref" popovertarget="note-irc-7-bit-encoding">8&nbsp;bitów</button>, bez wskazywania typu użytego kodowania. Powodowało to oczywiście problemy, kiedy komunikujący się użytkownicy używali różnych kodowań. Obecnie, najpopularniejszym kodowaniem w&nbsp;IRC jest UTF-8, które jest wykorzystywane przez większość aplikacji&nbsp;IRC.</p>
+          <p>Użytkownicy IRC komunikują się z&nbsp;serwerem i&nbsp;innymi użytkownikami za pomocą prostych komend tekstowych. Każda komenda określa kto jest jej odbiorcą (serwer, kanał lub inny użytkownik) oraz dodatkowe parametry, do których zalicza się również tekst wiadomości.</p>
+          <h3 id="bezpieczenstwo-protokolu-irc">Bezpieczeństwo protokołu IRC</h3>
+          <p>IRC był zaprojektowany w sposób, który nie zapewniał dużego poziomu zabezpieczeń. Większość serwerów nie&nbsp;wymaga od&nbsp;użytkowników rejestrowania kont i&nbsp;zwykle możliwe&nbsp;jest wybranie nazwy bezpośrednio przed dołączeniem do kanału.</p>
+          <p>Każdy proces zmieniania struktury sieci jest zwykle problematyczny i&nbsp;może powodować różne błędy (na przykład, jeśli kilku użytkowników ma takie same nazwy, ale różne uprawnienia). Ponadto, zakłada się, że serwery ufają sobie wzajemnie podczas wymieniania wiadomości. Zachowujący się błędnie serwer, mógłby spowodować niewłaściwe działanie całej sieci&nbsp;IRC.</p>
+          <p>Na początku pierwszej dekady XXI&nbsp;wieku wiele sieci&nbsp;IRC było atakowanych za pomocą ataków <a href="/pl/ataki/dos.html#ddos">DDoS</a> i&nbsp;innych, podobnych, bardziej skomplikowanych ataków. Spowodowało to ucieczkę użytkowników do innych sieci IRC lub&nbsp;nawet porzucenie tej formy komunikowania się w&nbsp;zupełności.</p>
+          <p>Ograniczenia protokołu są obecnie powszechne znane. Dlatego wiele nowoczesnych implementacji IRC wprowadziło szereg ulepszeń, mających podnieść bezpieczeństwo stosowania. Wiele serwerów&nbsp;IRC stosuje również bezpiecznie połączenia bazujące na&nbsp;<a href="#SSLTLS">SSL/TLS</a>.</p>
+          <h3 id="irc-obecnie">IRC obecnie</h3>
+          <p>IRC był najbardziej popularny w roku&nbsp;2003. Szacuje się, że był wtedy używany przez ponad milion ludzi na setkach tysięcy kanałów. Obecnie, liczba użytkowników zmniejszyła się do mniej niż pół miliona w roku&nbsp;2014. Zmieniły się również powody, dla których ludzie używają aplikacji&nbsp;IRC.</p>
+          <p>Początkowo sieci&nbsp;IRC były wykorzystywane głównie w celach towarzyskich, do kontaktów między ich użytkownikami. Obecnie, funkcje te przejęły strony internetowe typu Facebook lub Twitter. Kanały IRC były wykorzystywane do wymieniania nielegalnych lub karalnych wiadomości i&nbsp;informacji, ale w&nbsp;dzisiejszych czasach istnieją lepsze sposoby robienia takich rzeczy (z siecią <strong>TOR</strong> na czele). IRC było wykorzystywane do rozpowszechniania pirackiego oprogramowania. Obecnie technologie typu P2P umożliwiają dużo sprawniejszą wymianę danych tego&nbsp;typu.</p>
+          <p>Z powodu postępującej komercjalizacji Internetu, wiele firm zdecydowało się zainwestować pieniądze w swoje własne produkty i utworzyć własne sposoby komunikowania się, niezależne od&nbsp;publicznie dostępnych sieci&nbsp;IRC. Z&nbsp;drugiej strony, powstało szereg komercyjnych lub otwartych <button type="button" class="note-ref" popovertarget="note-irc-projects">projektów</button>, które są stosowane przez zespoły programistów i różne firmy do prywatnej lub publicznej komunikacji.</p>
+          <p>IRC jest bardzo starym protokołem, będącym w&nbsp;użyciu przez wiele lat. Jego przeznaczenie zmieniało się w przeciągu tego okresu. Można spodziewać się, że technologia&nbsp;IRC będzie wciąż wykorzystywana przez przeróżne aplikacje i&nbsp;serwisy przez szereg nadchodzących&nbsp;lat.</p>
+          <div class="note" id="note-irc-apps" popover>
+           <p>Obecnie aplikacje klienckie IRC są dostępne dla wszystkich popularniejszych systemów operacyjnych (mIRC, irssi, HexChat) i&nbsp;przeglądarek (Mibbit, KiwiIRC). Większość przeglądarek internetowych dostarcza dodatki, umożliwiające używanie protokołu IRC. Najpopularniejszą aplikacją serwerową jest prawdopodobnie IRCd.</p>
+           <button type="button" class="note__close" popovertarget="note-irc-apps" popovertargetaction="hide">Zamknij</button>
+          </div>
+          <div class="note" id="note-irc-7-bit-encoding" popover>
+           <p>Początkowo IRC było używane głównie w krajach skandynawskich i wykorzystywało kodowanie 7-bitowe, które zawierało szereg ładnych liter, jak na przykład &#xe4;, &#xf6;, lub&nbsp;&#xe5;, nie należących do zbioru&nbsp;ASCII.</p>
+           <button type="button" class="note__close" popovertarget="note-irc-7-bit-encoding" popovertargetaction="hide">Zamknij</button>
+          </div>
+          <div class="note" id="note-irc-projects" popover>
+           <p>Można wymienić <a href="http://freenode.net/" rel="noopener" target="_blank">Freenode</a>, darmową sieć dla społeczności zajmujących się otwartym oprogramowanie. Innym przykładem może być Campfire, komercyjna aplikacja działająca w&nbsp;przeglądarkach internetowych, która dostarcza bezpiecznych miejsc do czatów i&nbsp;transmisji plików i&nbsp;zdjęć. Wartym wspomnienia projektem trochę innego rodzaju jest <a href="http://hubot.github.com/" rel="noopener" target="_blank">Hubot</a>.</p>
+           <button type="button" class="note__close" popovertarget="note-irc-projects" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/protokoly-tcp-ip.html" rel="prev"><small>← Poprzedni</small>Protokoły TCP/IP</a>
+          <a class="pager__next" href="/pl/teoria/zapis-liczb.html" rel="next"><small>Następny →</small>Zapis liczb</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprotokoly-aplikacji.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprotokoly-aplikacji.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprotokoly-aplikacji.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html" aria-current="page">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/ataki/atak-homograficzny.html" data-published="2020-04-15">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homograph Attack | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Homograph attacks are based on creating fake URL addresses, which look like genuine ones.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/attacks/homograph-attack.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/homograph-attack.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-homograficzny.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/homograph-attack.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Homograph Attack | Cryptography">
+  <meta property="og:description" content="Homograph attacks are based on creating fake URL addresses, which look like genuine ones.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/attacks/homograph-attack.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Homograph Attack",
+        "description": "Homograph attacks are based on creating fake URL addresses, which look like genuine ones.",
+        "inLanguage": "en",
+        "datePublished": "2020-04-15",
+        "dateModified": "2020-04-15",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/attacks/homograph-attack.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Attacks",
+            "item": "https://www.crypto-it.net/eng/attacks/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Homograph Attack"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/" aria-current="true">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/ataki/atak-homograficzny.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/attacks/">Attacks</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Homograph Attack</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-04-15">15 April 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>A <button type="button" class="note-ref" popovertarget="note-homograph">homograph</button> attack is based on standards of modern Internet that allow to create (and display in web browsers) URLs with characters from various language sets (with non-ASCII letters). Different languages may contain different but very similar characters. Attackers can register their own domain names that are similar to the existing web addresses. Then they can create their own websites that are, again, the same or very similar to the existing original sites (that usually belong to banks, corporations, email or news services). The phony websites are used for stealing data from users who happened to visit them.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="simple-homograph-attacks">Simple homograph attacks</h2>
+          <p>In the simplest version of such attacks, a fake URL may consist only of simple ASCII alphanumeric characters. The intruder uses symbols that are similar to each other. Often the letter <var>q</var> may be confused with <var>g</var>, or <var>o</var> with <var>0</var>.</p>
+          <p>Such URLs may fool some less experienced users:</p>
+          <pre><code>http://www.g00gle.co.uk
+http://bl00mberg.com</code></pre>
+          <h2 id="non-ascii-ulrs">Non-ASCII URLs</h2>
+          <p>The ability to use non-English characters in URL addresses was added in <button type="button" class="note-ref" popovertarget="note-rfc3490">2003</button>, due to the increasing number of <button type="button" class="note-ref" popovertarget="note-english-speaking">non-English-speaking people</button> that were using Internet. The change allowed to register and use domain names that could have been understood by a much larger number of interested people. Thus it became possible to create web addresses that were combinations of ASCII and non-ASCII characters, or addresses that consisted only of national symbols:</p>
+          <pre><code>http://россия.net
+http://газета.ру
+http://budyń.pl</code></pre>
+          <p>All non-Latin addresses need to be encoded in a special way to be handled by DNS servers. This format is known as <strong>Punycode</strong> and all browsers translate non-ASCII URLs into Punycode in the background before performing a DNS lookup. A Punycode domain name always starts from <span class="term">xn--</span> and then contains ASCII characters of the original address followed by encoded Unicode data. For instance, the latter address from the example above will be encoded in the following form:</p>
+          <pre><code>http://xn--budy-e2a.pl</code></pre>
+          <p>Such domain names that contain letters from different alphabets are called <em>Internationalized Domain Names</em> (IDNs). They are handled in various ways by different web browsers. Usually every producer implements his own algorithms for determining the display format of requested URLs and usually one of two solutions (with some minor modifications) is preferred:</p>
+          <ul>
+           <li>Display all URL characters using Unicode, or</li>
+           <li>Display all URL characters using Unicode if and only if all the characters belong to the same language that is chosen by user settings; display Punycode URL otherwise.</li>
+          </ul>
+          <h2 id="homograph-attacks-using-non-ascii-characters">Homograph attacks using non-ASCII characters</h2>
+          <p>Different languages with characters encoded in a different way, may contain some letters that look the same or at least very similar. Therefore it is possible to create URLs that consist of different characters but are indistinguishable to the human eye.</p>
+          <p>For example, Latin and Cyrillic alphabets contain a couple of letters that look the same but have completely different meaning and are encoded in a different way:</p>
+          <ul>
+           <li>(in Latin) <var>a</var>: U+0061, (in Cyrillic) <var>&#x430;</var>: U+0430</li>
+           <li>(in Latin) <var>c</var>: U+0063, (in Cyrillic) <var>&#x441;</var>: U+0441</li>
+           <li>(in Latin) <var>p</var>: U+0070, (in Cyrillic) <var>&#x440;</var>: U+0440</li>
+          </ul>
+          <p>Given 100&nbsp;000 characters supported by Unicode (many of which look alike), the intruder has great potential for creating various fake URLs and even the most careful users may be confused. At present neither DNS registrars, nor web browser vendors managed to prevent such attacks from happening.</p>
+          <p>Finally, it may be shown that an attacker can use a character that happens to look like the actual ASCII slash <var>&#x2f;</var> (U+002F) - the mathematical division operator <var>&#x2215;</var> (U+2215). It allows him to set up a subdomain that looks like another real domain, using his own name server and a top-level domain. The fake URL address could look like the one below:</p>
+          <pre><code>http://example.com∕a-top-level-domain.com/</code></pre>
+          <p>The character located after <span class="term">.com</span> is a mathematical division operator. In a web browser's address bar the character would look like a common slash and the whole URL could be easily confused with the directory <span class="term">a-top-level-domain.com</span> located in the root directory under the domain <span class="term">example.com</span>:</p>
+          <pre><code>http://example.com/a-top-level-domain.com/</code></pre>
+          <h2 id="security">Security</h2>
+          <p>The best protection against homograph attacks seems to be provided by warning or proper handlings such phony addresses by web browsers. Unfortunately this is not always the case and, what is more, the behaviour may differ depending on browser vendor.</p>
+          <div class="note" id="note-homograph" popover>
+           <p>A homograph is a word of the same written form as another word but of different meaning and sometimes also pronunciation.</p>
+           <button type="button" class="note__close" popovertarget="note-homograph" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-rfc3490" popover>
+           <p>A system called <em>Internationalizing Domain Names in Applications (IDNA)</em> was adopted as a standard in two specifications published in 2003: <a href="https://tools.ietf.org/html/rfc3490" rel="noopener" target="_blank">RFC 3490</a> and <a href="https://tools.ietf.org/html/rfc3492" rel="noopener" target="_blank">RFC 3492</a>.</p>
+           <button type="button" class="note__close" popovertarget="note-rfc3490" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-english-speaking" popover>
+           <p>It was estimated that English-speaking population was only about 37% by the end of 2002, and this number was still decreasing.</p>
+           <button type="button" class="note__close" popovertarget="note-english-speaking" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/attacks/replay.html" rel="prev"><small>← Previous</small>Replay attack</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fhomograph-attack.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fhomograph-attack.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fhomograph-attack.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-attacks -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/attacks/">Attacks</a></h2>
+        <ul>
+          <li><a href="/eng/attacks/known-plaintext.html">Known-plaintext attack</a></li>
+          <li><a href="/eng/attacks/chosen-plaintext.html">Chosen-plaintext attack</a></li>
+          <li><a href="/eng/attacks/known-ciphertext.html">Ciphertext-only attack</a></li>
+          <li><a href="/eng/attacks/chosen-ciphertext.html">Chosen-ciphertext attack</a></li>
+          <li><a href="/eng/attacks/chosen-key.html">Chosen-key attack</a></li>
+          <li><a href="/eng/attacks/brute-force.html">Brute force attack</a></li>
+          <li><a href="/eng/attacks/dos.html">DoS</a></li>
+          <li><a href="/eng/attacks/man-in-the-middle.html">Man-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/two-time-pad.html">Attack on two-time pad</a></li>
+          <li><a href="/eng/attacks/krack.html">KRACK attack</a></li>
+          <li><a href="/eng/attacks/frequency-analysis.html">Frequency analysis</a></li>
+          <li><a href="/eng/attacks/meet-in-the-middle.html">Meet-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/replay.html">Replay attack</a></li>
+          <li><a href="/eng/attacks/homograph-attack.html" aria-current="page">Homograph attack</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-attacks -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

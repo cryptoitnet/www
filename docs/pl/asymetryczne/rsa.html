@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/asymmetric/rsa.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RSA Szyfrowanie Asymetryczne | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="RSA jest obecnie jednym z najpopularniejszych algorytmów szyfrowania z kluczem publicznym.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/asymetryczne/rsa.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/rsa.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/rsa.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/asymmetric/rsa.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="RSA Szyfrowanie Asymetryczne | Kryptografia">
+  <meta property="og:description" content="RSA jest obecnie jednym z najpopularniejszych algorytmów szyfrowania z kluczem publicznym.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/asymetryczne/rsa.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "RSA",
+        "description": "RSA jest obecnie jednym z najpopularniejszych algorytmów szyfrowania z kluczem publicznym.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/asymetryczne/rsa.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Szyfry asymetryczne",
+            "item": "https://www.crypto-it.net/pl/asymetryczne/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "RSA"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/" aria-current="true">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/asymmetric/rsa.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/asymetryczne/">Szyfry asymetryczne</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">RSA</h1>
+          <p class="article__subtitle">Szyfrowanie lub uwierzytelnianie wiadomości</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Klucz ma zwykle długość od około 1000 do 4000&nbsp;bitów</li>
+          </ul>
+          <p>RSA jest obecnie jednym z&nbsp;najpopularniejszych algorytmów szyfrowania z&nbsp;kluczem publicznym. Może być stosowany zarówno do&nbsp;szyfrowania wiadomości jak i do&nbsp;podpisów cyfrowych.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>RSA został zaprojektowany przez Rona Rivesta, Adi Shamira i&nbsp;Leonarda Adlemana w roku&nbsp;1977.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Algorytm RSA umożliwia utworzenie dwóch powiązanych kluczy: publicznego oraz&nbsp;prywatnego, a następnie wykorzystywanie ich w&nbsp;celu ochrony treści przekazywanych wiadomości. Klucz publiczny jest powszechnie znany i każdy może za jego pomocą zaszyfrować dowolną wiadomość. Natomiast jedynie posiadacz klucza prywatnego może odszyfrować otrzymane szyfrogramy.</p>
+          <p>Analogicznie, posiadacz klucza prywatnego może używać go do szyfrowania danych, pozwalając w&nbsp;ten sposób każdemu posiadaczowi odpowiadającego mu klucza publicznego odszyfrować&nbsp;je.</p>
+          <p>Bezpieczeństwo szyfrowania RSA opiera się na&nbsp;zagadnieniach faktoryzacji dużych liczb złożonych.</p>
+          <h2 id="generowanie-klucza">Generowanie klucza</h2>
+          <p>Para powiązanych kluczy algorytmu RSA może być wygenerowana przy użyciu poniższego algorytmu:</p>
+          <ol class="steps">
+           <li>Wybrać dwie różne liczby pierwsze, zwykle oznaczane jako <var>p</var> oraz&nbsp;<var>q</var>. Liczby powinny być wybrane losowo i&nbsp;składać się z&nbsp;podobnej liczby bitów.</li>
+           <li>Obliczyć: &nbsp;&nbsp;&nbsp;<span class="math">n&nbsp;= p&middot;q</span><br> Liczba&nbsp;<var>n</var> jest wykorzystywana jako moduł dla kluczy prywatnego i&nbsp;publicznego. Długość <var>n</var> jest długością klucza&nbsp;RSA.</li>
+           <li>Obliczyć wartość funkcji Eulera dla&nbsp;<var>n</var>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">&phi;(n)&nbsp;= &phi;(p)&middot;&phi;(q)&nbsp;= (p&nbsp;−&nbsp;1)&middot;(q&nbsp;−&nbsp;1)</span></li>
+           <li>Wybrać liczbę całkowitą <var>e</var>, która jest większa od&nbsp;<span class="term">1</span> i mniejsza niż poprzednio wyliczona wartość <var>&phi;(n)</var>. Liczby <var>e</var> oraz <var>&phi;(n)</var> powinny być względnie pierwsze. Liczba&nbsp;<var>e</var> jest używana jako wykładnik klucza publicznego.</li>
+           <li>Wyznaczyć liczbę&nbsp;<var>d</var> taką, że: &nbsp;&nbsp;&nbsp;<span class="math">d&middot;e = 1</span> &nbsp;(mod <span class="math">&phi;(n)</span>)<br> Liczba&nbsp;<var>d</var> jest używana jako wykładnik klucza prywatnego.</li>
+          </ol>
+          <p>Klucz publiczny składa się z modułu&nbsp;<var>n</var> i&nbsp;publicznego wykładnika&nbsp;<var>e</var>, natomiast klucz prywatny składa się z tego samego modułu&nbsp;<var>n</var> i&nbsp;prywatnego wykładnika&nbsp;<var>d</var>. Wszystkie liczby powiązane z kluczem prywatnym powinny być trzymane w&nbsp;tajemnicy: obie liczby <var>n</var> i&nbsp;<var>d</var> oraz trzy kolejne: <var>p</var>, <var>q</var> i&nbsp;<var>&phi;(n)</var>, które mogą być użyte do wyliczenia&nbsp;<var>d</var>.</p>
+          <p>Wielu użytkowników może współdzielić wartość&nbsp;<var>e</var>. Zaleca się żeby jej długość była stosunkowo krótka, z racji tego, że od jej długości znacząco zależy złożoność obliczeń podczas szyfrowania wiadomości. Często przyjmowaną wartością liczby&nbsp;<var>e</var> jest liczba pierwsza <span class="term">2<sup>16</sup>+1</span> (czyli <span class="term">65537</span>). Możliwe jest użycie również dużo mniejszych liczb (na przykład&nbsp;<span class="term">3</span>), ale w pewnych okolicznościach powoduje to osłabienie jakości zabezpieczeń.</p>
+          <p>Każdy użytkownik powinien mieć przypisaną własną liczbę&nbsp;<var>n</var> (która bierze się z&nbsp;iloczynu dwóch liczb pierwszych).</p>
+          <h2 id="szyfrowanie">Szyfrowanie</h2>
+          <p>Szyfrowanie odbywa się za pomocą klucza publicznego&nbsp;<var>(n,&nbsp;e)</var>. Wiadomość musi zostać podzielona na części, a następnie każda część powinna zostać zmieniona na liczbę (która musi być większa od&nbsp;<span class="term">0</span> i&nbsp;mniejsza niż&nbsp;<var>n</var>). W&nbsp;praktyce dzieli się wiadomość na fragmenty, z których każdy składa się z określonej ilości bitów.</p>
+          <p>Następnie każda liczba wchodząca w&nbsp;skład wiadomości jest podnoszona modulo&nbsp;<var>n</var> do&nbsp;potęgi równej&nbsp;<var>e</var>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">c<sub>i</sub> = m<sub>i</sub><sup>e</sup></span> &nbsp;(mod <span class="math">n</span>)</p>
+          <p>Algorytmu RSA można użyć wielokrotnie (przy zastosowaniu różnych kluczy) do&nbsp;zaszyfrowania danej wiadomości, a następnie odszyfrować ją w&nbsp;dowolnej kolejności. Otrzymany wynik będzie zawsze taki sam, bez względu na&nbsp;kolejność operacji. Jednakże, nie&nbsp;należy szyfrować w&nbsp;ten sposób wiadomości więcej niż dwa razy, ponieważ ujawniają się wtedy podatności na&nbsp;ataki oparte na&nbsp;<em>chińskim twierdzeniu o&nbsp;resztach</em>.</p>
+          <p>Szyfrowanie może zostać przeprowadzone również przy użyciu klucza prywatnego. Cała procedura jest identyczna do opisanej powyżej, z różnicą, że do szyfrowania trzeba będzie użyć klucza prywatnego&nbsp;<var>(n,&nbsp;d)</var>. Natomiast odbiorca wiadomości będzie musiał użyć odpowiadającego mu klucza publicznego, w&nbsp;celu odszyfrowania wiadomości.</p>
+          <h2 id="deszyfrowanie">Deszyfrowanie</h2>
+          <p>Deszyfrowanie odbywa się za pomocą klucza prywatnego&nbsp;<var>(n,&nbsp;d)</var>.</p>
+          <p>Szyfrogram składa się z kolejnych liczb, mniejszych niż&nbsp;<var>n</var>. Każda liczba wchodząca w&nbsp;skład szyfrogramu jest podnoszona modulo&nbsp;<var>n</var> do&nbsp;potęgi równej&nbsp;<var>d</var>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">m<sub>i</sub> = c<sub>i</sub><sup>d</sup></span> &nbsp;(mod <span class="math">n</span>)</p>
+          <p>Otrzymywane liczby tekstu jawnego należy połączyć w&nbsp;odpowiedniej kolejności, aby utworzyły oryginalną wiadomość.</p>
+          <p>Jeżeli wiadomość została zaszyfrowana za pomocą klucza prywatnego, to w&nbsp;celu odszyfrowania wiadomości trzeba będzie użyć odpowiadającego mu klucza publicznego. Procedura deszyfrowania jest identyczna do opisanej powyżej, z różnicą, że używany jest klucz publiczny&nbsp;<var>(n,&nbsp;e)</var>.</p>
+          <h2 id="uwierzytelnianie-wiadomosci">Uwierzytelnianie wiadomości</h2>
+          <p>RSA może być zastosowane do&nbsp;podpisywania wiadomości. Nadawca musi wyliczyć <a href="/pl/teoria/funkcja-jednokierunkowa.html#hash">wartość skrótu wiadomości</a>, a następnie podnieść ją do&nbsp;potęgi&nbsp;<var>d</var> (modulo&nbsp;<var>n</var>), a więc wykonać te same operacje jak podczas zwykłego dekodowania szyfrogramów. Zakodowana w&nbsp;ten sposób wartość skrótu powinna zostać załączona do&nbsp;wysyłanej wiadomości.</p>
+          <p>Odbiorca wiadomości powinien podnieść zakodowaną wartość skrótu do&nbsp;potęgi&nbsp;<var>e</var> (modulo&nbsp;<var>n</var>), a następnie porównać wynik z wartością skrótu wyliczoną przez siebie. Jeżeli obie wartości są takie same, to można mieć pewność, że nikt nie&nbsp;zmodyfikował treści wiadomości.</p>
+          <h2 id="sila-rsa">Siła RSA</h2>
+          <p>W przypadku użycia małego wykładnika&nbsp;<var>e</var> (przykładowo równego&nbsp;<span class="term">3</span>) do&nbsp;zaszyfrowania małej wartości&nbsp;<var>m</var> (mniejszej niż&nbsp;n<sup>1/e</sup>), otrzymana liczba szyfrogramu będzie miała wartość mniejszą niż wynosi wartość modułu&nbsp;<var>n</var>. Umożliwia to wyznaczenie wartości&nbsp;<var>m</var> przy&nbsp;użyciu zwykłych operacji arytmetycznych, co jest czynnością nieskomplikowaną i&nbsp;szybką.</p>
+          <p>Żeby wykluczyć zastosowanie algorytmu RSA do&nbsp;szyfrowania zbyt małych liczb tekstu jawnego, zaleca się stosowanie losowych dopełnień (ang. <i>padding</i>), które odpowiednio zwiększają wartość tych liczb. Losowe dopełnienia gwarantują również, że takie same liczby tekstu jawnego będą kodowane przy użyciu zmieniających się liczb szyfrogramu. Istnieje wiele popularnych schematów dopełnień, na&nbsp;przykład OAEP, PKCS#1 lub&nbsp;RSA-PSS.</p>
+          <p>Algorytm RSA jest deterministyczny, wobec tego szyfr&nbsp;ten jest podatny na&nbsp;ataki z&nbsp;<a href="/pl/ataki/wybrany-tekst-jawny.html">wybranym tekstem jawnym</a>. Można zaszyfrować wiele wiadomości za&nbsp;pomocą znanego klucza publicznego, więc napastnik może odgadnąć zawartość wcześniej przechwyconych zaszyfrowanych wiadomości, przez&nbsp;porównywanie ich z&nbsp;wiadomościami utworzonymi przez&nbsp;siebie.</p>
+          <p>Inną cechą RSA jest fakt, że szyfrogram iloczynu liczb dwóch tekstów jawnych jest taki sam jak iloczyn dwóch szyfrogramów, które odpowiadają tym tekstom.</p>
+          <p>RSA jest generalnie uważany za bezpieczny system zabezpieczeń i&nbsp;jest powszechnie stosowany w&nbsp;przeróżnych aplikacjach, protokołach i&nbsp;rodzajach komunikacji.</p>
+          <h2 id="schemat-blokowy-szyfrowania-i-deszyfrowania-rsa">Schemat blokowy szyfrowania i&nbsp;deszyfrowania RSA</h2>
+          <figure class="figure"><img src="/assets/img/rsa/rsa-scheme.webp" alt="Działanie RSA" width="454" height="189" loading="lazy"></figure>
+          <h2 id="matematyka">Matematyka</h2>
+          <h3 id="funkcja-eulera-funkcja-tocjent">Funkcja Eulera (funkcja &phi;, tocjent)</h3>
+          <p>Wartość funkcji Eulera dla dodatniej liczby całkowitej&nbsp;<var>n</var>, oznaczana jako <var>&phi;(n)</var>, jest określona jako ilość liczb całkowitych dodatnich, mniejszych lub równych&nbsp;<var>n</var>, które są względnie pierwsze z&nbsp;liczbą&nbsp;<var>n</var>.</p>
+          <p>Jeżeli <var>n</var> jest dodatnią liczbą całkowitą, to <var>&phi;(n)</var> jest równe liczbie takich liczb całkowitych <var>k</var>, że <var>k</var> jest nie mniejsze niż&nbsp;<span class="term">1</span> i&nbsp;nie większe niż&nbsp;<var>n</var> oraz, że liczby <var>n</var> oraz <var>k</var> są względnie pierwsze.</p>
+          <p>Funkcja Eulera jest funkcją multiplikatywną. Oznacza to, że dla każdych dwóch względnie pierwszych liczb <var>a</var> oraz <var>b</var> zachodzi zależność:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">&phi;(a&middot;b)&nbsp;=&nbsp;&phi;(a)&middot;&phi;(b)</span>.</p>
+          <h3 id="podnoszenie-do-potegi-modulo">Podnoszenie do&nbsp;potęgi modulo</h3>
+          <p>Podnoszenie do&nbsp;potęgi liczby naturalnej modulo liczba naturalna jest jedną z&nbsp;podstawowych operacji w&nbsp;kryptografii. Podlega ono ogólnym prawom rządzącym <a href="/pl/teoria/arytmetyka-modularna.html">arytmetyką modulo</a>. Wykładnik, podobnie jak podstawa, jest dodatnią liczbą całkowitą. Dodatnią liczbą całkowitą jest również wynik działania.</p>
+          <p>Działanie podnoszenia do&nbsp;potęgi modulo można przedstawić jako szereg działań polegających na&nbsp;podnoszeniu do&nbsp;kwadratu i&nbsp;dzieleniu kolejnych wyników przez&nbsp;ustaloną liczbę naturalną.</p>
+          <p>Przykładowo podniesienie liczby&nbsp;4 do&nbsp;potęgi 9 modulo 7 można obliczyć w następujący sposób:<br> <span class="math"> &nbsp;&nbsp;&nbsp;&nbsp;4<sup>9</sup> mod&nbsp;7:<br> &nbsp;&nbsp;&nbsp;&nbsp;4<sup>2</sup> mod&nbsp;7 = 16 mod 7 = 2<br> &nbsp;&nbsp;&nbsp;&nbsp;4<sup>4</sup> mod&nbsp;7 = 2<sup>2</sup> mod&nbsp;7 = 4 mod&nbsp;7 =&nbsp;4<br> &nbsp;&nbsp;&nbsp;&nbsp;4<sup>8</sup> mod&nbsp;7 = 4<sup>2</sup> mod&nbsp;7 = 16 mod&nbsp;7 =&nbsp;2<br> &nbsp;&nbsp;&nbsp;&nbsp;4<sup>9</sup> mod&nbsp;7 = (4<sup>1</sup> mod&nbsp;7 * 4<sup>8</sup> mod&nbsp;7) mod&nbsp;7 = 4 * 2 mod&nbsp;7 =&nbsp;1 </span></p>
+          <p>W&nbsp;przeciwieństwie do&nbsp;zwykłego podnoszenia do&nbsp;potęgi, potęgowanie w&nbsp;arytmetyce modularnej jest działaniem trudnym i&nbsp;nie istnieją wydajne algorytmy przeprowadzania operacji odwrotnej.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/asymetryczne/diffiego-hellmana.html" rel="prev"><small>← Poprzedni</small>Protokół Diffiego-Hellmana</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2Frsa.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2Frsa.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2Frsa.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-asymetryczne -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/asymetryczne/">Szyfry asymetryczne</a></h2>
+        <ul>
+          <li><a href="/pl/asymetryczne/puzzle-merkle.html">Puzzle Merkle’a</a></li>
+          <li><a href="/pl/asymetryczne/diffiego-hellmana.html">Protokół Diffiego-Hellmana</a></li>
+          <li><a href="/pl/asymetryczne/rsa.html" aria-current="page">RSA</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-asymetryczne -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/attacks/homograph-attack.html" data-published="2020-04-15">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atak Homograficzny | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Ataki homograficzne polegają na tworzeniu fałszywych adresów URL, podszywających się pod prawdziwe adresy.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/ataki/atak-homograficzny.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/homograph-attack.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-homograficzny.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/homograph-attack.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Atak Homograficzny | Kryptografia">
+  <meta property="og:description" content="Ataki homograficzne polegają na tworzeniu fałszywych adresów URL, podszywających się pod prawdziwe adresy.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/ataki/atak-homograficzny.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Atak homograficzny",
+        "description": "Ataki homograficzne polegają na tworzeniu fałszywych adresów URL, podszywających się pod prawdziwe adresy.",
+        "inLanguage": "pl",
+        "datePublished": "2020-04-15",
+        "dateModified": "2020-04-15",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/ataki/atak-homograficzny.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ataki",
+            "item": "https://www.crypto-it.net/pl/ataki/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Atak homograficzny"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/" aria-current="true">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/attacks/homograph-attack.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/ataki/">Ataki</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Atak homograficzny</h1>
+          <p class="article__subtitle">(ang. homograph attack)</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Opublikowano <time datetime="2020-04-15">15 kwietnia 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Atak <button type="button" class="note-ref" popovertarget="note-homograph">homograficzny</button> jest oparty na&nbsp;standardach współczesnego Internetu, które umożliwiają tworzenie (i&nbsp;wyświetlanie w przeglądarkach) adresów URL zawierających znaki pochodzące z&nbsp;innych alfabetów niż łaciński (czyli spoza ASCII). Różne alfabety mogą zawierać różne, bardzo podobne do siebie znaki. Napastnicy mogą wobec tego rejestrować własne domeny, łudząco podobne do&nbsp;istniejących adresów internetowych. Kolejnym krokiem ataku jest skopiowanie oryginalnych stron internetowych z prawdziwych adresów i&nbsp;umieszczenie ich podrobionych wersji na&nbsp;fałszywych adresach. Podmienione w&nbsp;ten sposób strony należą zwykle do banków, korporacji, serwisów mejlowych lub informacyjnych. Fałszywe strony internetowe mogą być następnie użyte do kradzieży danych odwiedzających je użytkowników lub rozpowszechniania fałszywych informacji.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="proste-ataki-homograficzne">Proste ataki homograficzne</h2>
+          <p>W&nbsp;najprostszych wersjach tego typu ataków, fałszywy URL składa się jedynie z&nbsp;prostych znaków ASCII. Napastnik używa symboli podobnych z&nbsp;wyglądu do&nbsp;oryginalnych liter i&nbsp;znaków, które znajdują się w&nbsp;atakowanych adresach URL. Często litera&nbsp;<var>q</var> może być pomylona z&nbsp;<var>g</var>, podobnie <var>o</var> może być pomylone z&nbsp;<var>0</var>.</p>
+          <p>Adresy URL podobne do tych poniżej mogą oszukać mniej spostrzegawczych użytkowników:</p>
+          <pre><code>http://www.g00gle.co.uk
+http://bl00mberg.com</code></pre>
+          <h2 id="adresy-url-ze-znakami-spoza-ascii">Adresy URL ze&nbsp;znakami spoza ASCII</h2>
+          <p>Możliwość używania znaków spoza alfabetu łacińskiego w&nbsp;adresach stron www została wprowadzona w&nbsp;<button type="button" class="note-ref" popovertarget="note-rfc3490">2003</button> roku, ze względu na&nbsp;wzrastającą liczbę użytkowników Internetu, którzy <button type="button" class="note-ref" popovertarget="note-english-speaking">nie&nbsp;znali języka angielskiego</button>. Modyfikacja umożliwiła rejestrowanie i&nbsp;używanie nazw domen, które mogły być zrozumiałe przez&nbsp;większą liczbę zainteresowanych. Stało się możliwe tworzenie adresów internetowych, które były kombinacjami znaków ASCII i&nbsp;spoza ASCII oraz adresów, które składały się jedynie z symboli narodowych:</p>
+          <pre><code>http://россия.net
+http://газета.ру
+http://budyń.pl</code></pre>
+          <p>Wszystkie adresy www zawierające znaki spoza alfabetu łacińskiego muszą zostać zakodowane w&nbsp;specjalny sposób aby mogły zostać przetworzone przez&nbsp;serwery DNS. Format zapisu takich adresów nosi nazwę <strong>Punycode</strong>. Przeglądarki przekształcają w&nbsp;tle wszystkie adresy URL zawierające znaki spoza ASCII przed&nbsp;wysłaniem zapytania do&nbsp;serwerów DNS. Nazwa domeny w&nbsp;Punycode zawsze zaczyna się od <span class="term">xn--</span>, a następnie składa się ze&nbsp;znaków ASCII z&nbsp;oryginalnego adresu, po których następują zakodowane pozostałe znaki Unicode z&nbsp;adresu URL. Przykładowo ostatni adres z&nbsp;przykładu powyżej miałby następującą postać w&nbsp;Punycode:</p>
+          <pre><code>http://xn--budy-e2a.pl</code></pre>
+          <p>Domeny, których nazwy zawierają znaki spoza alfabetu łacińskiego są oficjalnie nazywane <i>Internationalized Domain Names</i> (IDN). Różne przeglądarki traktują tego typu adresy w&nbsp;różny sposób. Zwykle każdy producent implementuje swoje własne algorytmy dla&nbsp;określenia w&nbsp;jaki sposób URL będzie wyświetlany. Zazwyczaj jedno z&nbsp;dwóch podejść (z&nbsp;niewielkimi modyfikacjami) jest stosowane:</p>
+          <ul>
+           <li>Wszystkie znaki URL są wyświetlane przy użyciu Unicode; lub</li>
+           <li>Wszystkie znaki URL są wyświetlane przy użyciu Unicode jedynie w&nbsp;przypadku, kiedy wszystkie one należą do&nbsp;tego samego języka, który został wskazany przez użytkownika w&nbsp;ustawieniach przeglądarki; w&nbsp;przeciwnym wypadku adres URL wyświetlany jest przy użyciu Punycode.</li>
+          </ul>
+          <h2 id="ataki-homograficzne-przy-uzyciu-znakow-sposa-ascii">Ataki homograficzne przy użyciu znaków spoza ASCII</h2>
+          <p>Różne języki zawierają litery, które wyglądają identycznie lub przynajmniej bardzo podobnie, mimo, że są kodowane w&nbsp;zupełnie różny sposób. Wobec tego jest możliwe utworzenie wielu różnych adresów URL, które składają się z&nbsp;niejednakowych znaków, które jednak są nierozróżnialne wizualnie.</p>
+          <p>Przykładowo, alfabet łaciński i&nbsp;cyrylica zawierają kilka liter, które są zapisywane w&nbsp;ten sam sposób, ale mają zupełnie inne znaczenie i&nbsp;są kodowane w&nbsp;Unicode w&nbsp;inny sposób:</p>
+          <ul>
+           <li>(w&nbsp;alfabecie łacińskim) <var>a</var>: U+0061, (w&nbsp;cyrylicy) <var>&#x430;</var>: U+0430</li>
+           <li>(w&nbsp;alfabecie łacińskim) <var>c</var>: U+0063, (w&nbsp;cyrylicy) <var>&#x441;</var>: U+0441</li>
+           <li>(w&nbsp;alfabecie łacińskim) <var>p</var>: U+0070, (w&nbsp;cyrylicy) <var>&#x440;</var>: U+0440</li>
+          </ul>
+          <p>Biorąc pod uwagę 100&nbsp;000 znaków zdefiniowanych w&nbsp;Unicode (z&nbsp;których wiele jest do&nbsp;siebie podobnych), potencjalny napastnik ma&nbsp;spory potencjał w&nbsp;tworzeniu przeróżnych fałszywych adresów URL i&nbsp;nawet najbardziej uważni użytkownicy mogą zostać oszukani. Obecnie, zarówno organizacje rejestrujące domeny DNS, jak i&nbsp;producenci przeglądarek internetowych nie&nbsp;zdołali zapobiec tego typu oszustwom.</p>
+          <p>Na&nbsp;koniec należy zauważyć, że napastnik może wykorzystać znak, który wygląda prawie tak samo jak prawdziwy znak ukośnika w&nbsp;alfabecie ASCII&nbsp;<var>&#x2f;</var> (U+002F) - operator dzielenia matematycznego <var>&#x2215;</var> (U+2215). Pozwala to napastnikowi tworzyć poddomeny, które wyglądają jak prawdziwe nazwy domen, przy użyciu wybranych przez niego serwerów i domen najwyższego poziomu. Fałszywy adres URL mógłby wyglądać podobnie do&nbsp;adresu poniżej:</p>
+          <pre><code>http://example.com∕domena-najwyzszego-poziomu.com/</code></pre>
+          <p>Znak znajdujący się za&nbsp;<span class="term">.com</span> to operator dzielenia matematycznego. W&nbsp;pasku adresu przeglądarek internetowych może on zostać przedstawiony bardzo podobnie do&nbsp;zwykłego znaku ukośnika, sprawiając, że cały adres URL może zostać błędnie odczytany jako katalog o nazwie <span class="term">domena-najwyzszego-poziomu.com</span> znajdujący się w&nbsp;głównym katalogu strony w&nbsp;domenie <span class="term">example.com</span>:</p>
+          <pre><code>http://example.com/domena-najwyzszego-poziomu.com/</code></pre>
+          <h2 id="ochrona-przed-atakami-homograficznymi">Ochrona przed atakami homograficznymi</h2>
+          <p>Najlepszym zabezpieczeniem przeciwko atakom homograficznym wydaje się właściwe stosowanie ostrzeżeń lub&nbsp;obsługiwanie w&nbsp;inny szczególny sposób adresów uznanych za&nbsp;szkodliwe przez przeglądarki internetowe. Niestety obecnie funkcjonalności tego typu pozostawiają wiele do&nbsp;życzenia. Co&nbsp;gorsze, zachowanie różnych typów przeglądarek różni się w&nbsp;zależności od&nbsp;producenta, co może powodować dodatkowe zamieszanie i&nbsp;utrudniać użytkownikom rozpoznanie oszustwa.</p>
+          <div class="note" id="note-homograph" popover>
+           <p>Homograf to wyraz, który ma taką samą pisownię jak inny wyraz, ale inne znaczenie, a&nbsp;czasem także inną wymowę.</p>
+           <button type="button" class="note__close" popovertarget="note-homograph" popovertargetaction="hide">Zamknij</button>
+          </div>
+          <div class="note" id="note-rfc3490" popover>
+           <p>System <em>Internationalizing Domain Names in Applications (IDNA)</em> został przyjęty jako standard w&nbsp;dwóch specyfikacjach opublikowanych w&nbsp;2003 roku: <a href="https://tools.ietf.org/html/rfc3490" rel="noopener" target="_blank">RFC&nbsp;3490</a> i <a href="https://tools.ietf.org/html/rfc3492" rel="noopener" target="_blank">RFC&nbsp;3492</a>.</p>
+           <button type="button" class="note__close" popovertarget="note-rfc3490" popovertargetaction="hide">Zamknij</button>
+          </div>
+          <div class="note" id="note-english-speaking" popover>
+           <p>Szacowano, że pod koniec 2002 roku osoby anglojęzyczne stanowiły tylko około&nbsp;37% użytkowników Internetu, a&nbsp;ich udział nadal malał.</p>
+           <button type="button" class="note__close" popovertarget="note-english-speaking" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/ataki/metoda-powtorzenia.html" rel="prev"><small>← Poprzedni</small>Atak metodą powtórzenia</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fatak-homograficzny.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fatak-homograficzny.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fataki%2Fatak-homograficzny.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-ataki -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/ataki/">Ataki</a></h2>
+        <ul>
+          <li><a href="/pl/ataki/znany-tekst-jawny.html">Atak ze znanym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/wybrany-tekst-jawny.html">Atak z wybranym tekstem jawnym</a></li>
+          <li><a href="/pl/ataki/znany-szyfrogram.html">Atak z szyfrogramami</a></li>
+          <li><a href="/pl/ataki/wybrany-szyfrogram.html">Atak z wybranym szyfrogramem</a></li>
+          <li><a href="/pl/ataki/wybrany-klucz.html">Atak z wybranym kluczem</a></li>
+          <li><a href="/pl/ataki/atak-silowy.html">Atak siłowy</a></li>
+          <li><a href="/pl/ataki/dos.html">DoS</a></li>
+          <li><a href="/pl/ataki/man-in-the-middle.html">Atak man-in-the-middle</a></li>
+          <li><a href="/pl/ataki/two-time-pad.html">Atak na two-time pad</a></li>
+          <li><a href="/pl/ataki/krack.html">Atak KRACK</a></li>
+          <li><a href="/pl/ataki/atak-statystyczny.html">Atak statystyczny</a></li>
+          <li><a href="/pl/ataki/meet-in-the-middle.html">Atak meet-in-the-middle</a></li>
+          <li><a href="/pl/ataki/metoda-powtorzenia.html">Atak metodą powtórzenia</a></li>
+          <li><a href="/pl/ataki/atak-homograficzny.html" aria-current="page">Atak homograficzny</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-ataki -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

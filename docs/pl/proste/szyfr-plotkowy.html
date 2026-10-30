@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/rail-fence-cipher.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfr Płotkowy Przestawieniowy | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Szyfr Płotkowy jest szyfrem przestawieniowym. Jego działanie polega na przestawieniu kolejności liter, bazując na uproszczonym kształcie drewnianego płotku.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/szyfr-plotkowy.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/rail-fence-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-plotkowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/rail-fence-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfr Płotkowy Przestawieniowy | Kryptografia">
+  <meta property="og:description" content="Szyfr Płotkowy jest szyfrem przestawieniowym. Jego działanie polega na przestawieniu kolejności liter, bazując na uproszczonym kształcie drewnianego płotku.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/szyfr-plotkowy.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <script src="/assets/js/tools/rail-fence.js" type="module"></script>
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfr płotkowy",
+        "description": "Szyfr Płotkowy jest szyfrem przestawieniowym. Jego działanie polega na przestawieniu kolejności liter, bazując na uproszczonym kształcie drewnianego płotku.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/szyfr-plotkowy.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry przestawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-przestawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Szyfr płotkowy"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/rail-fence-cipher.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfr płotkowy</h1>
+          <p class="article__subtitle">Szyfr przestawieniowy</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Szyfr Płotkowy jest szyfrem przestawieniowym. Jego działanie polega na przestawieniu kolejności liter, bazując na uproszczonym kształcie drewnianego płotku.</p>
+          <p><a href="#online">Wypróbuj szyfr płotkowy online ↓</a></p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Szyfr Płotkowy był znany i często używany już w czasach starożytnych. Starożytni Grecy opracowali nawet specjalne narzędzie, nazywane <i>scytale</i>, aby ułatwić szyfrowanie i deszyfrowanie wiadomości. Obecnie, operacje za pomocą Szyfru Płotkowego przeprowadza się zwykle na kartce papieru. Litery są zapisywane w taki sposób, że układają się w kształt górnej krawędzi płotu.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Aby zaszyfrować wiadomość za pomocą Szyfru Płotkowego, litery tekstu jawnego należy zapisać zygzakiem, posuwając się na przemian w dół i w górę, pomiędzy najwyższym i najniższym poziomem schematycznego drewnianego płotku. Litery układają się w kształt, który odwzorowuje uproszczoną górną krawędź takiego płotu.</p>
+          <p>Następnie należy odczytać zapisane litery kolejno wierszami i zapisać w jednej linii, tworząc w ten sposób szyfrogram szyfrowanej wiadomości. Wiersze są zwykle czytane w kolejności od górnego do dolnego.</p>
+          <p>Klucz sekretny jest liczbą określającą ilość poziomów ogrodzenia, co z kolei przekłada się na ilość wierszy tekstu, które tworzone są podczas szyfrowania. Liczba ta nie może być zbyt duża, więc ilość wszystkich możliwych kluczy jest dość ograniczona.</p>
+          <p>Przykładowo, prześledźmy proces szyfrowania nazwy jednego ze znanych nam krajów europejskich: <span class="term">Rzeczpospolita Polska</span>. Przyjmijmy klucz sekretny równy <var>3</var>. Oznacza to, że w czasie szyfrowania otrzymamy trzy poziomy ogrodzenia.</p>
+          <p>Pierwszym krokiem jest usunięcie odstępów pomiędzy wyrazami, ponieważ szyfr będzie operować jedynie na wielkich literach:</p>
+          <p>RZECZPOSPOLITAPOLSKA</p>
+          <p>W kolejnym kroku algorytmu szyfrowania litery tekstu jawnego są zapisywane na schematycznym ogrodzeniu, z trzema poziomami. Układają się na kształt drewnianego płotku:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix table--plain" aria-label="Arranging the letters">
+           <tr>
+           <td>R</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>Z</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>P</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>T</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>L</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           </tr>
+           <tr>
+           <td>.</td>
+           <td>Z</td>
+           <td>.</td>
+           <td>C</td>
+           <td>.</td>
+           <td>P</td>
+           <td>.</td>
+           <td>S</td>
+           <td>.</td>
+           <td>O</td>
+           <td>.</td>
+           <td>I</td>
+           <td>.</td>
+           <td>A</td>
+           <td>.</td>
+           <td>O</td>
+           <td>.</td>
+           <td>S</td>
+           <td>.</td>
+           <td>A</td>
+           </tr>
+           <tr>
+           <td>.</td>
+           <td>.</td>
+           <td>E</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>O</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>L</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>P</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>K</td>
+           <td>.</td>
+           </tr>
+           </table>
+          </div>
+          <p>Następnie, litery powinny zostać odczytane wierszami, startując od najwyższego. Litery z kolejnych wierszy dopisywane są na końcu tworzonego szyfrogramu. Po zakończeniu szyfrowania powyższej wiadomości, otrzyma się następujący zakodowany tekst:</p>
+          <p>RZPTLZCPSOIAOSAEOLPK</p>
+          <p>W celu odszyfrowania wiadomości, odbiorca musi posłużyć się sekretnym kluczem, który określa na ile poziomów podzielono oryginalną wiadomość. Znając ilość wierszy oraz długość szyfrogramu, jest możliwe odtworzenie siatki schematycznego ogrodzenia i wypełnienie jej literami w poprawny (czyli taki, jakiego użył wcześniej nadawca) sposób.</p>
+          <section class="tool" id="online" aria-labelledby="online-title"
+                   data-tool="rail-fence"
+                   data-msg-rails="Liczba poziomów musi wynosić co najmniej 2."
+                   data-msg-offset="Przesunięcie musi być zerem lub liczbą dodatnią."
+                   data-msg-copied="Skopiowano">
+            <h2 id="online-title">Szyfr płotkowy online</h2>
+            <div class="tool__grid">
+              <div>
+                <div class="field">
+                  <label for="rf-rails">Liczba poziomów</label>
+                  <select id="rf-rails" data-role="rails">
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                  </select>
+                  <small>Wysokość wyobrażonego płotka, po którym tekst biegnie zygzakiem.</small>
+                </div>
+                <div class="field">
+                  <label for="rf-offset">Przesunięcie</label>
+                  <input type="number" id="rf-offset" data-role="offset" value="0" min="0" step="1">
+                  <small>Ile kroków zygzaka pominąć przed pierwszą literą. Pozostaw 0 dla klasycznego szyfru.</small>
+                </div>
+                <fieldset>
+                  <legend class="visually-hidden">Kierunek</legend>
+                  <div class="segmented">
+                    <label><input type="radio" name="direction" value="encrypt" checked> Szyfruj</label>
+                    <label><input type="radio" name="direction" value="decrypt"> Deszyfruj</label>
+                  </div>
+                </fieldset>
+              </div>
+              <figure>
+                <table class="matrix" data-role="fence" aria-label="Siatka płotka"></table>
+              </figure>
+            </div>
+
+            <div class="field">
+              <label for="rf-input">Tekst</label>
+              <textarea id="rf-input" data-role="input" spellcheck="false">We are discovered, run at once</textarea>
+              <small>Uwzględniane są tylko litery; spacje, cyfry i znaki interpunkcyjne są pomijane, a znaki diakrytyczne usuwane.</small>
+            </div>
+
+            <p class="tool__error" data-role="error" role="alert"></p>
+
+            <div class="field">
+              <label for="rf-output">Wynik</label>
+              <textarea id="rf-output" data-role="output" readonly></textarea>
+            </div>
+            <div class="tool__actions">
+              <button type="button" class="button" data-role="copy">Kopiuj wynik</button>
+              <button type="button" class="button" data-role="swap">Użyj wyniku jako wejścia</button>
+            </div>
+          </section>
+          <h2 id="sila-szyfru-plotkowego">Siła szyfru płotkowego</h2>
+          <p>Szyfrogramy tworzone przez szyfry przestawieniowe są stosunkowo proste do rozpoznania. Zastosowanie <a href="/pl/ataki/atak-statystyczny.html">analizy statystycznej</a> szyfrogramu pozwala stwierdzić, że litery występują w nim w takiej samej częstotliwości, jak w niezaszyfrowanych tekstach w tym samym języku.</p>
+          <p>Z powodu stosunkowo niewielkiej liczby wszystkich możliwych kluczy, Szyfr Płotkowy może być złamany stosunkowo szybko przy użyciu <a href="/pl/ataki/atak-silowy.html">ataków siłowych</a>. Napastnik powinien w tym celu spróbować odszyfrować wiadomość z wykorzystaniem wszystkich praktycznie możliwych do użycia kluczy.</p>
+          <h2 id="implementacja">Implementacja</h2>
+          <p>Funkcja szyfrująca w Szyfrze Płotkowym przeprowadza dwie główne operacje. Po pierwsze, litery wiadomości są zapisywane w tabeli, która reprezentuje płotek. Następnie, wszystkie zapisane litery są odczytywane z tabeli wierszami, z góry do dołu.</p>
+          <p>Poniżej przedstawiono funkcję JavaScript, która szyfruje dostarczony ciąg znaków i zwraca utworzony szyfrogram. Parametr <span class="term">iloscWierszy</span> zależy od wartości sekretnego klucza:</p>
+          <pre><code>function szyfruj(tekstJawny, iloscWierszy) {
+  var szyfrogram = '';
+
+  var tabelaPlotek = [];
+  for (var poz = 0; poz &lt; iloscWierszy; ++poz) {
+    tabelaPlotek[poz] = [];
+  }
+
+  // Najpierw, wpisz litery do tabeli:
+
+  var r = 0;
+  var kierunek = 1;
+
+  for (var c = 0; c &lt; tekstJawny.length; ++c) {
+    tabelaPlotek[r].push(tekstJawny[c]);
+
+    if (((r == iloscWierszy - 1) &amp;&amp; (kierunek == 1)) ||
+        ((r == 0) &amp;&amp; (kierunek == -1))) {
+      kierunek = -kierunek;
+    }
+
+    r = r + kierunek;
+  }
+
+  // Następnie, odczytaj szyfrogram wierszami:
+
+  var wiersz = 0;
+  while (wiersz &lt; iloscWierszy) {
+    for (var poz = 0; poz &lt; tabelaPlotek[wiersz].length; ++poz) {
+      szyfrogram = szyfrogram.concat(tabelaPlotek[wiersz][poz]);
+    }
+    ++wiersz;
+  }
+
+  return szyfrogram;
+}</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/szyfry-przestawieniowe.html" rel="prev"><small>← Poprzedni</small>Szyfry przestawieniowe</a>
+          <a class="pager__next" href="/pl/proste/szyfr-sciezkowy.html" rel="next"><small>Następny →</small>Szyfr ścieżkowy</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-plotkowy.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-plotkowy.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-plotkowy.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html" aria-current="page">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

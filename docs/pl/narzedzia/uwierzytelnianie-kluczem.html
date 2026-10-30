@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/tools/key-based-authentication.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uwierzytelnianie za Pomocą Klucza | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Uwierzytelnianie za pomocą klucza umożliwia nawiązywanie bezpiecznych połączeń do serwerów, bez potrzeby podawania za każdym razem hasła dostępu.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/narzedzia/uwierzytelnianie-kluczem.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/key-based-authentication.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/uwierzytelnianie-kluczem.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/tools/key-based-authentication.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Uwierzytelnianie za Pomocą Klucza | Kryptografia">
+  <meta property="og:description" content="Uwierzytelnianie za pomocą klucza umożliwia nawiązywanie bezpiecznych połączeń do serwerów, bez potrzeby podawania za każdym razem hasła dostępu.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/narzedzia/uwierzytelnianie-kluczem.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Uwierzytelnianie za pomocą klucza",
+        "description": "Uwierzytelnianie za pomocą klucza umożliwia nawiązywanie bezpiecznych połączeń do serwerów, bez potrzeby podawania za każdym razem hasła dostępu.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/narzedzia/uwierzytelnianie-kluczem.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Oprogramowanie",
+            "item": "https://www.crypto-it.net/pl/narzedzia/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Uwierzytelnianie za pomocą klucza"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/" aria-current="true">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/tools/key-based-authentication.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Uwierzytelnianie za pomocą klucza</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Uwierzytelnianie za pomocą klucza jest sposobem uwierzytelniania, alternatywnym wobec stosowania haseł. Zamiast podawać swoje prywatne hasło, użytkownik może potwierdzić swoją tożsamość przy użyciu algorytmów <a href="/pl/asymetryczne/">kryptografii asymetrycznej</a>, z kluczami publicznymi i prywatnymi.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Obecnie stosowanie haseł w celu uwierzytelnienia jest bardziej popularne niż wykorzystanie kluczy publicznych i prywatnych. Nie wymaga wielu przygotowań (przynajmniej, z punktu widzenia klienta) oraz jest bardziej intuicyjne. W celu zalogowania się na serwer, użytkownicy muszą podać swoje sekretne hasło, które jest następnie weryfikowane przez serwer. Wadą tej metody jest to, że jeżeli serwer jest publicznie dostępny, to może być celem wielu typów <a href="/pl/ataki/atak-silowy.html">ataków siłowych i słownikowych</a>, więc hasło użytkownika może zostać z czasem złamane i odkryte. Co więcej, metoda ta wymaga oczywiście od użytkowników pamiętania ich haseł, które w założeniu powinny być skomplikowane i trudne do zapamiętania.</p>
+          <p>Uwierzytelnianie za pomocą klucza publicznego umożliwia zniwelowanie tych niedogodności. Pomysł polega na tym, aby przypisać parę kluczy asymetrycznych do każdego użytkownika. Następnie, użytkownicy mogą umieścić swoje klucze publiczne na wszystkich serwerach, z którymi zamierzają się bezpiecznie łączyć. Natomiast klucze prywatne są przechowywane bezpiecznie na komputerach użytkowników, które mają być wykorzystywane do połączeń ze wspomnianymi serwerami. Podczas nawiązywania połączenia, serwer używa posiadany klucz publiczny klienta w celu jego uwierzytelnienia. Może to osiągnąć, na przykład, szyfrując jakąś liczbę i sprawdzając czy klient jest w stanie odszyfrować ją przy użyciu posiadanego klucza prywatnego.</p>
+          <p>Naturalnie, ataki siłowe mogą wciąż być przeprowadzone przez ewentualnych napastników, ale złożoność długich i nieprzewidywalnych ciągów bajtów klucza jest dużo większa od stopnia skomplikowania haseł. Ataki mają więc dużo mniejsze szanse powodzenia. Klucze asymetryczne używane obecnie składają się z tysięcy bitów (obecnie, w roku 2016, zalecane długości kluczy są rzędu 2048 lub 4096 bitów).</p>
+          <p>Najpopularniejszym algorytmem używanym do uwierzytelniania za pomocą kluczy jest <a href="/pl/asymetryczne/rsa.html">RSA</a>.</p>
+          <h2 id="uwierzytelnianie-za-pomoca-klucza-w-systemie-linux">Uwierzytelnianie za pomocą klucza w systemie Linux</h2>
+          <p>Większość dystrybucji systemu Linux zapewnia wsparcie dla szyfrowanego protokołu sieciowego SSH (<i>Secure Shell</i>), zwykle wykorzystując w tym celu implementację <a href="http://www.openssh.com" rel="noopener" target="_blank">OpenSSH</a>. Użytkownicy są w stanie łatwo utworzyć i skonfigurować parę połączonych kluczy asymetrycznych. Umożliwi im to automatyczne logowanie na serwery, które wspierają uwierzytelnianie za pomocą klucza. Podczas nawiązywania połączenia, procesy SSH działające na serwerze użyją właściwy klucz publiczny do sprawdzenia i uwierzytelnienia procesów klienta, które działają na jego komputerze.</p>
+          <h3 id="key_generate_linux">Tworzenie kluczy RSA</h3>
+          <p>Aby czerpać opisane wyżej korzyści płynące z automatycznego uwierzytelniania za pomocą klucza, pierwszą rzeczą, którą należy zrobić jest utworzenie pary kluczy asymetrycznych. W systemie Linux można tego dokonać wydając komendę SSH:</p>
+          <pre><code>ssh-keygen -t rsa -b 4096 -C "email@example.com"</code></pre>
+          <p>Użytkownik będzie potem zapytany o kilka parametrów konfiguracyjnych, takich jak docelowa lokalizacja zapisanych kluczy oraz, opcjonalnie, hasło do zaszyfrowania klucza prywatnego. Domyślnie klucze tworzone są w katalogu <span class="term">~/.ssh</span>, w katalogu domowym. Klucz publiczny jest przechowywany w pliku <span class="term">id_rsa.pub</span>, natomiast klucz prywatny jest zapisywany do pliku <span class="term">id_rsa</span>.</p>
+          <p>Klucz prywatny może być przechowywany na zewnętrznej karcie pamięci. W takim przypadku, użytkownicy będą w stanie się uwierzytelnić na każdym używanym przez nich komputerze, tak długo jak będą w stanie zaprezentować w odpowiednim czasie właściwą kartę pamięci.</p>
+          <h3 id="zabezpieczenie-klucza-prywatnego-haslem">Zabezpieczenie klucza prywatnego hasłem</h3>
+          <p>Jeżeli podczas generowania pary kluczy użytkownik wprowadzi hasło, to klucz prywatny zostanie zapisany w zaszyfrowanym pliku. Przed odczytaniem klucza prywatnego, użytkownik będzie proszony o podanie hasła, które umożliwi odszyfrowanie klucza prywatnego i nawiązanie połączenia. System operacyjny zwykle zapamiętuje odszyfrowany klucz w pamięci i podczas kolejnego użycia, dostarcza go automatycznie, aż do wylogowania się użytkownika. W systemie Linux proces odpowiedzialny za przechowywanie klucza w pamięci na czas trwania sesji nazywa się <span class="term">ssh-agent</span>.</p>
+          <p>Ponieważ klucz prywatny jest przechowywany lokalnie, na zaufanym komputerze, nie jest możliwe zaatakowanie go zdalnie, bez wcześniejszego całkowitego złamania zabezpieczeń komputera użytkownika. Klucz prywatny przechowywany jest w obszarze z ograniczonym dostępem, w pliku, do którego prawa odczytu ma tylko jego właściciel.</p>
+          <p>Zabezpieczenie klucza prywatnego hasłem, daje użytkownikowi czas na reakcję, w sytuacji kiedy komputer dostał się w niepowołane ręce (został, na przykład, ukradziony). Zanim szyfr symetryczny chroniący klucz zostanie złamany, użytkownik może usunąć powiązany z nim klucz publiczny ze wszystkich serwerów, w których go używał, oraz wygenerować nową parę kluczy asymetrycznych.</p>
+          <p>Takie podejście zapewnia większe bezpieczeństwo niż zwykle uwierzytelnianie oparte na haśle, gdzie napastnik może przeprowadzić zdalny atak na hasło użytkownika.</p>
+          <h3 id="udostepnienie-klucza-publicznego">Udostępnienie klucza publicznego</h3>
+          <p>Aby zalogować się na serwer, należy najpierw dostarczyć tam klucz publiczny. SSH umożliwia przekopiowanie klucza do wskazanego serwera:</p>
+          <pre><code>ssh-copy-id &lt;username&gt;@&lt;host&gt;</code></pre>
+          <p>Użytkownik może być ostrzeżony, że host jest nieznany, oraz będzie proszony o podanie odpowiedniego hasła dostępu. Następnie jego klucz publiczny zostanie automatycznie przesłany na wskazany serwer.</p>
+          <p>Alternatywnie, zawartość pliku <span class="term">id_rsa.pub</span> może zostać ręcznie dopisana do pliku <span class="term">~/.ssh/authorized_keys</span> na serwerze, znajdującego się na koncie administratora.</p>
+          <p>Rezultat obu metod jest taki sam: klucz publiczny zostaje dodany do pliku <span class="term">authorized_keys</span>, który jest wykorzystywany przez serwer do sprawdzania autentyczności wszystkich, którzy próbują połączyć się do niego z wykorzystaniem protokołu SSH.</p>
+          <h3 id="nawiazanie-polaczenia-ssh">Nawiązanie połączenia SSH</h3>
+          <p>Połączenie SSH do serwera może zostać przetestowane przy użyciu komendy:</p>
+          <pre><code>ssh &lt;username&gt;@&lt;host&gt;</code></pre>
+          <p>W przypadku sukcesu (to znaczy kiedy uwierzytelnianie za pomocą klucza zostało poprawnie skonfigurowane), bezpieczne połączenie do serwera powinno zostać nawiązane, bez potrzeby podawania hasła zdalnego dostępu. Jeżeli klucz prywatny jest zaszyfrowany, to użytkownik będzie wcześniej poproszony o podanie hasła dostępu do&nbsp;niego.</p>
+          <p>Po skonfigurowaniu uwierzytelniania za pomocą klucza na serwerze, uwierzytelnianie za pomocą hasła może zostać wyłączone, w celu uniemożliwienia zdalnych ataków siłowych. Można tego dokonać zmieniając flagę <span class="term">PasswordAuthentication</span> w pliku <span class="term">/etc/ssh/sshd_config</span>, a następnie restartując serwis SSH. Można również określić, które adresy IP mogą używać uwierzytelniania opartego na haśle i zablokować tę funkcjonalność dla pozostałych.</p>
+          <p>Plik konfiguracyjny wspomniany wyżej może być również użyty do wyłączenia lub włączenia uwierzytelniania za pomocą klucza dla całego serwera. Służą do tego flagi o nazwach <span class="term">PubkeyAuthentication</span> oraz <span class="term">RSAAuthentication</span>.</p>
+          <h2 id="uwierzytelnianie-za-pomoca-klucza-w-systemie-windows">Uwierzytelnianie za pomocą klucza w systemie Windows</h2>
+          <p>Korzystanie z uwierzytelniania za pomocą klucza jest możliwe również na komputerach z systemem Windows, ale wymaga to wyposażenia się w dodatkowe aplikacje, które dostarczają takich możliwości.</p>
+          <p>Programy opisane poniżej mogą być użyte do wygenerowania pary powiązanych kluczy asymetrycznych. Następnie, klucz publiczny powinien zostać dostarczony do serwera, który zwykle działa na systemie Linux. Klucz publiczny powinien zostać dopisany do pliku <span class="term">.ssh/authorized_keys</span>, tak jak to było przedstawione powyżej.</p>
+          <h3 id="git-bash">Git bash</h3>
+          <p>Git Bash jest aplikacją, która umożliwia korzystanie z terminalu bash na systemie operacyjnym Windows. Jest dość podobny do <a href="http://www.cygwin.com/" rel="noopener" target="_blank">CygWin</a>, ale szybszy i mniej skomplikowany. Jest idealnym narzędziem do wygenerowania pary kluczy asymetrycznych.</p>
+          <p>Oficjalną stroną projektu Git jest <a href="http://git-scm.com/" rel="noopener" target="_blank">git-scm.com</a>, gdzie można znaleźć jego wersję instalacyjną dla systemów Windows.</p>
+          <p>Klucze asymetryczne mogą zostać wygenerowane przy użyciu tych samych komand, co w przypadku tworzenia kluczy w <a href="#key_generate_linux">systemie Linux</a> (<span class="term">ssh-keygen</span>, i tak&nbsp;dalej).</p>
+          <h3 id="putty">PuTTY</h3>
+          <p>PuTTY jest klientem protokołów SSH i Telnet, darmową aplikacją dostępną na platformach Windows. Składa się z szeregu komponentów: PuTTY, PSCP, PSFTP, PuTTYtel, Plink, Pageant, PuTTYgen, pterm. Wszystkie one są przydatne i godne polecenia. Oficjalną stroną projektu jest <a href="http://www.putty.org/" rel="noopener" target="_blank">www.putty.org</a>.</p>
+          <p>W celu wygenerowania pary kluczy asymetrycznych, należy wykorzystać narzędzie PuTTYgen, które może być znalezione w katalogu, w którym PuTTY został zainstalowany. Po wciśnięciu przycisku 'Generate', aplikacja poprosi użytkownika o wykonanie losowych ruchów myszką, w celu wygenerowania dostatecznej losowości, aby możliwe było utworzenie <a href="/pl/teoria/generator-pseudolosowy.html">losowego strumienia bajtów</a> o odpowiedniej długości.</p>
+          <h3 id="bitvise">Bitvise</h3>
+          <p>Bitvise jest firmą, która specjalizuje się w aplikacjach SSH działających zarówno po stronie klienta, jak i po stronie serwera. Dostarcza wielu usług, które nie są tak darmowe, jak programy opisane powyżej, ale mogą być wykorzystywane w celach niezarobkowych. Strona projektu znajduje się pod adresem <a href="http://www.bitvise.com/" rel="noopener" target="_blank">www.bitvise.com</a>.</p>
+          <p>Aby wygenerować parę kluczy asymetrycznych, należy użyć narzędzia <em>User Keypair Manager</em>, które znajduje się na głównej stronie. Po kliknięciu przycisku 'Generate New', użytkownik będzie zapytany o typ klucza do utworzenia oraz o opcjonalne hasło, podobnie jak w przypadku generowania kluczy <a href="#key_generate_linux">w systemie Linux</a>.</p>
+          <p><em>User Keypair Manager</em> umożliwia eksportowanie utworzonych wcześniej kluczy. Należy wybrać format, w jakim klucze powinny zostać zapisane (zwykle OpenSSH, obsługiwany przez większość serwerów SSH).</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/narzedzia/token-kryptograficzny.html" rel="prev"><small>← Poprzedni</small>Tokeny kryptograficzne</a>
+          <a class="pager__next" href="/pl/narzedzia/docker.html" rel="next"><small>Następny →</small>Docker</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fnarzedzia%2Fuwierzytelnianie-kluczem.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fnarzedzia%2Fuwierzytelnianie-kluczem.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fnarzedzia%2Fuwierzytelnianie-kluczem.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-narzedzia -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/narzedzia/">Oprogramowanie</a></h2>
+        <ul>
+          <li><a href="/pl/narzedzia/jca-i-jce.html">JCA i JCE</a></li>
+          <li><a href="/pl/narzedzia/token-kryptograficzny.html">Tokeny kryptograficzne</a></li>
+          <li><a href="/pl/narzedzia/uwierzytelnianie-kluczem.html" aria-current="page">Uwierzytelnianie kluczem</a></li>
+          <li><a href="/pl/narzedzia/docker.html">Docker</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-narzedzia -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/prf-and-prp.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funkcje i Permutacje Pseudolosowe | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Funkcje i permutacje pseudolosowe produkują dane wyjściowe nierozróżnialne od ciągów losowych. Są wykorzystywane w wielu algorytmach kryptograficznych.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/prf-i-prp.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/prf-and-prp.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/prf-i-prp.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/prf-and-prp.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Funkcje i Permutacje Pseudolosowe | Kryptografia">
+  <meta property="og:description" content="Funkcje i permutacje pseudolosowe produkują dane wyjściowe nierozróżnialne od ciągów losowych. Są wykorzystywane w wielu algorytmach kryptograficznych.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/prf-i-prp.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Funkcje i permutacje pseudolosowe",
+        "description": "Funkcje i permutacje pseudolosowe produkują dane wyjściowe nierozróżnialne od ciągów losowych. Są wykorzystywane w wielu algorytmach kryptograficznych.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/prf-i-prp.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Funkcje i permutacje pseudolosowe"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/prf-and-prp.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Funkcje i permutacje pseudolosowe</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Funkcje pseudolosowe to&nbsp;efektywne deterministyczne funkcje, które produkują dane wyjściowe nierozróżnialne od&nbsp;ciągów losowych. Są tworzone na&nbsp;bazie <a href="/pl/teoria/generator-pseudolosowy.html">generatorów pseudolosowych</a>, jednak w&nbsp;przeciwieństwie do&nbsp;nich oprócz posiadanego wewnętrznego stanu, przyjmują również dodatkowe dane jako wejście. Dane wejściowe mogą mieć ustaloną i&nbsp;uporządkowaną postać, ale wyjście z&nbsp;funkcji pseudolosowej zawsze powinno sprawiać wrażenie całkowicie losowego ciągu bitów.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Funkcja pseudolosowa, której dane wyjściowe są nierozróżnialne od&nbsp;ciągu losowego, jest nazywana bezpieczną kryptograficznie.</p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Funkcja pseudolosowa (<var>PRF</var>) zdefiniowana na <span class="math">(K, X,&nbsp;Y)</span> to wydajna i&nbsp;deterministyczna funkcja, która zwraca ciąg pseudolosowy:<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">F: K </span><span class="math">x</span><span class="math"> X</span>&nbsp;<span class="math">-&gt;</span>&nbsp;<span class="math">Y</span>
+          </aside>
+          <p>Analogicznie można zdefiniować pseudolosowe permutacje. Generowane przez&nbsp;nie dane wyjściowe są nierozróżnialne od&nbsp;losowych ciągów danych.</p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Permutacja pseudolosowa (<var>PRP</var>) zdefiniowana na <span class="math">(K,&nbsp;X)</span> to wydajna i&nbsp;deterministyczna funkcja, która zwraca ciąg pseudolosowy:<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">E: K </span><span class="math">x</span><span class="math"> X</span>&nbsp;<span class="math">-&gt;</span>&nbsp;<span class="math">X</span>
+           <ul>
+           <li>funkcja <span class="math">E&nbsp;(k,&nbsp;.)</span> jest jednoznaczna</li>
+           <li>istnieje efektywny algorytm odwrotny <span class="math">D&nbsp;(k,&nbsp;x)</span></li>
+           </ul>
+          </aside>
+          <p>Permutacja pseudolosowa, której wyjście jest nierozróżnialne od&nbsp;losowego ciągu jest nazywana bezpieczną kryptograficznie. Można dowieść, że bezpieczna kryptograficznie pseudolosowa permutacja zdefiniowana na&nbsp;wystarczająco dużym zbiorze&nbsp;<span class="term">X</span> jest również bezpieczną kryptograficznie funkcją pseudolosową (jest&nbsp;to tak&nbsp;zwane <i>PRF Switching Lemma</i>).</p>
+          <h2 id="tworzenie-prf-na-bazie-prg">Tworzenie PRF na bazie&nbsp;PRG</h2>
+          <p>Mając dany kryptograficznie bezpieczny generator pseudolosowy <span class="term">G</span>, jest możliwe utworzenie kryptograficznie bezpiecznej funkcji pseudolosowej&nbsp;<span class="term">F</span>.</p>
+          <h3 id="jednobitowa-funkcja-pseudolosowa">Jednobitowa funkcja pseudolosowa</h3>
+          <figure class="figure figure--right"><img src="/assets/img/theory/generator-g.webp" alt="Generator pseudolosowy G" width="270" height="160" loading="lazy"></figure>
+          <p>Niech <span class="term">G</span> zwraca dwa razy więcej bitów, niż wynosi wielkość jego stanu wewnętrznego:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">G: K</span>&nbsp;<span class="math">-&gt;</span>&nbsp;<span class="math">K<sup>2</sup></span></p>
+          <p>Można zdefiniować jednobitową funkcję pseudolosową:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">F: K x {0, 1}</span>&nbsp;<span class="math">-&gt;</span>&nbsp;<span class="math">K</span><br> jako:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">F(k,&nbsp;b) = G(k)[b]</span><br> gdzie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<var>b</var> może być równe <span class="term">0</span> lub&nbsp;<span class="term">1</span>.</p>
+          <p>Tak określona funkcja&nbsp;<span class="term">F</span> zwraca pierwszą lub&nbsp;drugą połowę danych wyjściowych tworzonych przez&nbsp;dany generator, bazując na&nbsp;otrzymanym jednym bicie wejściowym.</p>
+          <p>Jeżeli generator <span class="term">G</span> jest kryptograficznie bezpieczny, to funkcja&nbsp;<span class="term">F</span> również jest kryptograficznie bezpieczna.</p>
+          <h3 id="dwubitowa-funkcja-pseudolosowa">Dwubitowa funkcja pseudolosowa</h3>
+          <figure class="figure figure--right"><img src="/assets/img/theory/generator-g1.webp" alt="Generator pseudolosowy G1" width="390" height="240" loading="lazy"></figure>
+          <p>Następnie, posiadany generator <span class="term">G</span> można rozszerzyć, definiując nowy generator <span class="term">G<sub>1</sub></span>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">G<sub>1</sub>: K</span>&nbsp;<span class="math">-&gt;</span>&nbsp;<span class="math">K<sup>4</sup></span><br> jako:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">G<sub>1</sub>(k) = G(G(k)[0]) || G(G(k)[1])</span></p>
+          <p>Analogicznie można teraz zdefiniować rozszerzoną pseudolosową funkcję&nbsp;<span class="term">F<sub>1</sub></span>, działającą na&nbsp;podwójnej ilości danych wejściowych:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">F<sub>1</sub>: K x {0, 1}<sup>2</sup></span>&nbsp;<span class="math">-&gt;</span>&nbsp;<span class="math">K</span><br> jako:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">F<sub>1</sub>(k,&nbsp;c) = G<sub>1</sub>(k)[c]</span><br> gdzie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<var>c</var> to dwa dowolne bity.</p>
+          <h3 id="n-bitowa-funkcja-pseudolosowa">N-bitowa funkcja pseudolosowa</h3>
+          <p>Zaprezentowaną procedurę można powtórzyć dowolną ilość razy otrzymując dowolnie dużą funkcję pseudolosową. Jest&nbsp;to metoda tworzenia funkcji pseudolosowych nazwana od&nbsp;nazwisk jej twórców <strong>Konstrukcją Goldreich-Goldwasser-Micali</strong> (ang. <i>Goldreich-Goldwasser-Micali Construction</i>).</p>
+          <p>Można wykazać, że jeżeli generator&nbsp;<span class="term">G</span> jest kryptograficznie bezpieczny, to bazująca na&nbsp;nim funkcja&nbsp;pseudolosowa działająca na&nbsp;danych wejściowych o&nbsp;długości <var>n</var> bitów i&nbsp;zdefiniowana w&nbsp;sposób przedstawiony powyżej, jest również kryptograficznie bezpieczna.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/generator-pseudolosowy.html" rel="prev"><small>← Poprzedni</small>Generator pseudolosowy</a>
+          <a class="pager__next" href="/pl/teoria/funkcja-jednokierunkowa.html" rel="next"><small>Następny →</small>Funkcja jednokierunkowa</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprf-i-prp.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprf-i-prp.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fprf-i-prp.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html" aria-current="page">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

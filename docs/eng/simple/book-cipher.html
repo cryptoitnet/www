@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/szyfr-ksiazkowy.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Cipher | Homophonic Substitution Ciphers | Crypto-IT</title>
+  <meta name="description" content="The book cipher allows people to exchange encrypted messages by using the same edition of a particular book.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/book-cipher.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/book-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-ksiazkowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/book-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Book Cipher | Homophonic Substitution Ciphers">
+  <meta property="og:description" content="The book cipher allows people to exchange encrypted messages by using the same edition of a particular book.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/book-cipher.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Book Cipher",
+        "description": "The book cipher allows people to exchange encrypted messages by using the same edition of a particular book.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/book-cipher.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Homophonic substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/homophonic-substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Book Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/szyfr-ksiazkowy.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a></li>
+            <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Book Cipher</h1>
+          <p class="article__subtitle">Homophonic Substitution Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>First mention about book ciphers appeared in 1526 in the works of Jacobus Silvestri.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>Around seventy years after developing the first efficient methods of printing books in 15th century, the first book ciphers were invented. Thanks to their simplicity, they were used for the next hundreds of years.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>There are several types of book cipher's algorithms. The most popular method consists of replacing each letter of the plaintext by three numbers - the number of a page, the number of a line and the number of a character in the line. The numbers are chosen in such a way, to indicate the same letter, as in the plaintext. Therefore the ciphertext consists of long sequences of numbers. During decryption one must find each letter of the message pointed by the triple sequences of numbers.</p>
+          <p>The other type of the book cipher consists in replacing each letter of the plaintext by two numbers - the number of a page and the number of a word on the page. Both sides must agree in advance, which letter of the pointed words will be used for encryption (for example the first one or - because usually the first letters of words are generally less diverse - the second one or the third one).</p>
+          <p>In order to use the book cipher, both sides must agree in advance for using exactly the same book (including exactly the same edition) during their communication. Because of its popularity and because all its verses are numbered, the common practice is to use the Bible as the key.</p>
+          <h2 id="security-of-the-book-cipher">Security of the book cipher</h2>
+          <p>The book cipher has two main weaknesses. First, its use is time-consuming. Each character must be encoded by a few numbers and must be separately found in the given book during decryption.</p>
+          <p>Second, there is a real danger that the intruder will discover or guess which book is used by both sides for encrypting their communication. In the era of computers, it is not a big problem to quickly check a lot of books potentially used as secret keys by using <a href="/eng/attacks/brute-force.html">brute force</a> attacks.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/homophonic-substitution-ciphers.html" rel="prev"><small>← Previous</small>Homophonic substitution ciphers</a>
+          <a class="pager__next" href="/eng/simple/polygraphic-substitution-ciphers.html" rel="next"><small>Next →</small>Polygraphic substitution ciphers</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fbook-cipher.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fbook-cipher.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fbook-cipher.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html" aria-current="page">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

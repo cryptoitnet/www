@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/klucz-biezacy.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Running Key Cipher | Crypto-IT</title>
+  <meta name="description" content="Polyalphabetic substitution cipher with running key: description, algorithm, schemes, cryptanalysis.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/running-key.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/running-key.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/klucz-biezacy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/running-key.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Running Key Cipher">
+  <meta property="og:description" content="Polyalphabetic substitution cipher with running key: description, algorithm, schemes, cryptanalysis.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/running-key.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Running Key Cipher",
+        "description": "Polyalphabetic substitution cipher with running key: description, algorithm, schemes, cryptanalysis.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/running-key.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Polyalphabetic substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/polyalphabetic-substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Running Key Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/klucz-biezacy.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a></li>
+            <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Running Key Cipher</h1>
+          <p class="article__subtitle">Polyalphabetic Substitution Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The running key cipher is a variation of the <a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a>. Each letter of the plaintext is shifted along some number of alphabet positions in one specified direction.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>Like other polyalphabetic ciphers, the running key cipher had been quite widely used until the first part of the twentieth century when effective attacks to this kind of ciphers were discovered.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>Encrypting using running key is about shifting plaintext letters along some numbers of alphabet positions. The numbers are determined by letters of a secret keyword (like in other substitution ciphers). To search for proper letters during encrypting and decrypting, one can use <i>tabula recta</i>, as during using for example the <a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a> or the <a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a>, both based on the same idea.</p>
+          <figure class="figure">
+           <img src="/assets/img/simple-ciphers/tabula-recta.webp" alt="tabula recta" width="320" height="320" loading="lazy"><br>
+           <figcaption>Tabula Recta</figcaption>
+          </figure>
+          <p>Instead of determining a secret keyword and then using it repeatedly during encrypting all messages, the running key cipher uses long, publicly available sets of letters - books and other similar long texts. Parties should agree which book exactly (and exactly which edition) they will use during the communication. They must determine the number of the first page used for encryption, the first row and the number of letter in the row.</p>
+          <p>All letters of the message are encrypted using subsequent letters found in the book. After encrypting some characters, one may jump to another, arbitrarily selected position in the book and continue taking key letters from new positions. It is possible to encode a number of a new page, a number of a new row and a number of the first letter in the row as subsequent letters. The letters can be appended to the plaintext and both can be encrypted together. The second party, after finding the letters and decoding them, jumps to the new position of the secret key letters. One may also provide information about changing the book using during encryption.</p>
+          <h2 id="security-of-the-running-key-cipher">Security of the running key cipher</h2>
+          <p>The running key cipher differs from other polyalphabetic substitution ciphers. Instead of a relatively short keyword, used over and over again, it uses a secret key of the same length as plaintext size. If ciphertext characters were completely random, the cipher would provide perfect security as the <a href="/eng/symmetric/otp.html">OTP</a> cipher. However in this case both plaintext and secret key consist of existing words and sentences, which makes ciphertext analysis much easier.</p>
+          <p>The intruder can try to guess parts of plaintext and match them in such a way, that receiving secret keys characters will create meaningful sequences, that make up words and sentences.</p>
+          <p>In order to increase cipher's security, the parties can take ciphering letters not from one sequence but from some different sequences (in different parts of the text) at the same time. The attacker would have to guess rules used for changing the sequences. In this case, the analysis is much more difficult because secret key letters don't create correct words.</p>
+          <p>Another idea to make cryptanalysis more difficult is about assigning a few words to each alphabet letter and using those words instead of keyword letters. The method is intended to make it difficult to distinguish ciphertext letters from plaintext letters. Usually ciphertext doesn't consist of words, unlike plaintext and secret key sequences.</p>
+          <p>Effective and popular methods for improving the cipher and creating better secret key characters involve using texts which contain unusual expressions (it was often used for example by KGB) or avoiding the use of <i>tabula recta</i> and replacing it by random combinations.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/beaufort-cipher.html" rel="prev"><small>← Previous</small>Beaufort cipher</a>
+          <a class="pager__next" href="/eng/simple/autokey-cipher.html" rel="next"><small>Next →</small>Autokey cipher</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Frunning-key.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Frunning-key.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Frunning-key.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html" aria-current="page">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

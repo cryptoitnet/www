@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/podwojny-szyfr-kolumnowy.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Double Columnar Transposition | Crypto-IT</title>
+  <meta name="description" content="The Double Columnar Transposition rearranges the plaintext letters, based on matrices filled with letters in the order determined by the secret keyword.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/double-transposition.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/double-transposition.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/podwojny-szyfr-kolumnowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/double-transposition.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Double Columnar Transposition">
+  <meta property="og:description" content="The Double Columnar Transposition rearranges the plaintext letters, based on matrices filled with letters in the order determined by the secret keyword.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/double-transposition.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Double Columnar Transposition",
+        "description": "The Double Columnar Transposition rearranges the plaintext letters, based on matrices filled with letters in the order determined by the secret keyword.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/double-transposition.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Transposition ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/transposition-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Double Columnar Transposition"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/podwojny-szyfr-kolumnowy.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Double Columnar Transposition</h1>
+          <p class="article__subtitle">Transposition Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The Double Columnar Transposition rearranges the plaintext letters, based on matrices filled with letters in the order determined by the secret keyword.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>The Double Columnar Transposition is a modification of the <a href="/eng/simple/columnar-transposition.html">Columnar Transposition</a>. It is quite similar to its predecessor, and it has been used in similar situations.</p>
+          <p>The encryption and decryption can be performed by hand, using a piece of paper and a simple matrix, in a similar way as it is done for the Columnar Transposition.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The Double Columnar Transposition was introduced to make cryptanalysis of messages encrypted by the Columnar Transposition more difficult. It was supposed to prevent anagrams of the plaintext words appearing in the <a href="/eng/simple/columnar-transposition.html#partSecurity">analysed ciphertext</a>.</p>
+          <p>The main idea behind the Double Columnar Transposition is to encrypt the message twice, by using the original Columnar Transposition, with identical or different secret keys. The output from the first encryption would be the input to the second encryption.</p>
+          <figure class="figure"><img src="/assets/img/simple-ciphers/double-columnar-eng.webp" alt="Double Columnar Transposition Scheme" width="1600" height="742" loading="lazy"></figure>
+          <p>The matrices used in both steps may have different sizes, if the two keywords of different lengths have been used.</p>
+          <p>All the operation performed during encryption and decryption, and all the parameters that have to be defined, remain the same, as in the Columnar Transposition.</p>
+          <h2 id="security-of-the-double-columnar-transposition">Security of the Double Columnar Transposition</h2>
+          <p>Breaking the Double Columnar Transposition is more difficult than breaking its simpler version, due to the fact that anagrams will not appear when trying to apply different sizes of matrices to the intercepted ciphertext.</p>
+          <p>An attacker has to try many different combinations of keywords in order to find patterns in the ciphertext. The cipher is more likely to be broken if multiple messages of the same length and encrypted with the same keys were intercepted. They can be anagrammed simultaneously, which makes the cryptanalysis much more effective.</p>
+          <p>It may be estimated that having a few messages of the same length, encrypted with identical keys, would allow the attacker to determine both the plaintexts and the secret keys. This technique was widely used by the French for breaking German messages at the beginning of World War I, until the Germans improved their system.</p>
+          <p>The Double Columnar Transposition remains one of the strongest ciphers that can be used manually, without the need of having electronic equipment. Another cipher that is considered to be as strong as it is the <a href="/eng/simple/vic.html">VIC cipher</a>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/columnar-transposition.html" rel="prev"><small>← Previous</small>Columnar transposition</a>
+          <a class="pager__next" href="/eng/simple/myszkowski-transposition.html" rel="next"><small>Next →</small>Myszkowski transposition</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fdouble-transposition.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fdouble-transposition.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fdouble-transposition.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html" aria-current="page">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

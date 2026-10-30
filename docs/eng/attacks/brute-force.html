@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/ataki/atak-silowy.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brute-Force Attack | Cryptography | Crypto-IT</title>
+  <meta name="description" content="During the brute-force attack, an attacker tries all possible keys (or passwords), and checks which one of them returns the correct plaintext.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/attacks/brute-force.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/brute-force.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-silowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/brute-force.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Brute-Force Attack | Cryptography">
+  <meta property="og:description" content="During the brute-force attack, an attacker tries all possible keys (or passwords), and checks which one of them returns the correct plaintext.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/attacks/brute-force.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Brute-Force Attack",
+        "description": "During the brute-force attack, an attacker tries all possible keys (or passwords), and checks which one of them returns the correct plaintext.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/attacks/brute-force.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Attacks",
+            "item": "https://www.crypto-it.net/eng/attacks/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Brute-Force Attack"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/" aria-current="true">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/ataki/atak-silowy.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/attacks/">Attacks</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Brute-Force Attack</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>During the brute-force attack, the intruder tries all possible keys (or passwords), and checks which one of them returns the correct plaintext. A brute-force attack is also called an exhaustive key search.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>An amount of time that is necessary to break a cipher is proportional to the size of the secret key. The maximum number of attempts is equal to <var>2<sup>key size</sup></var>, where <var>key size</var> is the number of bits in the key. Nowadays, it is possible to break a cipher with around 60-bit long key, by using the brute-force attack in less than one day.</p>
+          <p>Using brute-force attacks may be beneficial against all ciphers in which the number of all possible keys values is smaller than the number of all possible different messages. Therefore, all ciphers may be targeted, with the exception of ciphers providing <a href="/eng/theory/ciphers-security.html">perfect security</a>.</p>
+          <p>For breaking ciphers using brute-force attacks, very fast specially designed supercomputers are often used. They are owned by big research laboratories or government agencies, and they contain tens or hundreds of processors. Alternatively, large networks of thousands of regular computers working together may be used to break the same cipher. Cryptographic brute-force attacks are very scalable processes.</p>
+          <h2 id="dictionary-attack">Dictionary Attack</h2>
+          <p>Dictionary attacks are a kind of brute-force attacks, in which the intruder attempts to guess a password by trying existing words or popular expressions.</p>
+          <p>Such an approach reduces significantly the number of possible passwords that have to be tested. On the other hand, users often choose (or are required) to add some additional characters, like numbers, to their passwords, thus making the passwords impossible to be found in dictionaries. The applications that perform dictionary attacks often perform some common modifications of tested words, for example they may append current years.</p>
+          <h2 id="reverse-brute-force-attack">Reverse Brute-Force Attack</h2>
+          <p>In reverse brute-force attack, the intruder tests a single (usually popular) password against multiple victims. Usually a popular expression, like a word 'password', is tried against a huge number of users. The attacker does not target a specified user but rather the whole system which is used by them.</p>
+          <p>To prevent such attacks, administrators can ban using some popular and too predictable passwords.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/attacks/chosen-key.html" rel="prev"><small>← Previous</small>Chosen-key attack</a>
+          <a class="pager__next" href="/eng/attacks/dos.html" rel="next"><small>Next →</small>DoS</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fbrute-force.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fbrute-force.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fbrute-force.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-attacks -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/attacks/">Attacks</a></h2>
+        <ul>
+          <li><a href="/eng/attacks/known-plaintext.html">Known-plaintext attack</a></li>
+          <li><a href="/eng/attacks/chosen-plaintext.html">Chosen-plaintext attack</a></li>
+          <li><a href="/eng/attacks/known-ciphertext.html">Ciphertext-only attack</a></li>
+          <li><a href="/eng/attacks/chosen-ciphertext.html">Chosen-ciphertext attack</a></li>
+          <li><a href="/eng/attacks/chosen-key.html">Chosen-key attack</a></li>
+          <li><a href="/eng/attacks/brute-force.html" aria-current="page">Brute force attack</a></li>
+          <li><a href="/eng/attacks/dos.html">DoS</a></li>
+          <li><a href="/eng/attacks/man-in-the-middle.html">Man-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/two-time-pad.html">Attack on two-time pad</a></li>
+          <li><a href="/eng/attacks/krack.html">KRACK attack</a></li>
+          <li><a href="/eng/attacks/frequency-analysis.html">Frequency analysis</a></li>
+          <li><a href="/eng/attacks/meet-in-the-middle.html">Meet-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/replay.html">Replay attack</a></li>
+          <li><a href="/eng/attacks/homograph-attack.html">Homograph attack</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-attacks -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

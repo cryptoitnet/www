@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/narzedzia/uwierzytelnianie-kluczem.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Key-Based Authentication | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Key-based authentication allows to create secure connections to servers, without providing user&#x27;s passwords during each operation.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/tools/key-based-authentication.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/key-based-authentication.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/uwierzytelnianie-kluczem.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/tools/key-based-authentication.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Key-Based Authentication | Cryptography">
+  <meta property="og:description" content="Key-based authentication allows to create secure connections to servers, without providing user&#x27;s passwords during each operation.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/tools/key-based-authentication.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Key-Based Authentication (Public Key Authentication)",
+        "description": "Key-based authentication allows to create secure connections to servers, without providing user's passwords during each operation.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/tools/key-based-authentication.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Software",
+            "item": "https://www.crypto-it.net/eng/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Key-Based Authentication (Public Key Authentication)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/" aria-current="true">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/narzedzia/uwierzytelnianie-kluczem.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/tools/">Software</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Key-Based Authentication (Public Key Authentication)</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Key-based authentication is a kind of authentication that may be used as an alternative to password authentication. Instead of requiring a user's password, it is possible to confirm the client's identity by using <a href="/eng/asymmetric/">asymmetric cryptography</a> algorithms, with public and private keys.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Nowadays, password authentication is more popular than public key authentication. It does not require much preparation (at least, from the client's point of view), and perhaps is generally more intuitive. In order to log into a server, users have to provide their secret passwords, which are verified by the server. A disadvantage of this method is that, when a server is publicly available, it may be targeted by various types of <a href="/eng/attacks/brute-force.html">brute force and dictionary</a> attacks, and the password may eventually be broken and revealed. Moreover, this method requires the users to remember their (ideally difficult and complex) passwords.</p>
+          <p>Public key authentication offers a solution to these problems. The idea is to assign a pair of asymmetric keys to every user. Users would store their public keys in each system they want to use, while at the same time their private keys would be kept secure on the computers, the users want to use to connect with those secured systems. During establishing the connection, the server would use the public key to authenticate the client, for example by encrypting some number and asking the client to decrypt it, by using his corresponding private key.</p>
+          <p>Of course, the brute force attacks may still be performed by an attacker, but the complexity of long and unreadable keys is much larger, and such attacks would have significantly smaller chance of success. The asymmetric keys using at present consist of thousands of bits (as for year 2016, the recommended lengths are 2048 and 4096 bits).</p>
+          <p>The most popular algorithm used for key-based authentication is <a href="/eng/asymmetric/rsa.html">RSA</a>.</p>
+          <h2 id="public-key-authentication-on-linux">Public key authentication on Linux</h2>
+          <p>Most Linux releases provide native support for SSH (Secure Shell) cryptographic network protocol (most commonly for <a href="http://www.openssh.com" rel="noopener" target="_blank">OpenSSH</a>). Users are able to easily create and configure pairs of asymmetric keys. After that, they can log into servers that support key-based authentication automatically. During establishing the connection, SSH processes running on the server use the proper public keys to challenge and authenticate the client processes, that are located on the client machine.</p>
+          <h3 id="key_generate_linux">Generating RSA keys</h3>
+          <p>In order to benefit from all the advantages of key-based authentication that are described above, first the user has to create a pair of asymmetric keys. On Linux this can be achieved by using the SSH command:</p>
+          <pre><code>ssh-keygen -t rsa -b 4096 -C "email@example.com"</code></pre>
+          <p>The user will be then asked for a few configuration parameters, like the desired location to save the keys and, optionally, a passphrase which will be used to protect the private key. Usually the keys are created in <span class="term">~/.ssh</span> directory, in the home folder. The public key is stored in <span class="term">id_rsa.pub</span> file, whereas the private key can be found in <span class="term">id_rsa</span>.</p>
+          <p>The private key can be stored on an external memory stick. The users will be able to authenticate themselves on any computer they happen to use, as long as they are able to present the proper memory card.</p>
+          <h3 id="private-key-passphrase">Private key passphrase</h3>
+          <p>If during key pair generation, a password was entered by the user, then the private key will be stored in an encrypted file. The user will be asked to authenticate himself, before the private key is released and ready to use for establishing a connection. Usually, operating systems cache the decrypted key in memory and release it automatically, until the end of local login session. On Linux, the process responsible for that is called <span class="term">ssh-agent</span>.</p>
+          <p>Because the private key is stored locally, on a trusted computer, it is not possible for an intruder to start attacking it online. Usually, the private-key file permissions should be restricted, and only the owner should be able to read it.</p>
+          <p>The encrypted private key can by attacked, only when the attacker got full access to the computer (for example, by stealing it). By the time the cipher is broken, the user has time to remove his old public key from servers, that he was using, and to create a new secure pair of asymmetric keys.</p>
+          <p>Such an approach is much more secure than normal, password-based authentication, where an attacker can start attacking the user's password online.</p>
+          <h3 id="transfer-a-public-key">Transfer a public key</h3>
+          <p>In order to be able to log into a server, the user has to send there the public key. The SSH tool can be used for that:</p>
+          <pre><code>ssh-copy-id &lt;username&gt;@&lt;host&gt;</code></pre>
+          <p>The user may be warned that the host is unknown, and will be asked for the proper password, but apart from that the command automatically transfers the public key to the specified server.</p>
+          <p>An alternative method is to manually append the contents of <span class="term">id_rsa.pub</span> file to <span class="term">~/.ssh/authorized_keys</span> located on the server (in the root user's account).</p>
+          <p>The results of both methods are the same: the public key is added to the <span class="term">authorized_keys</span> file, which is then used by the server when someone tries to connect by using the SSH protocol.</p>
+          <h3 id="using-ssh-connection">Using SSH connection</h3>
+          <p>The SSH connection to the server can be tested by using the command:</p>
+          <pre><code>ssh &lt;username&gt;@&lt;host&gt;</code></pre>
+          <p>If succeeded (that means if the key-based authentication is correctly configured), this command will establish a secure connection to the server, without the need of providing the remote account's password. If the private key is encrypted, then the user will be asked for the password which protects it.</p>
+          <p>After enabling the key-based authentication on the server, the password authentication could be disabled, to prevent brute-force attacks. It can be done by changing the flag <span class="term">PasswordAuthentication</span> in <span class="term">/etc/ssh/sshd_config</span>, and restarting the SSH service. It is also possible to specify the IP addresses which would be allowed to use the password authentication, and block the functionality for the others.</p>
+          <p>The configuration file mentioned above is also a place where you can enable or disable the key-based authentication on the server altogether. The flags are called <span class="term">PubkeyAuthentication</span> and <span class="term">RSAAuthentication</span>, and they both should be enabled.</p>
+          <h2 id="public-key-authentication-on-windows">Public key authentication on Windows</h2>
+          <p>Using key-based authentication on Windows machines is also a relatively easy task but one has to equip himself with an application that provides such capabilities.</p>
+          <p>The programs described below can be used to generate the pair of keys. After that, the public key needs to be manually provided to Linux, to the file <span class="term">.ssh/authorized_keys</span> mentioned above.</p>
+          <h3 id="git-bash">Git Bash</h3>
+          <p>Git Bash is a terminal client which (as one may guess) provides bash functionalities to Windows machines. It is quite similar to <a href="http://www.cygwin.com/" rel="noopener" target="_blank">CygWin</a> but faster and less complex. For the purposes of generating asymmetric keys, it is just enough.</p>
+          <p>The web address of the Git project is <a href="http://git-scm.com/" rel="noopener" target="_blank">git-scm.com</a>, and its Windows version can be downloaded from there.</p>
+          <p>The pair of keys can be generated using the same commands, like <a href="#key_generate_linux">on Linux</a> (<span class="term">ssh-keygen</span>, and so on).</p>
+          <h3 id="putty">PuTTY</h3>
+          <p>PuTTY is an SSH and telnet client, an open source application available for Windows platforms. It consists of several components, PuTTY, PSCP, PSFTP, PuTTYtel, Plink, Pageant, PuTTYgen, pterm. All of them are quite useful. The project home page is <a href="http://www.putty.org/" rel="noopener" target="_blank">www.putty.org</a>.</p>
+          <p>To generate the keys, one should use PuTTYgen tool, which can be found in PuTTY installation directory. The user should just press the 'Generate' button. The application requires enough random data to generate <a href="/eng/theory/pseudorandom-generator.html">random byte streams</a> used for key-generation, so the user will be asked to make some random mouse movements.</p>
+          <h3 id="bitvise">Bitvise</h3>
+          <p>Bitvise is a company that specializes in SSH server and client applications development. It provides a few various services that are not as free as both tools described above, however they can be used freely for personal purposes. The website of the project is <a href="http://www.bitvise.com/" rel="noopener" target="_blank">www.bitvise.com</a>.</p>
+          <p>To generate the pair of keys, one should use User Keypair Manager tool, which can be found on the front page. After clicking 'Generate New' button, the user will be asked for the type of the key and for the optional password, similarly like during generating the keys <a href="#key_generate_linux">on Linux</a>.</p>
+          <p>User Keypair Manager allows to export the created keys. One has to select the output format (usually OpenSSH, which is understood by most SSH servers).</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/tools/security-token.html" rel="prev"><small>← Previous</small>Security tokens</a>
+          <a class="pager__next" href="/eng/tools/docker.html" rel="next"><small>Next →</small>Docker</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fkey-based-authentication.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fkey-based-authentication.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftools%2Fkey-based-authentication.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-tools -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/tools/">Software</a></h2>
+        <ul>
+          <li><a href="/eng/tools/jca-and-jce.html">JCA and JCE</a></li>
+          <li><a href="/eng/tools/security-token.html">Security tokens</a></li>
+          <li><a href="/eng/tools/key-based-authentication.html" aria-current="page">Key-based authentication</a></li>
+          <li><a href="/eng/tools/docker.html">Docker</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-tools -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

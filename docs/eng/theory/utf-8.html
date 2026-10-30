@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en" data-type="tool" data-translation="/pl/teoria/utf-8.html" data-published="2026-10-30">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UTF-8 Encoding Explained + Online Converter | Crypto-IT</title>
+  <meta name="description" content="How UTF-8 stores Unicode characters in 1–4 bytes, with examples and pitfalls. Convert text to UTF-8 hex, binary or decimal online.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/utf-8.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/utf-8.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/utf-8.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/utf-8.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="UTF-8 Encoding Explained + Online Converter">
+  <meta property="og:description" content="How UTF-8 stores Unicode characters in 1–4 bytes, with examples and pitfalls. Convert text to UTF-8 hex, binary or decimal online.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/utf-8.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <script src="/assets/js/tools/utf-8.js" type="module"></script>
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "UTF-8 Encoding",
+        "description": "How UTF-8 stores Unicode characters in 1–4 bytes, with examples and pitfalls. Convert text to UTF-8 hex, binary or decimal online.",
+        "inLanguage": "en",
+        "datePublished": "2026-10-30",
+        "dateModified": "2026-10-30",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/utf-8.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UTF-8 Encoding"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/utf-8.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">UTF-8 Encoding</h1>
+          <p class="article__subtitle">How text becomes bytes</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2026-10-30">30 October 2026</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p class="article__lead">UTF-8 is the character encoding used by almost every web page, file format and network protocol today. It stores each Unicode character as one to four bytes, and plain ASCII text stays exactly the same.</p>
+          <p><a href="#online">Convert text to UTF-8 online ↓</a></p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="unicode">Unicode and encodings</h2>
+          <p>Unicode assigns a number, called a <em>code point</em>, to every character: <span class="term">A</span> is U+0041, <span class="term">ł</span> is U+0142, <span class="term">€</span> is U+20AC and the emoji 😀 is U+1F600. An <em>encoding</em> defines how these numbers are stored as bytes. UTF-8, designed by Ken Thompson and Rob Pike in 1992, is the most common one; others are UTF-16 and UTF-32.</p>
+          <h2 id="algorithm">How UTF-8 works</h2>
+          <p>The number of bytes depends on the size of the code point. The first byte says how many bytes follow; every following byte starts with the bits <span class="term">10</span>:</p>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Code points</th><th>Bytes</th><th>Bit pattern</th></tr></thead>
+              <tbody>
+                <tr><td>U+0000 – U+007F</td><td>1</td><td><code>0xxxxxxx</code></td></tr>
+                <tr><td>U+0080 – U+07FF</td><td>2</td><td><code>110xxxxx 10xxxxxx</code></td></tr>
+                <tr><td>U+0800 – U+FFFF</td><td>3</td><td><code>1110xxxx 10xxxxxx 10xxxxxx</code></td></tr>
+                <tr><td>U+10000 – U+10FFFF</td><td>4</td><td><code>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>For example, <span class="term">ł</span> (U+0142, binary <span class="term">101 0100 0010</span>) needs two bytes: the bits are split into <span class="term">00101</span> and <span class="term">000010</span>, giving <span class="term">11000101 10000010</span>, that is <span class="term">C5 82</span> in hexadecimal. The euro sign is <span class="term">E2 82 AC</span> and 😀 is <span class="term">F0 9F 98 80</span>.</p>
+          <h2 id="properties">Why UTF-8 won</h2>
+          <ul>
+            <li><strong>ASCII compatible:</strong> English text and source code look the same as in ASCII.</li>
+            <li><strong>Self-synchronising:</strong> a reader can find the start of the next character from any position, because continuation bytes always start with <span class="term">10</span>.</li>
+            <li><strong>No byte order problems:</strong> unlike UTF-16, UTF-8 is a sequence of single bytes, so no byte order mark (BOM) is needed.</li>
+          </ul>
+          <p>Not every byte sequence is valid UTF-8. Decoders must reject, for example, a lone continuation byte, a truncated sequence or an "overlong" encoding (such as <span class="term">C0 AF</span> for <span class="term">/</span>). Accepting overlong forms has led to real security holes, because filters checking for <span class="term">/</span> or <span class="term">..</span> did not recognise them.</p>
+          <section class="tool" id="online" aria-labelledby="online-title"
+                   data-tool="utf-8"
+                   data-msg-format="Unknown output format."
+                   data-msg-parse="The input is not a valid list of bytes for the chosen format."
+                   data-msg-invalid="The bytes are not a valid UTF-8 sequence."
+                   data-msg-copied="Copied">
+            <h2 id="online-title">UTF-8 converter</h2>
+
+            <fieldset>
+              <legend class="visually-hidden">Direction</legend>
+              <div class="segmented">
+                <label><input type="radio" name="direction" value="encode" checked> Text → bytes</label>
+                <label><input type="radio" name="direction" value="decode"> Bytes → text</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Byte format</legend>
+              <div class="options">
+                <label><input type="radio" name="format" value="hex" checked> Hexadecimal</label>
+                <label><input type="radio" name="format" value="decimal"> Decimal</label>
+                <label><input type="radio" name="format" value="binary"> Binary</label>
+                <label><input type="radio" name="format" value="entities"> HTML entities</label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="u8-input">Input</label>
+              <textarea id="u8-input" data-role="input" spellcheck="false">Zażółć gęślą jaźń 😀</textarea>
+              <small>When decoding, enter the bytes in the selected format (space- or comma-separated; HTML entities look like <code>&amp;#196;</code>).</small>
+            </div>
+
+            <p class="tool__error" data-role="error" role="alert"></p>
+
+            <div class="field">
+              <label for="u8-output">Result</label>
+              <textarea id="u8-output" data-role="output" readonly></textarea>
+            </div>
+            <div class="tool__actions">
+              <button type="button" class="button" data-role="copy">Copy result</button>
+              <button type="button" class="button" data-role="swap">Use result as input</button>
+            </div>
+          </section>
+          <h2 id="in-practice">UTF-8 in practice</h2>
+          <p>HTML pages declare it with <code>&lt;meta charset="utf-8"&gt;</code>. In JavaScript, <code>new TextEncoder().encode(text)</code> returns the UTF-8 bytes of a string and <code>new TextDecoder('utf-8', { fatal: true })</code> decodes them, throwing an error on invalid input – the tool above works this way. Python offers <code>text.encode('utf-8')</code> and <code>data.decode('utf-8')</code>.</p>
+          <p>Encodings matter in cryptography too: ciphers and <a href="/eng/theory/one-way-function.html">hash functions</a> work on bytes, not characters, so the same text encoded differently gives a different ciphertext or hash. See also <a href="/eng/theory/binary-numbers.html">binary numbers</a> and <a href="/eng/theory/notation-of-numbers.html">notation of numbers</a>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/binary-numbers.html" rel="prev"><small>← Previous</small>Binary numbers</a>
+          <a class="pager__next" href="/eng/theory/time-estimation-of-mathematical-operations.html" rel="next"><small>Next →</small>Time estimation of mathematical operations</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Futf-8.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Futf-8.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Futf-8.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html" aria-current="page">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

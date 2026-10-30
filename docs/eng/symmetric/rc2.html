@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/symetryczne/rc2.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RC2 Symmetric Block Cipher | Cryptography | Crypto-IT</title>
+  <meta name="description" content="RC2 is a symmetric block cipher, which was particularly popular in the first half of the 90s.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/symmetric/rc2.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/rc2.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/rc2.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/rc2.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="RC2 Symmetric Block Cipher | Cryptography">
+  <meta property="og:description" content="RC2 is a symmetric block cipher, which was particularly popular in the first half of the 90s.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/symmetric/rc2.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "RC2",
+        "description": "RC2 is a symmetric block cipher, which was particularly popular in the first half of the 90s.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/symmetric/rc2.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Symmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Block ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/block-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "RC2"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/" aria-current="true">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/symetryczne/rc2.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/symmetric/">Symmetric ciphers</a></li>
+            <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">RC2</h1>
+          <p class="article__subtitle">Block cipher with symmetric secret key</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Block length = 8 bytes</li>
+           <li>Key length = from one byte up to 128 bytes</li>
+          </ul>
+          <p>RC2 is a block symmetric cipher which was popular in the first half of the 90s of the last century. It was greatly promoted by the US government agencies.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>RC2 was designed by Ron Rivest of RSA Security in 1987, who created also <a href="/eng/symmetric/rc4.html">a few other ciphers</a>. RC2 algorithm had been kept secret until 1996, when it was anonymously posted on sci.crypt group.</p>
+          <p>RC2 is also known as ARC2. The acronym RC is understood as "Rivest Cipher" or "Ron's Code".</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>RC2 is a block cipher, and the block size is 8 bytes (64 bits). This means that the input data is first divided into blocks of 8 bytes and then each of them is processed separately.</p>
+          <p>Each data block is treated as four words, each word has 16 bits (2 bytes). The array of four words is presented as <span class="term">R[0] R[1] R[2] R[3]</span>. Both encryption and decryption take this array as input and modify the four words. The output is returned in the same array.</p>
+          <h3 id="key-expansion">Key Expansion</h3>
+          <p>Apart from the data, the RC2 cipher takes as input a secret user key. The key provided by the user may be of size from one byte up to 128 bytes. Let us denote the key size (in bytes) as <var>Key<sub>size</sub></var>. The first operation which RC2 then performs is to expand the key, to receive new 128 key bytes which will be used for encryption or decryption of all data bytes.</p>
+          <p>The user provides also a second value, denoted <var>Key<sub>bit-limit</sub></var>, which determines the maximum effective key size, provided in bits. This means, that no matter how many bytes of the secret key has been provided by the user, the cipher will operate on the key which effective size is <var>Key<sub>byte-limit</sub></var>, where:<br> <span class="math">Key<sub>byte-limit</sub> = (Key<sub>bit-limit</sub> + 7) / 8</span><br><br> Of course, the real strength of the key will be even smaller, if the user provided less key bytes than <var>Key<sub>byte-limit</sub></var>.</p>
+          <p>In order to assure that only that many bits will be used to secure the data, the following bit mask is defined:<br> <span class="math">Key<sub>mask</sub> = 255 mod 2^(8 + Key<sub>bit-limit</sub> - 8&middot;Key<sub>byte-limit</sub>)</span><br><br> The <var>8 - (8&middot;Key<sub>byte-limit</sub> - Key<sub>bit-limit</sub>)</var> least significant bits of <var>Key<sub>mask</sub></var> are set, the rest are zeros.</p>
+          <h3 id="key-words-and-bytes">Key Words and Bytes</h3>
+          <p>The mathematical operations that are performed on the key operate on both single bytes and whole words. So, for convenience, the numbers in the key may be presented as either 64 words:<br> <span class="math">K[0], K[1], ..., K[63]</span><br><br> or 128 separate bytes:<br> <span class="math">L[0], L[1], ..., L[127]</span>.</p>
+          <p>Note, that each part of the key array may be addressed by using either bytes or words. The following equation can be defined:<br> <span class="math">K[i] = L[2&middot;i] + 256&middot;L[2&middot;i+1]</span><br><br> The low-order eight bits of each word is located before the high-order byte.</p>
+          <h3 id="key-expansion-algorithm">Key Expansion Algorithm</h3>
+          <p>The first step of the key expansion algorithm is to fill the first <var>Key<sub>size</sub></var> bytes of key array with the bytes received from the user:<br> <span class="math">L[0], L[1], ..., L[Key<sub>size</sub>-1]</span>.</p>
+          <p>Then, the following steps are performed on the key data. T<sub>PI</sub> mentioned below is a fixed array of size 256, filled randomly with values from 0 to 255:</p>
+          <ol class="steps">
+           <li>For <var>i</var> = <var>Key<sub>size</sub></var>, <var>Key<sub>size</sub>+1</var>, and up until <var>127</var>:<br> <span class="math">L[i] = T<sub>PI</sub>[(L[i-1] + L[i-Key<sub>size</sub>]) mod 256]</span></li>
+           <li><span class="math">L[128-Key<sub>byte-limit</sub>] = T<sub>PI</sub>[L[128-Key<sub>byte-limit</sub>] &amp; Key<sub>mask</sub>]</span></li>
+           <li>For <var>i</var> = <var>127-Key<sub>byte-limit</sub></var>, down until <var>0</var>:<br> <span class="math">L[i] = T<sub>PI</sub>[L[i+1] XOR L[i+Key<sub>byte-limit</sub>]]</span></li>
+          </ol>
+          <p>The effective encryption key is determined by the bytes:<br> <span class="math">L[128-Key<sub>byte-limit</sub>], L[128-Key<sub>byte-limit</sub>+1]..., L[127]</span><br><br>The operation <span class="math">&amp;</span> performed in the second step above limits the effective size of the key down to just <var>Key<sub>bit-limit</sub></var> bits.</p>
+          <h2 id="encryption">Encryption</h2>
+          <p>The encryption procedure takes as input four words: <span class="term">R[0] R[1] R[2] R[3]</span>, which form one block of data. Every block of data will be encrypted by using the same 64 words of expanded secret key: <span class="term">K[0] K[1] ... K[63]</span>.</p>
+          <p>The following encryption steps are performed on every data block:</p>
+          <ol class="steps">
+           <li>Initialize the counter <var>j</var> to 0.</li>
+           <li>Perform five Mixing Rounds.</li>
+           <li>Perform one Mashing Round.</li>
+           <li>Perform six Mixing Rounds.</li>
+           <li>Perform one Mashing Round.</li>
+           <li>Perform five Mixing Rounds.</li>
+          </ol>
+          <p>Because every Mixing Round uses 4 key bytes, all 128 key bytes are used during encryption of one data block. The Mashing Rounds use key bytes in a more unpredicted manner.</p>
+          <p>Each Mixing Round consists of four Mixing operations, performed on four words of the data block:</p>
+          <ol class="steps">
+           <li>Mixing R[0]</li>
+           <li>Mixing R[1]</li>
+           <li>Mixing R[2]</li>
+           <li>Mixing R[3]</li>
+          </ol>
+          <p>Each Mashing Round consists of four Mashing operations, performed on four words of the data block:</p>
+          <ol class="steps">
+           <li>Mashing R[0]</li>
+           <li>Mashing R[1]</li>
+           <li>Mashing R[2]</li>
+           <li>Mashing R[3]</li>
+          </ol>
+          <h2 id="decryption">Decryption</h2>
+          <p>The decryption procedure takes as input four ciphertext words: <span class="term">R[0] R[1] R[2] R[3]</span>, which form one block of encrypted data. Every block of data will be decrypted by using the same 64 words of expanded secret key: <span class="term">K[0] K[1] ... K[63]</span>.</p>
+          <p>The following decryption steps are performed on every ciphertext block:</p>
+          <ol class="steps">
+           <li>Initialize the counter <var>j</var> to 63.</li>
+           <li>Perform five R-Mixing Rounds.</li>
+           <li>Perform one R-Mashing Round.</li>
+           <li>Perform six R-Mixing Rounds.</li>
+           <li>Perform one R-Mashing Round.</li>
+           <li>Perform five R-Mixing Rounds.</li>
+          </ol>
+          <p>Each R-Mixing Round consists of four R-Mixing operations, performed on four words of the encrypted data block:</p>
+          <ol class="steps">
+           <li>R-Mixing R[3]</li>
+           <li>R-Mixing R[2]</li>
+           <li>R-Mixing R[1]</li>
+           <li>R-Mixing R[0]</li>
+          </ol>
+          <p>Each R-Mashing Round consists of four R-Mashing operations, performed on four words of the encrypted data block:</p>
+          <ol class="steps">
+           <li>R-Mashing R[3]</li>
+           <li>R-Mashing R[2]</li>
+           <li>R-Mashing R[1]</li>
+           <li>R-Mashing R[0]</li>
+          </ol>
+          <h2 id="block-diagram-of-rc2-encryption">Block Diagram of RC2 Encryption</h2>
+          <figure class="figure"><img src="/assets/img/rc2/rc2-enc-eng.webp" alt="Scheme of RC2 encryption algorithm" width="1395" height="2075" loading="lazy"></figure>
+          <h2 id="block-diagram-of-rc2-decryption">Block Diagram of RC2 Decryption</h2>
+          <figure class="figure"><img src="/assets/img/rc2/rc2-dec-eng.webp" alt="Scheme of RC2 decryption algorithm" width="1395" height="2075" loading="lazy"></figure>
+          <h2 id="maths">Maths</h2>
+          <p>The operations for RC2 algorithm are presented in the order from the low-level functions, to the more complex operations, that use the functions described above them.</p>
+          <h3 id="table-pi-tpi">Table PI (T<sub>PI</sub>)</h3>
+          <p>Table PI is a fixed array that contains 256 elements, used during key expansion operations.</p>
+          <p>Table PI is filled with numbers, which are a random permutation of all possible byte values from 0 to 255. The order of numbers is based on the digits of PI: 3.1415...</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>Table PI in hexadecimal notation</caption>
+           <tr>
+           <td>d9</td>
+           <td>78</td>
+           <td>f9</td>
+           <td>c4</td>
+           <td>19</td>
+           <td>dd</td>
+           <td>b5</td>
+           <td>ed</td>
+           <td>28</td>
+           <td>e9</td>
+           <td>fd</td>
+           <td>79</td>
+           <td>4a</td>
+           <td>a0</td>
+           <td>d8</td>
+           <td>9d</td>
+           </tr>
+           <tr>
+           <td>c6</td>
+           <td>7e</td>
+           <td>37</td>
+           <td>83</td>
+           <td>2b</td>
+           <td>76</td>
+           <td>53</td>
+           <td>8e</td>
+           <td>62</td>
+           <td>4c</td>
+           <td>64</td>
+           <td>88</td>
+           <td>44</td>
+           <td>8b</td>
+           <td>fb</td>
+           <td>a2</td>
+           </tr>
+           <tr>
+           <td>17</td>
+           <td>9a</td>
+           <td>59</td>
+           <td>f5</td>
+           <td>87</td>
+           <td>b3</td>
+           <td>4f</td>
+           <td>13</td>
+           <td>61</td>
+           <td>45</td>
+           <td>6d</td>
+           <td>8d</td>
+           <td>09</td>
+           <td>81</td>
+           <td>7d</td>
+           <td>32</td>
+           </tr>
+           <tr>
+           <td>bd</td>
+           <td>8f</td>
+           <td>40</td>
+           <td>eb</td>
+           <td>86</td>
+           <td>b7</td>
+           <td>7b</td>
+           <td>0b</td>
+           <td>f0</td>
+           <td>95</td>
+           <td>21</td>
+           <td>22</td>
+           <td>5c</td>
+           <td>6b</td>
+           <td>4e</td>
+           <td>82</td>
+           </tr>
+           <tr>
+           <td>54</td>
+           <td>d6</td>
+           <td>65</td>
+           <td>93</td>
+           <td>ce</td>
+           <td>60</td>
+           <td>b2</td>
+           <td>1c</td>
+           <td>73</td>
+           <td>56</td>
+           <td>c0</td>
+           <td>14</td>
+           <td>a7</td>
+           <td>8c</td>
+           <td>f1</td>
+           <td>dc</td>
+           </tr>
+           <tr>
+           <td>12</td>
+           <td>75</td>
+           <td>ca</td>
+           <td>1f</td>
+           <td>3b</td>
+           <td>be</td>
+           <td>e4</td>
+           <td>d1</td>
+           <td>42</td>
+           <td>3d</td>
+           <td>d4</td>
+           <td>30</td>
+           <td>a3</td>
+           <td>3c</td>
+           <td>b6</td>
+           <td>26</td>
+           </tr>
+           <tr>
+           <td>6f</td>
+           <td>bf</td>
+           <td>0e</td>
+           <td>da</td>
+           <td>46</td>
+           <td>69</td>
+           <td>07</td>
+           <td>57</td>
+           <td>27</td>
+           <td>f2</td>
+           <td>1d</td>
+           <td>9b</td>
+           <td>bc</td>
+           <td>94</td>
+           <td>43</td>
+           <td>03</td>
+           </tr>
+           <tr>
+           <td>f8</td>
+           <td>11</td>
+           <td>c7</td>
+           <td>f6</td>
+           <td>90</td>
+           <td>ef</td>
+           <td>3e</td>
+           <td>e7</td>
+           <td>06</td>
+           <td>c3</td>
+           <td>d5</td>
+           <td>2f</td>
+           <td>c8</td>
+           <td>66</td>
+           <td>1e</td>
+           <td>d7</td>
+           </tr>
+           <tr>
+           <td>08</td>
+           <td>e8</td>
+           <td>ea</td>
+           <td>de</td>
+           <td>80</td>
+           <td>52</td>
+           <td>ee</td>
+           <td>f7</td>
+           <td>84</td>
+           <td>aa</td>
+           <td>72</td>
+           <td>ac</td>
+           <td>35</td>
+           <td>4d</td>
+           <td>6a</td>
+           <td>2a</td>
+           </tr>
+           <tr>
+           <td>96</td>
+           <td>1a</td>
+           <td>d2</td>
+           <td>71</td>
+           <td>5a</td>
+           <td>15</td>
+           <td>49</td>
+           <td>74</td>
+           <td>4b</td>
+           <td>9f</td>
+           <td>d0</td>
+           <td>5e</td>
+           <td>04</td>
+           <td>18</td>
+           <td>a4</td>
+           <td>ec</td>
+           </tr>
+           <tr>
+           <td>c2</td>
+           <td>e0</td>
+           <td>41</td>
+           <td>6e</td>
+           <td>0f</td>
+           <td>51</td>
+           <td>cb</td>
+           <td>cc</td>
+           <td>24</td>
+           <td>91</td>
+           <td>af</td>
+           <td>50</td>
+           <td>a1</td>
+           <td>f4</td>
+           <td>70</td>
+           <td>39</td>
+           </tr>
+           <tr>
+           <td>99</td>
+           <td>7c</td>
+           <td>3a</td>
+           <td>85</td>
+           <td>23</td>
+           <td>b8</td>
+           <td>b4</td>
+           <td>7a</td>
+           <td>fc</td>
+           <td>02</td>
+           <td>36</td>
+           <td>5b</td>
+           <td>25</td>
+           <td>55</td>
+           <td>97</td>
+           <td>31</td>
+           </tr>
+           <tr>
+           <td>2d</td>
+           <td>5d</td>
+           <td>fa</td>
+           <td>98</td>
+           <td>e3</td>
+           <td>8a</td>
+           <td>92</td>
+           <td>ae</td>
+           <td>05</td>
+           <td>df</td>
+           <td>29</td>
+           <td>10</td>
+           <td>67</td>
+           <td>6c</td>
+           <td>ba</td>
+           <td>c9</td>
+           </tr>
+           <tr>
+           <td>d3</td>
+           <td>00</td>
+           <td>e6</td>
+           <td>cf</td>
+           <td>e1</td>
+           <td>9e</td>
+           <td>a8</td>
+           <td>2c</td>
+           <td>63</td>
+           <td>16</td>
+           <td>01</td>
+           <td>3f</td>
+           <td>58</td>
+           <td>e2</td>
+           <td>89</td>
+           <td>a9</td>
+           </tr>
+           <tr>
+           <td>0d</td>
+           <td>38</td>
+           <td>34</td>
+           <td>1b</td>
+           <td>ab</td>
+           <td>33</td>
+           <td>ff</td>
+           <td>b0</td>
+           <td>bb</td>
+           <td>48</td>
+           <td>0c</td>
+           <td>5f</td>
+           <td>b9</td>
+           <td>b1</td>
+           <td>cd</td>
+           <td>2e</td>
+           </tr>
+           <tr>
+           <td>c5</td>
+           <td>f3</td>
+           <td>db</td>
+           <td>47</td>
+           <td>e5</td>
+           <td>a5</td>
+           <td>9c</td>
+           <td>77</td>
+           <td>0a</td>
+           <td>a6</td>
+           <td>20</td>
+           <td>68</td>
+           <td>fe</td>
+           <td>7f</td>
+           <td>c1</td>
+           <td>ad</td>
+           </tr>
+           </table>
+          </div>
+          <h3 id="binary-left-rotation">Binary Left Rotation: &lt;&lt;&lt;</h3>
+          <p>The <var>a</var>-bit left rotation of a 2-byte word <var>w</var> is denoted in the algorithm as <var>w &lt;&lt;&lt; a</var>. The leftmost <var>a</var> bits move to the rightmost positions.</p>
+          <h3 id="binary-right-rotation">Binary Right Rotation: &gt;&gt;&gt;</h3>
+          <p>The <var>a</var>-bit right rotation of a 2-byte word <var>w</var> is denoted in the algorithm as <var>w &gt;&gt;&gt; a</var>. The rightmost <var>a</var> bits move to the leftmost positions.</p>
+          <h3 id="mixing-operation">Mixing Operation</h3>
+          <p>Mixing Operation modifies one data word and increments the counter <var>j</var> during encryption process.</p>
+          <p>The following three operations are performed during Mixing:<br> <span class="math">R[i] = R[i] + K[j] +<br> + (R[(i+4-1) mod 4] &amp; R[(i+4-2) mod 4])<br> + ((~R[(i+4-1) mod 4]) &amp; R[(i+4-3) mod 4])</span><br> <span class="math">j = j + 1</span><br> <span class="math">R[i] = R[i] &lt;&lt;&lt; s[i]</span><br><br> where <var>j</var> is the counter variable and the vector <var>s</var> contains the following values: <span class="term">s[0] = 1</span>, <span class="term">s[1] = 2</span>, <span class="term">s[2] = 3</span>, <span class="term">s[3] = 5</span>.</p>
+          <h3 id="mashing-operation">Mashing Operation</h3>
+          <p>Mashing Operation modifies one data word during encryption process.</p>
+          <p>The following operation is performed during Mashing:<br> <span class="math">R[i] = R[i] + K[R[(i+4-1) mod 4] &amp; 63]</span></p>
+          <h3 id="r-mixing-operation">R-Mixing Operation</h3>
+          <p>R-Mixing Operation modifies one ciphertext word and decrements the counter <var>j</var> during decryption process.</p>
+          <p>The following three operations are performed during R-Mixing:<br> <span class="math">R[i] = R[i] &gt;&gt;&gt; s[i]</span><br> <span class="math">R[i] = R[i] - K[j]<br> - (R[(i+4-1) mod 4] &amp; R[(i+4-2) mod 4])<br> - ((~R[(i+4-1) mod 4]) &amp; R[(i+4-3) mod 4])</span><br> <span class="math">j = j - 1</span><br><br> where <var>j</var> is the counter variable and the vector <var>s</var> contains the following values: <span class="term">s[0] = 1</span>, <span class="term">s[1] = 2</span>, <span class="term">s[2] = 3</span>, <span class="term">s[3] = 5</span>.</p>
+          <h3 id="r-mashing-operation">R-Mashing Operation</h3>
+          <p>R-Mashing Operation modifies one data word during decryption process.</p>
+          <p>The following operation is performed during R-Mashing:<br> <span class="math">R[i] = R[i] - K[R[(i+4-1) mod 4] &amp; 63]</span></p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/symmetric/des.html" rel="prev"><small>← Previous</small>DES</a>
+          <a class="pager__next" href="/eng/symmetric/3des.html" rel="next"><small>Next →</small>Triple DES</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Frc2.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Frc2.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Frc2.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/symmetric/">Symmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/otp.html">OTP</a></li>
+              <li><a href="/eng/symmetric/rc4.html">RC4</a></li>
+              <li><a href="/eng/symmetric/salsa20.html">Salsa20</a></li>
+              <li><a href="/eng/symmetric/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/des.html">DES</a></li>
+              <li><a href="/eng/symmetric/rc2.html" aria-current="page">RC2</a></li>
+              <li><a href="/eng/symmetric/3des.html">Triple DES</a></li>
+              <li><a href="/eng/symmetric/aes.html">AES</a></li>
+              <li><a href="/eng/symmetric/blowfish.html">Blowfish</a></li>
+              <li><a href="/eng/symmetric/camellia.html">Camellia</a></li>
+              <li><a href="/eng/symmetric/serpent.html">Serpent</a></li>
+              <li><a href="/eng/symmetric/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

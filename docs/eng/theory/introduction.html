@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/wprowadzenie.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A 10-paragraph Introduction to Ciphers | Crypto-IT</title>
+  <meta name="description" content="Introduction to ciphers, that is a short history of the first encryption means and the basic principles of modern cryptography.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/introduction.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/introduction.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/wprowadzenie.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/introduction.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="A 10-paragraph Introduction to Ciphers">
+  <meta property="og:description" content="Introduction to ciphers, that is a short history of the first encryption means and the basic principles of modern cryptography.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/introduction.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "A 10-paragraph Introduction to Ciphers",
+        "description": "Introduction to ciphers, that is a short history of the first encryption means and the basic principles of modern cryptography.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/introduction.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "A 10-paragraph Introduction to Ciphers"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/wprowadzenie.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">A 10-paragraph Introduction to Ciphers</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>It is difficult to say with certainty, but it seems probable that soon after mastering the art of writing, people started to feel the need to hide and mask what was written. Probably over time and with increasing importance of written messages, the need became stronger. First states were created and more and more important information had to be sent in writing over long distances. The information that should have remained undisclosed.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="a-brief-history-of-cryptography">A Brief History of Cryptography</h2>
+          <p>Initially, people tried to mask the fact of the existence of messages and not just their content. Such an action is called <a href="/eng/theory/steganography.html">steganography</a>. Over time the first simple <a href="/eng/simple/">substitution</a> ciphers were invented. The idea was to replace some letters by other letters, in a way that is known only to privy parties.</p>
+          <p>It should be noted here that alphabets created in Europe (Latin, Greek) turned out to be a large facilitation. They contain relatively few letters, that are easy to manipulate. Using substitution ciphers for texts in Chinese is no longer so obvious.</p>
+          <p>With the appearance of methods of breaking simple substitution ciphers, the ordinary exchange of letters became no longer strong enough. The new ciphers were invented. They allowed better mixing of letters, obscuring messages and corrupting typical language characteristics (letters frequency, popular pairs of characters). Besides substitution of letters, ciphers started to use transposition of letters.</p>
+          <h2 id="cipher-construction">Cipher Construction</h2>
+          <p>At this stage a full model of building ciphers was developed. Having some long messages that should be encrypted, one knows a recipe (an algorithm) which is a list of steps to perform for changing plaintext letters into ciphertext characters. It is also necessary to choose a secret key. It will be used together with the selected algorithm. For example, the algorithm may be a sentence <em>"move each letter right"</em> and the secret key may be a phrase <em>"by three positions"</em>.</p>
+          <p>This distinction comes from the possibility to reduce the amount of information that has to be exchanged between interested parties. The number of positions of how much all letters should be moved is the most important information in this situation, while the information about the fact that the shift should be performed to the right is not crucial for message's security and can be transmitted at the beginning of the message without encryption. Moreover, such distinction allows to use the algorithm multiple times with different keys, for example during communication with different people.</p>
+          <p>Current encryption algorithms operate on computers or electronic devices. Secret keys consist of tens of characters and during encryption and decryption millions of operations are performed. Encryption algorithms are part of larger algorithms, communication protocols and various standards. People have to deal with them quite often in many areas of their lives.</p>
+          <p>Finally, let's notice two things. Firstly, the main benefit of using ciphers is the fact that secret keys are much shorter in comparison to amount of transmitted information. This allows to replace a difficult problem (providing in secret some long messages) by an easier challenge (providing in secret a shorter key; the key can be then used many times).</p>
+          <p>Second, any algorithm may be publicly known or it may be secret. In theory, the latter option provides additional security. The general <a href="/eng/theory/kerckhoffs.html">rule</a> says that every cipher should be reliable and secure even after the full publication of its algorithm. Thus, one should always assume that an intruder knows everything about attacked systems, except their secret keys.</p>
+          <p>Most modern ciphers base on publicly known algorithms. In practice, there are two arguments for this solution. First, after some time every algorithm usually becomes known - due to coincidence, bribery, betrayal, or analysis of equipment or software that use the cipher. Second, a publicly known algorithm can be tested and analysed by thousands of honest and wise people. If they find errors, they can publicly disclose the issues. Thus it is possible to improve the cipher and correct the algorithm.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a class="pager__next" href="/eng/theory/kerckhoffs.html" rel="next"><small>Next →</small>Kerckhoffs&#x27;s principle</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fintroduction.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fintroduction.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fintroduction.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html" aria-current="page">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

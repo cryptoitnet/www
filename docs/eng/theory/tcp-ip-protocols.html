@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/protokoly-tcp-ip.html" data-published="2020-04-15">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TCP/IP Protocols | Cryptography | Crypto-IT</title>
+  <meta name="description" content="TCP/IP are the most popular protocols used in computer networks. Learn how to build and process TCP/IP messages in different layers of the network.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/tcp-ip-protocols.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/tcp-ip-protocols.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly-tcp-ip.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/tcp-ip-protocols.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="TCP/IP Protocols | Cryptography">
+  <meta property="og:description" content="TCP/IP are the most popular protocols used in computer networks. Learn how to build and process TCP/IP messages in different layers of the network.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/tcp-ip-protocols.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "TCP/IP Protocols",
+        "description": "TCP/IP are the most popular protocols used in computer networks. Learn how to build and process TCP/IP messages in different layers of the network.",
+        "inLanguage": "en",
+        "datePublished": "2020-04-15",
+        "dateModified": "2020-04-15",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/tcp-ip-protocols.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "TCP/IP Protocols"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/protokoly-tcp-ip.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">TCP/IP Protocols</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-04-15">15 April 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>TCP/IP (Transmission Control Protocol/Internet Protocol) is a set of protocols, that are used for data transmission over computer networks. The TCP/IP model recognizes the main functionalities of the theoretical <button type="button" class="note-ref" popovertarget="note-osi-model">OSI model</button>. The image below presents the corresponding layers of both TCP/IP and OSI models.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <figure class="figure"><img src="/assets/img/theory/tcpip/tcpip-osi-eng.webp" alt="Comparison of TCP/IP and OSI layers" width="457" height="359" loading="lazy"></figure>
+          <p>Every message, which is sent by an application, has to pass through all the TCP/IP layers, from the application layer to the lowest network interface layer. Then, it is transmitted over network to another computer. Finally, it moves all the way up to the application layer and then to the target application.</p>
+          <p>While data is passed down from the application to the network, each layer adds its own header to every message. Each header is then handled by a corresponding layer on the receiving computer (where, as we said earlier, messages are passed from the network up to the application layer and beyond). Both the content and the size of each header depend on the protocol that has been used in the layer.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/tcpip/tcpip-flow-send-eng.webp" alt="Sending a message in TCP/IP" width="1145" height="794" loading="lazy">
+           <figcaption>Sending a message in TCP/IP</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/tcpip/tcpip-flow-receive-eng.webp" alt="Receiving a message in TCP/IP" width="1145" height="794" loading="lazy">
+           <figcaption>Receiving a message in TCP/IP</figcaption>
+          </figure>
+          <h2 id="application-layer">Application Layer</h2>
+          <p>The first of four TCP/IP layers makes the communication between computer programs and lower layer protocols thus allowing applications to use networks. The programs can use one of many application layer protocols to request different kinds of actions.</p>
+          <p>There are a lot of application layer protocols that use TCP/IP data transmission. Some of the popular protocols are:</p>
+          <ul>
+           <li>HTTP, HTTPS - for web browsing,</li>
+           <li>FTP, TFTP, NFS - for file transfer,</li>
+           <li>SMTP - for sending email messages,</li>
+           <li>POP3 - for receiving email messages,</li>
+           <li>IMAP - for managing email messages on the server,</li>
+           <li>Telnet, rLogin - for accessing remote computers,</li>
+           <li>SNMP - for network management,</li>
+           <li>DNS - for finding IP addresses assigned to Web addresses,</li>
+           <li><a href="/eng/theory/application-protocols.html#IRC">IRC - for online chats</a></li>
+          </ul>
+          <p>Application layer messages vary depending on the protocol that has been used. Each protocol requires different input data and produces different queries that are to be sent to the transport layer. Irrespective of what was produced by the application layer, the transport layer treats every received message as <em>data</em> and doesn't care about its content.</p>
+          <h3 id="internet-sockets">Internet sockets</h3>
+          <p>Internet sockets are structures that are used for communication between application and transport layers. Every process or application trying to connect to the network, has to associate its input and output channels by defining the corresponding internet sockets objects.</p>
+          <p>An internet socket contains an IP address, a port number and a transport layer protocol name. A unique combination of those three values determines a proper process that should deal with the message.</p>
+          <p>The port number can be assigned automatically by the operating system, manually by the user or is set as a default for some popular applications. The port number is a 16-bit integer (0 - 65535).</p>
+          <p>Some popular application layer protocols use by default predefined and well-known port numbers. For example, HTTP uses port 80, HTTPS uses port 443, SMTP port 25, Telnet port 23, and FTP uses two ports: 20 for data transmission and 21 for transmission control. The list of such default port numbers is managed by the Internet Assigned Numbers Authority organization.</p>
+          <p>The process of associating an application to a socket is called <em>binding</em>. After successful binding the application doesn't need to care about network management because all further operations are handled by protocols of lower layers of TCP/IP.</p>
+          <p>In some operating systems some special privileges are required for applications to bind to port numbers less than 1024. Therefore, a lot of processes prefer using higher port numbers allocated for short term use. Such ports are called <em>ephemeral ports</em>.</p>
+          <p>A user can specify a port number in a URL. For instance the following URL forces the browser to try to reach the website using port 8080, instead of default HTTP port 80:</p>
+          <pre><code>http://www.example.com:8080/path</code></pre>
+          <h2 id="transport-layer">Transport Layer</h2>
+          <p>The transport layer receives messages from the application layer. It divides them into smaller packets, adds a header, and sends the messages down to the internet layer. The header contains several control information, especially source and target port numbers.</p>
+          <p>Port numbers are used by the transport layer while handling incoming packets from the internet layer (thus, during receiving data). Thanks to the port number, it is possible to determine what kind of contents there is inside the incoming message, thus which application layer protocol should receive it. For example, a packet with the target port number equal to 25 will be delivered to the protocol connected to this port, usually SMTP. In this case, SMTP will provide data to the email application that requested it.</p>
+          <h3 id="tcp">TCP</h3>
+          <p>The most common protocol used in the transport layer is TCP (Transmission Control Protocol). This is a connection oriented protocol. TCP offers reliable, peer-acknowledged, ordered, session-based connectivity between two hosts.</p>
+          <p>All the features mentioned above are provided by the TCP layer itself. This means, that it may operate with other, unreliable, protocols in the lower layers and that this shouldn't affect the communication from the application layer perspective.</p>
+          <h4>TCP Reliability</h4>
+          <p>During sending data, TCP assures that data has been provided to the recipient. The receiver checks if the received packet was intact during transmission (by checking the checksum of the data) and, if so, the receiver confirms it by sending an acknowledgement to the sender. If the sender doesn't receive the acknowledgement for a message within some time period, it will resend the lost packet.</p>
+          <p>After several unsuccessful attempts, TCP assumes that the receiver is unreachable and informs the application layer that the transmission has failed.</p>
+          <h4>TCP Ordering</h4>
+          <p>The TCP header contains a field with the message sequence number. The sequence number is incremented by one for every message sent. During receiving data, TCP rearranges incoming packets and put them in the right order. Thanks to that, the application layer doesn't need to care about the ordering of network packets.</p>
+          <h4>TCP Header</h4>
+          <p>The TCP header consists of 20 or more bytes. The size depends on the fact whether or not the optional <em>options</em> field is used. The maximum size of the <em>options</em> field is 40 bytes, thus the maximum size of the whole header is 60 bytes.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/tcpip/tcp-header-eng.webp" alt="The TCP header structure" width="794" height="378" loading="lazy">
+           <figcaption>The TCP header structure</figcaption>
+          </figure>
+          <br>
+          <h4>TCP Session</h4>
+          <p>Two applications need to establish a session to exchange data. TCP requires three messages to create the session:</p>
+          <ol class="steps">
+           <li><strong>SYN</strong> - the first application (the client) sends a <em>synchronize</em> packet to the host. The message contains a random sequence number, which has been set by the client.</li>
+           <li><strong>SYN-ACK</strong> - the host responds to the client. It increases the sequence number from the client by one and sends it back in the message as an acknowledgement number. Also, the response message contains another sequence number chosen randomly by the host.</li>
+           <li><strong>ACK</strong> - the client sends an acknowledgement message to the host. The message contains both received numbers increased by one.</li>
+          </ol>
+          <p>When the transmission is completed, the session should be terminated. Each side can terminate the session. The second side is supposed to acknowledge that.</p>
+          <h4>TCP Usage</h4>
+          <p>TCP is widely used by protocols and applications that require high reliability. It is not as fast as UDP but, if configured properly, it still provides quite good speed together with high quality of transmitted data.</p>
+          <p>There are a lot of application layer protocols that are mostly used together with TCP. Some of the most popular ones are:</p>
+          <ul>
+           <li>HTTP, HTTPS</li>
+           <li>FTP</li>
+           <li>SMTP</li>
+           <li>Telnet</li>
+          </ul>
+          <h3 id="udp">UDP</h3>
+          <p>The second popular protocol that is used in the transport layer is UDP (User Datagram Protocol or Universal Datagram Protocol), a simpler, connectionless protocol. One program just sends some packages to another, without creating any kind of relation between them.</p>
+          <p>Due to its simplicity UDP is faster than TCP. On the other hand, it doesn't provide such reliability as TCP. There is no guarantee that the messages would reach the receiver. UDP doesn't deliver packets in the same order that they were sent. It is up to the application to check that the received messages are intact and to deal with data in the correct order.</p>
+          <h4>UDP Header</h4>
+          <p>The UDP header is 8-byte long. It is much shorter and simpler than the corresponding TCP header.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/tcpip/udp-header-eng.webp" alt="The UDP header structure" width="794" height="144" loading="lazy">
+           <figcaption>The UDP header structure</figcaption>
+          </figure>
+          <br>
+          <h4>UDP Usage</h4>
+          <p>UDP is preferred if unimportant data is transmitted or the communication has to be really fast. For example, UDP is used for DNS requests (because of a huge number of clients sending many short messages to relatively few DNS servers). Similarly, during audio and video transmission the loss of some packets is not so damaging to the receiver.</p>
+          <p>There are a lot of application layer protocols that use UDP, for example:</p>
+          <ul>
+           <li>DNS</li>
+           <li>DHCP</li>
+           <li>TFTP</li>
+           <li>SNMP</li>
+           <li>RIP</li>
+           <li>VOIP</li>
+          </ul>
+          <h3 id="dccp">DCCP</h3>
+          <p>Datagram Congestion Control Protocol is a protocol that allows application to use congestion control mechanisms and to maintain reliable connections. It doesn't provide reliable in-order delivery.</p>
+          <p>DCCP is used by applications which work with quickly changing data (streaming media, online games, VoIP). In such situations it is often better to use new piece of available data than ask for retransmitting the old damaged package.</p>
+          <h3 id="rsvp">RSVP</h3>
+          <p>Resource Reservation Protocol allows for reservation of resources across a network. It is mainly used by routers and hosts to assure delivering specific levels of quality of service (QoS) for clients.</p>
+          <p>RSVP can reserve bandwidth for one-to-one and one-to-many transmissions. The protocol is initiated by the client (receiver), which asks the router to reserve some resources.</p>
+          <h3 id="sctp">SCTP</h3>
+          <p>Stream Control Transmission Protocol allows sending multiple streams of data through one stream. It ensures reliable and in-order transmission with congestion control, similarly to TCP, but allows sending related data streams together in the same messages.</p>
+          <p>In general, SCTP is quite a powerful protocol. However, due to the poor support of routers and operating systems, at present it is not popular and widely used.</p>
+          <h2 id="internet-layer">Internet Layer</h2>
+          <p>The internet layer adds another header to the messages received from the transport layer. The most important fields in the new header are IP addresses of both source and target machines. The IP address is a unique virtual number that allows to find the device in the network.</p>
+          <p>Each network device has also another special number assigned to it, called a MAC address. This is a unique number that cannot be changed (it is stored in ROM) and that allows to identify the device throughout the world. However, locating a device based on MAC in a global network is practically impossible because this number is strictly hardware related and it doesn't tell us anything about position of the device. On the other hand, IP addresses allow us to find any computer by using DNS servers. Every computer can query a DNS server and obtain information about the location of the target device in the network.</p>
+          <p>In general, messages travel through several routers before reaching the target server (pointed out by the target IP address). To find out a way between the computer and the server, one could use the Windows command:</p>
+          <pre><code>tracert www.google.co.uk</code></pre>
+          <p>There are a few protocols that work in the internet layer. The most important, and the most popular, of them is IP (Internet Protocol). It would be a good idea to name some other internet layer protocols:</p>
+          <ul>
+           <li>ARP (Address Resolution Protocol)</li>
+           <li>RARP (Reverse Address Resolution Protocol)</li>
+           <li>ICMP (Internet Control Message Protocol)</li>
+          </ul>
+          <h3 id="ip">IP</h3>
+          <p>IP is used for transmitting data packets over the network. At present two versions of this protocol are in use: IPv4 (IP version 4) and IPv6 (IP version 6).</p>
+          <p>IP doesn't provide any acknowledge system that means it is unreliable. It is up to TCP operating in the transport layer to make sure that all the requested data has been delivered. Therefore the TCP/IP connection will be reliable.</p>
+          <h4>IP Datagrams</h4>
+          <p>The data packets are taken from the transport layer and divided into datagrams. Every datagram consists of the IP header and the bytes received from the transport layer. The maximum size of a datagram depends on the IP version: 2<sup>16</sup>−1 bytes for IPv4, and 2<sup>32</sup>−1 for IPv6. If the transport layer packet is too large, it will be divided into several smaller datagrams.</p>
+          <p>Usually the data is divided into even smaller datagrams. It is caused by the limited capabilities of physical networks. For example, the maximum size of an Ethernet datagram is 1&nbsp;500 bytes, so usually the datagrams created in the internet layer based on Ethernet will be slightly smaller than 1&nbsp;500 bytes (to allow the lower layers to add additional headers). The maximum datagram size for a network is called MTU (Maximum Transfer Unit).</p>
+          <p>IP allows to divide a datagram into smaller datagrams if this datagram has to go through a different kind of network with smaller MTU. When the smaller datagrams arrive to the previous type of network, they can be re-assembled into the original datagram. There is a special field in the IP header to allow such operations (called <em>Fragment Offset</em>).</p>
+          <h2 id="network-interface-layer">Network Interface Layer</h2>
+          <p>The network interface layer allows datagrams from the internet layer to be sent via physical network to another computer, where they are passed up through the corresponding network layer to the internet layer and beyond. At present, most computers are connected to Ethernet networks, which may be either wired or wireless. Therefore, usually the TCP/IP protocols of the upper layers are used together with the set of Ethernet protocols.</p>
+          <p>There are three Ethernet layers. The first two, <strong>Logic Link Control (LLC)</strong> and <strong>Media Access Control (MAC)</strong>, correspond to the data link layer of the OSI reference model. The lowest layer is called the <strong>physical layer</strong>, as in the OSI reference model.</p>
+          <figure class="figure"><img src="/assets/img/theory/tcpip/network-interface-eng.webp" alt="Sublayers of the network interface layer" width="559" height="227" loading="lazy"></figure>
+          <h3 id="logic-link-control-layer">Logic Link Control Layer</h3>
+          <p>The main functionality of the first Ethernet layer is to inform the target machine which internet layer protocol ought to be used to properly deal with the incoming message.</p>
+          <p>The layer simply adds the information about the protocol used in the internet layer, and about the protocol that is intended to receive the message. This allows the LLC layer on the target computer to deliver datagrams correctly.</p>
+          <p>The layer is defined by <a href="https://standards.ieee.org/standard/802_2-1989.html" rel="noopener" target="_blank">IEEE 802.2</a> standard.</p>
+          <h3 id="media-access-control-layer">Media Access Control Layer</h3>
+          <p>The media access control layer creates the final message (<em>Ethernet frame</em>) that will be sent over the network.</p>
+          <p>The layer creates its own header, similarly like other layers. It contains the source MAC address and the target MAC address, that is the physical addresses of both machines which want to exchange information. If the target machine is located beyond a router, in a different network, the target MAC address will be the router MAC address (and it will be changed to another one during processing the message by the router).</p>
+          <p>The media access control layer adds also 4 CRC bytes which may be used for data correction.</p>
+          <p>The layer is defined by <a href="https://standards.ieee.org/standard/802_3-2018.html" rel="noopener" target="_blank">IEEE 802.3</a> standard, if a cabled network is being used. For wireless networks <a href="https://standards.ieee.org/standard/802_11-2016.html" rel="noopener" target="_blank">IEEE 802.11</a> is used.</p>
+          <h3 id="physical-layer">Physical Layer</h3>
+          <p>The physical layer is responsible for converting messages into electricity or electromagnetic waves (depending on the type of the network) and for transmitting them over the physical network between communicating machines.</p>
+          <p>It is described by the same specifications as the MAC layer, <a href="https://standards.ieee.org/standard/802_3-2018.html" rel="noopener" target="_blank">IEEE 802.3</a> and <a href="https://standards.ieee.org/standard/802_11-2016.html" rel="noopener" target="_blank">IEEE 802.11</a>.</p>
+          <div class="note" id="note-osi-model" popover>
+           <p>The Open Systems Interconnection model (OSI) is a conceptual model that describes and standardizes the main functionalities of a communication system by dividing it into seven abstraction layers. A set of major functionalities is defined for each layer. Every layer is designed to serve the layer above it and to be served by the layer below it.</p>
+           <p>The standard was created in the 1980s as an attempt to define a unifying standard for the architecture of networking systems. Its specification is maintained by the specification <a href="http://www.iso.org/iso/catalogue_detail.htm?csnumber=20269" rel="noopener" target="_blank">ISO/IEC 7498-1.</a></p>
+           <button type="button" class="note__close" popovertarget="note-osi-model" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/protocols.html" rel="prev"><small>← Previous</small>Protocols</a>
+          <a class="pager__next" href="/eng/theory/application-protocols.html" rel="next"><small>Next →</small>Application Protocols</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Ftcp-ip-protocols.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Ftcp-ip-protocols.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Ftcp-ip-protocols.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html" aria-current="page">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

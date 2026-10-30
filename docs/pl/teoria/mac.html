@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/mac.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kod Uwierzytelniania Wiadomości | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Algorytmy kodu uwierzytelniania wiadomości (MAC) umożliwiają uwierzytelnianie i sprawdzanie poprawności otrzymywanych wiadomości.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/mac.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/mac.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/mac.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/mac.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Kod Uwierzytelniania Wiadomości | Kryptografia">
+  <meta property="og:description" content="Algorytmy kodu uwierzytelniania wiadomości (MAC) umożliwiają uwierzytelnianie i sprawdzanie poprawności otrzymywanych wiadomości.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/mac.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Kod uwierzytelniania wiadomości",
+        "description": "Algorytmy kodu uwierzytelniania wiadomości (MAC) umożliwiają uwierzytelnianie i sprawdzanie poprawności otrzymywanych wiadomości.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/mac.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Kod uwierzytelniania wiadomości"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/mac.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Kod uwierzytelniania wiadomości</h1>
+          <p class="article__subtitle">(ang. message authentication code - MAC)</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Kod uwierzytelniania wiadomości (nazywany zwykle MAC, od&nbsp;angielskiego oryginału) to&nbsp;nieduży blok danych, który jest używany w&nbsp;celu uwierzytelnienia przesyłanej wiadomości. Odbiorca może sprawdzić za&nbsp;jego pomocą czy wiadomość nie&nbsp;została zmodyfikowana przez&nbsp;osoby trzecie.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Za&nbsp;pomocą skrótu MAC oznacza się również algorytmy używane w&nbsp;celu tworzenia bloku zawierającego kod uwierzytelnienia oraz&nbsp;jego późniejszego weryfikowania.</p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           MAC zdefiniowany na <span class="math">(K,&nbsp;M,&nbsp;T)</span> to para algorytmów <span class="math">(S,&nbsp;V)</span>:
+           <ul>
+           <li><span class="math">S(k,&nbsp;m)</span>: zwraca kod uwierzytelnienia <span class="math">t</span> należący do zbioru <span class="math">T</span></li>
+           <li><span class="math">V(k,&nbsp;m,&nbsp;t)</span>: zwraca wartość <i>true</i> lub <i>false</i> w zależności od poprawności sprawdzanego kodu uwierzytelnienia</li>
+           </ul>
+           <div class="definition__note">
+           gdzie:
+           <ul>
+           <li><var>M</var> to&nbsp;zbiór wszystkich możliwych wiadomości&nbsp;<span class="term">m</span>,</li>
+           <li><var>K</var> to&nbsp;zbiór wszystkich możliwych kluczy&nbsp;<span class="term">k</span>,</li>
+           <li><var>T</var> to&nbsp;zbiór wszystkich możliwych kodów uwierzytelnienia&nbsp;<span class="term">t</span></li>
+           </ul>
+           </div>
+          </aside>
+          <p>Najprostszym sposobem oznaczenia autentyczności wiadomości jest wyliczenie jej sumy kontrolnej, na&nbsp;przykład za&nbsp;pomocą algorytmu&nbsp;CRC, a następnie dołączenie wyniku na&nbsp;końcu przesyłanej wiadomości.</p>
+          <p>Podstawową wadą tej metody jest brak zabezpieczenia przed&nbsp;celowymi modyfikacjami w&nbsp;treści wiadomości. Napastnik może zmienić zawartość wiadomości, a następnie wyliczyć nową sumę kontrolną i&nbsp;wstawić ją na&nbsp;miejsce oryginalnej. Algorytmy CRC umożliwiają jedynie wykrycie losowych uszkodzeń wiadomości, nie&nbsp;przeprowadzonych celowo przez ewentualnego napastnika.</p>
+          <p>Kolejne akapity zaprezentują algorytmy MAC, które uniemożliwiają napastnikowi podrobienie kodów uwierzytelniających.</p>
+          <h2 id="algorytmy-mac-bazujace-na-prf">Algorytmy MAC bazujące na&nbsp;PRF</h2>
+          <p>Na bazie kryptograficznie bezpiecznej funkcji pseudolosowej (<a href="/pl/teoria/prf-i-prp.html">PRF</a>) można skonstruować kryptograficznie bezpieczny MAC.</p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Dla funkcji pseudolosowej <span class="math">F: (K x X)</span> <span class="math">→</span> <span class="math">Y</span> można zdefiniować parę algorytmów MAC: <span class="math">(S,&nbsp;V)</span> jako:
+           <ul>
+           <li><span class="math">S(k,&nbsp;m) := F(k,&nbsp;m)</span></li>
+           <li><span class="math">V(k,&nbsp;m,&nbsp;t):</span> zwraca wartość <i>true</i> jeśli <span class="math">t&nbsp;= F(k,&nbsp;m)</span> lub <i>false</i> w&nbsp;przeciwnym wypadku</li>
+           </ul>
+           <div class="definition__note">
+           <ul>
+           <li>Należy mieć na&nbsp;uwadze, że zbiór&nbsp;Y musi być na&nbsp;tyle duży, żeby prawdopodobieństwo odgadnięcia wyniku funkcji&nbsp;F było <button type="button" class="note-ref" popovertarget="note-negligible">zaniedbywalnie</button> małe.</li>
+           </ul>
+           </div>
+          </aside>
+          <p>Przykładowo, aby zabezpieczyć 16-bajtową wiadomość można użyć algorytmu szyfrującego <a href="/pl/symetryczne/aes.html">AES</a> lub&nbsp;dowolnego innego podobnego szyfru symetrycznego operującego na&nbsp;16-bajtowych blokach danych.</p>
+          <p>Poniżej zaprezentowano algorytmy MAC, które umożliwiają zabezpieczenie dłuższych wiadomości.</p>
+          <h2 id="cbc-mac">CBC&nbsp;MAC</h2>
+          <p>Algorytm CBC&nbsp;MAC jest zbudowany na&nbsp;bazie funkcji pseudolosowej (dla wygody nazwanej&nbsp;F). Jego działanie jest oparte na&nbsp;tej samej idei co&nbsp;szyfrowanie symetryczne przeprowadzane w&nbsp;<a href="/pl/teoria/tryby-szyfrow-blokowych.html#TrybCbc">trybie CBC</a>, z&nbsp;tą różnicą, że nie&nbsp;zwraca się kolejno otrzymywanych pośrednich wartości. Ponadto, po&nbsp;zaszyfrowaniu ostatniego bloku wiadomości wykonywane jest dodatkowe szyfrowanie aktualnego rezultatu przy&nbsp;użyciu drugiego sekretnego klucza.</p>
+          <p>Końcowe szyfrowanie ma na&nbsp;celu zapewnienie bezpieczeństwa wyliczonego kodu. Cały proces, włącznie z&nbsp;ostatnim dodatkowym krokiem, nosi nazwę ECBC&nbsp;MAC (od ang. <i>encrypted</i>), w&nbsp;odróżnieniu od części algorytmu bez&nbsp;ostatniego szyfrowania nazywanej <i>raw</i> CBC&nbsp;MAC.</p>
+          <figure class="figure"><img src="/assets/img/theory/mac/ecbcmac-pl.webp" alt="Schemat działania ECBC MAC" width="1172" height="355" loading="lazy"></figure>
+          <br>
+          <p>W przypadku nie zastosowania ostatniego kroku algorytmu (czyli bez&nbsp;szyfrowania za&nbsp;pomocą drugiego klucza), napastnik mógłby zaatakować zabezpieczenia CBC&nbsp;MAC za&nbsp;pomocą <a href="/pl/ataki/wybrany-tekst-jawny.html">ataku z&nbsp;wybranym tekstem jawnym</a>:</p>
+          <ol class="steps">
+           <li>Napastnik wybiera wiadomość <span class="term">m</span> o długości jednego bloku.</li>
+           <li>Następnie napastnik uzyskuje od&nbsp;atakowanego systemu wartość kodu uwierzytelniającego dla tej wiadomości: <span class="term">t&nbsp;=&nbsp;F(k,&nbsp;m)</span>.</li>
+           <li>Atakujący może w&nbsp;tym momencie określić wartość kodu uwierzytelniającego dla&nbsp;wiadomości <span class="term">m<sub>1</sub></span> o&nbsp;długości dwóch bloków <span class="term">m<sub>1</sub> = (m,&nbsp;t</span>&nbsp;XOR&nbsp;<span class="term">m)</span>:<br> rawCBC<span class="math">(k,&nbsp;m<sub>1</sub>)&nbsp; =</span> rawCBC<span class="math">(k,&nbsp;(m,&nbsp;t</span>&nbsp;XOR&nbsp;<span class="math">m))&nbsp; = &nbsp;F(k,&nbsp;F(k,&nbsp;m)</span>&nbsp;XOR&nbsp;<span class="math">(t</span>&nbsp;XOR&nbsp;<span class="math">m))&nbsp; = &nbsp;F(k,&nbsp;t</span>&nbsp;XOR&nbsp;<span class="math">(t</span>&nbsp;XOR&nbsp;<span class="math">m))&nbsp; =&nbsp;&nbsp;t</span></li>
+          </ol>
+          <p>CBC&nbsp;MAC może zabezpieczać wiadomości o&nbsp;dowolnej długości, od&nbsp;jednego do&nbsp;bardzo wielu bloków. Jego stosowanie jest kryptograficznie bezpieczne, o&nbsp;ile po&nbsp;zaszyfrowaniu pewnej ilości wiadomości zmienia się używany sekretny klucz. Można wykazać, że klucz przestaje być bezpieczny po&nbsp;liczbie wiadomości równej w&nbsp;przybliżeniu pierwiastkowi z&nbsp;liczby wszystkich możliwych wartości bloków danych.</p>
+          <p>Jeżeli ostatni blok przekazywanej wiadomości nie&nbsp;jest zapełniony całkowicie bitami wiadomości, należy dopełnić go <a href="/pl/teoria/dopelnienie.html">pewnymi znakami</a>, ustalonymi przez komunikujące się strony. Zwykle blok dopełnia się bitami, które jednoznacznie wskazują kiedy kończy się oryginalna wiadomość i&nbsp;uniemożliwiają wykorzystanie ewentualnej niejednoznaczności przez&nbsp;napastnika. Przykładem takiego ciągu może być jedynka, a następnie same zera aż do&nbsp;końca bloku (<span class="term">10000...</span>). Jeśli ostatni blok zapełniony jest w&nbsp;takim stopniu, że nie&nbsp;mieści się w&nbsp;nim jedynka z&nbsp;przynajmniej jednym zerem, należy dołączyć kolejny blok i&nbsp;wypełnić go w&nbsp;całości dopełnianymi znakami.</p>
+          <p>Dla&nbsp;porównania, użycie samych zer wprowadzałoby niejasność gdzie kończy się transmitowana wiadomość, która może sama posiadać zera jako swoje ostatnie bity danych. Dodatkowo, wiele wiadomości o&nbsp;treściach różniących się jedynie ilością końcowych zer, mogłoby mieć takie same kody uwierzytelniające, co&nbsp;byłoby złamaniem reguł bezpieczeństwa kodowania wiadomości.</p>
+          <p>CBC&nbsp;MAC jest wykorzystywany w&nbsp;różnych aplikacjach, na&nbsp;przykład w&nbsp;systemach bankowych (standardy ANSI X9.9, X9.19, FIPS&nbsp;186-3). Często jego sercem jest algorytm szyfrujący <a href="/pl/symetryczne/aes.html">AES</a>, którego używa się jako funkcji&nbsp;F.</p>
+          <h2 id="nmac">NMAC</h2>
+          <p>Algorytm NMAC (od ang. <i>nested</i>) jest podobny do&nbsp;opisanego wcześniej CBC&nbsp;MAC. Wykorzystuje nieco inaczej zbudowaną funkcję pseudolosową&nbsp;F, która w&nbsp;tym przypadku zwraca wartości będące poprawnymi elementami zbioru wszystkich możliwych kluczy, a nie&nbsp;elementami zbioru wszystkich możliwych wartości bloku wiadomości.</p>
+          <p>Podobnie jak w przypadku CBC&nbsp;MAC, po&nbsp;zaszyfrowaniu ostatniego bloku wiadomości, wykonywane jest dodatkowe szyfrowanie otrzymanego wyniku przy&nbsp;użyciu drugiego sekretnego klucza szyfrującego. Ponieważ wynikiem szyfrowania ostatniego bloku za&nbsp;pomocą funkcji&nbsp;F jest ciąg danych o&nbsp;długości klucza szyfrującego, należy go&nbsp;uzupełnić za&nbsp;pomocą pewnego stałego ciągu (ang. <i>fix pad</i>) do&nbsp;długości bloków wiadomości. NMAC jest zwykle wykorzystywany w&nbsp;systemach, gdzie długość bloku danych jest dużo większa od długości sekretnego klucza szyfrującego.</p>
+          <figure class="figure"><img src="/assets/img/theory/mac/nmac-pl.webp" alt="Schemat działania NMAC" width="1289" height="370" loading="lazy"></figure>
+          <br>
+          <p>Ostatnie szyfrowanie ma na celu zapewnienie bezpieczeństwa wyliczonego kodu wiadomości, podobnie jak w&nbsp;przypadku CBC&nbsp;MAC. Proces szyfrowania kolejnych bloków bez&nbsp;ostatniego kroku algorytmu NMAC nosi angielską nazwę <i>cascade</i>.</p>
+          <p>Bez&nbsp;ostatniego kroku algorytmu (czyli bez&nbsp;szyfrowania za&nbsp;pomocą drugiego klucza), napastnik mógłby dołączyć do&nbsp;przechwyconej wiadomości z&nbsp;poprawnie wyliczonym kodem uwierzytelniającym, dowolną liczbę dodatkowych bloków tekstu i&nbsp;samodzielnie wyliczyć nowy kod. Wejściem do&nbsp;pierwszej nowo dodanej funkcji&nbsp;F byłby końcowy kod uwierzytelniający oryginalnej wiadomości.</p>
+          <p>Stosowanie NMAC jest kryptograficznie bezpieczne, o&nbsp;ile po&nbsp;zaszyfrowaniu pewnej ilości wiadomości zmienia się używany sekretny klucz. Można wykazać, że klucz przestaje być bezpieczny po&nbsp;liczbie wiadomości równej w&nbsp;przybliżeniu pierwiastkowi z&nbsp;liczby wszystkich możliwych wartości kluczy szyfrujących.</p>
+          <p>Algorytm NMAC obowiązują takie same reguły dotyczące dopełniania ostatnich bloków przekazywanych wiadomości, jakie mają zastosowanie do&nbsp;CBC&nbsp;MAC.</p>
+          <h2 id="cmac">CMAC</h2>
+          <p>Algorytm CMAC jest odmianą opisanego wcześniej CBC&nbsp;MAC. Wykorzystuje tak samo zbudowaną funkcję pseudolosową&nbsp;F, która zwraca wartości będące poprawnymi elementami zbioru wszystkich możliwych bloków danych.</p>
+          <p>Zamiast ostatniego, dodatkowego szyfrowania za&nbsp;pomocą drugiego klucza, w&nbsp;CMAC wykorzystuje się dwa dodatkowe klucze, które dodaje się do&nbsp;danych wejściowych do&nbsp;ostatniego bloku funkcji&nbsp;F. W&nbsp;zależności od&nbsp;tego czy ostatni blok wiadomości jest w&nbsp;całości zapełniony bitami danych, czy też należy go dopełnić ustalonym ciągiem znaków, używa się odpowiedniego z&nbsp;dwóch dodatkowych kluczy szyfrujących.</p>
+          <figure class="figure"><img src="/assets/img/theory/mac/cmac-pl.webp" alt="Schemat działania CMAC" width="1145" height="650" loading="lazy"></figure>
+          <br>
+          <p>Dodanie dodatkowego klucza szyfrującego w&nbsp;ostatnim kroku szyfrowania uniemożliwia ewentualnemu napastnikowi dołączenie dalszych bloków zmodyfikowanej wiadomości i&nbsp;zwalnia z&nbsp;konieczności stosowania dodatkowego kroku kodowania za&nbsp;pomocą funkcji&nbsp;F. Dzięki takiemu rozwiązaniu nie&nbsp;ma również potrzeby dodawać kolejnego bloku, aby zmieścić wcześniej ustalone bajty dopełnienia. Wystarczające będzie użycie właściwego dodatkowego klucza.</p>
+          <p>CMAC jest uznawany za&nbsp;bezpieczny sposób uwierzytelniania wiadomości. Posiada certyfikaty m.&nbsp;in.&nbsp;amerykańskiego instytutu NIST.</p>
+          <h2 id="pmac">PMAC</h2>
+          <p>Algorytm PMAC (od ang. <i>parallel</i>) może być wykonywany z&nbsp;użyciem wielu wątków równocześnie, w&nbsp;przeciwieństwie do&nbsp;opisanych wyżej algorytmów sekwencyjnych, w&nbsp;których wszystkie bloki wiadomości musiały być przetwarzane jeden po&nbsp;drugim.</p>
+          <p>PMAC wykorzystuje w&nbsp;swoim działaniu dwa sekretne klucze szyfrujące. Pierwszy z&nbsp;nich używany jest w funkcji&nbsp;P, która na&nbsp;wejściu przyjmuje dodatkowo jeszcze zwiększające się wartości licznika. Wyjście z funkcji&nbsp;P dodawane jest XOR do&nbsp;bloku danych, a wynik szyfrowany jest przez funkcję pseudolosową&nbsp;F, używającą drugiego sekretnego klucza. Funkcja&nbsp;P jest z&nbsp;założenia nieskomplikowana i działa znacznie szybciej od funkcji&nbsp;F.</p>
+          <p>Wyjścia ze&nbsp;wszystkich funkcji&nbsp;F oraz dane z&nbsp;ostatniego bloku danych (który wyjątkowo nie jest szyfrowany przez funkcję&nbsp;F) są sumowane XOR, a na&nbsp;końcu szyfrowane również za&nbsp;pomocą algorytmu funkcji&nbsp;F, z&nbsp;drugim sekretnym kluczem szyfrującym.</p>
+          <figure class="figure"><img src="/assets/img/theory/mac/pmac-eng.png" alt="Scheme of PMAC" width="1600" height="487" loading="lazy"></figure>
+          <br>
+          <p>Podobnie jak w&nbsp;poprzednich przypadkach, można wykazać, że PMAC jest bezpieczny, o&nbsp;ile sekretny klucz jest co pewien czas zmieniany. Nowy klucz powinien zostać utworzony po&nbsp;wysłaniu liczby wiadomości równej w&nbsp;przybliżeniu pierwiastkowi z&nbsp;liczby wszystkich możliwych wartości bloków danych.</p>
+          <p>PMAC umożliwia łatwe i&nbsp;szybkie uaktualnienie kodów uwierzytelniających w&nbsp;przypadku, kiedy jeden z&nbsp;bloków wiadomości został zastąpiony nowym. Przykładowo, jeśli blok <span class="term">m[x]</span> jest zastępowany przez <span class="term">m'[x]</span>, to należy wykonać następujące obliczenia:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">tag'&nbsp; = &nbsp;F(k<sub>2</sub>,&nbsp;</span><span class="math">(F<sup>-1</sup>(k<sub>2</sub>,&nbsp;tag)</span> XOR <span class="math">F(k<sub>2</sub>,&nbsp;m[x]</span>&nbsp;XOR&nbsp;<span class="math">P(k<sub>1</sub>,&nbsp;x))</span> XOR <span class="math">F(k<sub>2</sub>,&nbsp;m'[x]</span>&nbsp;XOR&nbsp;<span class="math">P(k<sub>1</sub>,&nbsp;x)))</span></p>
+          <h2 id="jednorazowy-mac">Jednorazowy MAC</h2>
+          <span>(<i>one-time MAC</i>)</span>
+          <p>Analogicznie do <a href="/pl/symetryczne/otp.html">szyfrowania jednorazowego</a>, można zdefiniować jednorazowy MAC, który zapewnia bezpieczeństwo przeciwko potencjalnym atakom i&nbsp;jest generalnie szybszy od&nbsp;algorytmów uwierzytelniania wiadomości bazujących na funkcjach&nbsp;PRF.</p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Jednorazowy MAC (<i>one-time MAC</i>) jest parą algorytmów <span class="math">(S,&nbsp;V)</span>:
+           <ul>
+           <li><span class="math">S(m,&nbsp;k<sub>1</sub>,&nbsp;k<sub>2</sub>) := P(m,&nbsp;k<sub>1</sub>) +&nbsp;k<sub>2</sub> &nbsp;(</span>mod <span class="math">q)</span>: zwraca kod uwierzytelnienia <span class="math">t</span></li>
+           <li><span class="math">V(m,&nbsp;k<sub>1</sub>,&nbsp;k<sub>2</sub>,&nbsp;t)</span>: zwraca wartość <i>true</i> lub <i>false</i> w&nbsp;zależności od&nbsp;poprawności sprawdzanego kodu uwierzytelnienia&nbsp;<span class="math">t</span></li>
+           </ul>
+           gdzie:
+           <div class="definition__note">
+           <ul>
+           <li><var>q</var> to duża liczba pierwsza (rzędu&nbsp;<span class="term">2<sup>128</sup></span>),</li>
+           <li><var>m</var> to wiadomość zawierająca <span class="term">L</span>&nbsp;bloków o&nbsp;długości 128&nbsp;bitów,</li>
+           <li><var>k<sub>1</sub>,&nbsp;k<sub>2</sub></var> to dwa sekretne klucze, z których każdy ma wartość z przedziału&nbsp;<span class="term">[1,&nbsp;q]</span>,</li>
+           <li><var>P(m,&nbsp;x) = m[L]&sdot;x<sup>L</sup> + ... + m[1]&sdot;x</var> jest wielomianem stopnia&nbsp;<span class="term">L</span></li>
+           </ul>
+           </div>
+          </aside>
+          <p>Można wykazać, że dwie wiadomości oznakowane za&nbsp;pomocą tych samych kluczy szyfrujących są nierozróżnialne dla&nbsp;potencjalnego obserwatora.</p>
+          <h2 id="carter-wegman-mac">Carter-Wegman MAC</h2>
+          <p>Działanie Carter-Wegman&nbsp;MAC oparte jest na&nbsp;idei jednorazowego&nbsp;MAC (ang. <i>one-time MAC</i>), rozszerzonego o&nbsp;funkcję pseudolosową w&nbsp;celu umożliwienia wielokrotnego zastosowania tych&nbsp;samych sekretnych kluczy dla&nbsp;kolejnych wiadomości.</p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Mając dany bezpieczny jednorazowy MAC <span class="math">(S,&nbsp;V)</span> zdefiniowany na zbiorach <span class="math">(M,&nbsp;K<sub>J</sub>,&nbsp;T)</span> oraz bezpieczną funkcję pseudolosową <span class="math">F:&nbsp;K<sub>F</sub></span>&nbsp;x&nbsp;<span class="math">{0,1}<sup>n</sup></span><span class="math">→</span><span class="math">{0,1}<sup>n</sup></span>, można zdefiniować parę algorytmów <strong>Carter-Wegman MAC</strong>:
+           <ul>
+           <li><span class="math">S<sub>C-W</sub>(m,&nbsp;k<sub>F</sub>,&nbsp;k<sub>J</sub>) := (r,&nbsp;F(k<sub>F</sub>,&nbsp;r)</span>&nbsp;XOR&nbsp;<span class="math">S(m,&nbsp;k<sub>J</sub>))</span>: zwraca kod uwierzytelnienia będący parą <span class="math">(r,&nbsp;t<sub>C-W</sub>)</span></li>
+           <li><span class="math">V<sub>C-W</sub>(m,&nbsp;k<sub>J</sub>,&nbsp;F(k<sub>F</sub>,&nbsp;r)</span>&nbsp;XOR&nbsp;<span class="math">t<sub>C-W</sub>)</span>: zwraca wartość <span class="term">true</span> lub <span class="term">false</span> w zależności od poprawności sprawdzanego kodu uwierzytelnienia&nbsp;(r,&nbsp;<span class="math">t<sub>C-W</sub>)</span></li>
+           </ul>
+           gdzie:
+           <div class="definition__note">
+           <ul>
+           <li><var>k<sub>J</sub>,&nbsp;k<sub>F</sub></var> to dwa sekretne klucze należące do&nbsp;zbiorów&nbsp;<var>K<sub>J</sub></var> oraz&nbsp;<var>K<sub>F</sub></var>,</li>
+           <li><var>T</var> to zbiór wszystkich możliwych wartości kodów uwierzytelniających algorytmu jednorazowego MAC (o długości <span class="term">n</span>&nbsp;bitów),</li>
+           <li><var>r</var> to losowa liczba o&nbsp;długości <span class="term">n</span>&nbsp;bitów,</li>
+           <li><var>(r,&nbsp;t<sub>C-W</sub>)</var> to wartość kodu uwierzytelniającego algorytmu Carter-Wegman (o długości <span class="term">2n</span>&nbsp;bitów)</li>
+           </ul>
+           </div>
+          </aside>
+          <h2 id="hmac">HMAC</h2>
+          <p>HMAC jest popularnym systemem uwierzytelniania wiadomości zbudowanym w podobny sposób do NMAC.</p>
+          <p>Algorytm HMAC opiera się na&nbsp;wykorzystaniu jednokierunkowych <a href="/pl/teoria/funkcja-jednokierunkowa.html#hash">funkcji skrótu</a> (czyli funkcji haszujących).</p>
+          <figure class="figure"><img src="/assets/img/theory/mac/hmac-pl.webp" alt="Schemat HMAC" width="1270" height="457" loading="lazy"></figure>
+          <br>
+          <p>Wartości <span class="term">ipad</span> oraz <span class="term">opad</span> mogą przyjmować różne wartości. Jest zalecane używanie takich wartości, aby klucz szyfrujący został zmodyfikowany w maksymalnie różny sposób w obu miejscach, w których jest wykorzystywany jako wejście do funkcji haszujących.</p>
+          <p>Zastosowanie bezpiecznej funkcji haszującej (czyli takiej, której działanie nie&nbsp;powoduje kolizji, to znaczy nie&nbsp;wylicza takich samych wartości dla&nbsp;różnych danych wejściowych) gwarantuje bezpieczeństwo HMAC.</p>
+          <p>HMAC jest wykorzystywany w wielu systemach, między innymi w popularnych protokołach internetowych (SSL, IPsec, SSH).</p>
+          <div class="note" id="note-negligible" popover>
+           <p>Wielkość zaniedbywalna&nbsp;- przyjmuje się, że wielkość <var>e</var>&nbsp;jest:</p>
+           <ul>
+           <li>niezaniedbywalna, jeżeli <span class="math">e&nbsp;&gt;= 1/2<sup>30</sup></span> (w&nbsp;praktyce prawdopodobnie zdarzy się w <span class="math">1GB</span>&nbsp; danych)</li>
+           <li>zaniedbywalna, jeżeli <span class="math">e&nbsp;&lt;= 1/2<sup>80</sup></span> (w&nbsp;praktyce nie&nbsp;zdarzy się w&nbsp;okresie życia klucza)</li>
+           </ul>
+           <button type="button" class="note__close" popovertarget="note-negligible" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/funkcja-jednokierunkowa.html" rel="prev"><small>← Poprzedni</small>Funkcja jednokierunkowa</a>
+          <a class="pager__next" href="/pl/teoria/pbe.html" rel="next"><small>Następny →</small>PBE</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fmac.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fmac.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fmac.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html" aria-current="page">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

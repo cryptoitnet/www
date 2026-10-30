@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.crypto-it.net/eng/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/about/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ostronie/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/asymmetric/</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/asymmetric/diffie-hellman.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/diffie-hellman.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/diffiego-hellmana.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/asymmetric/merkle-puzzles.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/merkle-puzzles.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/puzzle-merkle.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/asymmetric/rsa.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/rsa.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/rsa.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/brute-force.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/brute-force.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-silowy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/chosen-ciphertext.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/chosen-ciphertext.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/wybrany-szyfrogram.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/chosen-key.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/chosen-key.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/wybrany-klucz.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/chosen-plaintext.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/chosen-plaintext.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/wybrany-tekst-jawny.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/dos.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/dos.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/dos.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/frequency-analysis.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/frequency-analysis.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-statystyczny.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/homograph-attack.html</loc>
+    <lastmod>2020-04-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/homograph-attack.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-homograficzny.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/known-ciphertext.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/known-ciphertext.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/znany-szyfrogram.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/known-plaintext.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/known-plaintext.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/znany-tekst-jawny.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/krack.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/krack.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/krack.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/man-in-the-middle.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/man-in-the-middle.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/man-in-the-middle.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/meet-in-the-middle.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/meet-in-the-middle.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/meet-in-the-middle.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/replay.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/replay.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/metoda-powtorzenia.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/attacks/two-time-pad.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/two-time-pad.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/two-time-pad.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/news/</loc>
+    <lastmod>2020-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/news/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/aktualnosci/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/news/how-is-kernel-tested.html</loc>
+    <lastmod>2020-03-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/news/how-is-kernel-tested.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/aktualnosci/jak-testuje-sie-kernel-linuxa.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/news/new-look.html</loc>
+    <lastmod>2020-03-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/news/new-look.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/aktualnosci/nowy-wyglad.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/news/private-zoom-chats.html</loc>
+    <lastmod>2020-04-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/news/private-zoom-chats.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/aktualnosci/prywatne-wiadomosci-w-zoom.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/news/top-10-vulnerabilities.html</loc>
+    <lastmod>2020-05-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/news/top-10-vulnerabilities.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/aktualnosci/10-najpopularniejszych-podatnosci.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/online-tools.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/online-tools.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia-online.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/prywatnosc.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/autokey-cipher.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/autokey-cipher.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/klucz-automatyczny.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/beaufort-cipher.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/beaufort-cipher.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-beaufort.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/book-cipher.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/book-cipher.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-ksiazkowy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/caesar-cipher.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/caesar-cipher.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-cezara.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/columnar-transposition.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/columnar-transposition.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-kolumnowy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/double-transposition.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/double-transposition.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/podwojny-szyfr-kolumnowy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/enigma.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/enigma.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/enigma.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/four-square.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/four-square.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/czterokwadratowy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/hebern-machine.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/hebern-machine.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/maszyna-hebern.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/hill-cipher.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/hill-cipher.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-hilla.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/homophonic-substitution-ciphers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/homophonic-substitution-ciphers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/homofoniczne-szyfry-podstawieniowe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/lorenz-machine.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/lorenz-machine.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/maszyna-lorenz.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/myszkowski-transposition.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/myszkowski-transposition.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-myszkowskiego.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/nihilist.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/nihilist.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/nihilist.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/playfair-cipher.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/playfair-cipher.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-playfair.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/polyalphabetic-substitution-ciphers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/polyalphabetic-substitution-ciphers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/polygraphic-substitution-ciphers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/polygraphic-substitution-ciphers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/poligramowe-szyfry-podstawieniowe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/rail-fence-cipher.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/rail-fence-cipher.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-plotkowy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/rot13.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/rot13.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/rot13.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/rotor-machines.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/rotor-machines.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/maszyny-rotorowe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/route-cipher.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/route-cipher.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-sciezkowy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/running-key.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/running-key.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/klucz-biezacy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/simple-substitution-ciphers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/simple-substitution-ciphers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/proste-szyfry-podstawieniowe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/simple-xor.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/simple-xor.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/prosty-xor.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/substitution-ciphers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/substitution-ciphers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/transposition-ciphers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/transposition-ciphers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfry-przestawieniowe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/trithemius-cipher.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/trithemius-cipher.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-trithemius.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/two-square.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/two-square.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/dwukwadratowy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/vic.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/vic.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/vic.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/simple/vigenere-cipher.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/vigenere-cipher.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-vigenere.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/3des.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/3des.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/3des.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/aes.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/aes.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/aes.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/block-ciphers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/block-ciphers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/szyfry-blokowe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/blowfish.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/blowfish.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/blowfish.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/camellia.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/camellia.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/camellia.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/css.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/css.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/css.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/des.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/des.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/des.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/otp.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/otp.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/otp.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/rc2.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/rc2.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/rc2.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/rc4.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/rc4.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/rc4.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/salsa20.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/salsa20.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/salsa20.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/serpent.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/serpent.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/serpent.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/stream-ciphers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/stream-ciphers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/szyfry-strumieniowe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/symmetric/twofish.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/twofish.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/twofish.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/application-protocols.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/application-protocols.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly-aplikacji.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/binary-numbers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/binary-numbers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/liczby-binarne.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/ciphers-security.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/ciphers-security.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/bezpieczenstwo-szyfrow.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/index-of-coincidence.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/index-of-coincidence.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/indeks-koincydencji.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/introduction.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/introduction.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/wprowadzenie.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/kerckhoffs.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/kerckhoffs.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/kerckhoffs.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/mac.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/mac.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/mac.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/tryby-szyfrow-blokowych.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/modular-arithmetic.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/modular-arithmetic.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/arytmetyka-modularna.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/notation-of-numbers.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/notation-of-numbers.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/zapis-liczb.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/one-way-function.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/one-way-function.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/funkcja-jednokierunkowa.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/padding.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/padding.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/dopelnienie.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/pbe.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/pbe.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/pbe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/prf-and-prp.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/prf-and-prp.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/prf-i-prp.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/protocols.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/protocols.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/pseudorandom-generator.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/pseudorandom-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/generator-pseudolosowy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/software-signing.html</loc>
+    <lastmod>2020-04-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/software-signing.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/podpisywanie-oprogramowania.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/steganography.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/steganography.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/steganografia.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/tcp-ip-protocols.html</loc>
+    <lastmod>2020-04-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/tcp-ip-protocols.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly-tcp-ip.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/time-estimation-of-mathematical-operations.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/time-estimation-of-mathematical-operations.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/theory/utf-8.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/utf-8.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/utf-8.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/tools/</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/tools/docker.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/docker.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/docker.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/tools/jca-and-jce.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/jca-and-jce.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/jca-i-jce.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/tools/key-based-authentication.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/key-based-authentication.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/uwierzytelnianie-kluczem.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/eng/tools/security-token.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/security-token.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/token-kryptograficzny.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/aktualnosci/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/aktualnosci/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/news/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/aktualnosci/10-najpopularniejszych-podatnosci.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/aktualnosci/10-najpopularniejszych-podatnosci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/news/top-10-vulnerabilities.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/aktualnosci/jak-testuje-sie-kernel-linuxa.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/aktualnosci/jak-testuje-sie-kernel-linuxa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/news/how-is-kernel-tested.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/aktualnosci/nowy-wyglad.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/aktualnosci/nowy-wyglad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/news/new-look.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/aktualnosci/prywatne-wiadomosci-w-zoom.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/aktualnosci/prywatne-wiadomosci-w-zoom.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/news/private-zoom-chats.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/asymetryczne/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/asymetryczne/diffiego-hellmana.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/diffiego-hellmana.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/diffie-hellman.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/asymetryczne/puzzle-merkle.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/puzzle-merkle.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/merkle-puzzles.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/asymetryczne/rsa.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/rsa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/rsa.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/atak-homograficzny.html</loc>
+    <lastmod>2020-04-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-homograficzny.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/homograph-attack.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/atak-silowy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-silowy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/brute-force.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/atak-statystyczny.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-statystyczny.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/frequency-analysis.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/dos.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/dos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/dos.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/krack.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/krack.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/krack.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/man-in-the-middle.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/man-in-the-middle.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/man-in-the-middle.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/meet-in-the-middle.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/meet-in-the-middle.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/meet-in-the-middle.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/metoda-powtorzenia.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/metoda-powtorzenia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/replay.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/two-time-pad.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/two-time-pad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/two-time-pad.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/wybrany-klucz.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/wybrany-klucz.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/chosen-key.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/wybrany-szyfrogram.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/wybrany-szyfrogram.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/chosen-ciphertext.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/wybrany-tekst-jawny.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/wybrany-tekst-jawny.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/chosen-plaintext.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/znany-szyfrogram.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/znany-szyfrogram.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/known-ciphertext.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ataki/znany-tekst-jawny.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/znany-tekst-jawny.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/known-plaintext.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/narzedzia-online.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia-online.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/online-tools.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/narzedzia/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/narzedzia/docker.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/docker.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/docker.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/narzedzia/jca-i-jce.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/jca-i-jce.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/jca-and-jce.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/narzedzia/token-kryptograficzny.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/token-kryptograficzny.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/security-token.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/narzedzia/uwierzytelnianie-kluczem.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/narzedzia/uwierzytelnianie-kluczem.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/tools/key-based-authentication.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/ostronie/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ostronie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/about/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/czterokwadratowy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/czterokwadratowy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/four-square.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/dwukwadratowy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/dwukwadratowy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/two-square.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/enigma.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/enigma.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/enigma.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/homofoniczne-szyfry-podstawieniowe.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/homofoniczne-szyfry-podstawieniowe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/homophonic-substitution-ciphers.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/klucz-automatyczny.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/klucz-automatyczny.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/autokey-cipher.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/klucz-biezacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/klucz-biezacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/running-key.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/maszyna-hebern.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/maszyna-hebern.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/hebern-machine.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/maszyna-lorenz.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/maszyna-lorenz.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/lorenz-machine.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/maszyny-rotorowe.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/maszyny-rotorowe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/rotor-machines.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/nihilist.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/nihilist.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/nihilist.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/podwojny-szyfr-kolumnowy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/podwojny-szyfr-kolumnowy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/double-transposition.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/poligramowe-szyfry-podstawieniowe.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/poligramowe-szyfry-podstawieniowe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/polygraphic-substitution-ciphers.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/proste-szyfry-podstawieniowe.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/proste-szyfry-podstawieniowe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/simple-substitution-ciphers.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/prosty-xor.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/prosty-xor.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/simple-xor.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/rot13.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/rot13.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/rot13.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-beaufort.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-beaufort.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/beaufort-cipher.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-cezara.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-cezara.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/caesar-cipher.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-hilla.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-hilla.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/hill-cipher.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-kolumnowy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-kolumnowy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/columnar-transposition.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-ksiazkowy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-ksiazkowy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/book-cipher.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-myszkowskiego.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-myszkowskiego.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/myszkowski-transposition.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-playfair.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-playfair.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/playfair-cipher.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-plotkowy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-plotkowy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/rail-fence-cipher.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-sciezkowy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-sciezkowy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/route-cipher.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-trithemius.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-trithemius.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/trithemius-cipher.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfr-vigenere.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-vigenere.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/vigenere-cipher.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/substitution-ciphers.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/szyfry-przestawieniowe.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfry-przestawieniowe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/transposition-ciphers.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/vic.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/vic.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/vic.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/polyalphabetic-substitution-ciphers.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/prywatnosc.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/prywatnosc.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/3des.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/3des.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/3des.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/aes.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/aes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/aes.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/blowfish.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/blowfish.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/blowfish.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/camellia.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/camellia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/camellia.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/css.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/css.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/css.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/des.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/des.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/des.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/otp.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/otp.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/otp.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/rc2.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/rc2.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/rc2.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/rc4.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/rc4.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/rc4.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/salsa20.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/salsa20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/salsa20.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/serpent.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/serpent.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/serpent.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/szyfry-blokowe.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/szyfry-blokowe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/block-ciphers.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/szyfry-strumieniowe.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/szyfry-strumieniowe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/stream-ciphers.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/symetryczne/twofish.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/twofish.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/twofish.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/arytmetyka-modularna.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/arytmetyka-modularna.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/modular-arithmetic.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/bezpieczenstwo-szyfrow.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/bezpieczenstwo-szyfrow.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/ciphers-security.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/dopelnienie.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/dopelnienie.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/padding.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/funkcja-jednokierunkowa.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/funkcja-jednokierunkowa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/one-way-function.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/generator-pseudolosowy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/generator-pseudolosowy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/pseudorandom-generator.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/indeks-koincydencji.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/indeks-koincydencji.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/index-of-coincidence.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/kerckhoffs.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/kerckhoffs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/kerckhoffs.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/liczby-binarne.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/liczby-binarne.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/binary-numbers.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/mac.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/mac.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/mac.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/pbe.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/pbe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/pbe.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/podpisywanie-oprogramowania.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/podpisywanie-oprogramowania.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/software-signing.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/prf-i-prp.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/prf-i-prp.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/prf-and-prp.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/protokoly-aplikacji.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly-aplikacji.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/application-protocols.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/protokoly-tcp-ip.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly-tcp-ip.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/tcp-ip-protocols.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/protokoly.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/protocols.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/steganografia.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/steganografia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/steganography.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/time-estimation-of-mathematical-operations.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/tryby-szyfrow-blokowych.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/tryby-szyfrow-blokowych.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/utf-8.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/utf-8.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/utf-8.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/wprowadzenie.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/wprowadzenie.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/introduction.html"/>
+  </url>
+  <url>
+    <loc>https://www.crypto-it.net/pl/teoria/zapis-liczb.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/zapis-liczb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/notation-of-numbers.html"/>
+  </url>
+</urlset>

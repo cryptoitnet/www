@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/bezpieczenstwo-szyfrow.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Information-theoretic security of ciphers | Crypto-IT</title>
+  <meta name="description" content="Assessing cipher quality: Perfect Security and Semantic Security definitions, descriptions, and examples.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/ciphers-security.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/ciphers-security.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/bezpieczenstwo-szyfrow.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/ciphers-security.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Information-theoretic security of ciphers">
+  <meta property="og:description" content="Assessing cipher quality: Perfect Security and Semantic Security definitions, descriptions, and examples.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/ciphers-security.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Information-theoretic security of ciphers",
+        "description": "Assessing cipher quality: Perfect Security and Semantic Security definitions, descriptions, and examples.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/ciphers-security.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Information-theoretic security of ciphers"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/bezpieczenstwo-szyfrow.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Information-theoretic security of ciphers</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The quality of a cipher can be described by checking its resistance to strictly technical attacks (that is bypassing the human factor). The highest defined level of security is referred to as the perfect security. In fact, to describe the practical security of ciphers, the semantic security property is usually used.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="perfect-security">Perfect Security</h2>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           A cipher <span class="math">(E, D)</span> defined over <span class="math">(K, M, C)</span> has <strong>perfect secrecy</strong> if for every two messages <span class="math">m<sub>1</sub></span> and <span class="math">m<sub>2</sub></span> (of the same size) belonging to <span class="math">M</span> and for every <span class="math">c</span> belonging to C, there is an equality:<br> <span class="math">P[E(k, m<sub>1</sub>)=c] = P[E(k, m<sub>2</sub>)=c]</span><br> where:
+           <ul>
+           <li>the key <span class="math">k</span> belongs to a set <span class="math">K</span> of all possible keys,</li>
+           <li><span class="math">M</span> is a set of all possible messages,</li>
+           <li><span class="math">C</span> is a set of all possible ciphertexts.</li>
+           </ul>
+           <div class="definition__note">
+           <ul>
+           <li>Given a ciphertext it is not possible to distinguish between two possible sent messages</li>
+           <li>Given a ciphertext it is not possible to find out anything about sent text</li>
+           <li>It is not possible to break the cipher using <a href="/eng/attacks/known-ciphertext.html">ciphertext-only attacks</a></li>
+           <li><span class="math">|K| >= |M|</span></li>
+           </ul>
+           </div>
+          </aside>
+          <p>The <a href="/eng/symmetric/otp.html">one-time pad</a> is the only cipher known to have perfect secrecy.</p>
+          <h2 id="semantic-security">Semantic Security</h2>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           A cipher is <strong>semantically secure</strong> if knowledge of the ciphertext and the length of the original message, does not reveal any additional information on the original message that can be <strong>feasibly</strong> extracted.
+          </aside>
+          <p>Any <button type="button" class="note-ref" popovertarget="note-ppta">probabilistic, polynomial-time algorithm</button> (<var>PPTA</var>) which receives the ciphertext created by a <strong>semantically secure cipher</strong> of any certain message and its length cannot determine any partial information on the message with probability <button type="button" class="note-ref" popovertarget="note-negligible">non-negligibly</button> higher than all other <var>PPTA</var>s that only have access to the message length and don't have access to the ciphertext.</p>
+          <p>One can prove that the <a href="/eng/symmetric/otp.html">OTP cipher</a> is semantically secure if it uses a random encryption key. Similarly, each stream cipher can have the property, if a <a href="/eng/theory/pseudorandom-generator.html">pseudorandom generator</a> used in the cipher is secure.</p>
+          <div class="note" id="note-negligible" popover>
+           <p>Negligible value - it is assumed that <var>e</var> is:</p>
+           <ul>
+           <li>non-negligible, if <span class="math">e &gt;&#61; 1&#47;2<sup>30</sup></span> (in practice likely to happen when there is over <span class="math">1GB</span> of data)</li>
+           <li>negligible, if <span class="math">e &lt;&#61; 1&#47;2<sup>80</sup></span> (in practice will not happen over life of key)</li>
+           </ul>
+           <button type="button" class="note__close" popovertarget="note-negligible" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-ppta" popover>
+           <p>Probabilistic, polynomial-time algorithm (<var>PPTA</var>) is a randomized algorithm with <a href="/eng/theory/time-estimation-of-mathematical-operations.html#polynomial_time">polynomial time</a> complexity, with an error probability of less than 0.5 for all instances.</p>
+           <button type="button" class="note__close" popovertarget="note-ppta" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/modular-arithmetic.html" rel="prev"><small>← Previous</small>Modular arithmetic</a>
+          <a class="pager__next" href="/eng/theory/padding.html" rel="next"><small>Next →</small>Padding</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fciphers-security.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fciphers-security.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fciphers-security.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html" aria-current="page">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

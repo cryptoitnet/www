@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/szyfr-beaufort.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beaufort Cipher | Crypto-IT</title>
+  <meta name="description" content="Beaufort Cipher is a polyalphabetic substitution cipher, used in rotor encryption machines until the middle of the 20th century.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/beaufort-cipher.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/beaufort-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-beaufort.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/beaufort-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Beaufort Cipher">
+  <meta property="og:description" content="Beaufort Cipher is a polyalphabetic substitution cipher, used in rotor encryption machines until the middle of the 20th century.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/beaufort-cipher.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Beaufort Cipher",
+        "description": "Beaufort Cipher is a polyalphabetic substitution cipher, used in rotor encryption machines until the middle of the 20th century.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/beaufort-cipher.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Polyalphabetic substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/polyalphabetic-substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Beaufort Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/szyfr-beaufort.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a></li>
+            <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Beaufort Cipher</h1>
+          <p class="article__subtitle">Polyalphabetic Substitution Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The cipher is named after British admiral Francis Beaufort, who lived at the turn of the 18th and 19th centuries.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>The Beaufort cipher is a simple polyalphabetic cipher. It uses a table called <i>tabula recta</i>, which was first introduced in the <a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a>. It shouldn't be confused with a special variant of the <a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a>, named <strong>Variant Beaufort</strong>.</p>
+          <p>The Beaufort cipher was used in rotor-based cipher machines Hagelin M-209 in the middle of the 20th century.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The Beaufort cipher's algorithm is based on the table called <i>tabula recta</i>:</p>
+          <figure class="figure">
+           <img src="/assets/img/simple-ciphers/tabula-recta.webp" alt="tabula recta" width="320" height="320" loading="lazy"><br>
+           <figcaption>Tabula Recta</figcaption>
+          </figure>
+          <p>During encryption, all plaintext letters are replaced by other letters, based on the <i>tabula recta</i> table. Both sides share one secret key, which consists of one or more words. Each plaintext letter is encrypted by using one key letter. After the last key character has been used, the algorithm goes back to the first key letter and starts taking key characters again from the beginning.</p>
+          <p>The encryption process is presented below. For every plaintext letter, one should perform the following operations, by using one key character.</p>
+          <ol class="steps">
+           <li>Find the plaintext letter in the topmost horizontal row.</li>
+           <li>Travel down the column, until you find the current key letter.</li>
+           <li>The leftmost letter in the current row is the new ciphertext letter.</li>
+          </ol>
+          <p>Decryption of the ciphertext uses exactly the same algorithm. This means that after the second encryption of ciphertext, one receives the original plaintext. Ciphers that have this property are referred to as <strong>reciprocal ciphers</strong>.</p>
+          <h2 id="security-of-the-beaufort-cipher">Security of the Beaufort Cipher</h2>
+          <p>Ciphertexts created by the Beaufort cipher can be very easily changed into ciphertexts of the <a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a>. This can be done by replacing every letter of the ciphertext by its opposite letter (<var>a</var> becomes <var>z</var>, <var>b</var> becomes <var>y</var> and so on). After this modification, the ciphertext can be analyzed by using all the existing attacks against the Vigenère cipher.</p>
+          <h2 id="implementation">Implementation</h2>
+          <p>A simple encryption/decryption function implemented in Python:</p>
+          <pre><code>def encrypt_or_decrypt(key, input_txt):
+  output_txt = []
+  for pos in range(0, len(input_txt)):
+    letter_row = 'A'
+    letter_txt = input_txt[pos]
+    while letter_txt != key[pos%len(key)]:
+      letter_txt = chr((ord(letter_txt)-ord('A')+1)%26
+                + ord('A'))
+      letter_row = chr((ord(letter_row)-ord('A')+1)%26
+                + ord('A'))
+    output_txt.append(letter_row)
+  return ''.join(output_txt)</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/vigenere-cipher.html" rel="prev"><small>← Previous</small>Vigenère cipher</a>
+          <a class="pager__next" href="/eng/simple/running-key.html" rel="next"><small>Next →</small>Running key cipher</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fbeaufort-cipher.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fbeaufort-cipher.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fbeaufort-cipher.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html" aria-current="page">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

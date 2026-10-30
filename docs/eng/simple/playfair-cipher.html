@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/szyfr-playfair.html" data-published="2020-03-09" data-updated="2026-10-30">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playfair Cipher – How It Works + Online Encoder | Crypto-IT</title>
+  <meta name="description" content="How the Playfair cipher works: building the 5×5 key table, encryption rules, weaknesses and code. Encrypt and decrypt Playfair online.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/playfair-cipher.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/playfair-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-playfair.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/playfair-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Playfair Cipher – How It Works + Online Encoder">
+  <meta property="og:description" content="How the Playfair cipher works: building the 5×5 key table, encryption rules, weaknesses and code. Encrypt and decrypt Playfair online.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/playfair-cipher.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+
+  <script src="/assets/js/tools/playfair.js" type="module"></script>
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Playfair Cipher",
+        "description": "How the Playfair cipher works: building the 5×5 key table, encryption rules, weaknesses and code. Encrypt and decrypt Playfair online.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2026-10-30",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/playfair-cipher.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Polygraphic substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/polygraphic-substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Playfair Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/szyfr-playfair.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a></li>
+            <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+
+        <header>
+          <h1 class="article__title">Playfair Cipher</h1>
+          <p class="article__subtitle">Polygraphic substitution cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time> · Updated <time datetime="2026-10-30">30 October 2026</time></p>
+          <!-- /auto:dates -->
+        </header>
+
+        <div class="article__body">
+          <p class="article__lead">The Playfair cipher encrypts pairs of letters instead of single letters, using a 5×5 table built from a secret keyword. It was invented by Charles Wheatstone and first described in 1854. It is named after the Scottish scientist and politician Lyon Playfair, who popularised its use.</p>
+
+          <p><a href="#online">Try the Playfair cipher online ↓</a></p>
+
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+
+          <h2 id="usage">Usage</h2>
+          <p>With the support of Baron Playfair, the cipher was adopted by the British Army. It was used during the Second Boer War, and then in World War I and World War II (also by other countries). Like other ciphers of that period, it went out of use when the first computers appeared. Today it can be broken quickly, for example with <a href="/eng/attacks/brute-force.html">brute force attacks</a>.</p>
+
+          <h2 id="algorithm">Algorithm</h2>
+          <p>Playfair is a <a href="/eng/simple/polygraphic-substitution-ciphers.html">polygraphic substitution cipher</a>: the plaintext is divided into groups of letters, and each group is replaced by another group. Playfair works on groups of two letters (digraphs).</p>
+
+          <h3 id="table">Building the key table</h3>
+          <p>The table has 5×5 cells and holds 25 letters of the Latin alphabet. The alphabet has 26 letters, so one letter must go: usually <span class="term">I</span> and <span class="term">J</span> are treated as one letter, or a rare letter such as <span class="term">Q</span> or <span class="term">X</span> is dropped.</p>
+          <p>To fill the table, write the keyword into it, skipping letters that have already appeared. Then fill the remaining cells with the rest of the alphabet in alphabetical order. Both parties must agree on the order in which the cells are filled, usually row by row, left to right, top to bottom.</p>
+          <p>For example, the keyword <i lang="la">pecunia non olet</i> (attributed to the Roman emperor Vespasian), with I and J counted as one letter, gives this table:</p>
+          <table class="matrix" aria-label="Playfair table for the keyword PECUNIA NON OLET">
+            <tbody>
+              <tr><td>p</td><td>e</td><td>c</td><td>u</td><td>n</td></tr>
+              <tr><td>i</td><td>a</td><td>o</td><td>l</td><td>t</td></tr>
+              <tr><td>b</td><td>d</td><td>f</td><td>g</td><td>h</td></tr>
+              <tr><td>k</td><td>m</td><td>q</td><td>r</td><td>s</td></tr>
+              <tr><td>v</td><td>w</td><td>x</td><td>y</td><td>z</td></tr>
+            </tbody>
+          </table>
+
+          <h3 id="encryption">Encryption</h3>
+          <p>Split the plaintext into pairs of letters. If a pair would consist of two identical letters, insert a filler letter (usually <span class="term">X</span>) between them and continue from the second letter. If the last letter is left alone, add the filler after it. For example, <span class="term">BALLOON</span> becomes <span class="term">BA LX LO ON</span>.</p>
+          <p>Then replace each pair using the table:</p>
+          <ol>
+            <li><strong>Different row and column:</strong> the two letters mark opposite corners of a rectangle. Replace each letter with the letter in the same row, at the other corner of the rectangle.</li>
+            <li><strong>Same row:</strong> replace each letter with the letter to its right, wrapping around to the start of the row.</li>
+            <li><strong>Same column:</strong> replace each letter with the letter below it, wrapping around to the top of the column.</li>
+          </ol>
+          <p>With the table above, <span class="term">MEET ME AT THE OLD BRIDGE</span> is split into <span class="term">ME ET ME AT TH EO LD BR ID GE</span> and encrypted as <span class="term">WANAW AOIHS CAAGG KABDU</span>. For example, <span class="term">ET</span> is a rectangle (→ <span class="term">NA</span>), <span class="term">AT</span> lies in one row (→ <span class="term">OI</span>), and <span class="term">TH</span> in one column (→ <span class="term">HS</span>).</p>
+
+          <h3 id="decryption">Decryption</h3>
+          <p>The recipient builds the same table from the keyword and applies the rules in reverse: letters in one row move left, letters in one column move up, and rectangles work exactly as in encryption. Finally, the reader removes filler letters that make no sense in the text.</p>
+
+          <section class="tool" id="online" aria-labelledby="online-title"
+                   data-tool="playfair"
+                   data-msg-odd="The ciphertext must have an even number of letters."
+                   data-msg-double="The ciphertext contains a pair of identical letters, so it was not produced by Playfair with these settings."
+                   data-msg-copied="Copied">
+            <h2 id="online-title">Playfair cipher online</h2>
+            <div class="tool__grid">
+              <div>
+                <div class="field">
+                  <label for="pf-keyword">Keyword</label>
+                  <input type="text" id="pf-keyword" data-role="keyword" value="pecunia non olet" autocomplete="off" spellcheck="false">
+                </div>
+                <fieldset>
+                  <legend>Letter left out of the table</legend>
+                  <div class="options">
+                    <label><input type="radio" name="mode" value="j-as-i" checked> J as I</label>
+                    <label><input type="radio" name="mode" value="no-q"> Without Q</label>
+                    <label><input type="radio" name="mode" value="no-x"> Without X</label>
+                  </div>
+                </fieldset>
+              </div>
+              <figure>
+                <table class="matrix" data-role="table" aria-label="Current key table"></table>
+              </figure>
+            </div>
+
+            <fieldset>
+              <legend class="visually-hidden">Direction</legend>
+              <div class="segmented">
+                <label><input type="radio" name="direction" value="encrypt" checked> Encrypt</label>
+                <label><input type="radio" name="direction" value="decrypt"> Decrypt</label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="pf-input">Text</label>
+              <textarea id="pf-input" data-role="input" spellcheck="false">Meet me at the old bridge</textarea>
+              <small>Only letters are used; spaces, digits and punctuation are ignored, accents are removed.</small>
+            </div>
+
+            <p class="tool__steps">Pairs: <span data-role="digraphs" aria-live="polite"></span></p>
+            <p class="tool__error" data-role="error" role="alert"></p>
+
+            <div class="field">
+              <label for="pf-output">Result</label>
+              <textarea id="pf-output" data-role="output" readonly></textarea>
+            </div>
+            <div class="tool__actions">
+              <button type="button" class="button" data-role="copy">Copy result</button>
+              <button type="button" class="button" data-role="swap">Use result as input</button>
+            </div>
+          </section>
+
+          <h2 id="security">Security</h2>
+          <p>The general method of breaking Playfair is <a href="/eng/attacks/frequency-analysis.html">frequency analysis</a> of letter pairs. Knowing typical pair frequencies of the message's language, an attacker matches frequent ciphertext pairs to frequent plaintext pairs.</p>
+          <p>The cipher also has features that make it easier to break. A pair and its reverse (for example <span class="term">AC</span> and <span class="term">CA</span>) always produce a reversed pair in the ciphertext, which helps to recognise common words. And a ciphertext pair never contains two identical letters.</p>
+          <p>Another method starts with a random table and tries to decrypt the message. The attacker then changes the table slightly and keeps changes that make the decrypted text look more like real language. This hill-climbing approach is simple to implement.</p>
+          <p>The third, very effective method is guessing parts of the plaintext, such as greetings, dates or places. With the ciphertext and a few probable words, the table can be reconstructed easily. This was a common way of attacking German ciphers of this kind during World War II.</p>
+
+          <h2 id="implementation">Implementation</h2>
+          <p>The main part of the algorithm is finding the row and column of each letter of a pair. The JavaScript function below transforms one pair; <code>table</code> is the 25-letter table as a string (row by row), and <code>dir</code> is <code>1</code> for encryption and <code>-1</code> for decryption:</p>
+<pre><code>function transformPair(table, pair, dir) {
+  const i1 = table.indexOf(pair[0]);
+  const i2 = table.indexOf(pair[1]);
+  const r1 = Math.floor(i1 / 5), c1 = i1 % 5;
+  const r2 = Math.floor(i2 / 5), c2 = i2 % 5;
+  const at = (r, c) =&gt; table[((r + 5) % 5) * 5 + ((c + 5) % 5)];
+
+  if (r1 === r2) return at(r1, c1 + dir) + at(r2, c2 + dir); // same row
+  if (c1 === c2) return at(r1 + dir, c1) + at(r2 + dir, c2); // same column
+  return at(r1, c2) + at(r2, c1);                            // rectangle
+}</code></pre>
+          <p>The complete code of the tool above, including building the table and splitting the text into pairs, is in <a href="/assets/js/tools/playfair.js">playfair.js</a>.</p>
+        </div>
+
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/polygraphic-substitution-ciphers.html" rel="prev"><small>← Previous</small>Polygraphic substitution ciphers</a>
+          <a class="pager__next" href="/eng/simple/two-square.html" rel="next"><small>Next →</small>Two-square cipher</a>
+        </nav>
+        <!-- /auto:pager -->
+
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fplayfair-cipher.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fplayfair-cipher.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fplayfair-cipher.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html" aria-current="page">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

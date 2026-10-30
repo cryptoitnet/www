@@ -1,0 +1,43 @@
+<section class="tool" id="online" aria-labelledby="online-title"
+         data-tool="utf-8"
+         data-msg-format="Nieznany format wyjściowy."
+         data-msg-parse="Dane wejściowe nie są poprawną listą bajtów dla wybranego formatu."
+         data-msg-invalid="Bajty nie tworzą poprawnej sekwencji UTF-8."
+         data-msg-copied="Skopiowano">
+  <h2 id="online-title">Konwerter UTF-8</h2>
+
+  <fieldset>
+    <legend class="visually-hidden">Kierunek</legend>
+    <div class="segmented">
+      <label><input type="radio" name="direction" value="encode" checked> Tekst → bajty</label>
+      <label><input type="radio" name="direction" value="decode"> Bajty → tekst</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Format bajtów</legend>
+    <div class="options">
+      <label><input type="radio" name="format" value="hex" checked> Szesnastkowy</label>
+      <label><input type="radio" name="format" value="decimal"> Dziesiętny</label>
+      <label><input type="radio" name="format" value="binary"> Binarny</label>
+      <label><input type="radio" name="format" value="entities"> Encje HTML</label>
+    </div>
+  </fieldset>
+
+  <div class="field">
+    <label for="u8-input">Wejście</label>
+    <textarea id="u8-input" data-role="input" spellcheck="false">Zażółć gęślą jaźń 😀</textarea>
+    <small>Przy dekodowaniu wpisz bajty w wybranym formacie (oddzielone spacją lub przecinkiem; encje HTML wyglądają jak <code>&amp;#196;</code>).</small>
+  </div>
+
+  <p class="tool__error" data-role="error" role="alert"></p>
+
+  <div class="field">
+    <label for="u8-output">Wynik</label>
+    <textarea id="u8-output" data-role="output" readonly></textarea>
+  </div>
+  <div class="tool__actions">
+    <button type="button" class="button" data-role="copy">Kopiuj wynik</button>
+    <button type="button" class="button" data-role="swap">Użyj wyniku jako wejścia</button>
+  </div>
+</section>

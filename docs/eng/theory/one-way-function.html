@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/funkcja-jednokierunkowa.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One-way Function | Cryptography | Crypto-IT</title>
+  <meta name="description" content="One-way functions are easy to compute but it is very difficult to compute the value of their inverse functions.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/one-way-function.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/one-way-function.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/funkcja-jednokierunkowa.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/one-way-function.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="One-way Function | Cryptography">
+  <meta property="og:description" content="One-way functions are easy to compute but it is very difficult to compute the value of their inverse functions.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/one-way-function.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "One-way Function",
+        "description": "One-way functions are easy to compute but it is very difficult to compute the value of their inverse functions.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/one-way-function.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "One-way Function"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/funkcja-jednokierunkowa.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">One-way Function</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>One-way functions are easy to compute but it is very difficult to compute their inverse functions. Thus, having data <span class="term">x</span> it is easy to calculate <span class="term">f(x)</span> but, on the other hand, knowing the value of <span class="term">f(x)</span> it is quite difficult to calculate the value of <span class="term">x</span>.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>There is not a mathematical proof that one-way functions <button type="button" class="note-ref" popovertarget="note-istnieja">exist</button>. In practical applications functions that behave similarly as real one-way functions are used.</p>
+          <p>One-way functions are key elements of various tools useful in modern cryptography. They are used in <a href="/eng/theory/pseudorandom-generator.html">pseudorandom generators</a>, <a href="/eng/theory/mac.html">authentication of messages</a> and <a href="#hash">digital signatures</a>.</p>
+          <h2 id="trapdoor-one-way-function">Trapdoor one-way function</h2>
+          <p>Trapdoor one-way functions are types of one-way functions that contain a kind of "back door" (trapdoor). As in the case of ordinary one-way functions it is easy to compute their values for given data but it is very difficult to compute their inverse functions. However, if one has some additional secret information, he can easily compute the inverse function as well.</p>
+          <p>An example of such trapdoor one-way functions may be finding the prime factors of large numbers. Nowadays, this task is practically infeasible. On the other hand, knowing one of the factors, it is easy to compute the other ones.</p>
+          <h2 id="hash">One-way hash function</h2>
+          <p>One-way hash functions (there are a lot of <button type="button" class="note-ref" popovertarget="note-hash">other names</button> of functions of this type) transform input messages of various length into output sequences of fixed length (usually shorter). The output sequence is often called a hash value. Hash values are often used to mark input sequences, that is to assign to them some unique values that characterize them.</p>
+          <p>One-way hash functions fulfil all conditions of one-way functions. It is easy to compute their values based on input data but having only a hash value one can't determine the original input sequence.</p>
+          <p>A one-way hash function should be collision-free. This means that it should be very difficult to find two different sequences that produce <button type="button" class="note-ref" popovertarget="note-birthday">the same hash value</button>.</p>
+          <p>Algorithms of one-way hash functions are often known to the public. They provide security thanks to their properties as one-way functions. Usually, a change of one bit of input data, causes changing about half of the output bits. Data generated by hash functions should be pseudorandom (it cannot be possible to distinguish output data from ordinary random data).</p>
+          <p>One-way hash functions are used to protect data against intentional or unintentional modifications. Having some data, one can calculate a checksum that may be attached to the message and checked by other recipients (by computing the same checksum and compare it with the received checksum value). They are used for example in a message authentication algorithm <a href="/eng/theory/mac.html#hmac">HMAC</a>.</p>
+          <p>Moreover, hash functions are used for storing data efficiently, in so-called hash tables. Data can be accessed by finding hash values, which are stored in computer memory.</p>
+          <h2 id="hash-function-expanding">Hash function expanding</h2>
+          <p>Having a hash function that operates on small blocks of data, one can expand this function and create a new function that operates on larger input data of various sizes. In such a way it is possible to compute a hash value for any messages. To achieve this, one can use so called <strong>Merkle-Damgard construction</strong>.</p>
+          <p>A scheme below presents a way of using multiple hash functions (<span class="math">h: T x X </span><span class="math">→</span><span class="math"> T</span>, where <span class="math">T</span> is a set of all possible hash values) that allows to compute a hash value for the whole message (<span class="math">H: X<sup>L</sup> </span><span class="math">→</span><span class="math"> T</span>). Each hash function operates on one data block.</p>
+          <figure class="figure"><img src="/assets/img/theory/merkle-damgard-eng.webp" alt="Scheme of Merkle-Damgard construction" width="1089" height="219" loading="lazy"></figure>
+          <br>
+          <p>The first <var>h</var> function is initialized by a previously determined vector <var>IV</var>. The last data block should be fulfilled to the full-length using <a href="/eng/theory/padding.html">previously agreed bits</a>. A popular method of aligning the length of the last block is about appending an additional bit equal to <span class="term">1</span> and then filling the rest of the block with bits equal to <span class="term">0</span>. It allows to determine precisely the end of the real message.</p>
+          <p>It may be proved that if the function <var>h</var> is collision-free, then the function <var>H</var> (which is created based on functions <var>h</var>) is also collision-free. Every collision in the function <var>H</var> would automatically result in a collision in the function <var>h</var>.</p>
+          <h2 id="blockcipherhash">Hash functions based on block ciphers</h2>
+          <p>There are a few popular ways of creating one-way hash functions, that operate on input data of various lengths, using algorithms of block ciphers.</p>
+          <p>The <strong>Davies-Meyer</strong> hash function (denoted <var>h</var>) uses the encryption algorithm <var>E</var> that operates on subsequent data blocks:<br> <span class="math">h(H, m) = E(m, H)</span> XOR <span class="math">H</span></p>
+          <p>A scheme of Davies-Meyer function is presented below:</p>
+          <figure class="figure"><img src="/assets/img/theory/davies-meyer-eng.webp" alt="Scheme of Davies-Meyer function" width="1134" height="253" loading="lazy"></figure>
+          <br>
+          <p>It can be proved that if <var>E</var> is a secure algorithm of a block cipher, then an intruder would have to perform about <span class="term">O(2<sup>n/2</sup>)</span> encryption operations to find a collision (thus, to find a message with the same hash value as the hash value that he would like to find).</p>
+          <p>Another kind of hash functions based on block ciphers are <strong>Miyaguchi-Preneel</strong> functions. There are 12 kinds of those functions, for example:<br> <span class="math">h(H, m) = E(m, H)</span> XOR <span class="math">H</span> XOR <span class="math">m</span><br> or:<br> <span class="math">h(H, m) = E(H</span> XOR <span class="math">m, m)</span> XOR <span class="math">m</span></p>
+          <div class="note" id="note-istnieja" popover>
+           <p>The proving of existence of one-way functions would prove that the complexity classes nondeterministic polynomial (<var>NP</var>) and deterministic polynomial (<var>P</var>) are not equal. This is one of the most important questions of theoretical computer science.</p>
+           <button type="button" class="note__close" popovertarget="note-istnieja" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-hash" popover>
+           <p>One-way hash functions are also referred to as contraction functions, compression functions, message digest, fingerprint, cryptographic checksum, message integrity check (MIC) and manipulation detection code (MDC).</p>
+           <p>Compression functions change a fixed-length input into a fixed-length output. They are often used in cryptographic algorithms, for example in block ciphers.</p>
+           <button type="button" class="note__close" popovertarget="note-hash" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-birthday" popover>
+           <p>According to the <em>birthday paradox</em> (or <em>birthday problem</em>) a collision would be discovered after checking the amount of messages equal to the square root of all possible messages, using simple <a href="/eng/attacks/brute-force.html">brute force</a> attacks.</p>
+           <p>This significantly reduces time that is needed to find repeated values of hash functions. While designing hash functions one should consider this property. For example, to break the SHA-256 function one should check about 2<sup>128</sup> messages, thus it may be considered to be relatively secure.</p>
+           <button type="button" class="note__close" popovertarget="note-birthday" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/prf-and-prp.html" rel="prev"><small>← Previous</small>Pseudorandom functions and permutations</a>
+          <a class="pager__next" href="/eng/theory/mac.html" rel="next"><small>Next →</small>MAC</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fone-way-function.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fone-way-function.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fone-way-function.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html" aria-current="page">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

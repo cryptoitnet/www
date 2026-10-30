@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/kerckhoffs.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kerckhoffs's Principle | Cryptography | Crypto-IT</title>
+  <meta name="description" content="The Kerckhoffs&#x27;s principle is one of the most basic and most important principles of modern cryptography. It was first published in 1883 in France.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/kerckhoffs.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/kerckhoffs.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/kerckhoffs.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/kerckhoffs.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Kerckhoffs&#x27;s Principle | Cryptography">
+  <meta property="og:description" content="The Kerckhoffs&#x27;s principle is one of the most basic and most important principles of modern cryptography. It was first published in 1883 in France.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/kerckhoffs.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Kerckhoffs's principle",
+        "description": "The Kerckhoffs's principle is one of the most basic and most important principles of modern cryptography. It was first published in 1883 in France.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/kerckhoffs.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Kerckhoffs's principle"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/kerckhoffs.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Kerckhoffs's principle</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <figure class="figure figure--right">
+           <img src="/assets/img/theory/kerkhoffs.webp" alt="Kerckhoffs&#x27;s image" width="160" height="219" loading="lazy">
+           <figcaption>Auguste Kerckhoffs</figcaption>
+          </figure>
+          <p>Kerckhoffs's principle is one of the basic principles of modern cryptography. It was formulated in the end of the nineteenth century by Dutch cryptographer Auguste Kerckhoffs. The principle goes as follows: <strong>A cryptographic system should be secure even if everything about the system, except the key, is public knowledge</strong>.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="kerckhoffs-s-research-publications">Kerckhoffs's research publications</h2>
+          <p>Kerckhoffs’s best known publications are two journal articles published in 1883 in the French <em>"Le Journal des Sciences Militaires"</em> under the common title <em>"La Cryptographie Militaire"</em> (<i>Military cryptography</i>). The articles covered the solutions of military cryptography that were most up-to-date at that time. They gave a practical, experience-based approach, including six design principles for military ciphers:</p>
+          <ol class="steps">
+           <li>The system must be practically, if not mathematically, indecipherable.</li>
+           <li>It must not be required to be secret, and it must be able to fall into the hands of the enemy without inconvenience.</li>
+           <li>Its key must be communicable and retainable without the help of written notes, and changeable or modifiable at the will of the correspondents.</li>
+           <li>It must be applicable to telegraphic correspondence.</li>
+           <li>Apparatus and documents must be portable, and its usage and function must not require the concourse of several people.</li>
+           <li>Finally, it is necessary, given the circumstances that command its application, that the system be easy to use, requiring neither mental strain nor the knowledge of a long series of rules to observe.</li>
+          </ol>
+          <p>The second axiom is currently known as Kerckhoffs's principle.</p>
+          <h2 id="kerckhoffs-s-principle-today">Kerckhoffs's principle today</h2>
+          <p>Kerckhoffs's principle is applied in virtually all contemporary encryption algorithms (DES, AES, etc.). These algorithms are considered to be secure and thoroughly investigated. The security of the encrypted message depends solely on the security of the secret encryption key (its quality).</p>
+          <p>Keeping algorithms secret may act as a significant barrier to cryptanalysis, but only if such algorithms are used in a strictly limited circle, which protects the algorithm from being revealed. Most government ciphers are kept secret. Commercial encryption algorithms, released to the market, have mostly been broken quite swiftly.</p>
+          <p>Kerckhoffs's principle was reformulated (perhaps independently) by Claude Shannon as <em>"The enemy knows the system"</em>. In that form it is called <strong>Shannon's maxim</strong>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/introduction.html" rel="prev"><small>← Previous</small>Introduction</a>
+          <a class="pager__next" href="/eng/theory/steganography.html" rel="next"><small>Next →</small>Steganography</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fkerckhoffs.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fkerckhoffs.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fkerckhoffs.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html" aria-current="page">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

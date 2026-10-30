@@ -1,0 +1,58 @@
+<section class="tool" id="online" aria-labelledby="online-title"
+         data-tool="four-square"
+         data-msg-mode="Nieprawidłowy tryb pomijania litery."
+         data-msg-copied="Skopiowano">
+  <h2 id="online-title">Szyfr czterokwadratowy online</h2>
+  <div class="tool__grid">
+    <div>
+      <div class="field">
+        <label for="fs-keyword1">Hasło dla górnej-prawej tabeli</label>
+        <input type="text" id="fs-keyword1" data-role="keyword1" value="example" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="field">
+        <label for="fs-keyword2">Hasło dla dolnej-lewej tabeli</label>
+        <input type="text" id="fs-keyword2" data-role="keyword2" value="keyword" autocomplete="off" spellcheck="false">
+      </div>
+      <fieldset>
+        <legend>Litera pomijana w tabelach</legend>
+        <div class="options">
+          <label><input type="radio" name="mode" value="j-as-i"> J jako I</label>
+          <label><input type="radio" name="mode" value="no-q" checked> Bez Q</label>
+          <label><input type="radio" name="mode" value="no-x"> Bez X</label>
+        </div>
+      </fieldset>
+    </div>
+    <figure class="matrix-quad" aria-label="Cztery tabele kluczy">
+      <table class="matrix" data-role="table-ul" aria-label="Górna-lewa (alfabetyczna)"></table>
+      <table class="matrix" data-role="table-ur" aria-label="Górna-prawa (hasło 1)"></table>
+      <table class="matrix" data-role="table-ll" aria-label="Dolna-lewa (hasło 2)"></table>
+      <table class="matrix" data-role="table-lr" aria-label="Dolna-prawa (alfabetyczna)"></table>
+    </figure>
+  </div>
+
+  <fieldset>
+    <legend class="visually-hidden">Kierunek</legend>
+    <div class="segmented">
+      <label><input type="radio" name="direction" value="encrypt" checked> Szyfruj</label>
+      <label><input type="radio" name="direction" value="decrypt"> Deszyfruj</label>
+    </div>
+  </fieldset>
+
+  <div class="field">
+    <label for="fs-input">Tekst</label>
+    <textarea id="fs-input" data-role="input" spellcheck="false">help me obi wan kenobi</textarea>
+    <small>Uwzględniane są tylko litery; spacje, cyfry i znaki interpunkcyjne są pomijane, a znaki diakrytyczne usuwane.</small>
+  </div>
+
+  <p class="tool__steps">Pary: <span data-role="digraphs" aria-live="polite"></span></p>
+  <p class="tool__error" data-role="error" role="alert"></p>
+
+  <div class="field">
+    <label for="fs-output">Wynik</label>
+    <textarea id="fs-output" data-role="output" readonly></textarea>
+  </div>
+  <div class="tool__actions">
+    <button type="button" class="button" data-role="copy">Kopiuj wynik</button>
+    <button type="button" class="button" data-role="swap">Użyj wyniku jako wejścia</button>
+  </div>
+</section>

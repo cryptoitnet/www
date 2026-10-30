@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/symetryczne/rc4.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RC4 Symmetric Stream Cipher | Cryptography | Crypto-IT</title>
+  <meta name="description" content="RC4 is a symmetric stream cipher, known and praised for its speed and simplicity. It was designed in 1987 and first published in 1994.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/symmetric/rc4.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/rc4.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/rc4.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/rc4.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="RC4 Symmetric Stream Cipher | Cryptography">
+  <meta property="og:description" content="RC4 is a symmetric stream cipher, known and praised for its speed and simplicity. It was designed in 1987 and first published in 1994.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/symmetric/rc4.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "RC4",
+        "description": "RC4 is a symmetric stream cipher, known and praised for its speed and simplicity. It was designed in 1987 and first published in 1994.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/symmetric/rc4.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Symmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Stream ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/stream-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "RC4"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/" aria-current="true">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/symetryczne/rc4.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/symmetric/">Symmetric ciphers</a></li>
+            <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">RC4</h1>
+          <p class="article__subtitle">Stream cipher with symmetric secret key</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Key length: up to 2048 bits</li>
+          </ul>
+          <p>RC4 is a symmetric stream cipher, known and praised for its speed and simplicity.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>Designed by Ron Rivest of RSA Security in 1987. Implementation of RC4 cipher wasn't known until September 1994 when it was anonymously posted to the Cypherpunks mailing list. RC4 is often referred to as ARCFOUR or ARC4 to avoid problems with RC4 trademarked name. The cipher is officially named after "Rivest Cipher 4" but the acronym RC is alternatively understood to stand for "Ron's Code".</p>
+          <p>RC4 is one of the most popular ciphers. It is widely used in popular protocols, for example to protect Internet traffic - <a href="/eng/theory/application-protocols.html#SSLTLS">TLS (Transport Layer Security)</a> or to protect wireless networks - WEP (Wired Equivalent Privacy).</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>RC4 is a stream symmetric cipher. It operates by creating long keystream sequences and adding them to data bytes.</p>
+          <p>RC4 encrypts data by adding it XOR byte by byte, one after the other, to keystream bytes. The whole RC4 algorithm is based on creating keystream bytes. The keystream is received from a 1-d table called the <var>T</var> table.</p>
+          <h2 id="creating-the-table">Creating the Table</h2>
+          <p>The <var>T</var> table is 256-byte long, and is created based on the secret key. It is created as a first step of both encryption and decryption. The following operations must be performed in order to create the table:</p>
+          <ol class="steps">
+           <li>Every cell in the table is filled with a number equal to its position. The positions of the table are numbered ​from <var>0</var> to <var>255</var>.</li>
+           <li>A new temporary helper variable is created and set to <var>0</var>.</li>
+           <li>
+           For each element in the array the two following operations are performed (note, that the values ​are ​from <var>0</var> to <var>255</var>):
+           <ol class="steps">
+           <li>The value of temporary variable is updated (see <em>Mathematical functions</em> tab).</li>
+           <li>The number in the array at the current position is swapped with the number in the array at the position determined by the temporary variable.</li>
+           </ol>
+           </li>
+          </ol>
+          <h2 id="encryption-and-decryption">Encryption and Decryption</h2>
+          <p>During encryption and decryption the keystream bytes are constantly generated. They are added XOR to message bytes. The keystream bytes are produced based on the <var>T</var> table. The following steps are performed:</p>
+          <ol class="steps">
+           <li>Two helper variables <var>p<sub>1</sub></var> and <var>p<sub>2</sub></var> are created and set to <var>0</var>.</li>
+           <li>The variable <var>p<sub>1</sub></var> is increased by <var>1</var> and the result is modulo divided by <var>256</var>.</li>
+           <li>The variable <var>p<sub>2</sub></var> is increased by the value in the array <var>T</var> at the position determined by the temporary variable <var>p<sub>1</sub></var> (<var>T[p<sub>1</sub>]</var>). Then, the result is divided modulo by <var>256</var>.</li>
+           <li>The value in the array at the position <var>p<sub>1</sub></var> is swapped with the value in the array at the position <var>p<sub>2</sub></var>.</li>
+           <li>The value in the array at the position <var>p<sub>1</sub></var> is added to the value in the array at the position <var>p<sub>2</sub></var>. Then, the result is modulo divided by <var>256</var> and assigned to the new helper variable <var>p<sub>3</sub></var>.</li>
+           <li>The value in the array at the position <var>p<sub>3</sub></var> is a new keystream byte.</li>
+           <li>If more keystream bytes are needed, all the steps from the point II onwards should be repeated.</li>
+          </ol>
+          <h2 id="speed-of-rc4">Speed of RC4</h2>
+          <p>The RC4 algorithm is designed especially to be used in software solutions because it only manipulates single bytes. Unlike many other stream ciphers, it doesn't use <button type="button" class="note-ref" popovertarget="note-lfsr">LFSR</button> registers, which can be implemented optimally in hardware solutions but they are not so fast in applications.</p>
+          <h2 id="security-of-rc4">Security of RC4</h2>
+          <p>The cipher was created quite long time ago and it has some weaknesses which have been improved in modern stream ciphers. It is possible to find keystream byte values that are slightly more likely to occur than other combinations. In fact, over the last 20 years, several bytes like that have been found. Some attacks based on this weakness were discovered.</p>
+          <p>Probably the most important weakness of RC4 cipher is the insufficient key schedule. Because of that issue, it is possible to obtain some information about the secret key based on the first bytes of keystream. It is recommended to simply discard a number of first bytes of the keystream. This improvement is known as <strong>RC4-dropN</strong>, where <var>N</var> is usually a multiple of 256.</p>
+          <p>RC4 does not take a separate nonce alongside the key for every encryption. Therefore, the cryptosystem must take care of unique values of keystream and specify how to combine the nonce with the original secret key. The best idea would be to hash the nonce and the key together to generate the base for creating the RC4 keystream. Unfortunately, many applications simply concatenate key and nonce, which make them vulnerable to so called <em>related key</em> attacks. This weakness of RC4 was used in Fluhrer, Mantin and Shamir (FMS) attack against WEP, published in 2001.</p>
+          <h2 id="block-diagram-of-rc4">Block Diagram of RC4</h2>
+          <figure class="figure"><img src="/assets/img/rc4/algorithm-scheme-eng.webp" alt="Scheme of RC4 algorithm" width="737" height="529" loading="lazy"></figure>
+          <h2 id="maths">Maths</h2>
+          <h3 id="modification-of-the-temporary-variable-during-creating-the-k">Modification of the temporary variable during creating the keystream table</h3>
+          <p>During initialisation of the <var>T</var> table (256-byte long) used for generating keystream, the value of temporary variable is updated for every element in the table. The updated temporary variable is then used for modifying other numbers in the table.</p>
+          <span class="math"> x<sub>help</sub> = (x<sub>help</sub> + w<sub>current</sub> + k<sub>current mod len(K)</sub>) mod 256 </span>,<br> where:
+          <ul>
+           <li><span class="math">x<sub>help</sub></span> - the temporary helper variable,</li>
+           <li><span class="math">w<sub>current</sub></span> - the value in the table <var>T</var> at the current position,</li>
+           <li><span class="math">k<sub>current mod len(K)</sub></span> - the value in the key array which is being created at the current position dividing modulo by the length of the key (because the key may be shorter than 256 bytes),</li>
+           <li><span class="math">mod 256</span> - modulo division by 256 (that is, the remainder of division)</li>
+          </ul>
+          <p>After the operations above, the current value in the <var>T</var> table is swapped with the value at the position determined by the temporary variable. All positions in the table are numbered from 0.</p>
+          <h2 id="implementation">Implementation</h2>
+          <h2 id="keystream-initialisation">Keystream Initialisation</h2>
+          <p>Initialisation a <var>T</var> table, used for generation of keystream bytes. <var>K</var> is the secret key, that is an array of length <var>k_len</var>.</p>
+          <p>for i from 0 to 255<br> T[i] := i<br> endfor<br> x_temp := 0<br> for i from 0 to 255<br> x_temp := (x_temp + T[i] + K[i mod k_len]) mod 256<br> swap(T[i], T[x_temp])<br> endfor</p>
+          <h2 id="keystream-generation">Keystream Generation</h2>
+          <p>For keystream bytes generation, the loop below is executed as long as new bytes are needed.</p>
+          <p>p1 := 0<br> p2 := 0<br> while GeneratingOutput<br> p1 := (p1 + 1) mod 256<br> p2 := (p2 + T[p1]) mod 256<br> swap(T[p1], T[p2])<br> send(T[(T[p1] + T[p2]) mod 256])<br> endwhile</p>
+          <div class="note" id="note-lfsr" popover>
+           <p>Linear Feedback Shift Registers, <strong>LFSR</strong>, is a shift register, whose input bit is a linear function of its previous state.</p>
+           <p>The most popular linear function of single bits is XOR, so usually the input bit to LFSR is driven by the XOR function called for register's bits. The initial value of the LFSR is called the seed. All operations of the register are deterministic because the next values produced by the register are completely determined by its current state. Because the register has a finite number of all possible states, after some time it begins to produce repeating values.</p>
+           <p>LFSR registers are commonly used in counters, applications for generating pseudo-random numbers, in telecommunication and cryptography. Both software and hardware implementations are popular.</p>
+           <button type="button" class="note__close" popovertarget="note-lfsr" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/symmetric/otp.html" rel="prev"><small>← Previous</small>OTP</a>
+          <a class="pager__next" href="/eng/symmetric/salsa20.html" rel="next"><small>Next →</small>Salsa20</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Frc4.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Frc4.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Frc4.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/symmetric/">Symmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/otp.html">OTP</a></li>
+              <li><a href="/eng/symmetric/rc4.html" aria-current="page">RC4</a></li>
+              <li><a href="/eng/symmetric/salsa20.html">Salsa20</a></li>
+              <li><a href="/eng/symmetric/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/des.html">DES</a></li>
+              <li><a href="/eng/symmetric/rc2.html">RC2</a></li>
+              <li><a href="/eng/symmetric/3des.html">Triple DES</a></li>
+              <li><a href="/eng/symmetric/aes.html">AES</a></li>
+              <li><a href="/eng/symmetric/blowfish.html">Blowfish</a></li>
+              <li><a href="/eng/symmetric/camellia.html">Camellia</a></li>
+              <li><a href="/eng/symmetric/serpent.html">Serpent</a></li>
+              <li><a href="/eng/symmetric/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/symetryczne/salsa20.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salsa20 Symmetric Cipher | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Salsa20 is a symmetric stream cipher, which is generally considered to be well-designed and effective. It was created in 2005 in the USA.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/symmetric/salsa20.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/salsa20.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/salsa20.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/salsa20.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Salsa20 Symmetric Cipher | Cryptography">
+  <meta property="og:description" content="Salsa20 is a symmetric stream cipher, which is generally considered to be well-designed and effective. It was created in 2005 in the USA.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/symmetric/salsa20.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Salsa20",
+        "description": "Salsa20 is a symmetric stream cipher, which is generally considered to be well-designed and effective. It was created in 2005 in the USA.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/symmetric/salsa20.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Symmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Stream ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/stream-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Salsa20"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/" aria-current="true">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/symetryczne/salsa20.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/symmetric/">Symmetric ciphers</a></li>
+            <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Salsa20</h1>
+          <p class="article__subtitle">Stream cipher with symmetric secret key</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Key length = 32 bytes</li>
+          </ul>
+          <p>Salsa20 is a modern and efficient stream symmetric cipher. It was designed in 2005 by Daniel Bernstein, research professor of Computer Science at the University of Illinois at Chicago.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>Salsa20 is a cipher that was submitted to eSTREAM project, running from 2004 to 2008, which was supposed to promote development of stream ciphers. It is considered to be a well-designed and efficient algorithm. There aren't any known and effective attacks on the family of Salsa20 ciphers.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>Salsa20 is a stream cipher that works on data blocks of size of 64 bytes.</p>
+          <h3 id="encryption">Encryption</h3>
+          <p>For each 64-byte data block, the algorithm uses the Salsa20 <strong>expansion function</strong>. The input to the function is the secret key (which can have either 32 or 16 bytes) and an 8-byte long <button type="button" class="note-ref" popovertarget="note-nonce">nonce</button> concatenated with an additional block number, which values change from <span class="term">0</span> to <span class="term">2<sup>64</sup>-1</span> (it is also stored on 8 bytes). Every call to the expansion function increases the block number by one.</p>
+          <p>The core of Salsa20 encryption algorithm is a <strong>hash function</strong> which receives the 64-byte long input data from the Salsa20 expansion function, mixes it, and eventually returns the 64-byte long output. The Salsa20 hash function works on the received sequence of bytes, which consists of:</p>
+          <ul>
+           <li>the secret key.</li>
+           <li>the nonce with the block number.</li>
+           <li>four constant vectors received from the expansion function, which values depend on the size of the secret key.</li>
+          </ul>
+          <p>The hash function operates on data divided into <strong>words</strong>. Every word contains 4 bytes and can have values from <span class="term">0</span> to <span class="term">2<sup>32</sup>-1</span>. Therefore, the input data is 16-word long, a key contains 8 or 4 words, and the nonce has 2 words.</p>
+          <p>The output from the Salsa20 expansion function is added XOR to the 64-byte block of data. The result is a 64-byte block of ciphertext.</p>
+          <h3 id="decryption">Decryption</h3>
+          <p>The same algorithm should be used during decryption. The data should be divided into parts of the same size.</p>
+          <p>The output from the Salsa20 expansion function should be added XOR to the 64-byte block of ciphertext. The result is a 64-byte block of plaintext.</p>
+          <h3 id="other-salsa20-ciphers">Other Salsa20 ciphers</h3>
+          <p>There are also some other ciphers, which are based on the Salsa20 algorithm but differ in details.</p>
+          <ul>
+           <li><strong>Salsa20/8</strong> and <strong>Salsa20/12</strong> - they work exactly as the original Salsa20 algorithm but instead of 10 doublerounds inside the hash function, they perform 4 or respectively 6 doublerounds.</li>
+           <li><strong>ChaCha</strong> family - published by Bernstein in 2008. They provide better security than the original Salsa20 cipher, by using slightly better hash functions. The hash function input data was rearranged, to allow to implement the algorithm in a more efficient way.</li>
+          </ul>
+          <h2 id="block-diagram-of-salsa20-algorithm">Block Diagram of Salsa20 Algorithm</h2>
+          <figure class="figure">
+           <img src="/assets/img/salsa20/algorithm-scheme-eng.webp" alt="Scheme of Salsa20 algorithm" width="707" height="707" loading="lazy">
+           <figcaption>Scheme of Salsa20 algorithm</figcaption>
+          </figure>
+          <h2 id="maths">Maths</h2>
+          <p>The operations for Salsa20 algorithm are presented in the order from the low-level functions, to the more complex functions, which use the functions described above them.</p>
+          <h3 id="sum-of-two-words">Sum of two words</h3>
+          <p>The addition of two 4-byte words is denoted in the algorithm description as <var>a + b</var>. The result is divided modulo by <span class="term">2<sup>32</sup></span> (so, by the maximum value that can be stored in one word).</p>
+          <p>The sum of two words <var>a</var> and <var>b</var> is equal to <var>a+b mod 2<sup>32</sup></var>. The result is a valid 4-byte long word.</p>
+          <h3 id="exclusive-or-of-two-words">Exclusive-Or of two words</h3>
+          <p>The Exclusive-Or of two 4-byte words is denoted in the algorithm description as <var>a XOR b</var>.</p>
+          <p>To perform XOR addition, two words are compared bit by bit, and XOR addition is performed for each pair. The result is also a valid proper 4-byte long word.</p>
+          <h3 id="binary-left-rotation">Binary Left Rotation</h3>
+          <p>The <var>a</var>-bit left rotation of a 4-byte word <var>w</var> is denoted in the algorithm as <var>w &lt;&lt;&lt; a</var>. The leftmost <var>a</var> bits move to the rightmost positions.</p>
+          <p>A rotation of bits to the left <var>w &lt;&lt;&lt; a</var> of a 4-byte word <var>w</var> may be represented as the multiplication:<br> <var>2<sup>a</sup>&middot;w mod(2<sup>32</sup>-1)</var><br> The result is a valid 4-byte long word.</p>
+          <h3 id="quarterround-function">Quarterround Function</h3>
+          <p>The Quarterround Function takes 4 words as input and returns another 4-word sequence.</p>
+          <p>If <span class="term">x</span> is a 4-word input:<br> <span class="math">x = (x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>)</span><br> then the function can be defined as follow:<br> <span class="math">quarterround(x) = (y<sub>0</sub>, y<sub>1</sub>, y<sub>2</sub>, y<sub>3</sub>)</span><br> where:<br> <span class="math">y<sub>1</sub> = x<sub>1</sub> </span>XOR<span class="math"> ((x<sub>0</sub> + x<sub>3</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math"> 7)</span><br> <span class="math">y<sub>2</sub> = x<sub>2</sub> </span>XOR<span class="math"> ((y<sub>1</sub> + x<sub>0</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math"> 9)</span><br> <span class="math">y<sub>3</sub> = x<sub>3</sub> </span>XOR<span class="math"> ((y<sub>2</sub> + y<sub>1</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math"> 13)</span><br> <span class="math">y<sub>0</sub> = x<sub>0</sub> </span>XOR<span class="math"> ((y<sub>3</sub> + y<sub>2</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math"> 18)</span></p>
+          <p>The Quarterround Function can be performed in place, without the need of allocating any additional memory. First, x<sub>1</sub> changes to y<sub>1</sub>, then x<sub>2</sub> changes to y<sub>2</sub>, next x<sub>3</sub> changes to y<sub>3</sub>, then x<sub>0</sub> changes to y<sub>0</sub>. The Quarterround Function is invertible because all the modifications above are invertible.</p>
+          <h3 id="rowround-function">Rowround Function</h3>
+          <p>The Rowround Function takes 16 words as input, transforms them, and returns 16-word sequence.</p>
+          <p>This function is very similar to the Columnround Function but it operates on the words in a different order.</p>
+          <p>If <var>x</var> is a 16-word input:<br> <span class="math">x = (x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>15</sub>)</span><br> then the function can be defined as follow:<br> <span class="math">rowround(x) = (y<sub>0</sub>, y<sub>1</sub>, y<sub>2</sub>, ..., y<sub>15</sub>)</span><br> where:<br> <span class="math">(y<sub>0</sub>, y<sub>1</sub>, y<sub>2</sub>, y<sub>3</sub>) = quarterround(x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>)</span><br> <span class="math">(y<sub>5</sub>, y<sub>6</sub>, y<sub>7</sub>, y<sub>4</sub>) = quarterround(x<sub>5</sub>, x<sub>6</sub>, x<sub>7</sub>, x<sub>4</sub>)</span><br> <span class="math">(y<sub>10</sub>, y<sub>11</sub>, y<sub>8</sub>, y<sub>9</sub>) = quarterround(x<sub>10</sub>, x<sub>11</sub>, x<sub>8</sub>, x<sub>9</sub>)</span><br> <span class="math">(y<sub>15</sub>, y<sub>12</sub>, y<sub>13</sub>, y<sub>14</sub>) = quarterround(x<sub>15</sub>, x<sub>12</sub>, x<sub>13</sub>, x<sub>14</sub>)</span></p>
+          <br>
+          <p>The 16-word input can be presented as a square matrix:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="16 Input Words">
+           <tr>
+           <td>x<sub>0</sub></td>
+           <td>x<sub>1</sub></td>
+           <td>x<sub>2</sub></td>
+           <td>x<sub>3</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>4</sub></td>
+           <td>x<sub>5</sub></td>
+           <td>x<sub>6</sub></td>
+           <td>x<sub>7</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>8</sub></td>
+           <td>x<sub>9</sub></td>
+           <td>x<sub>10</sub></td>
+           <td>x<sub>11</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>12</sub></td>
+           <td>x<sub>13</sub></td>
+           <td>x<sub>14</sub></td>
+           <td>x<sub>15</sub></td>
+           </tr>
+           </table>
+          </div>
+          <p>The rows in the matrix can be changed in parallel. Each of them is modified by the Quarterround Function.</p>
+          <p>In the first row, the words are changed in the following order:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>1</sub></span></li>
+           <li><span class="term">x<sub>2</sub></span></li>
+           <li><span class="term">x<sub>3</sub></span></li>
+           <li><span class="term">x<sub>0</sub></span></li>
+          </ol>
+          <p>In the second row, the words are changed in the following order:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>6</sub></span></li>
+           <li><span class="term">x<sub>7</sub></span></li>
+           <li><span class="term">x<sub>4</sub></span></li>
+           <li><span class="term">x<sub>5</sub></span></li>
+          </ol>
+          <p>In the third row, the words are modified in the order:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>11</sub></span></li>
+           <li><span class="term">x<sub>8</sub></span></li>
+           <li><span class="term">x<sub>9</sub></span></li>
+           <li><span class="term">x<sub>10</sub></span></li>
+          </ol>
+          <p>Finally, in the last, fourth row, the words are changed in the order:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>12</sub></span></li>
+           <li><span class="term">x<sub>13</sub></span></li>
+           <li><span class="term">x<sub>14</sub></span></li>
+           <li><span class="term">x<sub>15</sub></span></li>
+          </ol>
+          <h3 id="columnround-function">Columnround Function</h3>
+          <p>The Columnround Function takes 16 words as input and returns 16-word sequence.</p>
+          <p>This function is very similar to the Rowround Function but operates on the words in different order.</p>
+          <p>If <var>x</var> is a 16-word input:<br> <span class="math">x = (x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>15</sub>)</span><br> then the function can be defined as follow:<br> <span class="math">columnround(x) = (y<sub>0</sub>, y<sub>1</sub>, y<sub>2</sub>, ..., y<sub>15</sub>)</span><br> where:<br> <span class="math">(y<sub>0</sub>, y<sub>4</sub>, y<sub>8</sub>, y<sub>12</sub>) = quarterround(x<sub>0</sub>, x<sub>4</sub>, x<sub>8</sub>, x<sub>12</sub>)</span><br> <span class="math">(y<sub>5</sub>, y<sub>9</sub>, y<sub>13</sub>, y<sub>1</sub>) = quarterround(x<sub>5</sub>, x<sub>9</sub>, x<sub>13</sub>, x<sub>1</sub>)</span><br> <span class="math">(y<sub>10</sub>, y<sub>14</sub>, y<sub>2</sub>, y<sub>6</sub>) = quarterround(x<sub>10</sub>, x<sub>14</sub>, x<sub>2</sub>, x<sub>6</sub>)</span><br> <span class="math">(y<sub>15</sub>, y<sub>3</sub>, y<sub>7</sub>, y<sub>11</sub>) = quarterround(x<sub>15</sub>, x<sub>3</sub>, x<sub>7</sub>, x<sub>11</sub>)</span></p>
+          <br>
+          <p>The 16-word input can be presented as a square matrix:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="16 input words">
+           <tr>
+           <td>x<sub>0</sub></td>
+           <td>x<sub>1</sub></td>
+           <td>x<sub>2</sub></td>
+           <td>x<sub>3</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>4</sub></td>
+           <td>x<sub>5</sub></td>
+           <td>x<sub>6</sub></td>
+           <td>x<sub>7</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>8</sub></td>
+           <td>x<sub>9</sub></td>
+           <td>x<sub>10</sub></td>
+           <td>x<sub>11</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>12</sub></td>
+           <td>x<sub>13</sub></td>
+           <td>x<sub>14</sub></td>
+           <td>x<sub>15</sub></td>
+           </tr>
+           </table>
+          </div>
+          <p>The columns in the matrix can be changed in parallel. Each of them is modified by the Quarterround Function.</p>
+          <p>In the first column, the words are changed in the following order:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>4</sub></span></li>
+           <li><span class="term">x<sub>8</sub></span></li>
+           <li><span class="term">x<sub>12</sub></span></li>
+           <li><span class="term">x<sub>0</sub></span></li>
+          </ol>
+          <p>In the second column, the words are modified in the following order:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>9</sub></span></li>
+           <li><span class="term">x<sub>13</sub></span></li>
+           <li><span class="term">x<sub>1</sub></span></li>
+           <li><span class="term">x<sub>5</sub></span></li>
+          </ol>
+          <p>In the third column, the words are changed in the order:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>14</sub></span></li>
+           <li><span class="term">x<sub>2</sub></span></li>
+           <li><span class="term">x<sub>6</sub></span></li>
+           <li><span class="term">x<sub>10</sub></span></li>
+          </ol>
+          <p>In the last fourth column, the words are modified in the order:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>3</sub></span></li>
+           <li><span class="term">x<sub>7</sub></span></li>
+           <li><span class="term">x<sub>11</sub></span></li>
+           <li><span class="term">x<sub>15</sub></span></li>
+          </ol>
+          <h3 id="doubleround-function">Doubleround Function</h3>
+          <p>The Doubleround Function takes 16 words as input and returns 16-word sequence.</p>
+          <p>If <var>x</var> is a 16-word input, then the Doubleround Function can be defined as follow:<br> <span class="math">doubleround(x) = rowround(columnround(x))</span></p>
+          <h3 id="littleendian-function">Littleendian Function</h3>
+          <p>The Littleendian Function changes the order of a 4-byte sequence.</p>
+          <p>If <var>b</var> is a sequence of four bytes:<br> <span class="math">b = (b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>, b<sub>3</sub>)</span><br> then the function is defined as:<br> <span class="math">littleendian(b) = b<sub>0</sub> + 2<sup>8</sup>b<sub>1</sub> + 2<sup>16</sup>b<sub>2</sub> + 2<sup>24</sup>b<sub>3</sub></span></p>
+          <p>The Littleendian Function is invertible. It just simply changes the order of bytes in a word.</p>
+          <h3 id="salsa20-hash-function">Salsa20 Hash Function</h3>
+          <p>The Salsa20 Hash Function takes 64 bytes as input and returns a 64-byte sequence.</p>
+          <p>First, the Hash Function creates 16 words from the received 64-byte input. If <var>input</var> is a sequence of 64 bytes:<br> <span class="math">input =(b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>, ..., b<sub>63</sub>)</span><br> then 16 words are created as below:<br> <span class="math">w<sub>0</sub> = littleendian(b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>, b<sub>3</sub>)</span><br> <span class="math">w<sub>1</sub> = littleendian(b<sub>4</sub>, b<sub>5</sub>, b<sub>6</sub>, b<sub>7</sub>)</span><br> <span class="math">[...]</span><br> <span class="math">w<sub>15</sub> = littleendian(b<sub>60</sub>, b<sub>61</sub>, b<sub>62</sub>, b<sub>63</sub>)</span></p>
+          <p>Then, all 16 words are modified by 10 iterations of the Doubleround Function:<br> <span class="math">(x<sub>0</sub>, x<sub>1</sub>, ..., x<sub>15</sub>) = doubleround<sup>10</sup>(w<sub>0</sub>, w<sub>1</sub>, ..., w<sub>15</sub>)</span></p>
+          <p>Finally, the 16 words received as input are added (as described above) to the modified 16 words and changed to 64 new bytes using the Littleendian Function. The bytes are <var>output</var> from the Salsa20 Hash Function:<br> <span class="math">output = littleendian<sup>-1</sup>(x<sub>0</sub>+w<sub>0</sub>) + littleendian<sup>-1</sup>(x<sub>1</sub>+w<sub>1</sub>) + ... + littleendian<sup>-1</sup>(x<sub>15</sub>+w<sub>15</sub>)</span></p>
+          <h3 id="salsa20-expansion-function">Salsa20 Expansion Function</h3>
+          <p>The Salsa20 Expansion Function takes two sequences of bytes. The first sequence can have either 16 or 32 bytes and the second sequence (<var>n</var>) is always 16-byte long. The function returns another sequence of 64 bytes.</p>
+          <p>If the first sequence is 32-bytes long, then it is divided into two shorter sequences of 16 bytes (<var>k<sub>0</sub></var> and <var>k<sub>1</sub></var>). The Salsa20 Expansion Function is defined by using the Salsa20 Hash Function, as shown below:<br> <span class="math">Salsa20Expansion<sub>k<sub>0</sub>, k<sub>1</sub></sub>(n) = Salsa20Hash(a<sub>0</sub>, k<sub>0</sub>, a<sub>1</sub>, n, a<sub>2</sub>, k<sub>1</sub>, a<sub>3</sub>)</span><br> where:<br> <span class="math">a<sub>0</sub> = (101, 120, 112, 97)</span><br> <span class="math">a<sub>1</sub> = (110, 100, 32, 51)</span><br> <span class="math">a<sub>2</sub> = (50, 45, 98, 121)</span><br> <span class="math">a<sub>3</sub> = (116, 101, 32, 107)</span></p>
+          <p>If the first sequence is 16-bytes long (<var>k</var>), then the Salsa20 Expansion Function is defined by using the Salsa20 Hash Function as below:<br> <span class="math">Salsa20Expansion<sub>k</sub>(n) = Salsa20Hash(b<sub>0</sub>, k, b<sub>1</sub>, n, b<sub>2</sub>, k, b<sub>3</sub>)</span><br> where:<br> <span class="math">b<sub>0</sub> = (101, 120, 112, 97)</span><br> <span class="math">b<sub>1</sub> = (110, 100, 32, 49)</span><br> <span class="math">b<sub>2</sub> = (54, 45, 98, 121)</span><br> <span class="math">b<sub>3</sub> = (116, 101, 32, 107)</span></p>
+          <p>The constant values of the vector <var>(a<sub>0</sub>, a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>)</var> mean '<em>expand 32-byte k</em>' in ASCII code. Similarly, the constant values of the second vector <var>(b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>, b<sub>3</sub>)</var> mean '<em>expand 16-byte k</em>' in ASCII.</p>
+          <div class="note" id="note-nonce" popover>
+           <p>A nonce is an arbitrary number (often random or pseudo-random) used only once in a cryptographic communication. It ensures security of stream ciphers (makes keystream different for different messages) and that old communications cannot be reused in replay attacks.</p>
+           <button type="button" class="note__close" popovertarget="note-nonce" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/symmetric/rc4.html" rel="prev"><small>← Previous</small>RC4</a>
+          <a class="pager__next" href="/eng/symmetric/css.html" rel="next"><small>Next →</small>CSS</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fsalsa20.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fsalsa20.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fsalsa20.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/symmetric/">Symmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/otp.html">OTP</a></li>
+              <li><a href="/eng/symmetric/rc4.html">RC4</a></li>
+              <li><a href="/eng/symmetric/salsa20.html" aria-current="page">Salsa20</a></li>
+              <li><a href="/eng/symmetric/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/des.html">DES</a></li>
+              <li><a href="/eng/symmetric/rc2.html">RC2</a></li>
+              <li><a href="/eng/symmetric/3des.html">Triple DES</a></li>
+              <li><a href="/eng/symmetric/aes.html">AES</a></li>
+              <li><a href="/eng/symmetric/blowfish.html">Blowfish</a></li>
+              <li><a href="/eng/symmetric/camellia.html">Camellia</a></li>
+              <li><a href="/eng/symmetric/serpent.html">Serpent</a></li>
+              <li><a href="/eng/symmetric/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

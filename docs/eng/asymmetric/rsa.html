@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/asymetryczne/rsa.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RSA Asymmetric Cipher | Cryptography | Crypto-IT</title>
+  <meta name="description" content="RSA in one of the most popular algorithms with public key encryption. It can be used for either encryption of messages or for digital signatures.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/asymmetric/rsa.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/rsa.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/rsa.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/asymmetric/rsa.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="RSA Asymmetric Cipher | Cryptography">
+  <meta property="og:description" content="RSA in one of the most popular algorithms with public key encryption. It can be used for either encryption of messages or for digital signatures.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/asymmetric/rsa.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "RSA",
+        "description": "RSA in one of the most popular algorithms with public key encryption. It can be used for either encryption of messages or for digital signatures.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/asymmetric/rsa.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Asymmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/asymmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "RSA"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/" aria-current="true">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/asymetryczne/rsa.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/asymmetric/">Asymmetric ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">RSA</h1>
+          <p class="article__subtitle">Message encryption or authentication</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Key has usually length of about 1000 to 4000 bits</li>
+          </ul>
+          <p>RSA is one of the most popular algorithms with public key encryption. It can be used for either encryption of messages or for digital signatures.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>RSA was designed by Ron Rivest, Adi Shamir and Leonard Adleman in 1977.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The RSA algorithm allows to create a pair of keys: a public key and a private key. Everyone can receive the public key and use it to encrypt a message. Only the owner of the private key would be able to decrypt that message.</p>
+          <p>Similarly, the owner of the private key can encrypt some data by using it, thus allowing everyone else to use the corresponding public key to decrypt the data.</p>
+          <p>RSA security is based on the practical difficulty of factoring the product of two large prime numbers (this is so called the factoring problem).</p>
+          <h2 id="key-generation">Key Generation</h2>
+          <p>Both RSA keys are generated using the following algorithm:</p>
+          <ol class="steps">
+           <li>Choose two different prime numbers, usually they are denoted by <var>p</var> and <var>q</var>. The numbers should be chosen at random and they should be of similar bit-length.</li>
+           <li>Calculate: <span class="math">n = p&middot;q</span><br> The number <var>n</var> is used as the modulus for both private and public keys. Its length is the length of the RSA key.</li>
+           <li>Calculate a value of Euler's totient function for <var>n</var>:<br> <span class="math">&phi;(n) = &phi;(p)&middot;&phi;(q) = (p − 1)&middot;(q − 1)</span></li>
+           <li>Choose an integer <var>e</var> that is larger than <span class="term">1</span> and smaller than previously computed value <var>&phi;(n)</var>. The numbers <var>e</var> and <var>&phi;(n)</var> should be coprime. The number <var>e</var> is used as the public key exponent.</li>
+           <li>Compute a number <var>d</var> such that: <span class="math">d&middot;e = 1</span> (mod <span class="math">&phi;(n)</span>)<br> The number <var>d</var> is used as the private key exponent.</li>
+          </ol>
+          <p>The public key consists of the modulus <var>n</var> and the public exponent <var>e</var>. The private key consists of the modulus <var>n</var> and the private exponent <var>d</var>. All numbers related to the private key must be kept secret: both <var>n</var> and <var>d</var>, and three other numbers: <var>p</var>, <var>q</var> and <var>&phi;(n)</var> which can be used to compute <var>d</var>.</p>
+          <p>A lot of users can use the same value of <var>e</var>. Its length should be relatively short, because time complexity of encryption depends significantly on the number of bits of <var>e</var>. A prime number <span class="term">2<sup>16</sup>+1</span> (thus <span class="term">65537</span>) is often used as the value of <var>e</var>. One can also use much smaller numbers (for example <span class="term">3</span>) but they are considered to be less secure in some circumstances.</p>
+          <p>Each user should possess its own number <var>n</var> (which is computed from the two prime numbers).</p>
+          <h2 id="encryption">Encryption</h2>
+          <p>During encryption one should use a public key <var>(n, e)</var>. All messages should be divided into a number of parts. Then, each part should be converted to a number (that must be larger than <span class="term">0</span> and smaller than <var>n</var>). In practice, the message should be divided into fragments of the size of a certain number of bits.</p>
+          <p>Then, every number of the message is raised modulo <var>n</var> to the power <var>e</var>:<br> <span class="math">c<sub>i</sub> = m<sub>i</sub><sup>e</sup></span> (mod <span class="math">n</span>)</p>
+          <p>RSA can be used multiple times (with different keys) to encrypt a message. The received ciphertext can be decrypted in any order. The result is always the same. It does not matter in which order the operations have been performed. However, one shouldn't encrypt a message in this way more than twice, because of attacks based on <em>the Chinese remainder theorem</em>.</p>
+          <p>Encryption can be performed by using a private key as well. The procedure is the same, as described above, but the private key <var>(n, d)</var> should be used instead. The receiver will have to use the public key to decrypt the message.</p>
+          <h2 id="decryption">Decryption</h2>
+          <p>During decryption one should use a private key <var>(n, d)</var>.</p>
+          <p>The received ciphertext consists of numbers, which are smaller than <var>n</var>. Each ciphertext number ought to be raised modulo <var>n</var> to the power <var>d</var>:<br> <span class="math">m<sub>i</sub> = c<sub>i</sub><sup>d</sup></span> (mod <span class="math">n</span>)</p>
+          <p>The received plaintext numbers should be combined in the correct order into the original plaintext message.</p>
+          <p>If the message was encrypted by a private key, decryption should be performed by using the corresponding public key. The procedure is the same as the one presented above, but for decryption the public key <var>(n, e)</var> should be used instead.</p>
+          <h2 id="message-authentication">Message Authentication</h2>
+          <p>RSA can be used to sign messages. A sender should produce a <a href="/eng/theory/one-way-function.html#hash">hash value</a> of the message content and then raise it to the power of <var>d</var> (modulo <var>n</var>). Therefore, he should perform the same operations as during ordinary encryption procedure. The encoded hash value should be attached to the message.</p>
+          <p>The recipient of the message can raise the received encrypted hash value to the power of <var>e</var> (modulo <var>n</var>) and compare the result with a hash value calculated by him. If both values are the same, then the recipient is assured that the message hasn't been changed.</p>
+          <h2 id="security-of-rsa">Security of RSA</h2>
+          <p>If one used a small exponent <var>e</var> (for example <span class="term">3</span>) to encrypt a small value <var>m</var> (smaller than n<sup>1/e</sup>), then a ciphertext number would be smaller than the modulus <var>n</var>. Such a case allows to determine the value of <var>m</var> using ordinary arithmetic operations, which are fast and effective.</p>
+          <p>To protect against the use of the algorithm for encrypting too small plaintext numbers, one should add random paddings, that would increase the number values. Also, thanks to using random paddings, the same plaintext numbers are encoded by various ciphertext numbers. There are a lot of popular padding schemes, for example OAEP, PKCS#1 or RSA-PSS.</p>
+          <p>The RSA algorithm is deterministic, thus the cipher is vulnerable to <a href="/eng/attacks/chosen-plaintext.html">chosen plaintext attacks</a>. It is possible to encrypt a lot of messages using a known public key. Therefore, an attacker can guess a content of captured encrypted messages by comparing them with the messages created by him.</p>
+          <p>Another feature of this cipher is that a ciphertext of the product of two plaintext numbers is the same as the product of ciphertexts that correspond to those plaintexts.</p>
+          <p>RSA is generally considered to be a secure cryptosystem. It is used in various applications, protocols and kinds of communication.</p>
+          <h2 id="block-diagram-of-rsa-encryption-and-decryption">Block Diagram of RSA encryption and decryption</h2>
+          <figure class="figure"><img src="/assets/img/rsa/rsa-scheme.webp" alt="RSA operations" width="454" height="189" loading="lazy"></figure>
+          <h2 id="maths">Maths</h2>
+          <h3 id="euler-s-totient-function-phi-function">Euler's totient function (phi function)</h3>
+          <p>The value of Euler's totient function for a positive integer <var>n</var>, denoted <var>&phi;(n)</var>, is determined by the number of all positive integers less than or equal to <var>n</var>, that are relatively prime to <var>n</var>.</p>
+          <p>If <var>n</var> is a positive integer, then <var>&phi;(n)</var> is equal to the number of such integers <var>k</var> that <var>k</var> is not smaller than <span class="term">1</span> and it is not larger than <var>n</var>, and the numbers <var>n</var> and <var>k</var> are coprime.</p>
+          <p>The totient function is a multiplicative function. This means that if two numbers <var>a</var> and <var>b</var> are relatively prime, then:<br> <span class="math">&phi;(a&middot;b) = &phi;(a)&middot;&phi;(b)</span>.</p>
+          <h3 id="modular-exponentiation">Modular exponentiation</h3>
+          <p>Raising a number to the power modulo a positive number is one of the most important operations in modern cryptography. It is described by the general laws of numbers manipulation in <a href="/eng/theory/modular-arithmetic.html">modulo arithmetic</a>. Both the base and the exponent are positive integers. The result is also a natural number.</p>
+          <p>The operation of raising modulo a number to a power may be presented as a sequence of operations which consist of raising to the square and then dividing modulo all the subsequent results.</p>
+          <p>For example, raising 4 to the power of 9 modulo 7 can be calculated in the following way:<br> <span class="math"> &nbsp;4<sup>9</sup> mod 7:<br> &nbsp;4<sup>2</sup> mod 7 = 16 mod 7 = 2<br> &nbsp;4<sup>4</sup> mod 7 = 2<sup>2</sup> mod 7 = 4 mod 7 = 4<br> &nbsp;4<sup>8</sup> mod 7 = 4<sup>2</sup> mod 7 = 16 mod 7 = 2<br> &nbsp;4<sup>9</sup> mod 7 = (4<sup>1</sup> mod 7 * 4<sup>8</sup> mod 7) mod 7 = 4 * 2 mod 7 = 1 </span></p>
+          <p>As opposed to the common exponentiation, exponentiation in modular arithmetic is difficult and there are no efficient algorithms to perform the reverse operation.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/asymmetric/diffie-hellman.html" rel="prev"><small>← Previous</small>Diffie–Hellman protocol</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2Frsa.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2Frsa.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2Frsa.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-asymmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/asymmetric/">Asymmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/asymmetric/merkle-puzzles.html">Merkle&#x27;s puzzles</a></li>
+          <li><a href="/eng/asymmetric/diffie-hellman.html">Diffie–Hellman protocol</a></li>
+          <li><a href="/eng/asymmetric/rsa.html" aria-current="page">RSA</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-asymmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

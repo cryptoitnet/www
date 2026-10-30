@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/autokey-cipher.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfr z Automatycznym Generowaniem Klucza | Crypto-IT</title>
+  <meta name="description" content="Szyfr z automatycznym generowaniem klucza jest wieloalfabetowym szyfrem podstawieniowym wynalezionym we Francji w XVI wieku.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/klucz-automatyczny.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/autokey-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/klucz-automatyczny.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/autokey-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfr z Automatycznym Generowaniem Klucza">
+  <meta property="og:description" content="Szyfr z automatycznym generowaniem klucza jest wieloalfabetowym szyfrem podstawieniowym wynalezionym we Francji w XVI wieku.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/klucz-automatyczny.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfr z automatycznym generowaniem klucza",
+        "description": "Szyfr z automatycznym generowaniem klucza jest wieloalfabetowym szyfrem podstawieniowym wynalezionym we Francji w XVI wieku.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/klucz-automatyczny.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Wieloalfabetowe szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Szyfr z automatycznym generowaniem klucza"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/autokey-cipher.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a></li>
+            <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfr z automatycznym generowaniem klucza</h1>
+          <p class="article__subtitle">(ang. autokey cipher)</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Został opisany w 1586&nbsp;roku przez francuskiego dyplomatę i&nbsp;alchemika Blaise de&nbsp;Vigenère.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Szyfr ten był używany w&nbsp;Europie aż do&nbsp;dwudziestego wieku. Obecnie, jakkolwiek nie&nbsp;stosowany bezpośrednio, stał się bazą dla&nbsp;wielu współczesnych szyfrów, które stosują sekretne klucze bazujące na&nbsp;oryginalnej wiadomości zapisanej w&nbsp;tekście jawnym.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Podobnie jak w&nbsp;przypadku innych szyfrów wieloalfabetowych, algorytm tego szyfru polega na&nbsp;kodowaniu kolejnych liter tekstu jawnego, za&nbsp;pomocą kolejnych liter w&nbsp;słowach klucza. Każdą literę wiadomości przesuwa się o&nbsp;ilość pozycji w&nbsp;alfabecie, równą pozycji aktualnej litery klucza.</p>
+          <p>W&nbsp;celu uproszczenia algorytmu, często wykorzystywana jest tablica zawierająca w&nbsp;wierszach wszystkie alfabety przesunięte względem siebie o&nbsp;coraz większą liczbę pozycji, czyli tak zwana <i>tabula recta</i>:</p>
+          <figure class="figure">
+           <img src="/assets/img/simple-ciphers/tabula-recta.webp" alt="tabula recta" width="320" height="320" loading="lazy"><br>
+           <figcaption>Tabula Recta</figcaption>
+          </figure>
+          <p>W przeciwieństwie do&nbsp;większości szyfrów tego typu, po&nbsp;wyczerpaniu się liter klucza, nie&nbsp;wraca się do&nbsp;jego początku, ale zaczyna używać liter tekstu jawnego jako kolejnych znaków klucza.</p>
+          <p>Przykładowo, szyfrując tekst <i>Opinio communis</i> za&nbsp;pomocą klucza <i>Ab ovo</i> otrzyma się następujący wynik:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="Autokey cipher encryption">
+           <tr>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;Plaintext:</td>
+           <td><span class="term">&nbsp;&nbsp;&nbsp;&nbsp;OPINIOCOMMUNIS</span></td>
+           </tr>
+           <tr>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;Key:</td>
+           <td><span class="term">&nbsp;&nbsp;&nbsp;&nbsp;ABOVO<strong>OPINIOCOM</strong></span></td>
+           </tr>
+           <tr>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;Ciphertext:</td>
+           <td><span class="term">&nbsp;&nbsp;&nbsp;&nbsp;OQWIWCRWZUIPWE</span></td>
+           </tr>
+           </table>
+          </div>
+          <br>
+          <h2 id="sila-szyfru-z-automatycznym-generowaniem-klucza">Siła szyfru z&nbsp;automatycznym generowaniem klucza</h2>
+          <p>Dzięki uniknięciu cyklicznego powtarzania tych samych liter klucza, szyfr&nbsp;ten jest odporny na&nbsp;ataki bazujące na&nbsp;podzieleniu szyfrogramu na&nbsp;kilka części odpowiadającym poszczególnym znakom klucza. Natomiast jego słabością jest fakt, że znaki w&nbsp;kluczu tworzą całkowicie poprawne słowa i&nbsp;zdania, w&nbsp;dodatku takie same jak w&nbsp;tekście jawnym.</p>
+          <p>Atakując szyfrogram należy próbować odgadywać fragmenty tekstu jawnego (na&nbsp;przykład powtarzające się częste grupy znaków w&nbsp;danym języku). Następnie przez&nbsp;porównywanie ich ze&nbsp;znakami tekstu jawnego, można starać się otrzymać znaki sekretnego klucza. Trzeba próbować znajdować takie przypisania, które powodują powstawanie sensownych wyrazów wśród znaków klucza.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/klucz-biezacy.html" rel="prev"><small>← Poprzedni</small>Szyfr z kluczem bieżącym</a>
+          <a class="pager__next" href="/pl/proste/nihilist.html" rel="next"><small>Następny →</small>Szyfr Nihilist</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fklucz-automatyczny.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fklucz-automatyczny.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fklucz-automatyczny.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html" aria-current="page">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

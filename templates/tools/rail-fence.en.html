@@ -1,0 +1,55 @@
+<section class="tool" id="online" aria-labelledby="online-title"
+         data-tool="rail-fence"
+         data-msg-rails="The number of rails must be at least 2."
+         data-msg-offset="The offset must be zero or a positive number."
+         data-msg-copied="Copied">
+  <h2 id="online-title">Rail fence cipher online</h2>
+  <div class="tool__grid">
+    <div>
+      <div class="field">
+        <label for="rf-rails">Number of rails</label>
+        <select id="rf-rails" data-role="rails">
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+        <small>Height of the imaginary fence the text zig-zags across.</small>
+      </div>
+      <div class="field">
+        <label for="rf-offset">Offset</label>
+        <input type="number" id="rf-offset" data-role="offset" value="0" min="0" step="1">
+        <small>How many zig-zag steps to skip before the first letter. Leave at 0 for the classic cipher.</small>
+      </div>
+      <fieldset>
+        <legend class="visually-hidden">Direction</legend>
+        <div class="segmented">
+          <label><input type="radio" name="direction" value="encrypt" checked> Encrypt</label>
+          <label><input type="radio" name="direction" value="decrypt"> Decrypt</label>
+        </div>
+      </fieldset>
+    </div>
+    <figure>
+      <table class="matrix" data-role="fence" aria-label="The fence grid"></table>
+    </figure>
+  </div>
+
+  <div class="field">
+    <label for="rf-input">Text</label>
+    <textarea id="rf-input" data-role="input" spellcheck="false">We are discovered, run at once</textarea>
+    <small>Only letters are used; spaces, digits and punctuation are ignored, accents are removed.</small>
+  </div>
+
+  <p class="tool__error" data-role="error" role="alert"></p>
+
+  <div class="field">
+    <label for="rf-output">Result</label>
+    <textarea id="rf-output" data-role="output" readonly></textarea>
+  </div>
+  <div class="tool__actions">
+    <button type="button" class="button" data-role="copy">Copy result</button>
+    <button type="button" class="button" data-role="swap">Use result as input</button>
+  </div>
+</section>

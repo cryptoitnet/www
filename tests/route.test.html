@@ -1,0 +1,58 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Route tests</title>
+<!-- Open through a local server. Result shown on the page and in the title. -->
+<pre id="result">running…</pre>
+<script type="module">
+  import { normalize, spiralPath, encrypt, decrypt, RouteError }
+    from '../docs/assets/js/tools/route.js';
+
+  const results = [];
+  const eq = (name, actual, expected) =>
+    results.push(actual === expected ? `ok   ${name}` : `FAIL ${name}: got ${JSON.stringify(actual)}, expected ${JSON.stringify(expected)}`);
+  const throws = (name, fn, code) => {
+    try { fn(); results.push(`FAIL ${name}: no error`); }
+    catch (e) { eq(name, e instanceof RouteError && e.code, code); }
+  };
+
+  const MSG = 'WEAREDISCOVEREDFLEEATONCE';   // 25 letters -> fits a 5×5 grid
+
+  // Spiral from the top-right corner, clockwise inward (matches the original tool).
+  eq('clockwise 5 cols encrypt', encrypt(MSG, 5, 'clockwise').output, 'EODAECNOTFVDWEARCEEELEISR');
+  eq('clockwise 5 cols decrypt', decrypt('EODAECNOTFVDWEARCEEELEISR', 5, 'clockwise').output, MSG);
+  eq('anticlockwise 5 cols encrypt', encrypt(MSG, 5, 'anticlockwise').output, 'ERAEWDVFTONCEADOCSIELEEER');
+  eq('anticlockwise 5 cols decrypt', decrypt('ERAEWDVFTONCEADOCSIELEEER', 5, 'anticlockwise').output, MSG);
+
+  // Spiral path first cell is the top-right corner
+  eq('path starts top-right', JSON.stringify(spiralPath(5, 5, 'clockwise')[0]), '[0,4]');
+  eq('path visits every cell', spiralPath(4, 6, 'clockwise').length, 24);
+
+  // Padding: a message that does not fill the last row is padded with X during encryption
+  eq('encrypt pads last row',
+     encrypt('ATTACKATDAWN', 5, 'clockwise').output.length, 15);   // 3 rows × 5 cols
+  eq('encrypt+decrypt keeps padding',
+     decrypt(encrypt('ATTACKATDAWN', 5, 'clockwise').output, 5, 'clockwise').output, 'ATTACKATDAWNXXX');
+
+  // Normalization: non-letters removed, accents folded, uppercased
+  eq('normalize', normalize('Zażółć 42!'), 'ZAZOLC');
+
+  // Round trips over several widths and both directions (lengths chosen to fill the grid)
+  const base = normalize('Defend the east wall of the castle at midnight today');
+  for (const cols of [3, 4, 6, 7]) {
+    for (const dir of ['clockwise', 'anticlockwise']) {
+      // pad to a multiple of cols so decrypt accepts it
+      const padded = base + 'X'.repeat((cols - base.length % cols) % cols);
+      const enc = encrypt(padded, cols, dir).output;
+      const back = decrypt(enc, cols, dir).output;
+      eq(`round trip cols=${cols} ${dir}`, back, padded);
+    }
+  }
+
+  // Errors
+  throws('too few columns', () => encrypt('abc', 1, 'clockwise'), 'columns');
+  throws('decrypt length mismatch', () => decrypt('ABCDEFG', 5, 'clockwise'), 'length');
+
+  const failed = results.filter((r) => r.startsWith('FAIL')).length;
+  document.getElementById('result').textContent = `${results.join('\n')}\n\n${failed ? `${failed} FAILED` : 'ALL PASSED'}`;
+  document.title = failed ? 'FAILED' : 'PASSED';
+</script>

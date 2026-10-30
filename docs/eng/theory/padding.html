@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/dopelnienie.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Padding Mechanisms | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Padding standards are mechanisms for appending some predefined values to messages. They are required by many algorithms, including block symmetric ciphers.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/padding.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/padding.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/dopelnienie.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/padding.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Padding Mechanisms | Cryptography">
+  <meta property="og:description" content="Padding standards are mechanisms for appending some predefined values to messages. They are required by many algorithms, including block symmetric ciphers.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/padding.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Padding Mechanisms",
+        "description": "Padding standards are mechanisms for appending some predefined values to messages. They are required by many algorithms, including block symmetric ciphers.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/padding.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Padding Mechanisms"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/dopelnienie.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Padding Mechanisms</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Padding standards are mechanisms for appending some predefined values to messages. They are used with algorithms which deal with blocks of data. Typical examples of such operations are <a href="/eng/symmetric/">block symmetric ciphers</a> and <a href="/eng/theory/mac.html">MAC algorithms</a>. These algorithms work on the whole data blocks. Therefore, if a message length is not a multiple of the block size, a standard for adding some number of bytes to the end of the message is required.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>The information which padding standard has been used, must be provided to the receiver. This allows them to determine (after decrypting the ciphertext) where the original message ends, and the unimportant pad bytes start.</p>
+          <p>All the padding standards defined below work in a similar way. They describe which values should be appended to the message, to fill up the last block.</p>
+          <p>Using padding is a convenient way of making sure that encrypted data is of the correct size. The only drawback is the fact that even if the original message contains the correct number of bytes (a multiple of the block size), some padding must be added to fulfil the process and make sure that the receiver would be able to understand the message. Usually, a new dummy block must be added which will contain only the padding bytes.</p>
+          <p>There are a few padding types described below. The first two paddings are based on bits, whereas the others are based on bytes.</p>
+          <h2 id="bit-padding">Bit Padding</h2>
+          <p>A single <span class="term">1</span> bit is appended to the data. Then, all other bits of the padding (if any are required) are zeros.</p>
+          <pre><code>1 0 1 0 0 0 0 1 1 0  1 0 0 0 0 0</code></pre>
+          <p>This padding scheme is defined in ISO/IEC 9797-1 documentation.</p>
+          <h2 id="tbc-trailing-bit-complement-padding">TBC (Trailing Bit Complement) Padding</h2>
+          <p>If the data ends in a <span class="term">0</span> bit, all the padding bits will be ones. If the data ends in a <span class="term">1</span> bit, all the padding bits will be zeros.</p>
+          <pre><code>1 0 1 0 0 0 0 1 1 0  1 1 1 1 1 1
+1 0 1 0 0 0 0 1 1 1  0 0 0 0 0 0</code></pre>
+          <h2 id="pkcs-5-and-pkcs-7-padding">PKCS#5 and PKCS#7 Padding</h2>
+          <p>The value of each pad byte is the total number of bytes that are added. Of course, the total number of pad bytes depends on the block size.</p>
+          <p>For example, if the message is 3 bytes shorter than an integer multiple of the block size, then 3 pad bytes should be added, each of them of value 3. If 5 bytes should be added, then each of them should be 5.</p>
+          <pre><code>0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0xEF  0x03 0x03 0x03
+0x10 0x11 0x36 0x67 0x38 0xBC  0x06 0x06 0x06 0x06 0x06 0x06</code></pre>
+          <h2 id="iso-7816-4-padding">ISO 7816-4 Padding</h2>
+          <p>The first byte of the padding is 0x80. All other bytes of the padding are zeros. Such construction allows to create paddings of any size.</p>
+          <pre><code>0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0xEF  0x80 0x00 0x00</code></pre>
+          <p>The padding mechanism is defined in ISO/IEC 7816-4 documentation.</p>
+          <h2 id="iso-10126-2-padding">ISO 10126-2 Padding</h2>
+          <p>The last byte of the padding (thus, the last byte of the block) is the number of pad bytes. All other bytes of the padding are some random data.</p>
+          <pre><code>0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0xEF  0x23 0x86 0x03</code></pre>
+          <p>The padding mechanism is defined in ISO 10126-2 documentation.</p>
+          <h2 id="ansi-x9-23-padding">ANSI X9.23 Padding</h2>
+          <p>The last byte of the padding (thus, the last byte of the block) is the number of pad bytes. All other bytes of the padding are zeros.</p>
+          <pre><code>0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0xEF  0x00 0x00 0x03</code></pre>
+          <p>The padding mechanism is defined in the ANSI X9.23 standard.</p>
+          <h2 id="zero-byte-padding">Zero Byte Padding</h2>
+          <p>All padding bytes are zeros. This type of padding is rather unreliable (what if the data ends with zeros?) and should be used only if necessary in legacy applications.</p>
+          <pre><code>0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0xEF  0x00 0x00 0x00
+0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0x00  0x00 0x00 0x00</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/ciphers-security.html" rel="prev"><small>← Previous</small>Information theoretic security of ciphers</a>
+          <a class="pager__next" href="/eng/theory/modes-of-block-ciphers.html" rel="next"><small>Next →</small>Block ciphers modes of operation</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fpadding.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fpadding.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fpadding.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html" aria-current="page">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="pl" data-type="tool" data-translation="/eng/theory/utf-8.html" data-published="2026-10-30">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kodowanie UTF-8 – jak działa + konwerter online | Crypto-IT</title>
+  <meta name="description" content="Jak UTF-8 zapisuje znaki Unicode w 1–4 bajtach – przykłady i pułapki. Zamień tekst na UTF-8 (hex, binarnie, dziesiętnie) online.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/utf-8.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/utf-8.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/utf-8.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/utf-8.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Kodowanie UTF-8 – jak działa + konwerter online">
+  <meta property="og:description" content="Jak UTF-8 zapisuje znaki Unicode w 1–4 bajtach – przykłady i pułapki. Zamień tekst na UTF-8 (hex, binarnie, dziesiętnie) online.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/utf-8.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <script src="/assets/js/tools/utf-8.js" type="module"></script>
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Kodowanie UTF-8",
+        "description": "Jak UTF-8 zapisuje znaki Unicode w 1–4 bajtach – przykłady i pułapki. Zamień tekst na UTF-8 (hex, binarnie, dziesiętnie) online.",
+        "inLanguage": "pl",
+        "datePublished": "2026-10-30",
+        "dateModified": "2026-10-30",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/utf-8.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Kodowanie UTF-8"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/utf-8.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Kodowanie UTF-8</h1>
+          <p class="article__subtitle">Jak tekst staje się bajtami</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Opublikowano <time datetime="2026-10-30">30 października 2026</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p class="article__lead">UTF-8 to kodowanie znaków używane dziś przez niemal wszystkie strony internetowe, formaty plików i protokoły sieciowe. Każdy znak Unicode zapisuje jako od jednego do czterech bajtów, a&nbsp;zwykły tekst ASCII pozostaje bez zmian.</p>
+          <p><a href="#online">Zamień tekst na UTF-8 online ↓</a></p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="unicode">Unicode i kodowania</h2>
+          <p>Unicode przypisuje każdemu znakowi liczbę, tzw. <em>punkt kodowy</em>: <span class="term">A</span> to U+0041, <span class="term">ł</span> to U+0142, <span class="term">€</span> to U+20AC, a&nbsp;emoji 😀 to U+1F600. <em>Kodowanie</em> określa, jak te liczby zapisać w&nbsp;bajtach. Najpopularniejszym kodowaniem jest UTF-8, opracowane przez Kena Thompsona i&nbsp;Roba Pike’a w&nbsp;1992 roku; inne to UTF-16 i&nbsp;UTF-32.</p>
+          <h2 id="algorytm">Jak działa UTF-8</h2>
+          <p>Liczba bajtów zależy od wielkości punktu kodowego. Pierwszy bajt informuje, ile bajtów następuje po nim; każdy kolejny bajt zaczyna się od bitów <span class="term">10</span>:</p>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Punkty kodowe</th><th>Bajty</th><th>Układ bitów</th></tr></thead>
+              <tbody>
+                <tr><td>U+0000 – U+007F</td><td>1</td><td><code>0xxxxxxx</code></td></tr>
+                <tr><td>U+0080 – U+07FF</td><td>2</td><td><code>110xxxxx 10xxxxxx</code></td></tr>
+                <tr><td>U+0800 – U+FFFF</td><td>3</td><td><code>1110xxxx 10xxxxxx 10xxxxxx</code></td></tr>
+                <tr><td>U+10000 – U+10FFFF</td><td>4</td><td><code>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Na przykład <span class="term">ł</span> (U+0142, binarnie <span class="term">101 0100 0010</span>) wymaga dwóch bajtów: bity dzieli się na <span class="term">00101</span> i&nbsp;<span class="term">000010</span>, co daje <span class="term">11000101 10000010</span>, czyli szesnastkowo <span class="term">C5 82</span>. Znak euro to <span class="term">E2 82 AC</span>, a&nbsp;😀 to <span class="term">F0 9F 98 80</span>.</p>
+          <h2 id="zalety">Dlaczego UTF-8 wygrało</h2>
+          <ul>
+            <li><strong>Zgodność z&nbsp;ASCII:</strong> tekst angielski i&nbsp;kod źródłowy wyglądają tak samo jak w&nbsp;ASCII.</li>
+            <li><strong>Samosynchronizacja:</strong> z&nbsp;dowolnego miejsca można znaleźć początek następnego znaku, bo bajty kontynuacji zawsze zaczynają się od <span class="term">10</span>.</li>
+            <li><strong>Brak problemu kolejności bajtów:</strong> w&nbsp;przeciwieństwie do UTF-16, UTF-8 to ciąg pojedynczych bajtów, więc znacznik BOM nie jest potrzebny.</li>
+          </ul>
+          <p>Nie każdy ciąg bajtów jest poprawnym UTF-8. Dekoder musi odrzucić np. samotny bajt kontynuacji, urwaną sekwencję lub zapis „nadmiarowy” (np. <span class="term">C0 AF</span> zamiast <span class="term">/</span>). Akceptowanie zapisów nadmiarowych prowadziło do prawdziwych luk bezpieczeństwa, bo filtry szukające <span class="term">/</span> lub <span class="term">..</span> ich nie rozpoznawały.</p>
+          <section class="tool" id="online" aria-labelledby="online-title"
+                   data-tool="utf-8"
+                   data-msg-format="Nieznany format wyjściowy."
+                   data-msg-parse="Dane wejściowe nie są poprawną listą bajtów dla wybranego formatu."
+                   data-msg-invalid="Bajty nie tworzą poprawnej sekwencji UTF-8."
+                   data-msg-copied="Skopiowano">
+            <h2 id="online-title">Konwerter UTF-8</h2>
+
+            <fieldset>
+              <legend class="visually-hidden">Kierunek</legend>
+              <div class="segmented">
+                <label><input type="radio" name="direction" value="encode" checked> Tekst → bajty</label>
+                <label><input type="radio" name="direction" value="decode"> Bajty → tekst</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Format bajtów</legend>
+              <div class="options">
+                <label><input type="radio" name="format" value="hex" checked> Szesnastkowy</label>
+                <label><input type="radio" name="format" value="decimal"> Dziesiętny</label>
+                <label><input type="radio" name="format" value="binary"> Binarny</label>
+                <label><input type="radio" name="format" value="entities"> Encje HTML</label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="u8-input">Wejście</label>
+              <textarea id="u8-input" data-role="input" spellcheck="false">Zażółć gęślą jaźń 😀</textarea>
+              <small>Przy dekodowaniu wpisz bajty w wybranym formacie (oddzielone spacją lub przecinkiem; encje HTML wyglądają jak <code>&amp;#196;</code>).</small>
+            </div>
+
+            <p class="tool__error" data-role="error" role="alert"></p>
+
+            <div class="field">
+              <label for="u8-output">Wynik</label>
+              <textarea id="u8-output" data-role="output" readonly></textarea>
+            </div>
+            <div class="tool__actions">
+              <button type="button" class="button" data-role="copy">Kopiuj wynik</button>
+              <button type="button" class="button" data-role="swap">Użyj wyniku jako wejścia</button>
+            </div>
+          </section>
+          <h2 id="w-praktyce">UTF-8 w praktyce</h2>
+          <p>Strony HTML deklarują kodowanie znacznikiem <code>&lt;meta charset="utf-8"&gt;</code>. W&nbsp;JavaScripcie <code>new TextEncoder().encode(text)</code> zwraca bajty UTF-8 tekstu, a&nbsp;<code>new TextDecoder('utf-8', { fatal: true })</code> je dekoduje i&nbsp;zgłasza błąd przy niepoprawnych danych – tak działa narzędzie powyżej. W&nbsp;Pythonie służą do tego <code>text.encode('utf-8')</code> i&nbsp;<code>data.decode('utf-8')</code>.</p>
+          <p>Kodowanie ma znaczenie także w&nbsp;kryptografii: szyfry i&nbsp;<a href="/pl/teoria/funkcja-jednokierunkowa.html">funkcje skrótu</a> działają na bajtach, a&nbsp;nie na znakach, więc ten sam tekst zakodowany inaczej da inny szyfrogram lub skrót. Zobacz też <a href="/pl/teoria/liczby-binarne.html">liczby binarne</a> i&nbsp;<a href="/pl/teoria/zapis-liczb.html">zapis liczb</a>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/liczby-binarne.html" rel="prev"><small>← Poprzedni</small>Liczby binarne</a>
+          <a class="pager__next" href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html" rel="next"><small>Następny →</small>Szacowanie czasu działań matematycznych</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Futf-8.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Futf-8.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Futf-8.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html" aria-current="page">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

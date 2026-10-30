@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/dwukwadratowy.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Two-Square Cipher | Crypto-IT</title>
+  <meta name="description" content="Two-Square Cipher is a polygraphic substitution cipher, which replaces each pair of plaintext letters by another pair of letters, determined by two tables.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/two-square.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/two-square.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/dwukwadratowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/two-square.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Two-Square Cipher">
+  <meta property="og:description" content="Two-Square Cipher is a polygraphic substitution cipher, which replaces each pair of plaintext letters by another pair of letters, determined by two tables.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/two-square.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <script src="/assets/js/tools/two-square.js" type="module"></script>
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Two-Square Cipher (Double Playfair)",
+        "description": "Two-Square Cipher is a polygraphic substitution cipher, which replaces each pair of plaintext letters by another pair of letters, determined by two tables.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/two-square.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Polygraphic substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/polygraphic-substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Two-Square Cipher (Double Playfair)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/dwukwadratowy.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a></li>
+            <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Two-Square Cipher (Double Playfair)</h1>
+          <p class="article__subtitle">Polygraphic Substitution Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>A two-square cipher is a modification of the <a href="/eng/simple/playfair-cipher.html">Playfair cipher</a> and provides slightly better protection of exchanged messages.</p>
+          <p><a href="#online">Try the two-square cipher online ↓</a></p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>The cipher was widely used by diplomats and armies until World War II. Nowadays, it is considered to be easily breakable by using <a href="/eng/attacks/brute-force.html">brute force attacks</a>.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The two-square cipher is a polygraphic substitution cipher. The original plaintext is divided into groups of a few letters. Then, each group is replaced by another previously determined group of characters. The two-square cipher operates on groups of the size of two letters.</p>
+          <p>Before encryption one should prepare two tables, using words (or longer phrases) that are used as secret keys. Both tables have dimensions of 5 by 5 letters and contain 25 letters of the Latin alphabet. The Latin alphabet has 26 letters, so to create the table, one of the rare letters should be skipped (for example, <span class="term">x</span> or <span class="term">q</span>), or the letters <span class="term">i</span> and <span class="term">j</span> should be treated as one letter.</p>
+          <p>During inserting letters into the two tables, one should use the secret keywords. First, all duplicated letters in the keywords should be skipped (only the first occurrences should remain). Then, all the remaining letters should be entered (in the original order) into the tables (letters from the first keyword to the first table, and letters from the second one to the second table). Of course, before that, the parties should agree, in which order the table cells ought to be filled (for example, row by row from left to right, and from top to bottom). The rest cells of the table should be filled with the remaining alphabet letters, usually in the alphabetical order.</p>
+          <p>For example, if one used names of both parents of the Roman Emperor Vespasian as secret keywords: <i>Titus Flavius Sabinus</i> and <i>Vespasia Polla</i>, treating the letters <span class="term">i</span> and <span class="term">j</span> as one letter, and filling the tables row by row, from left to right and from top to bottom, one would receive the following two tables:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Two-square cipher first encryption table">
+           <tr>
+           <td> t</td>
+           <td> i</td>
+           <td> u</td>
+           <td> s</td>
+           <td> f</td>
+           </tr>
+           <tr>
+           <td> l</td>
+           <td> a</td>
+           <td> v</td>
+           <td> b</td>
+           <td> n</td>
+           </tr>
+           <tr>
+           <td> c</td>
+           <td> d</td>
+           <td> e</td>
+           <td> g</td>
+           <td> h</td>
+           </tr>
+           <tr>
+           <td> k</td>
+           <td> m</td>
+           <td> o</td>
+           <td> p</td>
+           <td> q</td>
+           </tr>
+           <tr>
+           <td> r</td>
+           <td> w</td>
+           <td> x</td>
+           <td> y</td>
+           <td> z</td>
+           </tr>
+           </table>
+          </div>
+
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Two-square cipher second encryption table">
+           <tr>
+           <td> v</td>
+           <td> e</td>
+           <td> s</td>
+           <td> p</td>
+           <td> a</td>
+           </tr>
+           <tr>
+           <td> i</td>
+           <td> o</td>
+           <td> l</td>
+           <td> b</td>
+           <td> c</td>
+           </tr>
+           <tr>
+           <td> d</td>
+           <td> f</td>
+           <td> g</td>
+           <td> h</td>
+           <td> k</td>
+           </tr>
+           <tr>
+           <td> m</td>
+           <td> n</td>
+           <td> q</td>
+           <td> r</td>
+           <td> t</td>
+           </tr>
+           <tr>
+           <td> u</td>
+           <td> w</td>
+           <td> x</td>
+           <td> y</td>
+           <td> z</td>
+           </tr>
+           </table>
+          </div>
+          <p>The tables should be placed side by side in such a way that lines of rows (or lines of columns) are aligned.</p>
+          <p>To perform encryption, as a next step, one should divide the plaintext into pairs. Each pair should consist of two consecutive letters. If necessary, a rare letter may be appended to the original text (for example <span class="term">X</span> or <span class="term">Q</span>).</p>
+          <p>Then, one should find the first letter of each pair in the first table, and the second letter in the second table. Then, one should create a rectangle that covers over two tables and has corners in cells determined by the two letters. To encrypt those two letters, they have to be replaced by another two letters, that are determined by two other corners of the rectangle. The same steps should be repeated for all plaintext pairs. All letters should be replaced by letters chosen based on the tables.</p>
+          <p>For example, encrypting of a pair of letters <span class="term">AS</span> by using the tables defined above placed side by side, produces one of the two pairs: <span class="term">IL</span> or <span class="term">LI</span>.</p>
+          <p>Note, that both parties should agree in which order the new letters ought to be appended to the ciphertext (for example, the first letter would be a letter from the left table and the second letter would be taken from the right table).</p>
+          <p>If both letters in the currently encrypting pair are located in the same row (or, respectively, in the same column), then a new pair should be the same as the original one. It must be highlighted that one of the weaknesses of the two-square cipher is that such a situation takes place for twenty percent of all possible pairs of letters.</p>
+          <p>Ciphertext decryption is performed in a similar way. Firstly, the recipient should create (knowing the secret keywords) the same two tables as the sender. Then, he should decode pairs of letters, by using analogous operations. He should find the two ciphertext letters in the two tables, then he should determine the rectangle corners (which will locate the original plaintext letters), and finally the plaintext letters should be appended in the correct order to the plaintext.</p>
+          <section class="tool" id="online" aria-labelledby="online-title"
+                   data-tool="two-square"
+                   data-msg-mode="Invalid letter-omission mode."
+                   data-msg-copied="Copied">
+            <h2 id="online-title">Two-square cipher online</h2>
+            <div class="tool__grid">
+              <div>
+                <div class="field">
+                  <label for="ts-keyword1">First keyword</label>
+                  <input type="text" id="ts-keyword1" data-role="keyword1" value="example" autocomplete="off" spellcheck="false">
+                  <small>Builds the first table. Leave empty for a plain alphabetical table.</small>
+                </div>
+                <div class="field">
+                  <label for="ts-keyword2">Second keyword</label>
+                  <input type="text" id="ts-keyword2" data-role="keyword2" value="keyword" autocomplete="off" spellcheck="false">
+                  <small>Builds the second table.</small>
+                </div>
+                <fieldset>
+                  <legend>Letter left out of the tables</legend>
+                  <div class="options">
+                    <label><input type="radio" name="mode" value="j-as-i"> J as I</label>
+                    <label><input type="radio" name="mode" value="no-q" checked> Without Q</label>
+                    <label><input type="radio" name="mode" value="no-x"> Without X</label>
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Table layout</legend>
+                  <div class="options">
+                    <label><input type="radio" name="layout" value="horizontal" checked> Horizontal (side by side)</label>
+                    <label><input type="radio" name="layout" value="vertical"> Vertical (stacked)</label>
+                  </div>
+                </fieldset>
+              </div>
+              <figure class="matrix-pair" aria-label="Current key tables">
+                <table class="matrix" data-role="table1" aria-label="First table"></table>
+                <table class="matrix" data-role="table2" aria-label="Second table"></table>
+              </figure>
+            </div>
+
+            <div class="field">
+              <label for="ts-input">Text</label>
+              <textarea id="ts-input" data-role="input" spellcheck="false">Help me Obiwan Kenobi</textarea>
+              <small>Only letters are used; spaces, digits and punctuation are ignored, accents are removed. The same operation encrypts and decrypts.</small>
+            </div>
+
+            <p class="tool__steps">Pairs: <span data-role="digraphs" aria-live="polite"></span></p>
+            <p class="tool__error" data-role="error" role="alert"></p>
+
+            <div class="field">
+              <label for="ts-output">Result</label>
+              <textarea id="ts-output" data-role="output" readonly></textarea>
+            </div>
+            <div class="tool__actions">
+              <button type="button" class="button" data-role="copy">Copy result</button>
+              <button type="button" class="button" data-role="swap">Use result as input</button>
+            </div>
+          </section>
+          <h2 id="security-of-the-two-square-cipher">Security of the two-square cipher</h2>
+          <p>The biggest weakness of the cipher is the fact that plaintext fragments may be quite often visible in the corresponding ciphertext. Based on that feature, and on two methods of attacking the cipher - frequency analysis and guessing plaintext parts (described below) - an intruder can predict and discover increasingly longer fragments of the original message.</p>
+          <p>Ciphertext frequency analysis is about finding frequent repetitions of the same pairs of letters. Knowing approximate frequencies of digraphs in a given language, one can try to match popular ciphertext pairs to popular digraphs occurring in the language. Because of using two secret keys, this is a more difficult task than the same operation performed against the Playfair cipher.</p>
+          <p>Guessing plaintext fragments is about finding ciphertext letters that correspond to popular phrases expected during communications, for example welcoming, or date and place of creating the message. Knowing the ciphertext and probable plaintext fragments, one can recreate the tables used for encryption. This was a very common method of attacking German ciphers similar to the two-square cipher, during the Second World War.</p>
+          <h2 id="implementation">Implementation</h2>
+          <p>Implementing the Two-Square Cipher is a relatively simple task. After preparing the input text and passwords, the main challenge is to deal properly with row and column numbers, for each character.</p>
+          <p>Below, there is a JavaScript function which performs encryption of the input message, and returns the result. Note, that both keywords are passed as one dimensional strings:</p>
+          <pre><code>function encrypt(messageInput, keyword) {
+  var messageOutput = '';
+
+  var pos = 0;
+  while (pos &lt; messageInput.length) {
+    var m1 = messageInput[pos];
+    var m2 = '';
+
+    if (pos + 1 &lt; messageInput.length) {
+        m2 = messageInput[pos + 1];
+        pos += 2;
+    } else {
+      m2 = 'Q'  // some dummy letter
+      pos += 1;
+    }
+
+    var c1 = m1;
+    var c2 = m2;
+
+    var idx1 = keyword[0].indexOf(m1);
+    var idx2 = keyword[1].indexOf(m2);
+
+    if (Math.floor(idx1 / 5) !== Math.floor(idx2 / 5)) {
+      c1 = keyword[0][(5 * Math.floor(idx2 / 5)) + idx1 % 5];
+      c2 = keyword[1][(5 * Math.floor(idx1 / 5)) + idx2 % 5];
+    }
+
+    messageOutput = messageOutput.concat(c1);
+    messageOutput = messageOutput.concat(c2);
+  }
+
+  return messageOutput;
+}</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/playfair-cipher.html" rel="prev"><small>← Previous</small>Playfair cipher</a>
+          <a class="pager__next" href="/eng/simple/four-square.html" rel="next"><small>Next →</small>Four-square cipher</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Ftwo-square.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Ftwo-square.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Ftwo-square.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html" aria-current="page">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

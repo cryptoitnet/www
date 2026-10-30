@@ -1,0 +1,57 @@
+<section class="tool" id="online" aria-labelledby="online-title"
+         data-tool="two-square"
+         data-msg-mode="Nieprawidłowy tryb pomijania litery."
+         data-msg-copied="Skopiowano">
+  <h2 id="online-title">Szyfr dwukwadratowy online</h2>
+  <div class="tool__grid">
+    <div>
+      <div class="field">
+        <label for="ts-keyword1">Pierwsze hasło</label>
+        <input type="text" id="ts-keyword1" data-role="keyword1" value="example" autocomplete="off" spellcheck="false">
+        <small>Tworzy pierwszą tabelę. Pozostaw puste, aby uzyskać tabelę alfabetyczną.</small>
+      </div>
+      <div class="field">
+        <label for="ts-keyword2">Drugie hasło</label>
+        <input type="text" id="ts-keyword2" data-role="keyword2" value="keyword" autocomplete="off" spellcheck="false">
+        <small>Tworzy drugą tabelę.</small>
+      </div>
+      <fieldset>
+        <legend>Litera pomijana w tabelach</legend>
+        <div class="options">
+          <label><input type="radio" name="mode" value="j-as-i"> J jako I</label>
+          <label><input type="radio" name="mode" value="no-q" checked> Bez Q</label>
+          <label><input type="radio" name="mode" value="no-x"> Bez X</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Układ tabel</legend>
+        <div class="options">
+          <label><input type="radio" name="layout" value="horizontal" checked> Poziomo (obok siebie)</label>
+          <label><input type="radio" name="layout" value="vertical"> Pionowo (jedna nad drugą)</label>
+        </div>
+      </fieldset>
+    </div>
+    <figure class="matrix-pair" aria-label="Bieżące tabele kluczy">
+      <table class="matrix" data-role="table1" aria-label="Pierwsza tabela"></table>
+      <table class="matrix" data-role="table2" aria-label="Druga tabela"></table>
+    </figure>
+  </div>
+
+  <div class="field">
+    <label for="ts-input">Tekst</label>
+    <textarea id="ts-input" data-role="input" spellcheck="false">Help me Obiwan Kenobi</textarea>
+    <small>Uwzględniane są tylko litery; spacje, cyfry i znaki interpunkcyjne są pomijane, a znaki diakrytyczne usuwane. Ta sama operacja szyfruje i deszyfruje.</small>
+  </div>
+
+  <p class="tool__steps">Pary: <span data-role="digraphs" aria-live="polite"></span></p>
+  <p class="tool__error" data-role="error" role="alert"></p>
+
+  <div class="field">
+    <label for="ts-output">Wynik</label>
+    <textarea id="ts-output" data-role="output" readonly></textarea>
+  </div>
+  <div class="tool__actions">
+    <button type="button" class="button" data-role="copy">Kopiuj wynik</button>
+    <button type="button" class="button" data-role="swap">Użyj wyniku jako wejścia</button>
+  </div>
+</section>

@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/czterokwadratowy.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Four-Square Cipher | Simple Substitution Ciphers | Crypto-IT</title>
+  <meta name="description" content="Four-Square Cipher is a polygraphic substitution cipher, which replaces each pair of plaintext letters by another pair of letters, determined by four tables.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/four-square.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/four-square.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/czterokwadratowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/four-square.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Four-Square Cipher | Simple Substitution Ciphers">
+  <meta property="og:description" content="Four-Square Cipher is a polygraphic substitution cipher, which replaces each pair of plaintext letters by another pair of letters, determined by four tables.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/four-square.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <script src="/assets/js/tools/four-square.js" type="module"></script>
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Four-Square Cipher",
+        "description": "Four-Square Cipher is a polygraphic substitution cipher, which replaces each pair of plaintext letters by another pair of letters, determined by four tables.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/four-square.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Polygraphic substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/polygraphic-substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Four-Square Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/czterokwadratowy.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a></li>
+            <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Four-Square Cipher</h1>
+          <p class="article__subtitle">Polygraphic Substitution Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The four-square cipher is a modified version of the Playfair cipher. It provides better security of protected data. It was invented by a French cryptanalyst Félix Delastelle in 19th century.</p>
+          <p><a href="#online">Try the four-square cipher online ↓</a></p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>It was used by all armies during World War II. Nowadays, it is considered to be easily breakable by using <a href="/eng/attacks/brute-force.html">brute force attacks</a>.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The four-square cipher is a polygraphic substitution cipher. The whole plaintext is divided into groups of letters. Then, each group is replaced by another previously determined group of characters. The four-square cipher operates on groups of the size of two letters.</p>
+          <p>Before encryption, it is necessary to prepare four tables. All the tables have dimensions of 5 by 5 letters and contain 25 letters of the Latin alphabet. Due to the fact that the Latin alphabet contains 26 letters, one of the rare letters (for example <span class="term">x</span> or <span class="term">q</span>) should be skipped, or the letters <span class="term">i</span> and <span class="term">j</span> should be treated as one letter. The tables should be placed side by side in such a way that they create a bigger square with the side length of two tables. All lines of rows and columns should be retained.</p>
+          <p>Two tables (the upper left and lower right ones) contain letters in the alphabetical order. During filling cells of the two other tables, one should use two secret keywords (that would be used to protect the data). Firstly, all duplicated letters in the keywords should be skipped (only the first occurrences should be used). Then, all the remaining keyword letters should be entered (in the original order) into the tables (the letters from the first keyword to the first remaining table -for example the upper right one- and the letters from the second keyword to the second table). The communicating parties must agree earlier, in which order each table ought to be filled (for example row by row from left to right and from top to bottom). The rest of the cells of both tables should be filled with the remaining alphabet letters, usually in the alphabetical order.</p>
+          <p>For example, if one used names of both parents of the Roman Emperor Vespasian as secret keywords: <i>Titus Flavius Sabinus</i> and <i>Vespasia Polla</i>, treating letters <span class="term">i</span> and <span class="term">j</span> as one letter, and filling the tables row by row, from left to right and from top to bottom, the two following tables would be received:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Four-square cipher first encryption table">
+           <tr>
+           <td>a</td>
+           <td>b</td>
+           <td>c</td>
+           <td>d</td>
+           <td>e</td>
+           </tr>
+           <tr>
+           <td>f</td>
+           <td>g</td>
+           <td>h</td>
+           <td>i</td>
+           <td>k</td>
+           </tr>
+           <tr>
+           <td>l</td>
+           <td>m</td>
+           <td>n</td>
+           <td>o</td>
+           <td>p</td>
+           </tr>
+           <tr>
+           <td>q</td>
+           <td>r</td>
+           <td>s</td>
+           <td>t</td>
+           <td>u</td>
+           </tr>
+           <tr>
+           <td>v</td>
+           <td>w</td>
+           <td>x</td>
+           <td>y</td>
+           <td>z</td>
+           </tr>
+           </table>
+          </div>
+
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Four-square cipher second encryption table">
+           <tr>
+           <td>t</td>
+           <td>i</td>
+           <td>u</td>
+           <td>s</td>
+           <td>f</td>
+           </tr>
+           <tr>
+           <td>l</td>
+           <td>a</td>
+           <td>v</td>
+           <td>b</td>
+           <td>n</td>
+           </tr>
+           <tr>
+           <td>c</td>
+           <td>d</td>
+           <td>e</td>
+           <td>g</td>
+           <td>h</td>
+           </tr>
+           <tr>
+           <td>k</td>
+           <td>m</td>
+           <td>o</td>
+           <td>p</td>
+           <td>q</td>
+           </tr>
+           <tr>
+           <td>r</td>
+           <td>w</td>
+           <td>x</td>
+           <td>y</td>
+           <td>z</td>
+           </tr>
+           </table>
+          </div>
+          <br>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Four-square cipher third encryption table">
+           <tr>
+           <td>v</td>
+           <td>e</td>
+           <td>s</td>
+           <td>p</td>
+           <td>a</td>
+           </tr>
+           <tr>
+           <td>i</td>
+           <td>o</td>
+           <td>l</td>
+           <td>b</td>
+           <td>c</td>
+           </tr>
+           <tr>
+           <td>d</td>
+           <td>f</td>
+           <td>g</td>
+           <td>h</td>
+           <td>k</td>
+           </tr>
+           <tr>
+           <td>m</td>
+           <td>n</td>
+           <td>q</td>
+           <td>r</td>
+           <td>t</td>
+           </tr>
+           <tr>
+           <td>u</td>
+           <td>w</td>
+           <td>x</td>
+           <td>y</td>
+           <td>z</td>
+           </tr>
+           </table>
+          </div>
+
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Four-square cipher fourth encryption table">
+           <tr>
+           <td>a</td>
+           <td>b</td>
+           <td>c</td>
+           <td>d</td>
+           <td>e</td>
+           </tr>
+           <tr>
+           <td>f</td>
+           <td>g</td>
+           <td>h</td>
+           <td>i</td>
+           <td>k</td>
+           </tr>
+           <tr>
+           <td>l</td>
+           <td>m</td>
+           <td>n</td>
+           <td>o</td>
+           <td>p</td>
+           </tr>
+           <tr>
+           <td>q</td>
+           <td>r</td>
+           <td>s</td>
+           <td>t</td>
+           <td>u</td>
+           </tr>
+           <tr>
+           <td>v</td>
+           <td>w</td>
+           <td>x</td>
+           <td>y</td>
+           <td>z</td>
+           </tr>
+           </table>
+          </div>
+          <p>In the next step of encryption, the whole plaintext should be split into pairs. Each pair should consist of two consecutive letters. If required, a rare letter should be appended to the original text (for example <span class="term">X</span> or <span class="term">Q</span>).</p>
+          <p>During encryption, two subsequent letters are encoded at a time. One should find the first letter of each pair in the upper left table and the second letter in the lower right table. Then, one should create a rectangle that covers over four tables and has corners in the cells determined by the two plaintext letters. The letters are encrypted by replacing them by another two letters, that are pointed by two other corners of the rectangle. The same steps should be repeated for all plaintext pairs. All letters should be replaced by letters determined by the four encryption tables.</p>
+          <p>For example, after encryption of a pair <span class="term">AS</span> using the tables defined above, one would receive a new pair <span class="term">UM</span> or <span class="term">MU</span>.</p>
+          <p>Both parties should agree in which order the new letters ought to be appended to the ciphertext (for example, the first letter would be a letter from the upper right table, and the second letter should be taken from the lower left table).</p>
+          <p>Ciphertext decryption is performed in a similar way. Firstly, the recipient should create (knowing the secret keywords) the same four tables as the sender. Then, he should decode all letters pair by pair, using analogous operations. He needs to find two ciphertext letters in the upper right and lower left tables. After that, the rectangle corners should be found, and they should point to the two new plaintext letters (taken from the upper left and lower right tables).</p>
+          <section class="tool" id="online" aria-labelledby="online-title"
+                   data-tool="four-square"
+                   data-msg-mode="Invalid letter-omission mode."
+                   data-msg-copied="Copied">
+            <h2 id="online-title">Four-square cipher online</h2>
+            <div class="tool__grid">
+              <div>
+                <div class="field">
+                  <label for="fs-keyword1">Keyword for upper-right table</label>
+                  <input type="text" id="fs-keyword1" data-role="keyword1" value="example" autocomplete="off" spellcheck="false">
+                </div>
+                <div class="field">
+                  <label for="fs-keyword2">Keyword for lower-left table</label>
+                  <input type="text" id="fs-keyword2" data-role="keyword2" value="keyword" autocomplete="off" spellcheck="false">
+                </div>
+                <fieldset>
+                  <legend>Letter left out of the tables</legend>
+                  <div class="options">
+                    <label><input type="radio" name="mode" value="j-as-i"> J as I</label>
+                    <label><input type="radio" name="mode" value="no-q" checked> Without Q</label>
+                    <label><input type="radio" name="mode" value="no-x"> Without X</label>
+                  </div>
+                </fieldset>
+              </div>
+              <figure class="matrix-quad" aria-label="The four key tables">
+                <table class="matrix" data-role="table-ul" aria-label="Upper-left (plain)"></table>
+                <table class="matrix" data-role="table-ur" aria-label="Upper-right (keyword 1)"></table>
+                <table class="matrix" data-role="table-ll" aria-label="Lower-left (keyword 2)"></table>
+                <table class="matrix" data-role="table-lr" aria-label="Lower-right (plain)"></table>
+              </figure>
+            </div>
+
+            <fieldset>
+              <legend class="visually-hidden">Direction</legend>
+              <div class="segmented">
+                <label><input type="radio" name="direction" value="encrypt" checked> Encrypt</label>
+                <label><input type="radio" name="direction" value="decrypt"> Decrypt</label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="fs-input">Text</label>
+              <textarea id="fs-input" data-role="input" spellcheck="false">help me obi wan kenobi</textarea>
+              <small>Only letters are used; spaces, digits and punctuation are ignored, accents are removed.</small>
+            </div>
+
+            <p class="tool__steps">Pairs: <span data-role="digraphs" aria-live="polite"></span></p>
+            <p class="tool__error" data-role="error" role="alert"></p>
+
+            <div class="field">
+              <label for="fs-output">Result</label>
+              <textarea id="fs-output" data-role="output" readonly></textarea>
+            </div>
+            <div class="tool__actions">
+              <button type="button" class="button" data-role="copy">Copy result</button>
+              <button type="button" class="button" data-role="swap">Use result as input</button>
+            </div>
+          </section>
+          <h2 id="security-of-the-four-square-cipher">Security of the four-square cipher</h2>
+          <p>The algorithm of the four-square cipher provides better security than the <a href="/eng/simple/playfair-cipher.html">Playfair cipher</a> and the <a href="/eng/simple/two-square.html">two-square cipher</a>. Thanks to the use of four tables, several typical weaknesses of those ciphers are avoided (for example, there are no plaintext letters appearing in the ciphertext, or the reversed plaintext pairs are not encrypted by using the same letters).</p>
+          <p>The small disadvantage of the four-square cipher is the fact that it is slightly slower and more difficult to use (when comparing to the two ciphers mentioned above). It happens because there are more tables and secret keys involved in the operations that needs to be remembered.</p>
+          <p>The most effective method of breaking the four-square cipher is using the <a href="/eng/attacks/frequency-analysis.html">frequency analysis</a> method on pairs of ciphertext letters, and comparing ciphertext fragments with plaintext fragments. Thanks to the use of computers, the four-square ciphers can be broken relatively quickly.</p>
+          <h2 id="implementation">Implementation</h2>
+          <p>Implementing the Four-Square Cipher is a relatively simple task. After preparing the input text and passwords, the main task is to deal properly with row and column numbers, for each pair of character.</p>
+          <p>Below, there is a JavaScript function which performs encryption of the input message, and returns the result. Note, that both keywords are passed as one dimensional strings:</p>
+          <pre><code>function encrypt(messageInput, keyword, alphabet) {
+  var messageOutput = "";
+
+  var pos = 0;
+  while (pos &lt; messageInput.length) {
+    var m1 = messageInput[pos];
+    var m2 = '';
+
+    if (pos + 1 &lt; messageInput.length) {
+      m2 = messageInput[pos + 1];
+      pos += 2;
+    } else {
+      m2 = 'Q'  // some dummy letter
+      pos += 1;
+    }
+
+    var idx1 = alphabet.indexOf(m1);  // upper-left table
+    var idx2 = alphabet.indexOf(m2);  // lower-right table
+    var c1 = keyword[0][(5 * Math.floor(idx1 / 5)) + idx2 % 5];
+    var c2 = keyword[1][(5 * Math.floor(idx2 / 5)) + idx1 % 5];
+
+    messageOutput = messageOutput.concat(c1);
+    messageOutput = messageOutput.concat(c2);
+  }
+
+  return messageOutput;
+}</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/two-square.html" rel="prev"><small>← Previous</small>Two-square cipher</a>
+          <a class="pager__next" href="/eng/simple/hill-cipher.html" rel="next"><small>Next →</small>Hill cipher</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Ffour-square.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Ffour-square.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Ffour-square.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html" aria-current="page">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

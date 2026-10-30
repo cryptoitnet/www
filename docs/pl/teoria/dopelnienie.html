@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/padding.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dopełnianie Bloków | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Dopełnianie bloków danych polega na dodawaniu pewnych uzgodnionych wartości na końcu przesyłanych wiadomości. Jest wykorzystywane w szyfrach blokowych.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/dopelnienie.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/padding.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/dopelnienie.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/padding.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Dopełnianie Bloków | Kryptografia">
+  <meta property="og:description" content="Dopełnianie bloków danych polega na dodawaniu pewnych uzgodnionych wartości na końcu przesyłanych wiadomości. Jest wykorzystywane w szyfrach blokowych.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/dopelnienie.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Dopełnianie bloków",
+        "description": "Dopełnianie bloków danych polega na dodawaniu pewnych uzgodnionych wartości na końcu przesyłanych wiadomości. Jest wykorzystywane w szyfrach blokowych.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/dopelnienie.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Dopełnianie bloków"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/padding.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Dopełnianie bloków</h1>
+          <p class="article__subtitle">(ang. Padding)</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Dopełnianie bloków danych polega na dodawaniu pewnych uzgodnionych wartości na końcu przesyłanych wiadomości. Jest wykorzystywane w algorytmach, które wykonują operacje na całych blokach danych, takich jak <a href="/pl/symetryczne/">symetryczne szyfry blokowe</a> lub <a href="/pl/teoria/mac.html">algorytmy MAC</a>. Jeżeli długość przetwarzanych danych nie jest całkowitą wielokrotnością długości jednego bloku danych, to potrzebny jest mechanizm, który będzie dopisywał pewne przewidywalne znaki na końcu wiadomości, w&nbsp;celu odpowiedniego zwiększenia jej długości.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Informacja o użytym standardzie dopełniania musi zostać przekazana do odbiorcy. To pozwala mu określić (po odszyfrowaniu szyfrogramu) gdzie kończy się oryginalna wiadomość, a zaczynają się nieistotne bajty dopełnienia.</p>
+          <p>Wszystkie standardy dopełniania bloków zaprezentowane poniżej działają w&nbsp;podobny sposób. Opisują one jakie wartości powinny być dodawane do wiadomości w&nbsp;celu zapełnienia ostatniego bloku danych.</p>
+          <p>Używanie ogólnie przyjętych standardów dopełniania jest wygodnym sposobem gwarantowania poprawnej długości szyfrowanych danych. Jedyną wadą dopełniania bloków jest fakt, że nawet jeśli wiadomość zawiera odpowiednią liczbę bajtów (całkowitą wielokrotność długości jednego bloku), to dopełnienie i&nbsp;tak musi zostać dodane, aby zagwarantować, że odbiorca będzie w stanie zrozumieć wiadomość. Zwykle dodawany jest jeszcze jeden blok, zawierający jedynie nieistotne bajty dopełnienia.</p>
+          <p>Kilka typów dopełniania bloków przedstawionych jest poniżej. Pierwsze dwa standardy bazują na dopełnianiu przy użyciu pojedynczych bitów, natomiast pozostałe polegają na dopisywaniu całych bajtów.</p>
+          <h2 id="dopelnianie-bitowe">Dopełnianie bitowe</h2>
+          <p>Pojedynczy bit&nbsp;<span class="term">1</span> jest dołączany do wiadomości. Pozostałe bity dopełnienia (jeśli jakieś są jeszcze potrzebne) będą zerami.</p>
+          <pre><code>1 0 1 0 0 0 0 1 1 0  1 0 0 0 0 0</code></pre>
+          <p>Ten typ dopełniania jest zdefiniowany przez dokumentację ISO/IEC&nbsp;9797-1.</p>
+          <h2 id="dopelnianie-tbc">Dopełnianie TBC</h2>
+          <span>(ang. Trailing Bit Complement)</span>
+          <p>Jeśli dane kończą się bitem&nbsp;<span class="term">0</span>, to wszystkie bity dopełnienia będą jedynkami. Natomiast jeśli dane kończą się bitem&nbsp;<span class="term">1</span>, to wszystkie bity dopełnienia będą zerami.</p>
+          <pre><code>1 0 1 0 0 0 0 1 1 0  1 1 1 1 1 1
+1 0 1 0 0 0 0 1 1 1  0 0 0 0 0 0</code></pre>
+          <h2 id="dopelniania-pkcs-5-i-pkcs-7">Dopełniania PKCS#5 i PKCS#7</h2>
+          <p>Każdy bajt dopełnienia ma wartość równą ilości wszystkich dodanych bajtów dopełnienia. Oczywiście, ilość dodanych bajtów zależy od wielkości bloku.</p>
+          <p>Na przykład, jeśli wiadomość jest krótsza o 3&nbsp;bajty niż całkowita wielokrotność długości jednego bloku, to wtedy 3&nbsp;bajty powinny zostać dodane do tej wiadomości, każda o wartości&nbsp;3. Jeśli 5&nbsp;bajtów powinno być dodanych, to każdy z&nbsp;nich powinien być&nbsp;5.</p>
+          <pre><code>0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0xEF  0x03 0x03 0x03
+0x10 0x11 0x36 0x67 0x38 0xBC  0x06 0x06 0x06 0x06 0x06 0x06</code></pre>
+          <h2 id="dopelnianie-iso-7816-4">Dopełnianie ISO 7816-4</h2>
+          <p>Pierwszy bajt dopełnienia ma wartość równą 0x80. Pozostałe bajty dopełnienia są zerami. Taka konstrukcja umożliwia tworzenie dopełnień o dowolnej długości.</p>
+          <pre><code>0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0xEF  0x80 0x00 0x00</code></pre>
+          <p>Ten typ dopełniania jest zdefiniowany przez dokumentację ISO/IEC&nbsp;7816-4.</p>
+          <h2 id="dopelnianie-iso-10126-2">Dopełnianie ISO 10126-2</h2>
+          <p>Ostatni bajt dopełnienia (czyli ostatni bajt ostatniego bloku danych) ma wartość równą ilości bajtów dopełnienia. Pozostałe bajty dopełnienia są losowymi liczbami.</p>
+          <pre><code>0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0xEF  0x23 0x86 0x03</code></pre>
+          <p>Ten typ dopełniania jest zdefiniowany przez dokumentację ISO&nbsp;10126-2.</p>
+          <h2 id="dopelnianie-ansi-x9-23">Dopełnianie ANSI X9.23</h2>
+          <p>Ostatni bajt dopełnienia (czyli ostatni bajt ostatniego bloku danych) ma wartość równą ilości bajtów dopełnienia. Pozostałe bajty dopełnienia są zerami.</p>
+          <pre><code>0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0xEF  0x00 0x00 0x03</code></pre>
+          <p>Ten typ dopełniania jest zdefiniowany przez standard ANSI&nbsp;X9.23.</p>
+          <h2 id="dopelnianie-bajtami-zerowymi">Dopełnianie bajtami zerowymi</h2>
+          <p>Wszystkie bajty dopełnienia są zerami. Ten sposób dopełniania jest raczej zawodny (co jeśli oryginalne dane kończą się zerami?) i&nbsp;powinien być używany jedynie jeśli jest to wymagane przez istniejące, przestarzałe aplikacje.</p>
+          <pre><code>0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0xEF  0x00 0x00 0x00
+0x10 0x11 0x36 0x67 0x38 0xBC 0x03 0x21 0x00  0x00 0x00 0x00</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/bezpieczenstwo-szyfrow.html" rel="prev"><small>← Poprzedni</small>Bezpieczeństwo szyfrów</a>
+          <a class="pager__next" href="/pl/teoria/tryby-szyfrow-blokowych.html" rel="next"><small>Następny →</small>Tryby szyfrów blokowych</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fdopelnienie.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fdopelnienie.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fdopelnienie.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html" aria-current="page">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/asymmetric/diffie-hellman.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protokół Diffiego-Hellmana | Crypto-IT</title>
+  <meta name="description" content="Protokół Diffiego-Hellmana jest algorytmem z kluczem publicznym i prywatnym, który umożliwia zarówno wynegocjowanie sekretnego klucza jak i szyfrowanie…">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/asymetryczne/diffiego-hellmana.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/diffie-hellman.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/diffiego-hellmana.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/asymmetric/diffie-hellman.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Protokół Diffiego-Hellmana">
+  <meta property="og:description" content="Protokół Diffiego-Hellmana jest algorytmem z kluczem publicznym i prywatnym, który umożliwia zarówno wynegocjowanie sekretnego klucza jak i szyfrowanie…">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/asymetryczne/diffiego-hellmana.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Protokół Diffiego-Hellmana",
+        "description": "Protokół Diffiego-Hellmana jest algorytmem z kluczem publicznym i prywatnym, który umożliwia zarówno wynegocjowanie sekretnego klucza jak i szyfrowanie…",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/asymetryczne/diffiego-hellmana.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Szyfry asymetryczne",
+            "item": "https://www.crypto-it.net/pl/asymetryczne/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Protokół Diffiego-Hellmana"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/" aria-current="true">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/asymmetric/diffie-hellman.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/asymetryczne/">Szyfry asymetryczne</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Protokół Diffiego-Hellmana</h1>
+          <p class="article__subtitle">Protokół negocjowania sekretnego klucza. Szyfrowanie wiadomości</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>bez&nbsp;wcześniejszego uwierzytelnienia</li>
+          </ul>
+          <p>Algorytm Diffiego-Hellmana jest obecnie jednym z najczęściej używanych algorytmów negocjowania sekretnego klucza, używanym w wielu protokołach, w tym w <a href="/pl/teoria/protokoly-aplikacji.html#SSLTLS">SSL/TLS</a>. Jest uważany za&nbsp;nieco szybszy niż <a href="/pl/asymetryczne/rsa.html">RSA</a>, który również umożliwia utworzenie sekretnego klucza.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Protokół Diffiego-Hellmana może być również wykorzystywany do&nbsp;szyfrowania wiadomości przy użyciu szyfrowania z&nbsp;kluczem publicznym.</p>
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Został po&nbsp;raz pierwszy opublikowany przez amerykańskich kryptologów Whitfielda Diffie’a i&nbsp;Martina Hellmana w roku&nbsp;1976. Wiadome jest jednak, że algorytm&nbsp;ten został odkryty parę lat wcześniej przez&nbsp;pracowników brytyjskiego wywiadu (Jamesa Ellisa, Clifforda Cocksa i&nbsp;Malcolma Williamsona), ale pozostał utajniony.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Algorytm protokołu Diffiego-Hellmana przedstawia sposób komunikacji pomiędzy dwoma zainteresowanymi stronami, która umożliwia ustalenie współdzielonego sekretnego klucza. Następnie klucz&nbsp;ten może być używany podczas dalszej komunikacji, chronionej przy użyciu <a href="/pl/symetryczne/">szyfrowania symetrycznego</a>.</p>
+          <p>Algorytm&nbsp;ten wykorzystuje teorię logarytmów dyskretnych w&nbsp;ciałach skończonych.</p>
+          <p>Poniżej przedstawiono protokół wymiany informacji pomiędzy dwoma użytkownikami, nazwanymi zwyczajowo Alice i Bob. Aby wynegocjować wspólny sekretny klucz za&nbsp;pomocą protokołu Diffiego-Hellmana, należy wykonać poniższe kroki:</p>
+          <ol class="steps">
+           <li>Alice i&nbsp;Bob uzgadniają liczbę pierwszą&nbsp;<span class="term">p</span> i&nbsp;bazę&nbsp;<span class="term">g</span>.</li>
+           <li>Alice wybiera sekretną liczbę całkowitą <span class="term">a</span>, a następnie wysyła Bobowi liczbę <span class="term">A&nbsp;=&nbsp;g<sup>a</sup>&nbsp;mod&nbsp;p</span>.</li>
+           <li>Bob wybiera sekretną liczbę całkowitą <span class="term">b</span>, a następnie wysyła Alice liczbę <span class="term">B&nbsp;=&nbsp;g<sup>b</sup>&nbsp;mod&nbsp;p</span>.</li>
+           <li>Alice oblicza liczbę <span class="term">k = B<sup>a</sup> mod&nbsp;p</span>.</li>
+           <li>Bob oblicza tę samą liczbę <span class="term">k = A<sup>b</sup> mod&nbsp;p</span>.</li>
+           <li>Od tego momentu Alice i&nbsp;Bob współdzielą sekretną liczbę&nbsp;<span class="term">k</span>.</li>
+          </ol>
+          <p>Otrzymana przez&nbsp;obie strony liczba&nbsp;<span class="term">k</span> jest bardzo duża&nbsp;- wykorzystywane w algorytmie liczby&nbsp;<span class="term">a</span> i&nbsp;<span class="term">b</span> mają przynajmniej po 100&nbsp;cyfr, natomiast liczba pierwsza&nbsp;<span class="term">p</span> ma przynajmniej 300&nbsp;cyfr. Wartość&nbsp;<span class="term">k</span> może być następnie zmieniona na&nbsp;klucz symetryczny za&nbsp;pomocą <a href="/pl/teoria/funkcja-jednokierunkowa.html#hash">funkcji haszującej</a>. Klucz symetryczny jest stosowany do&nbsp;szyfrowania całej dalszej komunikacji.</p>
+          <h2 id="szyfrowanie-z-kluczem-publicznym">Szyfrowanie z&nbsp;kluczem publicznym</h2>
+          <p>Możliwe jest wykorzystanie protokołu Diffiego-Hellmana do szyfrowania wiadomości przy użyciu kluczy publicznego i&nbsp;prywatnego.</p>
+          <p>W takim przypadku, Bob mógłby wysłać wiadomość do&nbsp;Alice, szyfrując&nbsp;ją za pomocą klucza publicznego Alice, którym są trzy liczby: <span class="term">g</span>, <span class="term">p</span>, <span class="term">g<sup>a</sup>&nbsp;mod&nbsp;p</span>. W&nbsp;celu przesłania Alice sekretnej wiadomości, Bob musi wylosować liczbę <span class="term">b</span>, a następnie wysłać niezaszyfrowaną liczbę <span class="term">g<sup>b</sup>&nbsp;mod&nbsp;p</span> do&nbsp;Alice. Wreszcie przychodzi czas na wysłanie właściwej wiadomości, zaszyfrowanej za pomocą klucza symetrycznego <span class="term">(g<sup>a</sup>)<sup>b</sup>&nbsp;mod&nbsp;p</span>.</p>
+          <p>Jedynie Alice będzie w&nbsp;stanie określić wartość&nbsp;<span class="term">b</span> i&nbsp;odszyfrować wiadomość. Zastosowanie klucza publicznego zapobiega również atakom <a href="/pl/ataki/man-in-the-middle.html">man-in-the-middle</a>.</p>
+          <p>Przytoczony algorytm umożliwia szyfrowanie danych za pomocą szyfrów asymetrycznych. Obecnie jednak, dużo bardziej popularnym sposobem szyfrowania z&nbsp;kluczem publicznym jest&nbsp;<a href="/pl/asymetryczne/rsa.html">RSA</a>.</p>
+          <h2 id="sila-protokolu-diffiego-hellmana">Siła protokołu Diffiego-Hellmana</h2>
+          <p>Można udowodnić, że dobranie przez zainteresowane strony odpowiednio dużych i&nbsp;losowych liczb początkowych, zapewnia bezpieczeństwo algorytmu. Napastnik musiałby rozwiązać problem obliczania dyskretnych logarytmów w&nbsp;ciele skończonym (czyli w&nbsp;przedziale ograniczonym przez&nbsp;pewną dużą liczbę). Obecnie nie&nbsp;są znane wydajne algorytmy, które pozwoliłyby&nbsp;na obliczenie dyskretnych logarytmów w&nbsp;efektywny sposób.</p>
+          <p>Po&nbsp;ustaleniu klucza symetrycznego, strony porzucają wartości&nbsp;<span class="term">a</span> i&nbsp;<span class="term">b</span>. Uniemożliwia&nbsp;to wykradnięcie jednej z&nbsp;tych liczb przez&nbsp;inną osobę.</p>
+          <p>Ze&nbsp;względu na&nbsp;brak uwierzytelnienia uczestników, protokół ten jest podatny na&nbsp;ataki typu <a href="/pl/ataki/man-in-the-middle.html">man-in-the-middle</a>. Napastnik może rozpocząć dwie sesje protokołu (z&nbsp;Alice i z&nbsp;Bobem) i&nbsp;podając się za&nbsp;przeciwne strony, ustalić dwa klucze symetryczne wykorzystywane potem w&nbsp;komunikacji z&nbsp;nimi za&nbsp;pomocą szyfrowania symetrycznego.</p>
+          <h2 id="schemat-blokowy-protokolu-diffiego-hellmana">Schemat blokowy protokołu Diffiego-Hellmana</h2>
+          <figure class="figure"><img src="/assets/img/diffie-hellman/diffie-hellman-pl.webp" alt="Protokół Diffiego-Hellmana" width="500" height="200" loading="lazy"></figure>
+          <h2 id="matematyka">Matematyka</h2>
+          <h3 id="podnoszenie-do-potegi-modulo-liczba-pierwsza">Podnoszenie do&nbsp;potęgi modulo liczba pierwsza</h3>
+          <p>Podnoszenie do&nbsp;potęgi liczby naturalnej modulo liczba pierwsza jest jedną z&nbsp;podstawowych operacji w&nbsp;kryptografii. Podlega ono ogólnym prawom rządzącym arytmetyką modulo. Wykładnik, podobnie jak podstawa, jest dodatnią liczbą całkowitą. Dodatnią liczbą całkowitą jest również wynik działania.</p>
+          <p>Działanie podnoszenia do&nbsp;potęgi modulo liczba pierwsza można przedstawić jako szereg działań polegających na&nbsp;podnoszeniu do&nbsp;kwadratu i&nbsp;dzieleniu kolejnych wyników przez&nbsp;ustaloną liczbę pierwszą.</p>
+          <p>Przykładowo podniesienie czterech do&nbsp;potęgi 9 modulo 7 można obliczyć w następujący sposób:<br> <span class="math"> &nbsp;&nbsp;&nbsp;&nbsp;4<sup>9</sup> mod&nbsp;7:<br> &nbsp;&nbsp;&nbsp;&nbsp;4<sup>2</sup> mod&nbsp;7 = 16 mod 7 = 2<br> &nbsp;&nbsp;&nbsp;&nbsp;4<sup>4</sup> mod&nbsp;7 = 2<sup>2</sup> mod&nbsp;7 = 4 mod&nbsp;7 =&nbsp;4<br> &nbsp;&nbsp;&nbsp;&nbsp;4<sup>8</sup> mod&nbsp;7 = 4<sup>2</sup> mod&nbsp;7 = 16 mod&nbsp;7 =&nbsp;2<br> &nbsp;&nbsp;&nbsp;&nbsp;4<sup>9</sup> mod&nbsp;7 = (4<sup>1</sup> mod&nbsp;7 * 4<sup>8</sup> mod&nbsp;7) mod&nbsp;7 = 4 * 2 mod&nbsp;7 =&nbsp;1 </span></p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/asymetryczne/puzzle-merkle.html" rel="prev"><small>← Poprzedni</small>Puzzle Merkle’a</a>
+          <a class="pager__next" href="/pl/asymetryczne/rsa.html" rel="next"><small>Następny →</small>RSA</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2Fdiffiego-hellmana.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2Fdiffiego-hellmana.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2Fdiffiego-hellmana.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-asymetryczne -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/asymetryczne/">Szyfry asymetryczne</a></h2>
+        <ul>
+          <li><a href="/pl/asymetryczne/puzzle-merkle.html">Puzzle Merkle’a</a></li>
+          <li><a href="/pl/asymetryczne/diffiego-hellmana.html" aria-current="page">Protokół Diffiego-Hellmana</a></li>
+          <li><a href="/pl/asymetryczne/rsa.html">RSA</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-asymetryczne -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

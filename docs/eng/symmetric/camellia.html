@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/symetryczne/camellia.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Camellia Symmetric Cipher | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Camellia is a symmetric block cipher developed in Japan in 2000.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/symmetric/camellia.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/camellia.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/camellia.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/camellia.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Camellia Symmetric Cipher | Cryptography">
+  <meta property="og:description" content="Camellia is a symmetric block cipher developed in Japan in 2000.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/symmetric/camellia.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Camellia",
+        "description": "Camellia is a symmetric block cipher developed in Japan in 2000.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/symmetric/camellia.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Symmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Block ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/block-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Camellia"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/" aria-current="true">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/symetryczne/camellia.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/symmetric/">Symmetric ciphers</a></li>
+            <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Camellia</h1>
+          <p class="article__subtitle">Block cipher with symmetric secret key</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Block length = 128 bits</li>
+           <li>Key length = 128, 192 or 256 bits</li>
+          </ul>
+          <p>The cipher was developed in Japan by Mitsubishi and NTT companies in 2000. It was later approved by the International Organization for Standardization (ISO), the European Union's NESSIE project and the Japanese CRYPTREC project.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>Camellia was designed to be efficient for both software and hardware implementations and it is used in various devices from low-cost smart cards to high-speed network protocols.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>Camellia is a symmetric block cipher with secret key of size of 128, 192 or 256 bits. The length of plaintext and ciphertext blocks is always equal to 128 bits.</p>
+          <p>In the following description, the original names of variables and functions from the Camellia documentation are used to describe its algorithm.</p>
+          <p>The most important elements of the algorithm are <span class="term">F</span>-functions. They are used during encryption, decryption and creating helper variables of the key. The <span class="term">F</span>-function takes 128 input bits, mixes them with bits of subkeys <span class="term">k<sub>i</sub></span> and returns 128 new bits. Modification of bits in the <span class="term">F</span>-function is referred to as one round of the algorithm. <span class="term">F</span>-function calls are gathered in blocks. Each block contains six rounds.</p>
+          <p>Six-round blocks (that means block of six calls of the <span class="term">F</span>-function) are separated by calls of <span class="term">FL</span>-functions and <span class="term">FL<sup>-1</sup></span>-functions. They manipulate 64-bit long parts of data and mix them with subkeys <span class="term">kl<sub>i</sub></span>.</p>
+          <p>Both encryption and decryption algorithms are about to perform some repetitions of the 6-round blocks described above. The number of repetitions depends on the length of the currently used secret key:</p>
+          <ul>
+           <li>3 repetitions of the 6-round blocks - for the 128-bit secret key,</li>
+           <li>4 repetitions of the 6-round blocks - for the 192-bit or 256-bit secret keys.</li>
+          </ul>
+          <p>Furthermore, at the beginning and at the end of both encryption and decryption algorithms, additional operations are performed: data bits are added to bits of subkeys <span class="term">kw<sub>i</sub></span>.</p>
+          <p>Subkeys, which are used to encrypt each data block (or to decrypt each ciphertext block), are created in the separate process. Tens of subkeys are calculated from the secret key for each block. They are used for various operations in the main algorithm.</p>
+          <h3 id="key-schedule">Key schedule</h3>
+          <p>The secret key used in the Camellia cipher can consist of 128, 192 or 256 bits. In order to encrypt data blocks, one has to create a few helper variables and then subkeys, based on secret key bits. Each subkey is 64-bit long.</p>
+          <p>At first, one should calculate two variables of size of 128 bits (<span class="term">K<sub>L</sub></span> and <span class="term">K<sub>R</sub></span>) and four variables of size of 64 bits (<span class="term">K<sub>LL</sub></span>, <span class="term">K<sub>LR</sub></span>, <span class="term">K<sub>RL</sub></span> and <span class="term">K<sub>RR</sub></span>). The following equations describe connections between those variables:</p>
+          <ul>
+           <li><span class="math">K<sub>LL</sub> = </span>64 left bits of <span class="math">K<sub>L</sub></span></li>
+           <li><span class="math">K<sub>LR</sub> = </span>64 right bits of <span class="math">K<sub>L</sub></span></li>
+           <li><span class="math">K<sub>RL</sub> = </span>64 left bits of <span class="math">K<sub>R</sub></span></li>
+           <li><span class="math">K<sub>RR</sub> = </span>64 right bits of <span class="math">K<sub>R</sub></span></li>
+          </ul>
+          <p>The rest of connections should be determined based on the length of the secret key <span class="term">K</span>.</p>
+          <ul>
+           <li>
+           for the 128-bit long key:
+           <ul>
+           <li><span class="math">K<sub>L</sub> = K</span></li>
+           <li><span class="math">K<sub>R</sub> = 0</span></li>
+           </ul>
+           </li>
+           <li>
+           for the 192-bit long key:
+           <ul>
+           <li><span class="math">K<sub>L</sub> = </span>128 left bits of <span class="math">K</span></li>
+           <li><span class="math">K<sub>RL</sub> = </span>64 right bits of <span class="math">K</span></li>
+           <li><span class="math">K<sub>RR</sub> = ~K<sub>RL</sub></span> (negation of bits)</li>
+           </ul>
+           </li>
+           <li>
+           for the 256-bit long key:
+           <ul>
+           <li><span class="math">K<sub>L</sub> = </span>128 left bits of <span class="math">K</span></li>
+           <li><span class="math">K<sub>R</sub> = </span>128 right bits of <span class="math">K</span></li>
+           </ul>
+           </li>
+          </ul>
+          <p>Then, it is possible to calculate two new helper variables: <span class="term">K<sub>A</sub></span> and <span class="term">K<sub>B</sub></span>, based on the previous ones. They are both 128-bit long. <span class="term">K<sub>B</sub></span> is nonzero if and only if the secret key consists of 192 or 256 bits. While creating <span class="term">K<sub>A</sub></span> and <span class="term">K<sub>B</sub></span> one should use six help constant values, which are referred to as &sum;<sub>i</sub>.</p>
+          <p>At the end, based on four 128-bit long just created variables <span class="term">K<sub>L</sub></span>, <span class="term">K<sub>R</sub></span>, <span class="term">K<sub>A</sub></span> and <span class="term">K<sub>B</sub></span>, one should compute all secret subkeys of size of 64 bits: <span class="term">k<sub>i</sub></span>, <span class="term">kw<sub>i</sub></span> and <span class="term">kl<sub>i</sub></span>. Subkeys are used in all the steps during encryption and decryption in the Camellia algorithm.</p>
+          <h2 id="block-diagram-of-camellia-encryption-for-128-bit-key">Block Diagram of Camellia Encryption for 128-bit Key</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-camellia-encryption-eng.webp" alt="Scheme of encryption for 128-bit key" width="741" height="1043" loading="lazy"></figure>
+          <h2 id="block-diagram-of-camellia-encryption-for-192-or-256-bit-key">Block Diagram of Camellia Encryption for 192 or 256-bit Key</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-camellia-encryption-long-eng.webp" alt="Scheme of encryption for 192 or 256-bit key" width="741" height="1293" loading="lazy"></figure>
+          <h2 id="block-diagram-of-camellia-decryption-for-128-bit-key">Block Diagram of Camellia Decryption for 128-bit Key</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-camellia-decryption-eng.webp" alt="Scheme of decryption for 128-bit key" width="741" height="1043" loading="lazy"></figure>
+          <h2 id="block-diagram-of-camellia-decryption-for-192-or-256-bit-key">Block Diagram of Camellia Decryption for 192 or 256-bit Key</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-camellia-decryption-long-eng.webp" alt="Scheme of decryption for 192 or 256-bit key" width="741" height="1285" loading="lazy"></figure>
+          <h2 id="block-diagram-of-camellia-6-round-block">Block Diagram of Camellia 6-round Block</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-6-round-eng.webp" alt="Scheme of 6-round block" width="730" height="990" loading="lazy"></figure>
+          <h2 id="block-diagram-of-camellia-creating-helper-variables-of-key">Block Diagram of Camellia - Creating Helper Variables of Key</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-key-schedule-eng.webp" alt="Scheme of creating variables Ka and Kb" width="1085" height="1300" loading="lazy"></figure>
+          <h2 id="maths">Maths</h2>
+          <p>Camellia uses a few basic bitwise operations: bitwise <span class="term">AND</span>, bitwise <span class="term">OR</span>, exclusive OR (<span class="term">XOR</span>), logical negation on all bits and left circular rotation of the operand by <span class="term">n</span> bits: <span class="term">&lt;&lt;&lt; n</span> (leftmost bits move to rightmost positions of the variable).</p>
+          <p>Beyond those operations, there are defined some more complex functions. They are used during encryption and decryption processes, and during creating subkeys.</p>
+          <h3 id="s-function">S-function</h3>
+          <p><span class="term">S</span>-function is used inside the <span class="term">F</span>-function. The input data of size of 64 bits are substituted by other 8 bytes, which are returned for further processing.</p>
+          <p>The function uses four substitution tables. They are referred to as <span class="term">s-boxes</span>.</p>
+          <p>The input data is divided into eight separate bytes <span class="term">x<sub>1</sub>,...,x<sub>8</sub></span>. <span class="term">x<sub>1</sub></span> contains eight leftmost bits, <span class="term">x<sub>2</sub></span> contains eight next bits and <span class="term">x<sub>8</sub></span> contains eight last rightmost bits.</p>
+          <p>Every of the <span class="term">s</span>-blocks changes eight received bits into eight other bits indicated by the table. The four <span class="term">s</span>-blocks are referred to as <span class="term">s<sub>1</sub>,...,s<sub>4</sub></span>. If <span class="term">y<sub>1</sub>,...,y<sub>8</sub></span> are the eight subsequent output bytes (the byte <span class="term">y<sub>1</sub></span> contains leftmost input bits, <span class="term">y<sub>8</sub></span> contains rightmost output bits), modifications performed by the <span class="term">S</span>-function can be defined as:</p>
+          <p> <span class="math">y<sub>1</sub> = s<sub>1</sub>(x<sub>1</sub>)</span><br> <span class="math">y<sub>2</sub> = s<sub>2</sub>(x<sub>2</sub>)</span><br> <span class="math">y<sub>3</sub> = s<sub>3</sub>(x<sub>3</sub>)</span><br> <span class="math">y<sub>4</sub> = s<sub>4</sub>(x<sub>4</sub>)</span><br> <span class="math">y<sub>5</sub> = s<sub>2</sub>(x<sub>5</sub>)</span><br> <span class="math">y<sub>6</sub> = s<sub>3</sub>(x<sub>6</sub>)</span><br> <span class="math">y<sub>7</sub> = s<sub>4</sub>(x<sub>7</sub>)</span><br> <span class="math">y<sub>8</sub> = s<sub>1</sub>(x<sub>8</sub>)</span></p>
+          <p>s-box <span class="term">s<sub>1</sub></span> contains 256 following numbers:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="S-Box S1">
+           <tr>
+           <td>112</td>
+           <td>130</td>
+           <td>44</td>
+           <td>236</td>
+           <td>179</td>
+           <td>39</td>
+           <td>192</td>
+           <td>229</td>
+           <td>228</td>
+           <td>133</td>
+           <td>87</td>
+           <td>53</td>
+           <td>234</td>
+           <td>12</td>
+           <td>174</td>
+           <td>65</td>
+           </tr>
+           <tr>
+           <td>35</td>
+           <td>239</td>
+           <td>107</td>
+           <td>147</td>
+           <td>69</td>
+           <td>25</td>
+           <td>165</td>
+           <td>33</td>
+           <td>237</td>
+           <td>14</td>
+           <td>79</td>
+           <td>78</td>
+           <td>29</td>
+           <td>101</td>
+           <td>146</td>
+           <td>189</td>
+           </tr>
+           <tr>
+           <td>134</td>
+           <td>184</td>
+           <td>175</td>
+           <td>143</td>
+           <td>124</td>
+           <td>235</td>
+           <td>31</td>
+           <td>206</td>
+           <td>62</td>
+           <td>48</td>
+           <td>220</td>
+           <td>95</td>
+           <td>94</td>
+           <td>197</td>
+           <td>11</td>
+           <td>26</td>
+           </tr>
+           <tr>
+           <td>166</td>
+           <td>225</td>
+           <td>57</td>
+           <td>202</td>
+           <td>213</td>
+           <td>71</td>
+           <td>93</td>
+           <td>61</td>
+           <td>217</td>
+           <td>1</td>
+           <td>90</td>
+           <td>214</td>
+           <td>81</td>
+           <td>86</td>
+           <td>108</td>
+           <td>77</td>
+           </tr>
+           <tr>
+           <td>139</td>
+           <td>13</td>
+           <td>154</td>
+           <td>102</td>
+           <td>251</td>
+           <td>204</td>
+           <td>176</td>
+           <td>45</td>
+           <td>116</td>
+           <td>18</td>
+           <td>43</td>
+           <td>32</td>
+           <td>240</td>
+           <td>177</td>
+           <td>132</td>
+           <td>153</td>
+           </tr>
+           <tr>
+           <td>223</td>
+           <td>76</td>
+           <td>203</td>
+           <td>194</td>
+           <td>52</td>
+           <td>126</td>
+           <td>118</td>
+           <td>5</td>
+           <td>109</td>
+           <td>183</td>
+           <td>169</td>
+           <td>49</td>
+           <td>209</td>
+           <td>23</td>
+           <td>4</td>
+           <td>215</td>
+           </tr>
+           <tr>
+           <td>20</td>
+           <td>88</td>
+           <td>58</td>
+           <td>97</td>
+           <td>222</td>
+           <td>27</td>
+           <td>17</td>
+           <td>28</td>
+           <td>50</td>
+           <td>15</td>
+           <td>156</td>
+           <td>22</td>
+           <td>83</td>
+           <td>24</td>
+           <td>242</td>
+           <td>34</td>
+           </tr>
+           <tr>
+           <td>254</td>
+           <td>68</td>
+           <td>207</td>
+           <td>178</td>
+           <td>195</td>
+           <td>181</td>
+           <td>122</td>
+           <td>145</td>
+           <td>36</td>
+           <td>8</td>
+           <td>232</td>
+           <td>168</td>
+           <td>96</td>
+           <td>252</td>
+           <td>105</td>
+           <td>80</td>
+           </tr>
+           <tr>
+           <td>170</td>
+           <td>208</td>
+           <td>160</td>
+           <td>125</td>
+           <td>161</td>
+           <td>137</td>
+           <td>98</td>
+           <td>151</td>
+           <td>84</td>
+           <td>91</td>
+           <td>30</td>
+           <td>149</td>
+           <td>224</td>
+           <td>255</td>
+           <td>100</td>
+           <td>210</td>
+           </tr>
+           <tr>
+           <td>16</td>
+           <td>196</td>
+           <td>0</td>
+           <td>72</td>
+           <td>163</td>
+           <td>247</td>
+           <td>117</td>
+           <td>219</td>
+           <td>138</td>
+           <td>3</td>
+           <td>230</td>
+           <td>218</td>
+           <td>9</td>
+           <td>63</td>
+           <td>221</td>
+           <td>148</td>
+           </tr>
+           <tr>
+           <td>135</td>
+           <td>92</td>
+           <td>131</td>
+           <td>2</td>
+           <td>205</td>
+           <td>74</td>
+           <td>144</td>
+           <td>51</td>
+           <td>115</td>
+           <td>103</td>
+           <td>246</td>
+           <td>243</td>
+           <td>157</td>
+           <td>127</td>
+           <td>191</td>
+           <td>226</td>
+           </tr>
+           <tr>
+           <td>82</td>
+           <td>155</td>
+           <td>216</td>
+           <td>38</td>
+           <td>200</td>
+           <td>55</td>
+           <td>198</td>
+           <td>59</td>
+           <td>129</td>
+           <td>150</td>
+           <td>111</td>
+           <td>75</td>
+           <td>19</td>
+           <td>190</td>
+           <td>99</td>
+           <td>46</td>
+           </tr>
+           <tr>
+           <td>233</td>
+           <td>121</td>
+           <td>167</td>
+           <td>140</td>
+           <td>159</td>
+           <td>110</td>
+           <td>188</td>
+           <td>142</td>
+           <td>41</td>
+           <td>245</td>
+           <td>249</td>
+           <td>182</td>
+           <td>47</td>
+           <td>253</td>
+           <td>180</td>
+           <td>89</td>
+           </tr>
+           <tr>
+           <td>120</td>
+           <td>152</td>
+           <td>6</td>
+           <td>106</td>
+           <td>231</td>
+           <td>70</td>
+           <td>113</td>
+           <td>186</td>
+           <td>212</td>
+           <td>37</td>
+           <td>171</td>
+           <td>66</td>
+           <td>136</td>
+           <td>162</td>
+           <td>141</td>
+           <td>250</td>
+           </tr>
+           <tr>
+           <td>114</td>
+           <td>7</td>
+           <td>185</td>
+           <td>85</td>
+           <td>248</td>
+           <td>238</td>
+           <td>172</td>
+           <td>10</td>
+           <td>54</td>
+           <td>73</td>
+           <td>42</td>
+           <td>104</td>
+           <td>60</td>
+           <td>56</td>
+           <td>241</td>
+           <td>164</td>
+           </tr>
+           <tr>
+           <td>64</td>
+           <td>40</td>
+           <td>211</td>
+           <td>123</td>
+           <td>187</td>
+           <td>201</td>
+           <td>67</td>
+           <td>193</td>
+           <td>21</td>
+           <td>227</td>
+           <td>173</td>
+           <td>244</td>
+           <td>119</td>
+           <td>199</td>
+           <td>128</td>
+           <td>158</td>
+           </tr>
+           </table>
+          </div>
+          <p><span class="term">S</span>-blocks return values determined by the one-byte input number. All cells in the table are numbered from 0 to 255, from left to right and from top to bottom. For example <span class="term">s<sub>1</sub>[0]</span> is equal to 112, <span class="term">s<sub>1</sub>[1]</span> is equal to 130, and <span class="term">s<sub>1</sub>[255]</span> is equal to 158.</p>
+          <p>The remaining three s-boxes can be also defined as tables of 256 numbers. Alternatively, their substitutions can be defined as operations on <span class="term">s<sub>1</sub></span>, with changed input data:</p>
+          <p> <span class="math">s<sub>2</sub>(x) := (s<sub>1</sub>(x) &lt;&lt;&lt; 1)</span><br> <span class="math">s<sub>3</sub>(x) := (s<sub>1</sub>(x) &gt;&gt;&gt; 1)</span><br> <span class="math">s<sub>4</sub>(x) := s<sub>1</sub>(x&lt;&lt;&lt;1)</span></p>
+          <h3 id="p-function">P-function</h3>
+          <p><span class="term">P</span>-function is used inside the <span class="term">F</span>-function. <span class="term">P</span>-function takes input data of size of 8 bytes (which are output bytes of the <span class="term">S</span>-function), modifies them and returns the vector, which is also 8-byte long. Output data of the <span class="term">P</span>-function is also output data of the <span class="term">F</span>-function.</p>
+          <p>The input data is divided into eight separate bytes <span class="term">x<sub>1</sub>,...,x<sub>8</sub></span>. The byte <span class="term">x<sub>1</sub></span> contains leftmost eight bits, <span class="term">x<sub>2</sub></span> next eight bits, and <span class="term">x<sub>8</sub></span> contains rightmost eight bits.</p>
+          <p>If <span class="term">y<sub>1</sub>,...,y<sub>8</sub></span> are the eight subsequent output bytes (<span class="term">y<sub>1</sub></span> contains eight leftmost bits, <span class="term">y<sub>2</sub></span> next eight bits, and <span class="term">y<sub>8</sub></span> contains rightmost eight output bits), modifications performed by the <span class="term">P</span>-function can be defined as:</p>
+          <p> <span class="math">y<sub>1</sub> = x<sub>1</sub></span> XOR <span class="math">x<sub>3</sub></span> XOR <span class="math">x<sub>4</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>7</sub></span> XOR <span class="math">x<sub>8</sub></span><br> <span class="math">y<sub>2</sub> = x<sub>1</sub></span> XOR <span class="math">x<sub>2</sub></span> XOR <span class="math">x<sub>4</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>7</sub></span> XOR <span class="math">x<sub>8</sub></span><br> <span class="math">y<sub>3</sub> = x<sub>1</sub></span> XOR <span class="math">x<sub>2</sub></span> XOR <span class="math">x<sub>3</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>8</sub></span><br> <span class="math">y<sub>4</sub> = x<sub>2</sub></span> XOR <span class="math">x<sub>3</sub></span> XOR <span class="math">x<sub>4</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>7</sub></span><br> <span class="math">y<sub>5</sub> = x<sub>1</sub></span> XOR <span class="math">x<sub>2</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>7</sub></span> XOR <span class="math">x<sub>8</sub></span><br> <span class="math">y<sub>6</sub> = x<sub>2</sub></span> XOR <span class="math">x<sub>3</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>7</sub></span> XOR <span class="math">x<sub>8</sub></span><br> <span class="math">y<sub>7</sub> = x<sub>3</sub></span> XOR <span class="math">x<sub>4</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>8</sub></span><br> <span class="math">y<sub>8</sub> = x<sub>1</sub></span> XOR <span class="math">x<sub>4</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>7</sub></span></p>
+          <h3 id="f-function">F-function</h3>
+          <p><span class="term">F</span>-function is on of the main functions. It is used during encryption and decryption processes, and during creating subkeys. The input data <span class="term">X</span> of size of 64 bits are mixed with one of the subkeys <span class="term">k</span> (also 64-bit long). The function returns a 64-bit long output block <span class="term">Y</span>.</p>
+          <p>Data bits are added XOR to key bits and the result is modified by two functions <span class="term">S</span> and <span class="term">P</span>.</p>
+          <p> <span class="math">(X, k)</span><span class="math"> -&gt; </span><span class="math">Y</span> <span class="math"> =&gt; </span> <span class="math">P (S (X </span>XOR<span class="math"> k))</span><span class="math"> -&gt; </span><span class="math">Y</span></p>
+          <h3 id="fl-function">FL-function</h3>
+          <p><span class="term">FL</span>-function is used during both encryption and decryption processes. It takes 64-bit long input data and one of the subkeys, then it performs some modifications and finally it returns a block of data, which contains also 64 bits.</p>
+          <p>An input data block is referred to as <span class="term">X</span>, while <span class="term">Y</span> is a 64-bit long output block. <span class="term">kl</span> is one of the subkeys created before:</p>
+          <p> <span class="math">(X, kl)</span><span class="math"> -&gt; </span><span class="math">Y</span> <span class="math"> =&gt; </span> <span class="math">(X<sub>L</sub> </span><span class="math">||</span><span class="math"> X<sub>R</sub>, kl<sub>L</sub> </span><span class="math">||</span><span class="math"> kl<sub>R</sub>) </span><span class="math">-&gt; </span><span class="math">Y<sub>L</sub> </span><span class="math">||</span><span class="math"> Y<sub>R</sub></span></p>
+          <p>At the beginning <span class="term">X</span> is divided into two 32-bit long parts: <span class="term">X<sub>L</sub></span> contains 32 left bits of <span class="term">X</span>, and <span class="term">X<sub>R</sub></span> contains 32 right bits of <span class="term">X</span>. Then, two new blocks (each 32-bit long) are calculated:</p>
+          <p> <span class="math">Y<sub>R</sub> = ((X<sub>L</sub> </span>AND<span class="math"> kl<sub>L</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math"> 1) </span>XOR<span class="math"> X<sub>R</sub></span><br> <span class="math">Y<sub>L</sub> = (Y<sub>R</sub> </span>OR<span class="math"> kl<sub>R</sub>) </span> XOR<span class="math"> X<sub>L</sub></span></p>
+          <p><span class="term">Y<sub>L</sub></span> contains 32 left output bits of the <span class="term">FL</span>-function, and <span class="term">Y<sub>R</sub></span> contains 32 right output bits.</p>
+          <h3 id="fl-1-function">FL<sup>-1</sup>-function</h3>
+          <p><span class="term">FL<sup>-1</sup></span>-function is used during both encryption and decryption processes. It takes 64-bit long input data and one of the subkeys, then it performs some modifications and finally it returns a block of data, which contains also 64 bits.</p>
+          <p>An input data block is referred to as <span class="term">X</span>, while <span class="term">Y</span> is a 64-bit long output block. <span class="term">kl</span> is one of the subkeys created before:</p>
+          <p> <span class="math">(Y, kl)</span><span class="math"> -&gt; </span><span class="math">X</span> <span class="math"> =&gt; </span> <span class="math">(Y<sub>L</sub> </span><span class="math">||</span><span class="math"> Y<sub>R</sub>, kl<sub>L</sub> </span><span class="math">||</span><span class="math"> kl<sub>R</sub>) </span><span class="math">-&gt; </span><span class="math">X<sub>L</sub> </span><span class="math">||</span><span class="math"> X<sub>R</sub></span></p>
+          <p>At the beginning <span class="term">Y</span> is divided into two 32-bit long parts: <span class="term">Y<sub>L</sub></span> contains 32 left bits of <span class="term">Y</span>, and <span class="term">Y<sub>R</sub></span> contains 32 right bits of <span class="term">Y</span>. Then, two new blocks (each 32-bit long) are calculated:</p>
+          <p> <span class="math">X<sub>L</sub> = (Y<sub>R</sub> </span>OR<span class="math"> kl<sub>R</sub>) </span> XOR<span class="math"> Y<sub>L</sub></span><br> <span class="math">X<sub>R</sub> = ((X<sub>L</sub> </span>AND<span class="math"> kl<sub>L</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math"> 1) </span>XOR<span class="math"> Y<sub>R</sub></span></p>
+          <p><span class="term">X<sub>L</sub></span> contains 32 left output bits of the <span class="term">FL<sup>-1</sup></span>-function, and <span class="term">X<sub>R</sub></span> contains 32 right output bits.</p>
+          <h3 id="the-key-schedule-constants">The key schedule constants</h3>
+          <p>During creating subkeys in encryption and decryption processes, one should use six constant predefined values, commonly referred to as <span class="term">&sum;<sub>i</sub></span>.</p>
+          <p>The values below are 64-bit long and they are presented in hexadecimal.</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="Key schedule">
+           <tr>
+           <td>&sum;<sub>1</sub> =</td>
+           <td>0xA09E667F3BCC908B</td>
+           </tr>
+           <tr>
+           <td>&sum;<sub>2</sub> =</td>
+           <td>0xB67AE8584CAA73B2</td>
+           </tr>
+           <tr>
+           <td>&sum;<sub>3</sub> =</td>
+           <td>0xC6EF372FE94F82BE</td>
+           </tr>
+           <tr>
+           <td>&sum;<sub>4</sub> =</td>
+           <td>0x54FF53A5F1D36F1C</td>
+           </tr>
+           <tr>
+           <td>&sum;<sub>5</sub> =</td>
+           <td>0x10E527FADE682D1D</td>
+           </tr>
+           <tr>
+           <td>&sum;<sub>6</sub> =</td>
+           <td>0xB05688C2B3E6C1FD</td>
+           </tr>
+           </table>
+          </div>
+          <h3 id="creating-subkeys">Creating Subkeys</h3>
+          <p>Using four 128-bit long variables <span class="term">K<sub>L</sub></span>, <span class="term">K<sub>R</sub></span>, <span class="term">K<sub>A</sub></span> and <span class="term">K<sub>B</sub></span> one should calculate subkeys <span class="term">k<sub>i</sub></span>, <span class="term">kw<sub>i</sub></span> and <span class="term">kl<sub>i</sub></span> (all subkeys have 64 bits).</p>
+          <p>The table for creating subkeys for the secret key of size of 128 bits:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Generating subkeys">
+           <tr>
+           <th scope="col">subkey</th>
+           <th scope="col">received value</th>
+           <th scope="col">where used</th>
+           </tr>
+           <tr>
+           <td>kw<sub>1</sub></td>
+           <td>64 left bits <span class="term">K<sub>L</sub></span></td>
+           <td>at the beginning</td>
+           </tr>
+           <tr>
+           <td>kw<sub>2</sub></td>
+           <td>64 right bits <span class="term">K<sub>L</sub></span></td>
+           <td>at the beginning</td>
+           </tr>
+           <tr>
+           <td>k<sub>1</sub></td>
+           <td>64 left bits <span class="term">K<sub>A</sub></span></td>
+           <td><span class="term">F</span> (round 1)</td>
+           </tr>
+           <tr>
+           <td>k<sub>2</sub></td>
+           <td>64 right bits <span class="term">K<sub>A</sub></span></td>
+           <td><span class="term">F</span> (round 2)</td>
+           </tr>
+           <tr>
+           <td>k<sub>3</sub></td>
+           <td>64 left bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 15)</td>
+           <td><span class="term">F</span> (round 3)</td>
+           </tr>
+           <tr>
+           <td>k<sub>4</sub></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 15)</td>
+           <td><span class="term">F</span> (round 4)</td>
+           </tr>
+           <tr>
+           <td>k<sub>5</sub></td>
+           <td>64 left bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 15)</td>
+           <td><span class="term">F</span> (round 5)</td>
+           </tr>
+           <tr>
+           <td>k<sub>6</sub></td>
+           <td>64 right bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 15)</td>
+           <td><span class="term">F</span> (round 6)</td>
+           </tr>
+           <tr>
+           <td>kl<sub>1</sub></td>
+           <td>64 left bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 30)</td>
+           <td>FL</td>
+           </tr>
+           <tr>
+           <td>kl<sub>2</sub></td>
+           <td>64 right bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 30)</td>
+           <td>FL<sup>-1</sup></td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>7</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 45)</td>
+           <td><span class="term">F</span> (round 7)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>8</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 45)</td>
+           <td><span class="term">F</span> (round 8)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>9</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 45)</td>
+           <td><span class="term">F</span> (round 9)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>10</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 60)</td>
+           <td><span class="term">F</span> (round 10)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>12</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 60)</td>
+           <td><span class="term">F</span> (round 11)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>12</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 60)</td>
+           <td><span class="term">F</span> (round 12)</td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>3</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 77)</td>
+           <td><span class="term">FL</span></td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>4</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 77)</td>
+           <td><span class="term">FL<sup>-1</sup></span></td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>13</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 94)</td>
+           <td><span class="term">F</span> (round 13)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>14</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 94)</td>
+           <td><span class="term">F</span> (round 14)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>15</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 94)</td>
+           <td><span class="term">F</span> (round 15)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>16</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 94)</td>
+           <td><span class="term">F</span> (round 16)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>17</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 111)</td>
+           <td><span class="term">F</span> (round 17)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>18</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 111)</td>
+           <td><span class="term">F</span> (round 18)</td>
+           </tr>
+           <tr>
+           <td><span class="term">kw<sub>3</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 111)</td>
+           <td>at the end</td>
+           </tr>
+           <tr>
+           <td><span class="term">kw<sub>4</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 111)</td>
+           <td>at the end</td>
+           </tr>
+           </table>
+          </div>
+          <p>The table for creating subkeys for the secret keys of size of 192 bits and 256 bits:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Generating subkeys">
+           <tr>
+           <th scope="col">subkey</th>
+           <th scope="col">received value</th>
+           <th scope="col">where used</th>
+           </tr>
+           <tr>
+           <td>kw<sub>1</sub></td>
+           <td>64 left bits <span class="term">K<sub>L</sub></span></td>
+           <td>at the beginning</td>
+           </tr>
+           <tr>
+           <td>kw<sub>2</sub></td>
+           <td>64 right bits <span class="term">K<sub>L</sub></span></td>
+           <td>at the beginning</td>
+           </tr>
+           <tr>
+           <td>k<sub>1</sub></td>
+           <td>64 left bits <span class="term">K<sub>B</sub></span></td>
+           <td><span class="term">F</span> (round 1)</td>
+           </tr>
+           <tr>
+           <td>k<sub>2</sub></td>
+           <td>64 right bits <span class="term">K<sub>B</sub></span></td>
+           <td><span class="term">F</span> (round 2)</td>
+           </tr>
+           <tr>
+           <td>k<sub>3</sub></td>
+           <td>64 left bits (<span class="term">K<sub>R</sub></span> &lt;&lt;&lt; 15)</td>
+           <td><span class="term">F</span> (round 3)</td>
+           </tr>
+           <tr>
+           <td>k<sub>4</sub></td>
+           <td>64 right bits (<span class="term">K<sub>R</sub></span> &lt;&lt;&lt; 15)</td>
+           <td><span class="term">F</span> (round 4)</td>
+           </tr>
+           <tr>
+           <td>k<sub>5</sub></td>
+           <td>64 left bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 15)</td>
+           <td><span class="term">F</span> (round 5)</td>
+           </tr>
+           <tr>
+           <td>k<sub>6</sub></td>
+           <td>64 right bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 15)</td>
+           <td><span class="term">F</span> (round 6)</td>
+           </tr>
+           <tr>
+           <td>kl<sub>1</sub></td>
+           <td>64 left bits (<span class="term">K<sub>R</sub></span> &lt;&lt;&lt; 30)</td>
+           <td>FL</td>
+           </tr>
+           <tr>
+           <td>kl<sub>2</sub></td>
+           <td>64 right bits (<span class="term">K<sub>R</sub></span> &lt;&lt;&lt; 30)</td>
+           <td>FL<sup>-1</sup></td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>7</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>B</sub></span> &lt;&lt;&lt; 30)</td>
+           <td><span class="term">F</span> (round 7)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>8</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>B</sub></span> &lt;&lt;&lt; 30)</td>
+           <td><span class="term">F</span> (round 8)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>9</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 45)</td>
+           <td><span class="term">F</span> (round 9)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>10</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 45)</td>
+           <td><span class="term">F</span> (round 10)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>12</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 45)</td>
+           <td><span class="term">F</span> (round 11)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>12</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 45)</td>
+           <td><span class="term">F</span> (round 12)</td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>3</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 60)</td>
+           <td><span class="term">FL</span></td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>4</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 60)</td>
+           <td><span class="term">FL<sup>-1</sup></span></td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>13</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>R</sub></span> &lt;&lt;&lt; 60)</td>
+           <td><span class="term">F</span> (round 13)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>14</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>R</sub></span> &lt;&lt;&lt; 60)</td>
+           <td><span class="term">F</span> (round 14)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>15</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>B</sub></span> &lt;&lt;&lt; 60)</td>
+           <td><span class="term">F</span> (round 15)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>16</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>B</sub></span> &lt;&lt;&lt; 60)</td>
+           <td><span class="term">F</span> (round 16)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>17</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 77)</td>
+           <td><span class="term">F</span> (round 17)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>18</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 77)</td>
+           <td><span class="term">F</span> (round 18)</td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>5</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 77)</td>
+           <td><span class="term">FL</span></td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>6</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 77)</td>
+           <td><span class="term">FL<sup>-1</sup></span></td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>19</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>R</sub></span> &lt;&lt;&lt; 94)</td>
+           <td><span class="term">F</span> (round 19)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>20</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>R</sub></span> &lt;&lt;&lt; 94)</td>
+           <td><span class="term">F</span> (round 20)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>21</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 94)</td>
+           <td><span class="term">F</span> (round 21)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>22</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>A</sub></span> &lt;&lt;&lt; 94)</td>
+           <td><span class="term">F</span> (round 22)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>23</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 111)</td>
+           <td><span class="term">F</span> (round 23)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>24</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>L</sub></span> &lt;&lt;&lt; 111)</td>
+           <td><span class="term">F</span> (round 24)</td>
+           </tr>
+           <tr>
+           <td><span class="term">kw<sub>3</sub></span></td>
+           <td>64 left bits (<span class="term">K<sub>B</sub></span> &lt;&lt;&lt; 111)</td>
+           <td>at the end</td>
+           </tr>
+           <tr>
+           <td><span class="term">kw<sub>4</sub></span></td>
+           <td>64 right bits (<span class="term">K<sub>B</sub></span> &lt;&lt;&lt; 111)</td>
+           <td>at the end</td>
+           </tr>
+           </table>
+          </div>
+          <h2 id="implementation">Implementation</h2>
+          <p>On the website of NTT Corporation you can find source codes and detailed descriptions of the Camellia cipher:<br> <a href="https://info.isl.ntt.co.jp/crypt/eng/camellia" rel="noopener" target="_blank">info.isl.ntt.co.jp/crypt/eng/camellia</a></p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/symmetric/blowfish.html" rel="prev"><small>← Previous</small>Blowfish</a>
+          <a class="pager__next" href="/eng/symmetric/serpent.html" rel="next"><small>Next →</small>Serpent</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fcamellia.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fcamellia.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fcamellia.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/symmetric/">Symmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/otp.html">OTP</a></li>
+              <li><a href="/eng/symmetric/rc4.html">RC4</a></li>
+              <li><a href="/eng/symmetric/salsa20.html">Salsa20</a></li>
+              <li><a href="/eng/symmetric/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/des.html">DES</a></li>
+              <li><a href="/eng/symmetric/rc2.html">RC2</a></li>
+              <li><a href="/eng/symmetric/3des.html">Triple DES</a></li>
+              <li><a href="/eng/symmetric/aes.html">AES</a></li>
+              <li><a href="/eng/symmetric/blowfish.html">Blowfish</a></li>
+              <li><a href="/eng/symmetric/camellia.html" aria-current="page">Camellia</a></li>
+              <li><a href="/eng/symmetric/serpent.html">Serpent</a></li>
+              <li><a href="/eng/symmetric/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

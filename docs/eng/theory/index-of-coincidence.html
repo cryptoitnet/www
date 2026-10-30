@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/indeks-koincydencji.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Index of Coincidence | Cryptography | Crypto-IT</title>
+  <meta name="description" content="The index of coincidence (IC) shows how likely is the situation that during comparing two texts letter by letter, two currently compared letters are the same.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/index-of-coincidence.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/index-of-coincidence.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/indeks-koincydencji.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/index-of-coincidence.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Index of Coincidence | Cryptography">
+  <meta property="og:description" content="The index of coincidence (IC) shows how likely is the situation that during comparing two texts letter by letter, two currently compared letters are the same.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/index-of-coincidence.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Index of Coincidence",
+        "description": "The index of coincidence (IC) shows how likely is the situation that during comparing two texts letter by letter, two currently compared letters are the same.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/index-of-coincidence.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Index of Coincidence"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/indeks-koincydencji.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Index of Coincidence</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The index of coincidence shows how likely is the situation that during comparing some two texts (letter by letter), two currently compared letters are the same.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>A value of the index of coincidence is calculated based on the probability of occurrence of a specified letter and the probability of comparing it to the same letter from the second text (which is of course determined by the probability of occurrence of the letter in the second text). For the text of <var>N</var>-letter length and the alphabet with <var>c</var> different letters (for example, for the English alphabet <span class="term">c = 26</span>) the value of the index of coincidence <var>IC</var> during comparing this text to the same text shifted relative to the first one by random number of letters may be presented as:<br> <span class="math"> IC = (n<sub>1</sub>(n<sub>1</sub>-1) + ... + n<sub>c</sub>(n<sub>c</sub>-1)) / (N(N-1) / c) </span>,<br> where <var>n<sub>i</sub></var> is a number of occurrences of the letter in the whole text. <button type="button" class="note-ref" popovertarget="note-ic-wzor">Click here to find out more.</button></p>
+          <p>In particular, while analysing letter frequencies in the specified language (<var>f<sub>i</sub></var>) it is possible to calculate the expected value of the index of coincidence for this language (that means the expected value of the index of coincidence while comparing texts written in the same language):<br> <span class="math"> IC<sub>expected</sub> = (f<sub>1</sub><sup>2</sup> + ... + f<sub>c</sub><sup>2</sup>) / (1/c)</span></p>
+          <p>It is easy to notice that if all letters in a specified language occurred equally often, then the expected value would be equal to <span class="term">1</span>. Of course, in all the existing languages different letters occur with different frequencies so indexes of coincidence for different languages differ from each other. For English the expected value is equal to <span class="term">1,73</span>.</p>
+          <p>One will notice that the index of coincidence calculated for two texts written in two different languages is usually noticeably smaller than expected indexes of coincidence calculated for these languages. It is caused by the fact that the letters which are popular in the first text (in the first language), may be less popular in the second text (written in the second language). Thus, the probability of meeting the same letters in the compared texts is smaller.</p>
+          <h2 id="using-ic-in-cryptography">Using IC in cryptography</h2>
+          <p>The index of coincidence is used in cryptography for breaking substitution ciphers and simple XOR ciphers.</p>
+          <p>IC can be used to determine the length of the secret key if a secret message is encrypted using one of those ciphers. It may be achieved by comparing (letter by letter or byte by byte) the encrypted text with the same text shifted by a number of characters which is equal to the currently tested key size. For each testing possibility (so for each key size, from <span class="term">1</span> until finding the solution) one must calculate the value of IC and remember its value.</p>
+          <p>When one tests the correct text offset, which is equal to the length of the secret key, the confusion introduced by the secret key will disappear:</p>
+          <ul>
+           <li>in the case of a substitution cipher, the letters in both texts at corresponding positions are shifted by the same number of characters, or</li>
+           <li>in the case of a XOR cipher, changes of all bits in corresponding bytes are the same.</li>
+          </ul>
+          <p>After finding a correct shift, all compared characters in the first and the second text (although they are not known) belong to the same language, so after calculating their index of coincidence, the result will be similar to the expected value of the index of coincidence for the specified language and it will be much different from other, previously tested, values of the index of coincidence (which were calculated for wrong shifts).</p>
+          <p>During comparing two texts with wrong text offset, letters (bytes) in the first text will be changed differently than in the second text. Therefore, it is possible to consider the letters as belonging to other languages, with different frequencies of letter occurrences in the first and the second text.</p>
+          <p>A significantly larger value of IC will be calculated for all shifts equal to the key length or its multiplicity (because the same key is repeated periodically).</p>
+          <h2 id="expected-values-for-some-languages">Expected values for some languages</h2>
+          <p>Indexes of coincidence can be calculated for different languages. They depend on average frequencies of letters. Of course, the frequencies can be determined only approximately because in different kind of texts (scientific, historical, fiction) the frequencies are slightly different.</p>
+          <ul>
+           <li>English - 1.73</li>
+           <li>Russian - 1.76</li>
+           <li>Spanish - 1.94</li>
+           <li>Portuguese - 1.94</li>
+           <li>Italian - 1.94</li>
+           <li>French - 2.02</li>
+           <li>German - 2.05</li>
+          </ul>
+          <p>Sometimes, the values of indexes of coincidence are presented without the normalization (the normalized value depends on the number of letters in the alphabet). For example, for English language, the expected IC value without normalization is equal to:<br> <span class="math"> &nbsp;1,73 / 26 = 0,067</span><br></p>
+          <div class="note" id="note-ic-wzor" popover>
+           <p>The probability of meeting two identical letters when comparing the same texts shifted relative to each other by random number of letters, can be compared to the probability of selecting two identical letters from the text.</p>
+           <p>This is equal to the sum of probabilities of selecting each possible pair of letters (so the probability of selecting two letters <var>a</var> + the probability of selecting two letters <var>b</var> and so on).</p>
+           <p>On the other hand, the probability of selecting a pair of two the same specified letters (let's define the character as <var>x</var> and the number of its occurrences in the text of <var>N</var>-letter length as <var>n<sub>x</sub></var>) is equal the product of numbers:<br> <span class="math">A = n<sub>x</sub> / N</span><br> and:<br> <span class="math">B = (n<sub>x</sub>-1) / (N-1)</span>,<br> where:</p>
+           <ul>
+           <li><var>A</var> is the probability of selecting one of <var>n<sub>x</sub></var> letters <var>x</var> from the text of <var>N</var>-letter length,</li>
+           <li><var>B</var> is the probability of selecting one of <var>n<sub>x</sub>-1</var> remaining characters <var>x</var> from remaining <var>N-1</var> letters.</li>
+           </ul>
+           <p>After multiplication and addition of all the probabilities, the result should be multiplied by <var>c</var>, that is the number of letters in the alphabet in the used language. Thanks to this, the index of coincidence may be compared between different languages.</p>
+           <button type="button" class="note__close" popovertarget="note-ic-wzor" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/software-signing.html" rel="prev"><small>← Previous</small>Software signing</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Findex-of-coincidence.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Findex-of-coincidence.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Findex-of-coincidence.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html" aria-current="page">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

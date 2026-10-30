@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/kerckhoffs.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zasada Kerckhoffsa | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Zasada Kerckhoffsa jest jedną z fundamentalnych reguł leżącą u podstaw współczesnej kryptografii. Po raz pierwszy opublikowano ją we Francji, w roku 1883.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/kerckhoffs.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/kerckhoffs.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/kerckhoffs.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/kerckhoffs.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Zasada Kerckhoffsa | Kryptografia">
+  <meta property="og:description" content="Zasada Kerckhoffsa jest jedną z fundamentalnych reguł leżącą u podstaw współczesnej kryptografii. Po raz pierwszy opublikowano ją we Francji, w roku 1883.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/kerckhoffs.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Zasada Kerckhoffsa",
+        "description": "Zasada Kerckhoffsa jest jedną z fundamentalnych reguł leżącą u podstaw współczesnej kryptografii. Po raz pierwszy opublikowano ją we Francji, w roku 1883.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/kerckhoffs.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Zasada Kerckhoffsa"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/kerckhoffs.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Zasada Kerckhoffsa</h1>
+          <p class="article__subtitle">(ang. Kerckhoffs's principle)</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <figure class="figure figure--right">
+           <img src="/assets/img/theory/kerkhoffs.webp" alt="Zdjęcie Kerckhoffsa" width="160" height="219" loading="lazy">
+           <figcaption>Auguste Kerckhoffs</figcaption>
+          </figure>
+          <p>Zasada Kerckhoffsa to jedna z podstawowych reguł współczesnej kryptografii. Została sformułowana pod koniec XIX&nbsp;wieku przez holenderskiego kryptologa Augusta Kerckhoffsa (ur.&nbsp;19&nbsp;stycznia 1835, zm.&nbsp;9&nbsp;sierpnia 1903). Zasada&nbsp;ta mówi, że <strong>system kryptograficzny powinien być bezpieczny nawet wtedy, gdy są znane wszystkie szczegóły jego działania oprócz sekretnego klucza</strong>.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="publikacje-kerckhoffsa">Publikacje Kerckhoffsa</h2>
+          <p>Najbardziej znanymi obecnie pracami Kerckhoffsa są dwa artykuły opublikowane w&nbsp;roku&nbsp;1883 we&nbsp;francuskim <em>le&nbsp;Journal des&nbsp;Sciences Militaires</em> pod wspólnym tytułem <em>"La&nbsp;Cryptographie Militaire"</em> (fr.&nbsp;<i>kryptografia wojskowa</i>). Były one przeglądem najnowocześniejszych ówcześnie rozwiązań wojskowej kryptografii i&nbsp;stanowiły impuls do znaczącego postępu w tej dziedzinie we francuskiej armii. Zawierały też wiele praktycznych rad i opartych na doświadczeniu reguł postępowania, w tym ujęty w sześciu punktach wzór praktycznego szyfrowania:</p>
+          <ol class="steps">
+           <li>System powinien być, jeśli nie teoretycznie, to w praktyce nie do złamania.</li>
+           <li>Projekt systemu nie powinien wymagać jego tajności, a ewentualne jego ujawnienie nie powinno przysparzać kłopotów korespondentom.</li>
+           <li>Klucz powinien być możliwy do zapamiętania bez notowania i&nbsp;łatwy do zmienienia.</li>
+           <li>Kryptogramy powinny być możliwe do przesłania drogą telegraficzną.</li>
+           <li>Aparatura i dokumenty powinny być możliwe do przeniesienia i&nbsp;obsłużenia przez jedną osobę.</li>
+           <li>System powinien być prosty - nie wymagający znajomości wielu reguł ani nie obciążający zbytnio umysłu.</li>
+          </ol>
+          <p>Druga z&nbsp;powyższych reguł nosi obecnie nazwę zasady Kerckhoffsa.</p>
+          <h2 id="zasada-kerckhoffsa-wspolczesnie">Zasada Kerckhoffsa współcześnie</h2>
+          <p>Zasadę Kerckhoffsa spełniają praktycznie wszystkie współcześnie stosowane algorytmy szyfrujące (DES, AES i&nbsp;inne), których specyfikacje są w&nbsp;pełni jawne. Algorytmy te są uważane za dobrze zbadane i&nbsp;bezpieczne. Bezpieczeństwo zaszyfrowanej wiadomości zależy tylko od bezpieczeństwa (jakości) klucza szyfrującego.</p>
+          <p>Utajnienie szczegółów algorytmu szyfrującego może znacząco utrudnić jego kryptoanalizę i łamanie, ale tylko wówczas, gdy algorytm jest wykorzystywany w ściśle ograniczonym środowisku, co utrudnia ujawnienie szczegółów algorytmu. Większość szyfrów stosowanych na świecie do ochrony informacji na szczeblu rządowym to algorytmy niejawne (np.&nbsp;polski szyfr&nbsp;NASZ). Natomiast większość niejawnych algorytmów, które wprowadzano na rynek w celach komercyjnych i na skalę masową, stosunkowo szybko została rozpracowana, ujawniona i&nbsp;złamana (np.&nbsp;szyfr DVD-CSS został złamany po trzech latach od momentu opublikowania).</p>
+          <p>Ideę zasady Kerckhoffsa wyraża również przypisywane Claude’owi Shannonowi powiedzenie <em>"Wróg zna system"</em> (ang.&nbsp;<i>The enemy knows the system</i>), znane pod nazwą <strong>Maksymy Shannona</strong> (ang.&nbsp;<i>Shannon's maxim</i>).</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/wprowadzenie.html" rel="prev"><small>← Poprzedni</small>Wprowadzenie</a>
+          <a class="pager__next" href="/pl/teoria/steganografia.html" rel="next"><small>Następny →</small>Steganografia</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fkerckhoffs.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fkerckhoffs.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fkerckhoffs.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html" aria-current="page">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

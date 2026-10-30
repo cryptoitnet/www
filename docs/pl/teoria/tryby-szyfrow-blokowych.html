@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/modes-of-block-ciphers.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tryby Działania Szyfrów Blokowych | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Zastosowanie różnych trybów działania szyfrów blokowych umożliwia operowanie na olbrzymich strumieniach danych, bez narażania jakości dostarczanego szyfrowania.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/tryby-szyfrow-blokowych.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/tryby-szyfrow-blokowych.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Tryby Działania Szyfrów Blokowych | Kryptografia">
+  <meta property="og:description" content="Zastosowanie różnych trybów działania szyfrów blokowych umożliwia operowanie na olbrzymich strumieniach danych, bez narażania jakości dostarczanego szyfrowania.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/tryby-szyfrow-blokowych.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Tryby działania szyfrów blokowych",
+        "description": "Zastosowanie różnych trybów działania szyfrów blokowych umożliwia operowanie na olbrzymich strumieniach danych, bez narażania jakości dostarczanego szyfrowania.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/tryby-szyfrow-blokowych.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Tryby działania szyfrów blokowych"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/modes-of-block-ciphers.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Tryby działania szyfrów blokowych</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Tryby działania szyfrów blokowych są sposobami konfiguracji, które umożliwiają tym szyfrom operowanie na olbrzymich strumieniach danych, bez narażania jakości dostarczanego szyfrowania.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Stosowanie blokowych szyfrów symetrycznych wiąże się z&nbsp;niebezpieczeństwem użycia tych samych bitów sekretnego klucza do&nbsp;zaszyfrowania takich samych fragmentów tekstu jawnego. Wykorzystanie jednego deterministycznego algorytmu szyfrującego do&nbsp;zakodowania pewnej ilości identycznych danych wejściowych, daje w&nbsp;wyniku powtarzające się dane wyjściowe.</p>
+          <p>Stwarza to niebezpieczeństwo dla&nbsp;użytkowników szyfrów blokowych. Ewentualny napastnik mógłby wyciągnąć dużo informacji znając rozkład powtarzających się takich samych fragmentów wiadomości, nawet jeśli nie&nbsp;zdołałby całkowicie złamać szyfru i&nbsp;poznać całego tekstu jawnego.</p>
+          <p>Istnieją metody na&nbsp;zaciemnianie szyfrogramu. Polegają one na mieszaniu bloków posiadanego tekstu jawnego z&nbsp;blokami tworzonego właśnie szyfrogramu w&nbsp;taki sposób, aby uniemożliwić powtarzanie się takich samych bloków wyjściowych. Wykorzystuje się w tym celu modyfikacje algorytmów szyfrów blokowych nazywane <em>trybami działania szyfrów blokowych</em>.</p>
+          <h2 id="tryb-ecb">Tryb ECB</h2>
+          <span>(ang. <i>electronic codebook</i>)</span>
+          <p>Jest to najprostszy sposób szyfrowania. Każdy z&nbsp;bloków wiadomości jest kodowany oddzielnie. Podobnie, każdy blok szyfrogramu jest również deszyfrowany oddzielnie.</p>
+          <p>Umożliwia&nbsp;to przeprowadzanie zarówno szyfrowania jak i&nbsp;deszyfrowania przy&nbsp;pomocy wielu wątków równocześnie. W&nbsp;trybie tym nie&nbsp;następuje zaciemnianie otrzymywanego szyfrogramu.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ecb-szyfrowanie.webp" alt="szyfrowanie w trybie ECB" width="800" height="246" loading="lazy">
+           <figcaption>Szyfrowanie w&nbsp;trybie&nbsp;ECB</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ecb-deszyfrowanie.webp" alt="deszyfrowanie w trybie ECB" width="800" height="246" loading="lazy">
+           <figcaption>Deszyfrowanie w&nbsp;trybie&nbsp;ECB</figcaption>
+          </figure>
+          <p>Typowym przykładem słabości szyfrowania w&nbsp;trybie ECB jest zakodowanie obrazka zapisanego jako mapa bitowa (np. z&nbsp;rozszerzeniem .bmp) za&nbsp;pomocą silnego algorytmu działającego w&nbsp;takim właśnie trybie.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/logo-original.webp" alt="An original image" width="225" height="225" loading="lazy"><br> <img src="/assets/img/theory/modes/logo-des-ecb.webp" alt="An image encrypted using DES ECB" width="225" height="225" loading="lazy">&nbsp; <img src="/assets/img/theory/modes/logo-des-cbc.webp" alt="An image encrypted using DES CBC" width="225" height="225" loading="lazy"><br>
+           <figcaption>Prosta mapa bitowa zaszyfrowana za&nbsp;pomocą <a href="/pl/symetryczne/des.html">DES</a> przy użyciu takiego samego sekretnego klucza. W środkowym obrazie użyto trybu&nbsp;ECB, natomiast w dolnym trybu&nbsp;CBC.</figcaption>
+          </figure>
+          <br>
+          <p>Wiadomości szyfrowane za pomocą trybu ECB muszą być wyrównane do&nbsp;długości równej wielokrotności długości pojedynczego bloku. Popularną metodą wyrównywania długości ostatniego bloku jest dopisanie za&nbsp;ostatnim bitem wiadomości dodatkowego bitu równego&nbsp;<span class="term">1</span>, a następnie dopełnienie wiadomości bitami zerowymi aż do długości równej wielokrotności długości jednego bloku. Pozwala to precyzyjnie określić, gdzie kończy się oryginalna wiadomość. Istnieje więcej <a href="/pl/teoria/dopelnienie.html">sposobów dopełniania długości wiadomości</a>.</p>
+          <p>Szyfry kodowane za&nbsp;pomocą trybu ECB są bardziej podatne na&nbsp;<a href="/pl/ataki/metoda-powtorzenia.html">ataki metodą powtórzenia</a>.</p>
+          <h2 id="TrybCbc">Tryb CBC</h2>
+          <span>(ang. <i>cipher-block chaining</i>)</span>
+          <p>Tryb CBC używania szyfrów blokowych został opracowany w IBM w roku&nbsp;1976. Polega&nbsp;on na dodawaniu&nbsp;XOR każdego kolejnego bloku tekstu jawnego do&nbsp;poprzednio otrzymanego bloku szyfrogramu. Dopiero wynik tego działania jest szyfrowany w&nbsp;zwykły sposób. Każdy kolejny blok szyfrogramu zależy więc od&nbsp;poprzedniego bloku szyfrogramu. Pierwszy blok tekstu jawnego jest dodawany XOR do&nbsp;losowego wektora inicjującego (zwyczajowo oznaczanego jako&nbsp;<span class="term">IV</span>), o&nbsp;takiej samej długości jak długość każdego bloku danych.</p>
+          <p>Szyfrowanie w&nbsp;trybie CBC może być przeprowadzane tylko z&nbsp;wykorzystaniem jednego wątku. Mimo tej niedogodności, jest to bardzo popularny tryb wykorzystywania szyfrów blokowych.</p>
+          <p>W&nbsp;trakcie operacji odszyfrowywania, należy sumować XOR kolejne dane otrzymywane jako wynik działania algorytmu deszyfrującego z&nbsp;poprzednio otrzymanymi blokami szyfrogramu. Z&nbsp;racji tego, że odbiorca dysponuje wszystkimi blokami szyfrogramu już w&nbsp;momencie otrzymania zakodowanej wiadomości, proces deszyfrowania może odbywać się z&nbsp;wykorzystaniem wielu wątków równocześnie.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/cbc-szyfrowanie.webp" alt="szyfrowanie w trybie CBC" width="800" height="275" loading="lazy">
+           <figcaption>Szyfrowanie w&nbsp;trybie&nbsp;CBC</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/cbc-deszyfrowanie.webp" alt="deszyfrowanie w trybie CBC" width="800" height="258" loading="lazy">
+           <figcaption>Deszyfrowanie w&nbsp;trybie&nbsp;CBC</figcaption>
+          </figure>
+          <p>Zakłamanie jednego bitu tekstu jawnego (na&nbsp;przykład w&nbsp;wyniku błędu w&nbsp;transmisji) powoduje całkowite uszkodzenie wszystkich kolejnych bloków szyfrogramu i&nbsp;czyni niemożliwym odszyfrowanie&nbsp;go w&nbsp;przyszłości. W&nbsp;przeciwieństwie do&nbsp;tego, zakłamanie jednego bitu szyfrogramu, powoduje uszkodzenie jedynie dwóch odszyfrowanych bloków tekstu jawnego.</p>
+          <p>Wiadomość, która ma być zaszyfrowana za pomocą trybu CBC musi być <a href="/pl/teoria/dopelnienie.html">wyrównana</a> do&nbsp;długości równej wielokrotności długości jednego bloku, podobnie jak ma to miejsce podczas używania trybu ECB.</p>
+          <h2 id="bezpieczenstwo-w-trybie-cbc">Bezpieczeństwo w&nbsp;trybie CBC</h2>
+          <p>Wektor inicjujący&nbsp;<span class="term">IV</span> powinien zostać wybrany w sposób losowy przez nadawcę. Następnie trzeba go dołączyć do&nbsp;przesyłanego szyfrogramu, aby umożliwić odbiorcy odkodowanie wiadomości. Jeśli napastnik może przewidzieć jaki wektor zostanie użyty, wtedy szyfrowanie nie&nbsp;jest odporne na&nbsp;<a href="/pl/ataki/wybrany-tekst-jawny.html">ataki z&nbsp;wybranym tekstem jawnym</a>:</p>
+          <figure class="figure"><img src="/assets/img/attacks/cbc-atak-cpa.webp" alt="Schemat ataku CPA na CBC" width="680" height="265" loading="lazy"></figure>
+          <br>
+          <p>W&nbsp;zaprezentowanym powyżej przykładzie, jeżeli napastnik jest w&nbsp;stanie przewidzieć użycie wektora <span class="term">IV<sub>1</sub></span>, to będzie mógł określić czy odpowiedź systemu&nbsp;(<span class="term">c<sub>1</sub></span>) jest zakodowaną wiadomością&nbsp;<span class="term">m<sub>0</sub></span>, czy też zakodowaną wiadomością&nbsp;<span class="term">m<sub>1</sub></span>. Łamie&nbsp;to zasadę nierozróżnialności szyfrogramów, nawet w&nbsp;przypadku wybrania tekstów jawnych przez napastnika, czyli system okazuje się nieodporny na ataki&nbsp;wybranym tekstem jawnym.</p>
+          <p>Jeżeli <span class="term">IV</span> generowany jest na&nbsp;podstawie nielosowych danych, na&nbsp;przykład wprowadzonego przez&nbsp;użytkownika hasła, to powinien zostać najpierw zaszyfrowany przed&nbsp;użyciem przy&nbsp;użyciu osobnego sekretnego klucza.</p>
+          <p>Można wykazać, że nawet przy&nbsp;prawidłowym doborze&nbsp;<span class="term">IV</span>, użycie tego samego sekretnego klucza zbyt dużą ilość razy, umożliwia łamanie szyfrowania za&nbsp;pomocą ataków z&nbsp;wybranym tekstem jawnym. Dla&nbsp;<a href="/pl/symetryczne/aes.html">AES</a> przyjmuje się, że jest to około 2<sup>48</sup>&nbsp;bloków, natomiast dla&nbsp;szyfru <a href="/pl/symetryczne/3des.html">3DES</a> około 2<sup>16</sup>&nbsp;bloków tekstu jawnego.</p>
+          <h2 id="tryb-pcbc">Tryb PCBC</h2>
+          <span>(ang. <i>propagating</i> lub <i>plaintext cipher-block chaining</i>)</span>
+          <p>PCBC jest odmianą trybu CBC. Podobnie jak CBC, podczas szyfrowania zapewnia wymieszanie bitów z różnych bloków wiadomości. Charakteryzuje się tym, że -w&nbsp;przeciwieństwie do&nbsp;CBC- zakłamanie nawet jednego bitu w&nbsp;otrzymanym szyfrogramie, powoduje uszkodzenie odpowiadającego mu&nbsp;bloku tekstu jawnego oraz&nbsp;wszystkich kolejnych bloków.</p>
+          <p>W&nbsp;trybie PCBC zarówno szyfrowanie jak i&nbsp;deszyfrowanie musi być wykonywane przy użyciu pojedynczego wątku.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/pcbc-szyfrowanie.webp" alt="szyfrowanie w trybie PCBC" width="800" height="275" loading="lazy">
+           <figcaption>Szyfrowanie w&nbsp;trybie&nbsp;PCBC</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/pcbc-deszyfrowanie.webp" alt="deszyfrowanie w trybie PCBC" width="800" height="258" loading="lazy">
+           <figcaption>Deszyfrowanie w&nbsp;trybie&nbsp;PCBC</figcaption>
+          </figure>
+          <h2 id="tryb-cfb">Tryb CFB</h2>
+          <span>(ang. <i>cipher feedback</i>)</span>
+          <p>Algorytmy działające w&nbsp;trybie CFB charakteryzują się podobną strukturą do&nbsp;wcześniej opisanego CBC. Główną różnicą jest to, że szyfruje się nie&nbsp;tyle bloki tekstu jawnego, lecz wymieszane dane z&nbsp;poprzedniej rundy, do&nbsp;których następnie dodaje się oryginalne bity wiadomości. Nie&nbsp;ma to negatywnego wpływu na&nbsp;siłę zabezpieczeń. W&nbsp;wyniku takiego powiązania operacji, podczas deszyfrowania bloków szyfrogramu wykorzystuje się algorytmy szyfrujące, dokładnie te&nbsp;same, które zostały wcześniej użyte podczas szyfrowania.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/cfb-szyfrowanie.webp" alt="szyfrowanie w trybie CFB" width="800" height="243" loading="lazy">
+           <figcaption>Szyfrowanie w&nbsp;trybie&nbsp;CFB</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/cfb-deszyfrowanie.webp" alt="deszyfrowanie w trybie CFB" width="800" height="233" loading="lazy">
+           <figcaption>Deszyfrowanie w&nbsp;trybie&nbsp;CFB</figcaption>
+          </figure>
+          <p>Zakłamanie jednego bitu tekstu jawnego powoduje uszkodzenie aktualnego bloku szyfrogramu i&nbsp;wszystkich kolejnych bloków. Szyfrowanie wiadomości może być przeprowadzone z&nbsp;wykorzystaniem tylko jednego wątku.</p>
+          <p>Z drugiej strony, podobnie jak w&nbsp;CBC, deszyfrowanie może być wykonane za&nbsp;pomocą wielu wątków równocześnie. Również tak samo jak w&nbsp;trybie CBC, zakłamanie jednego bitu szyfrogramu uszkadza dwa bloki odkodowywanego tekstu jawnego.</p>
+          <p>W&nbsp;przeciwieństwie do poprzednich trybów stosowania szyfrów blokowych, szyfrowana wiadomość nie&nbsp;musi zostać rozbudowana do&nbsp;długości równej całkowitej wielokrotności długości jednego bloku.</p>
+          <h2 id="tryb-ofb">Tryb OFB</h2>
+          <span>(ang. <i>output feedback</i>)</span>
+          <p>Algorytmy szyfrujące działające w&nbsp;trybie OFB wytwarzają strumień bitów klucza, który potem wykorzystywany jest do&nbsp;kodowania kolejnych bloków danych. Pod&nbsp;tym względem, działanie szyfru blokowego upodabnia się do&nbsp;pracy typowego szyfru strumieniowego.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ofb-szyfrowanie.webp" alt="szyfrowanie w trybie OFB" width="800" height="243" loading="lazy">
+           <figcaption>Szyfrowanie w&nbsp;trybie&nbsp;OFB</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ofb-deszyfrowanie.webp" alt="deszyfrowanie w trybie OFB" width="800" height="243" loading="lazy">
+           <figcaption>Deszyfrowanie w&nbsp;trybie&nbsp;OFB</figcaption>
+          </figure>
+          <p>Z&nbsp;racji ciągłego tworzenia strumienia bitów klucza, zarówno szyfrowanie jak&nbsp;i deszyfrowanie odbywać się może tylko w&nbsp;jednym wątku równocześnie. Podobnie jak w trybie CFB, zarówno do szyfrowania jak&nbsp;i deszyfrowania wykorzystuje się te same algorytmy szyfrujące.</p>
+          <p>Uszkodzenie jednego bitu tekstu jawnego bądź szyfrogramu powoduje zakłamanie jednego, odpowiadającego mu, bitu odpowiednio szyfrogramu lub&nbsp;tekstu jawnego. Umożliwia to&nbsp;zastosowanie różnych mechanizmów korekcji danych, przeciwdziałających błędom transmisji.</p>
+          <p>Największą wadą OFB jest&nbsp;to, że wielokrotne szyfrowanie wektora inicjującego może zwrócić powtórnie takie same bajty, jakie wystąpiły już wcześniej. Jest&nbsp;to mało prawdopodobne, ale w&nbsp;takim przypadku tekst jawny zacznie być szyfrowany przy użyciu takich samych danych co&nbsp;poprzednio.</p>
+          <h2 id="tryb-ctr">Tryb CTR</h2>
+          <span>(ang. <i>counter</i>)</span>
+          <p>Użycie trybu&nbsp;CTR upodabnia działanie szyfru blokowego do&nbsp;szyfrów strumieniowych. Podobnie jak w&nbsp;przypadku trybu&nbsp;OFB, bity strumienia klucza tworzone są niezależnie od&nbsp;zawartości kolejno szyfrowanych bloków danych. W&nbsp;tym trybie szyfruje się kolejne wartości stale zwiększającego się licznika, zsumowane z dodatkową liczbą nazywaną <em>nonce</em> (nonce oznacza unikalny numer: <i>number used once</i>). Nonce pełni taką samą rolę jak wektor inicjujący w&nbsp;poprzednich trybach.</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ctr-szyfrowanie.webp" alt="szyfrowanie w trybie CTR" width="800" height="243" loading="lazy">
+           <figcaption>Szyfrowanie w&nbsp;trybie&nbsp;CTR</figcaption>
+          </figure>
+          <figure class="figure">
+           <img src="/assets/img/theory/modes/ctr-deszyfrowanie.webp" alt="deszyfrowanie w trybie CTR" width="800" height="243" loading="lazy">
+           <figcaption>Deszyfrowanie w&nbsp;trybie&nbsp;CTR</figcaption>
+          </figure>
+          <p>Jest&nbsp;to jeden z&nbsp;najpopularniejszych trybów działania szyfrów blokowych. Zarówno szyfrowanie jak i&nbsp;deszyfrowanie może odbywać się z&nbsp;wykorzystaniem wielu wątków równocześnie.</p>
+          <p>Uszkodzenie jednego bitu tekstu jawnego lub&nbsp;szyfrogramu powoduje uszkodzenie odpowiadającego mu jednego zakodowanego lub&nbsp;odkodowanego bitu. Podobnie jak w&nbsp;przypadku użycia trybu&nbsp;OFB, pozwala&nbsp;to na&nbsp;zastosowanie różnych mechanizmów przeciwdziałania błędom transmisji.</p>
+          <p>Tryb CTR jest również znany jako tryb <strong>SIC</strong> (ang. <i>Segment Integer Counter</i>).</p>
+          <h2 id="bezpieczenstwo-w-trybie-ctr">Bezpieczeństwo w&nbsp;trybie CTR</h2>
+          <p>Podobnie, jak w przypadku opisanego wyżej trybu CBC, również w trybie CTR należy zmienić klucz szyfrujący po pewnej liczbie wysłanych wiadomości. Można wykazać, że CTR zapewnia większe bezpieczeństwo transmisji i&nbsp;klucz musi być zmieniany rzadziej.</p>
+          <p>Dla&nbsp;szyfru <a href="/pl/symetryczne/aes.html">AES</a> ilość bloków tekstu jawnego, po&nbsp;której należy zmienić wykorzystywany sekretny klucz, można w&nbsp;przybliżeniu określić na&nbsp;2<sup>64</sup>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/dopelnienie.html" rel="prev"><small>← Poprzedni</small>Dopełnianie bloków</a>
+          <a class="pager__next" href="/pl/teoria/generator-pseudolosowy.html" rel="next"><small>Następny →</small>Generator pseudolosowy</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Ftryby-szyfrow-blokowych.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Ftryby-szyfrow-blokowych.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Ftryby-szyfrow-blokowych.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html" aria-current="page">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

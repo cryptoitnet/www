@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/szyfr-hilla.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hill Cipher | Polygraphic Substitution Ciphers | Crypto-IT</title>
+  <meta name="description" content="The Hill cipher is a polygraphic substitution cipher invented in early 20th century.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/hill-cipher.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/hill-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-hilla.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/hill-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Hill Cipher | Polygraphic Substitution Ciphers">
+  <meta property="og:description" content="The Hill cipher is a polygraphic substitution cipher invented in early 20th century.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/hill-cipher.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Hill Cipher",
+        "description": "The Hill cipher is a polygraphic substitution cipher invented in early 20th century.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/hill-cipher.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Polygraphic substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/polygraphic-substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Hill Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/szyfr-hilla.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a></li>
+            <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Hill Cipher</h1>
+          <p class="article__subtitle">Polygraphic Substitution Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The Hill cipher is considered to be the first polygraphic cipher in which it is practical to work on more than three symbols at once.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>The Hill cipher was created in 1929 by Lester S. Hill, an American mathematician.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>In the Hill cipher each letter corresponds to one unique number, from 0 to 25. The simplest scheme (A = 0, B = 1, ..., Z = 25) is used the most often but one can choose other combination as well.</p>
+          <p>Messages are divided into <span class="term">n</span>-letter blocks. Encryption is performed by multiplication of all blocks by one <span class="term">n x n</span> secret matrix, which contains also numbers from 0 to 25. All the results should be modulo 26. The matrix can be defined based on a secret keyword, which contains <span class="term">n<sup>2</sup></span> letters (one should just ignore other unnecessary letters).</p>
+          <p>The decryption algorithm is similar to the encryption process. One should divide the ciphertext into blocks (each with <span class="term">n</span> letters) and multiply them by the inverse of the matrix modulo 26 used for encryption.</p>
+          <h3 id="encryption-and-decryption">Encryption and Decryption</h3>
+          <p>To encrypt the message <i>vino</i> with a <span class="term">2&nbsp;x&nbsp;2</span> matrix, one should divide it into two blocks of two letters and change the letters into numbers, using the standard numbering A&nbsp;=&nbsp;0, B&nbsp;=&nbsp;1, …, Z&nbsp;=&nbsp;25 (V&nbsp;=&nbsp;21, I&nbsp;=&nbsp;8, N&nbsp;=&nbsp;13, O&nbsp;=&nbsp;14):</p>
+          <div class="equation"><table class="eq-matrix"><tbody><tr><td>V</td></tr><tr><td>I</td></tr></tbody></table><span>,</span><table class="eq-matrix"><tbody><tr><td>N</td></tr><tr><td>O</td></tr></tbody></table><span>→</span><table class="eq-matrix"><tbody><tr><td>21</td></tr><tr><td>8</td></tr></tbody></table><span>,</span><table class="eq-matrix"><tbody><tr><td>13</td></tr><tr><td>14</td></tr></tbody></table></div>
+          <p>The matrix below will be used as the secret key:</p>
+          <div class="equation"><span>K =</span><table class="eq-matrix"><tbody><tr><td>3</td><td>3</td></tr><tr><td>2</td><td>5</td></tr></tbody></table></div>
+          <p>Its determinant is 3·5&nbsp;−&nbsp;3·2&nbsp;=&nbsp;9, and the inverse of 9 modulo 26 is 3 (because 9·3&nbsp;=&nbsp;27&nbsp;≡&nbsp;1). Multiplying the adjugate matrix by 3 and reducing modulo 26 gives the inverse key matrix used for decryption:</p>
+          <div class="equation"><span>K<sup>-1</sup> =</span><table class="eq-matrix"><tbody><tr><td>15</td><td>17</td></tr><tr><td>20</td><td>9</td></tr></tbody></table></div>
+          <p>Encryption is a multiplication of each plaintext block by the key matrix:</p>
+          <div class="equation"><span>K</span><span>×</span><table class="eq-matrix"><tbody><tr><td>21</td></tr><tr><td>8</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>87 mod 26</td></tr><tr><td>82 mod 26</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>9</td></tr><tr><td>4</td></tr></tbody></table></div>
+          <div class="equation"><span>K</span><span>×</span><table class="eq-matrix"><tbody><tr><td>13</td></tr><tr><td>14</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>81 mod 26</td></tr><tr><td>96 mod 26</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>3</td></tr><tr><td>18</td></tr></tbody></table></div>
+          <p>The result is the sequence <i>9 4 3 18</i>, so the ciphertext is <i>jeds</i>. Decryption is similar: the ciphertext letters are changed into numbers, divided into two blocks and multiplied by the inverse matrix <span class="term">K<sup>-1</sup></span>:</p>
+          <div class="equation"><span>K<sup>-1</sup></span><span>×</span><table class="eq-matrix"><tbody><tr><td>9</td></tr><tr><td>4</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>203 mod 26</td></tr><tr><td>216 mod 26</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>21</td></tr><tr><td>8</td></tr></tbody></table></div>
+          <div class="equation"><span>K<sup>-1</sup></span><span>×</span><table class="eq-matrix"><tbody><tr><td>3</td></tr><tr><td>18</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>351 mod 26</td></tr><tr><td>222 mod 26</td></tr></tbody></table><span>=</span><table class="eq-matrix"><tbody><tr><td>13</td></tr><tr><td>14</td></tr></tbody></table></div>
+          <p>The four numbers <i>21 8 13 14</i> correspond to the original plaintext <i>vino</i>.</p>
+          <h2 id="security-of-the-hill-cipher">Security of the Hill cipher</h2>
+          <p>The basic version of Hill cipher is vulnerable to <a href="/eng/attacks/known-plaintext.html">known-plaintext attacks</a> because the whole encryption process is linear. The intruder who intercepts <span class="term">n<sup>2</sup></span> pairs of plaintext and ciphertext corresponding letters can create a linear system which can be quite easily solved. Adding a few more pairs allows to choose a correct solution if more than one was discovered. Solving linear equations usually doesn't take much time.</p>
+          <h2 id="number-of-possible-keys">Number of possible keys</h2>
+          <p>There are <span class="term">26<sup>n<sup>2</sup></sup></span> possible matrices of dimension <span class="term">n x n</span>, which can contain only numbers from 0 to 25. However to consider a matrix as a potential secret key, the matrix must be invertible.</p>
+          <p>The number of invertible matrices can be computed using <em>the Chinese Remainder Theorem</em>. A matrix is invertible modulo 26 if and only if it is invertible both modulo 13 and modulo 2.</p>
+          <p>The number of invertible <span class="term">n x n</span> matrices modulo 2 is determined by the order of the general linear group <span class="term">GL(n,Z<sub>2</sub>)</span>:<br> <span class="math">2<sup>n<sup>2</sup></sup>(1 - 1/2) (1 - 1/2<sup>2</sup>) ... (1 - 1/2<sup>n</sup>)</span></p>
+          <p>Similarly, the number of invertible <span class="term">n x n</span> matrices modulo 13 can be calculated in the same way:<br> <span class="math">13<sup>n<sup>2</sup></sup>(1 - 1/13) (1 - 1/13<sup>2</sup>) ... (1 - 1/13<sup>n</sup>)</span></p>
+          <p>Finally, the number of such invertible matrices modulo 26 is equal to the product of the two above results:<br> <span class="math">26<sup>n<sup>2</sup></sup>(1 - 1/2) (1 - 1/2<sup>2</sup>) ... (1 - 1/2<sup>n</sup>)(1 - 1/13) (1 - 1/13<sup>2</sup>) ... (1 - 1/13<sup>n</sup>)</span></p>
+          <p>This may be approximated as <span class="term">4,64 n<sup>2</sup> - 1,7</span>, which is about 116 bits for <span class="term">5 x 5</span> matrix.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/four-square.html" rel="prev"><small>← Previous</small>Four-square cipher</a>
+          <a class="pager__next" href="/eng/simple/polyalphabetic-substitution-ciphers.html" rel="next"><small>Next →</small>Polyalphabetic substitution ciphers</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fhill-cipher.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fhill-cipher.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fhill-cipher.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html" aria-current="page">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

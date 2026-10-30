@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/podpisywanie-oprogramowania.html" data-published="2020-04-19">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software Signing and Authorisation | Crypto-IT</title>
+  <meta name="description" content="Software signing is used for providing application authorization and preventing any unauthorised modifications of their source code.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/software-signing.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/software-signing.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/podpisywanie-oprogramowania.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/software-signing.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Software Signing and Authorisation">
+  <meta property="og:description" content="Software signing is used for providing application authorization and preventing any unauthorised modifications of their source code.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/software-signing.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Software Signing and Authorisation",
+        "description": "Software signing is used for providing application authorization and preventing any unauthorised modifications of their source code.",
+        "inLanguage": "en",
+        "datePublished": "2020-04-19",
+        "dateModified": "2020-04-19",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/software-signing.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Software Signing and Authorisation"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/podpisywanie-oprogramowania.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Software Signing and Authorisation</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-04-19">19 April 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>An important aspect of software security is protection against unauthorized software modifications and alterations during application updating and loading new versions. In order to achieve that, various signing and authorisation mechanisms are available.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>Nowadays, most embedded devices allow downloading updated software versions and data. The new software can be loaded into the device by using an application called a boot loader. Boot loaders are programs that are stored in the device memory and are able to download data from outside and flash the device.</p>
+          <h2 id="secure-device-architecture">Secure device architecture</h2>
+          <p>Usually, the software stored in the device consists of a boot loader, which is kept in the read-only memory, and the operating system or another main application, which is stored in the reprogrammable (often flash) memory. Such an approach makes it possible to modify the executable code and data, and to update or patch the applications. The protection must be provided against unauthorised modification of sensitive code.</p>
+          <p>Whereas users will be able to modify most of the memory and software functionalities, a boot loader application and a software digest must be kept in a separate, secure memory area, that may be read but cannot be overwritten. Usually Read-Only Memory (ROM), Write-Once Read-Many (WORM) memory, or internal microcontroller flash memory (EEPROM) are used for that purpose. They are initialized by the manufacturer during the production process. At the same time, most of the device functionality and its applications can be modified and debugged freely, by using normal development tools.</p>
+          <p>Signing the software prevents it from being further modified without detection. Also, a secure digest allows to authenticate the producer (or, at least, the approver) of the application version, thus making sure that no malicious third party application is executed.</p>
+          <h2 id="software-signing">Software signing</h2>
+          <p>The software stored in the device should be executed only if it was successfully validated during the boot process. Digital signatures are used most often to confirm the software authenticity.</p>
+          <figure class="figure"><img src="/assets/img/theory/signing/signing-eng.webp" alt="Software signing" width="900" height="723" loading="lazy"></figure>
+          <p>In order to sign the software, the first step is to use a <a href="/eng/theory/one-way-function.html#hash">hash function</a> (for example, one of the SHA algorithms) to calculate a short and unique software digest. The digest has a fixed, relatively short (comparing to the size of the full firmware) length.</p>
+          <p>The digest should be then encrypted, by using an <a href="/eng/asymmetric/">asymmetric cipher</a> and a private key, which is known only to the manufacturer. <a href="/eng/asymmetric/rsa.html">RSA</a> is one of the most popular ciphers used for digest encryption.</p>
+          <p>A corresponding public key should be saved in the read-only memory area, next to the bootloader. Public keys are often contained in signed digital certificates.</p>
+          <p>The encrypted digest is stored in the device normal memory. It changes every time when the new software version is loaded, for example during software update. During device start-up, a bootloader should check if the stored digest value is correct. First, it should decrypt the digest, by using the public key. Then, it has to calculate a second digest value by itself, by using the same hash function, as it was used originally. Finally, the two values should be compared. If they are not the same, then one should assume that the code was modified after being signed. The program execution should stop, and the device should turn off.</p>
+          <figure class="figure"><img src="/assets/img/theory/signing/verification-eng.webp" alt="Software verification" width="900" height="884" loading="lazy"></figure>
+          <p>It is crucial to highlight that this checking should take place at the beginning of the software flow, when the processor still operates in the read-only memory, and the control didn't reach the larger, writeable memory area.</p>
+          <p>In general, every secure microcontroller should start executing software from an internal, immutable memory. All the software verification procedures should be stored in that read-only, initially executed memory. Such a location is often called <em>trusted</em>, and the device starting point of execution is called <em>the root of trust</em>.</p>
+          <p>Some more complex schemes of signing could be used to protect the code. The digest may be signed by multiple entities, for example by the producer and the external validation authority. It is also possible to add intermediate keys to introduce more sophisticated security mechanisms.</p>
+          <h2 id="secure-software-flashing">Secure software flashing</h2>
+          <p>When a new software version is being loaded into the device, it should be tested and checked, to make sure that no unauthorised modifications were applied.</p>
+          <p>Generally, during manufacturing, the code that was developed and prepared for a device is then signed using a proper private key and stored (together with the digest) in a secure database. Asymmetric cipher algorithms mentioned above, are also most often used in this procedure.</p>
+          <p>During programming the device, the flashing application downloads the software and the corresponding digest. After boot loader authentication, the secured software (obtained earlier from the database) is sent to the device.</p>
+          <p>The boot loader decrypts the received signature, and calculates the software digest. If both digest values are the same, then the boot loader program should accept the new application version.</p>
+          <figure class="figure"><img src="/assets/img/theory/signing/flashing-eng.webp" alt="Secure software flashing" width="900" height="950" loading="lazy"></figure>
+          <h2 id="software-signing-usage-today">Software signing usage today</h2>
+          <p>Secure software flashing is implemented in numerous applications, operating in many areas, especially in telecommunication, aeronautical, and automotive industries. It is particularly useful if the software systems are distributed and consist of many, semi-independent devices.</p>
+          <p>Due to the fact, that a lot of small embedded devices have relatively little computational power, special care should be taken when using complex hash and encryption algorithms. It is recommended to configure the asymmetric ciphers in a way, that will make the public-key decryption procedure as cheap as possible. For example, in case of the <a href="/eng/asymmetric/rsa.html">RSA</a> cipher, the public key component should be as small as possible (say, <span class="term">3</span>) to make computation faster.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/pbe.html" rel="prev"><small>← Previous</small>PBE</a>
+          <a class="pager__next" href="/eng/theory/index-of-coincidence.html" rel="next"><small>Next →</small>Index of coincidence</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fsoftware-signing.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fsoftware-signing.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fsoftware-signing.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html" aria-current="page">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

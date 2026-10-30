@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/symmetric/">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfry Symetryczne | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Szyfry symetryczne używają tego samego sekretnego klucza do szyfrowania tekstu jawnego i deszyfrowania tekstu ukrytego.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/symetryczne/">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfry Symetryczne | Kryptografia">
+  <meta property="og:description" content="Szyfry symetryczne używają tego samego sekretnego klucza do szyfrowania tekstu jawnego i deszyfrowania tekstu ukrytego.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/symetryczne/">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfry symetryczne",
+        "description": "Szyfry symetryczne używają tego samego sekretnego klucza do szyfrowania tekstu jawnego i deszyfrowania tekstu ukrytego.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/symetryczne/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Szyfry symetryczne"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/" aria-current="true">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/symmetric/" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfry symetryczne</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Szyfry symetryczne używają tych samych sekretnych kluczy do szyfrowania tekstu jawnego i&nbsp;deszyfrowania tekstu ukrytego. Są szybsze niż szyfry z <a href="/pl/asymetryczne/">kluczem publicznym</a> i&nbsp;umożliwiają efektywne szyfrowanie dużej ilości danych. Ich stosowanie wymaga jednak opracowania bezpiecznego sposobu dystrybucji sekretnych kluczy.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           <strong>Szyfr symetryczny</strong> zdefiniowany na <span class="math">(K,&nbsp;M,&nbsp;C)</span>, gdzie:
+           <ul>
+           <li><span class="math">K</span> - zbiór zawierający wszystkie możliwe klucze,</li>
+           <li><span class="math">M</span> - zbiór zawierający wszystkie możliwe wiadomości,</li>
+           <li><span class="math">C</span> - zbiór zawierający wszystkie możliwe szyfrogramy (zaszyfrowane wiadomości)</li>
+           </ul>
+           to para efektywnych algorytmów <span class="math">(E,&nbsp;D)</span>, gdzie:
+           <ul>
+           <li><span class="math">E:&nbsp;K</span>&nbsp;&times;&nbsp;<span class="math">M</span>&nbsp;<span class="math">→</span>&nbsp;<span class="math">C</span></li>
+           <li><span class="math">D:&nbsp;K</span>&nbsp;&times;&nbsp;<span class="math">C</span>&nbsp;<span class="math">→</span>&nbsp;<span class="math">M</span></li>
+           </ul>
+           takich, że dla każdego <span class="math">m</span> należącego do <span class="math">M</span>, <span class="math">k</span> należącego do <span class="math">K</span> zachodzi równość:
+           <ul>
+           <li><span class="math">D(k,&nbsp;E(k,&nbsp;m))</span>&nbsp;=&nbsp;<span class="math">m</span>&nbsp;&nbsp;&nbsp;(reguła konsystencji)</li>
+           </ul>
+           <div class="definition__note">
+           <ul>
+           <li>Funkcja <span class="math">E</span> jest często losowa</li>
+           <li>Funkcja <span class="math">D</span> jest zawsze deterministyczna</li>
+           </ul>
+           </div>
+          </aside>
+        </div>
+        <!-- auto:pager -->
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2F" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2F" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2F" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symetryczne -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/symetryczne/" aria-current="page">Szyfry symetryczne</a></h2>
+        <ul>
+          <li><a href="/pl/symetryczne/szyfry-strumieniowe.html">Szyfry strumieniowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/otp.html">OTP</a></li>
+              <li><a href="/pl/symetryczne/rc4.html">RC4</a></li>
+              <li><a href="/pl/symetryczne/salsa20.html">Salsa20</a></li>
+              <li><a href="/pl/symetryczne/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/symetryczne/szyfry-blokowe.html">Szyfry blokowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/des.html">DES</a></li>
+              <li><a href="/pl/symetryczne/rc2.html">RC2</a></li>
+              <li><a href="/pl/symetryczne/3des.html">3 DES</a></li>
+              <li><a href="/pl/symetryczne/aes.html">AES</a></li>
+              <li><a href="/pl/symetryczne/blowfish.html">Blowfish</a></li>
+              <li><a href="/pl/symetryczne/camellia.html">Camellia</a></li>
+              <li><a href="/pl/symetryczne/serpent.html">Serpent</a></li>
+              <li><a href="/pl/symetryczne/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symetryczne -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

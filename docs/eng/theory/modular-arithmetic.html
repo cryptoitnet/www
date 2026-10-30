@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/arytmetyka-modularna.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modular Arithmetic | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Modular arithmetic is a system of arithmetic for integers, where values reset to 0 after reaching a certain predefined value.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/modular-arithmetic.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/modular-arithmetic.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/arytmetyka-modularna.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/modular-arithmetic.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Modular Arithmetic | Cryptography">
+  <meta property="og:description" content="Modular arithmetic is a system of arithmetic for integers, where values reset to 0 after reaching a certain predefined value.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/modular-arithmetic.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Modular Arithmetic (Clock Arithmetic)",
+        "description": "Modular arithmetic is a system of arithmetic for integers, where values reset to 0 after reaching a certain predefined value.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/modular-arithmetic.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Modular Arithmetic (Clock Arithmetic)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/arytmetyka-modularna.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Modular Arithmetic (Clock Arithmetic)</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Modular arithmetic is a system of arithmetic for integers, where values reset to zero and begin to increase again, after reaching a certain predefined value, called the modulus (<i>modulo</i>). Modular arithmetic is widely used in computer science and cryptography.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           Let <span class="term">Z<sub>N</sub></span> be a set of all non-negative integers that are smaller than <span class="term">N</span>:<br> <span class="math">Z<sub>N</sub> = {0,1,2,...,N-1}</span>
+           <div class="definition__note">
+           where:
+           <ul>
+           <li><var>N</var> is a positive integer,</li>
+           <li>if <var>N</var> is a prime, it will be denoted <var>p</var> (and the whole set as <var>Z<sub>p</sub></var>).</li>
+           </ul>
+           </div>
+          </aside>
+          <p>To determine the value of an integer for a modulus <span class="term">N</span>, one should divide this number by <span class="term">N</span>. Its value in <span class="term">Z<sub>N</sub></span> is equal to the remainder of the division. In modular arithmetic, it is possible to define all typical operations, as in normal arithmetic. They work as one may expect. It is possible to use the same commutative, associative, and distributive laws.</p>
+          <h2 id="modular-inversion">Modular inversion</h2>
+          <p>Integers in modular arithmetic may (but not must) have inverse numbers.</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           The inverse of <span class="term">x</span> in <span class="term">Z<sub>N</sub></span> is a number <span class="term">y</span> in <span class="term">Z<sub>N</sub></span>, that satisfies the equation:<br> <span class="math">x &middot; y = 1</span> (in <span class="math">Z<sub>N</sub>)</span>
+           <div class="definition__note">
+           where:
+           <ul>
+           <li><var>y</var> is denoted <var>x<sup>-1</sup></var></li>
+           </ul>
+           </div>
+          </aside>
+          <p>For example, if <span class="term">N</span> is an odd number, then the inverse of <span class="term">2</span> in <span class="term">Z<sub>N</sub></span> is <span class="term">(N+1)/2</span>:<br> <span class="math">x &middot; (N+1)/2 = N + 1 = 1</span> (in <span class="math">Z<sub>N</sub>)</span></p>
+          <aside class="definition">
+           <p class="definition__title">Theorem</p>
+           A number <span class="term">x</span> is invertible in <span class="term">Z<sub>N</sub></span> if and only if the numbers <span class="term">x</span> and <span class="term">N</span> are relatively prime.
+           <div class="definition__note">
+           <ul>
+           <li>The theorem can be proved using the fact that it is possible to present the greatest common divisor of two integers as a sum of two products each of the numbers and another properly selected integer:<br> <span class="term">a&middot;x + b&middot;y = gcd(x,y)</span></li>
+           </ul>
+           </div>
+          </aside>
+          <p>Determining inverse numbers in <span class="term">Z<sub>N</sub></span> allows solving linear equations in modular arithmetic:<br> the equation: <span class="math">a &middot; x + b = 0</span> (in <span class="math">Z<sub>N</sub>)</span><br> has the solution: <span class="math">x = -b &middot; a<sup>-1</sup></span> (in <span class="math">Z<sub>N</sub>)</span></p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           The symbol <span class="term">Z<sup>*</sup><sub>N</sub></span> denotes a set of all elements of <span class="term">Z<sub>N</sub></span> that are invertible in <span class="term">Z<sub>N</sub></span>; that means the set of numbers <span class="term">x</span> that belong to <span class="term">Z<sub>N</sub></span>, and <span class="term">x</span> and <span class="term">N</span> are relatively prime.
+           <div class="definition__note">
+           <ul>
+           <li>for example for a prime number <var>p</var>:<br> <span class="term">Z<sup>*</sup><sub>p</sub></span> = <span class="term">Z<sub>p</sub> \ {0} = {1, 2, &hellip;, p - 1}</span></li>
+           </ul>
+           </div>
+          </aside>
+          <h2 id="calculating-inverse-numbers-in-zn">Calculating inverse numbers in Z<sub>N</sub></h2>
+          <p>Inverse numbers in <span class="term">Z<sub>N</sub></span> can be determined in time <span class="term">O(log<sub>2</sub>N)</span> using the <button type="button" class="note-ref" popovertarget="note-algorytm-euklidesa">Euclidean algorithm</button>, which allows to compute the greatest common divisor of two integers.</p>
+          <p>Extended Euclidean algorithm finds the coefficients of Bézout's identity, that are integer numbers <span class="term">a</span> and <span class="term">b</span> such that:<br> <span class="math">a&middot;x + b&middot;y = gcd(x,y)</span></p>
+          <p>In order to receive the inverse number, one should perform the following transformations:<br> <span class="math">a&middot;x + b&middot;y = 1</span><br> <span class="math">b&middot;y = 1</span> (in <span class="math">Z<sub>a</sub>)</span><br> Thus, <span class="term">b</span> is the inverse number of <span class="term">y</span> in <span class="term">Z<sub>a</sub></span>.</p>
+          <p>The numbers <span class="term">a</span> and <span class="term">b</span> should be calculated during each step of the Euclidean algorithm, using the received values of those numbers in previous steps and the quotients:<br> <span class="math">a<sub>i</sub> = a<sub>i-2</sub> - q<sub>i-1</sub>&middot;a<sub>i-1</sub></span><br> <span class="math">b<sub>i</sub> = b<sub>i-2</sub> - q<sub>i-1</sub>&middot;b<sub>i-1</sub></span></p>
+          <p>If algorithm's steps are numbered from <span class="term">1</span>, one should assume the following initial values of the coefficients:<br> <span class="math">a<sub>-1</sub> = 1</span><br> <span class="math">a<sub>0</sub> = 0</span><br> <span class="math">b<sub>-1</sub> = 0</span><br> <span class="math">b<sub>0</sub> = 1</span></p>
+          <p>The final values of the coefficients <span class="term">a</span> and <span class="term">b</span> are received in the same step when the greatest common divisor of <span class="term">x</span> and <span class="term">y</span> is calculated (thus, in the step with the last non-zero remainder).</p>
+          <div class="note" id="note-algorytm-euklidesa" popover>
+           <p>To find the greatest common divisor of two numbers <span class="term">a</span> and <span class="term">b</span> (where <span class="term">a &gt; b</span>) using the Euclidean algorithm, one should divide <span class="term">a</span> by <span class="term">b</span>, and write the result as a quotient and a remainder:<br> <span class="math">a / b = q<sub>1</sub> + r<sub>1</sub></span></p>
+           <p>Then, one should perform next division, in which <span class="term">b</span> fulfils the role of <span class="term">a</span> and <span class="term">r<sub>1</sub></span> fulfils the role of <span class="term">b</span>:<br> <span class="math">b / r<sub>1</sub> = q<sub>2</sub> + r<sub>2</sub></span></p>
+           <p>The steps should be repeated analogously:<br> <span class="math">r<sub>1</sub> / r<sub>2</sub> = q<sub>3</sub> + r<sub>3</sub></span><br> <span class="math">&hellip; &hellip;</span><br> until receiving the remainder that equals to zero.</p>
+           <p>The last non-zero remainder is the greatest common divisor of numbers <span class="term">a</span> and <span class="term">b</span>.</p>
+           <p>It can be proved that the Euclidean algorithm works in time that is proportional to the size of the bigger number: <span class="term">O(log<sub>2</sub>a)</span>.</p>
+           <button type="button" class="note__close" popovertarget="note-algorytm-euklidesa" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/time-estimation-of-mathematical-operations.html" rel="prev"><small>← Previous</small>Time estimation of mathematical operations</a>
+          <a class="pager__next" href="/eng/theory/ciphers-security.html" rel="next"><small>Next →</small>Information theoretic security of ciphers</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fmodular-arithmetic.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fmodular-arithmetic.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fmodular-arithmetic.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html" aria-current="page">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

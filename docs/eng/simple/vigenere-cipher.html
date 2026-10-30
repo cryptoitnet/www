@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/szyfr-vigenere.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vigenère Cipher | Crypto-IT</title>
+  <meta name="description" content="Vigenère cipher is a polyalphabetic substitution cipher using a tabula recta for encrypting and decrypting.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/vigenere-cipher.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/vigenere-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-vigenere.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/vigenere-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Vigenère Cipher">
+  <meta property="og:description" content="Vigenère cipher is a polyalphabetic substitution cipher using a tabula recta for encrypting and decrypting.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/vigenere-cipher.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Vigenère Cipher",
+        "description": "Vigenère cipher is a polyalphabetic substitution cipher using a tabula recta for encrypting and decrypting.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/vigenere-cipher.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Polyalphabetic substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/polyalphabetic-substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Vigenère Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/szyfr-vigenere.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a></li>
+            <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Vigenère Cipher</h1>
+          <p class="article__subtitle">Polyalphabetic Substitution Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The cipher was invented by Italian Giovan Battista Bellaso, who described it in 1553 in his book <em>"La cifra del. Sig. Giovan Battista Bellaso"</em>. However it is named, due to the wrong widespread belief in the nineteenth century, after the French diplomat and alchemist Blaise de Vigenère, who lived in the sixteenth century.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>The Vigenère cipher is quite easy to use and provide relatively good security. It was widely used for a long time until the twentieth century.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The Vigenère cipher is a kind of polyalphabetic substitution cipher. It is about replacing plaintext letters by other letters. The parties have to agree the common shared keyword (which may be also a sentence), which is used during encryption algorithm. They don't have to specify all 26 substitutions for all possible letters of the alphabet.</p>
+          <p>During encrypting and decrypting, one should use a table which contains all alphabet letters in the correct order in the first row and then, in subsequent rows, letters shifted to the left by one subsequent position. The table has a Latin name <i>tabula recta</i> and it was used the first time in cryptography by a German monk Johannes Trithemius.</p>
+          <figure class="figure">
+           <img src="/assets/img/simple-ciphers/tabula-recta.webp" alt="tabula recta" width="320" height="320" loading="lazy"><br>
+           <figcaption>Tabula Recta</figcaption>
+          </figure>
+          <p>In order to encrypt a message, one should use a secret keyword (or a few words). The keyword is used to choose rows with variously shifted alphabet letters. Subsequent plaintext letters are replaced by subsequent corresponding letters in rows, which are pointed by keyword letters.</p>
+          <p>For example, if one choose a word <span class="term">rex</span> as a secret keyword, the first message letter should be encrypted using the row <span class="term">r</span>, the second letter using the row <span class="term">e</span>, the third letter using the row <span class="term">x</span>. Therefore, the first letter should be shifted by 17 positions, the second plaintext letter should be shifted by 4 positions and the third letter should be shifted by 23 alphabet positions. Then, one should use keyword letters from the beginning. The fourth plaintext letter will be encrypted using the row <span class="term">r</span>.</p>
+          <p>There is a simple variant of the Vigenère cipher, referred to as Variant Beaufort. Using this variant, one should encrypt the message using the Vigenère decryption method and decrypt the ciphertext using the Vigenère encryption algorithm. One just move letters in the opposite direction than in the original algorithm. This method has nothing in common with the <a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a> so they shouldn't be confused.</p>
+          <h2 id="security-of-the-vigenere-cipher">Security of the Vigenère cipher</h2>
+          <p>In order to break the Vigenère cipher one should determine a secret key size (the length of keyword or sentence, which were used for encrypting message). Below, there are presented two methods of guessing this length. Both methods base on ciphertext analyzing. They were discovered by Kasiski and Friedman.</p>
+          <p>After determining the length of the key, further cryptanalysis is based on frequency analysis of ciphertext letters. Ciphertext letters encrypted with different secret key letters should be analyzed separately. Plaintext letters encrypted used the first secret key letter should be tested separately, plaintext letters encrypted used the second secret key letter should be also tested separately and so on. Knowing the key size, the main task is to break a few texts, separately encrypted using the <a href="/eng/simple/caesar-cipher.html">Caesar cipher</a>.</p>
+          <h3 id="kasiski-examination">Kasiski examination</h3>
+          <p>This method of determining the secret key length was created by the German soldier, archaeologist and cryptographer Friedrich Kasiski in the nineteenth century. One should search through ciphertext looking for sequences of the same characters. Finding such sequences may mean that they are created by encoding the same parts of plaintext using the same parts of secret key.</p>
+          <p>For example, the principle can be noticed during encryption following plaintext letters using following secret key letters:</p>
+          <div class="table-wrap">
+           <table class="table table--big">
+           <tr>
+           <td> Key:</td>
+           <td><span class="term">NATURAENATURAENATURAENATURAE</span></td>
+           </tr>
+           <tr>
+           <td> Plaintext:</td>
+           <td><span class="term">ALIUDESTFACEREALIUDESTDICERE</span></td>
+           </tr>
+           <tr>
+           <td> Ciphertext:</td>
+           <td><span class="term"><strong>NLBOUEWG</strong>FTWVRI<strong>NLBOUEWG</strong>DBWVRI</span></td>
+           </tr>
+           </table>
+          </div>
+          <br>
+          <p>Based on analysis and measurement distances between beginnings of repeated sequences (which in the example is equal to 14 characters), one can assume that the encrypting key has one of the following lengths: 1, 2, 7 or 14 characters.</p>
+          <p>If during ciphertext analysis one found more sequences of the same characters, then one could assume that the secret key has the length equal to one of the numbers suggested by different repeated sequences.</p>
+          <p>Sequences of the same ciphertext characters may be also caused by random mixing of various plaintext and secret key letters. The more repeated sequences in the ciphertext will be found, the more likely they are caused by encrypting the same parts of plaintext using the same secret key letters (and it is not just a random coincidence).</p>
+          <h3 id="friedman-test">Friedman test</h3>
+          <p>William Friedman was a cryptographer in the US army. He elaborated a method of guessing the keyword length for the Vigenère cipher in the third decade of the twentieth century. It is based on calculating an <a href="/eng/theory/index-of-coincidence.html">index of coincidence</a> and one should compare ciphertext letters with the same letters shifted by various numbers of letters.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/trithemius-cipher.html" rel="prev"><small>← Previous</small>Trithemius cipher</a>
+          <a class="pager__next" href="/eng/simple/beaufort-cipher.html" rel="next"><small>Next →</small>Beaufort cipher</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fvigenere-cipher.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fvigenere-cipher.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fvigenere-cipher.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html" aria-current="page">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

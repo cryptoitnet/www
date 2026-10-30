@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/ataki/dos.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Denial-of-Service Attack | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Denial-of-Service (DoS) attacks are intended to disrupt a server and to not allow it to receive and process the requests sent by its intended users and clients.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/attacks/dos.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/dos.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/dos.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/dos.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Denial-of-Service Attack | Cryptography">
+  <meta property="og:description" content="Denial-of-Service (DoS) attacks are intended to disrupt a server and to not allow it to receive and process the requests sent by its intended users and clients.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/attacks/dos.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Denial-of-Service Attack",
+        "description": "Denial-of-Service (DoS) attacks are intended to disrupt a server and to not allow it to receive and process the requests sent by its intended users and clients.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/attacks/dos.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Attacks",
+            "item": "https://www.crypto-it.net/eng/attacks/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Denial-of-Service Attack"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/" aria-current="true">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/ataki/dos.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/attacks/">Attacks</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Denial-of-Service Attack</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>A Denial-of-Service attack (DoS attack) is an attack where an attacker attempts to disrupt the services provided by a host, by not allowing its intended users to access the host from the Internet. If the attack succeeds, the targeted computer will become unresponsive and nobody will be able to connect with it.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="dos-techniques">DoS Techniques</h2>
+          <p>There are a lot of methods that can be used to disable a server.</p>
+          <h3 id="reducing-performance">Reducing Performance</h3>
+          <p>The most popular techniques are based on flooding the attacked system with thousands of fake messages, thus forcing it to deal with them and making it unable to react to genuine requests from the real users or clients.</p>
+          <p>By preparing the messages carefully and targeting the correct parts of the system, it is possible to prepare such requests that would cause most difficulties to the victim's computer. Their processing should be as time consuming as possible, and the maximum of server's computational power should be used up.</p>
+          <h3 id="exhausting-resources">Exhausting Resources</h3>
+          <p>Instead of just sending random messages, the attacks may be designed to use up all available host's resources of some particular type. For example, the attacker may prepare the messages that would lead to allocating all host's network connections, thus making it unable to accept any other network requests.</p>
+          <p>An example of this attack type is a <strong>SYN flood</strong>. During this attack a victim's computer receives thousands of fake TCP/SYN packages, which force it to open separate <a href="/eng/theory/tcp-ip-protocols.html">TCP connections</a> for each of them.</p>
+          <p>Similarly, the messages may be designed in a way that will cause the server to fill up the whole available memory or disc space (for example, with log messages of core dump files).</p>
+          <h3 id="crashing">Crashing</h3>
+          <p>Finally, other methods of DoS attacks are supposed to completely crash the attacked host, by using some known vulnerabilities of its software.</p>
+          <p>This may be achieved for example by sending malformed messages which cause troubles for the handlers on the server side. A lot of operating systems were vulnerable to the attacks of this type, that were targeting the Internet Layer (therefore, they were dealing with IP addresses).</p>
+          <h2 id="targeting-layers">Targeting Layers</h2>
+          <p>By choosing the way of constructing the messages, the attacker can target different network layers of the attacked system. Usually attacks are performed against the <a href="/eng/theory/application-protocols.html">application layer</a> or the functionalities that handle popular lower protocols TCP or UDP. The complexity of high-level algorithms allows the intruders to construct a lot of complicated messages, targeting various vulnerabilities of the attacked systems.</p>
+          <p>More sophisticated attacks target <a href="/eng/theory/tcp-ip-protocols.html">lower layers</a> of the TCP/IP network model. For example, there exist a lot of tools working similarly to popular ping programs. They create large numbers of IP packages, which are supposed to flood the network and reduce the network's bandwidth. The packages may be either valid (in this case we could call the attack <strong>ICMP flooding</strong>) or invalid (which may lead to the so-called <strong>Nuke attacks</strong>).</p>
+          <p>A popular lower layer attack is called a <strong>ping of death</strong>. This is basically a malformed ping package, which may lead to a system crash on unprepared systems.</p>
+          <h2 id="attacker-s-goal">Attacker's Goal</h2>
+          <p>Disabling the attacked computer may be a goal by itself. This is often the case in various political attacks, when intruders want mainly to manifest their slogans. Also, it is often enough to disable a targeted system or even just to pose the threat of doing that if the attackers want only to demand a ransom for stopping the attack.</p>
+          <p>Other DoS attacks are more sophisticated. In such situations, disabling online services is just the first step, and the attack will be continued in order to exploit the vulnerability of the system. Quite often, after removing the original server, the attacker creates its own identical service which is supposed to imitate the original one. Having a fake copy of the attacked system, the attackers may take advantage of its users, and use the controlled fake server to steal their data.</p>
+          <p>The most dangerous DoS attacks are perhaps the attacks which result in damaging the actual hardware. They are called <strong>permanent denial-of-service</strong> attacks or <strong>phlashing</strong>. A well-designed attack may disable the components of the targeted system which are crucial for the actual mechanical devices, thus breaking them and forcing the administrators to reinstall or even replace damaged hardware.</p>
+          <h2 id="ddos">DDoS (Distributed Denial-of-Service) Attack</h2>
+          <p>A distributed denial-of-service is an attack where the targeted system is attacked by large number of other machines, often located in different places, sometimes all around the world. The complexity of such action is much higher, due to the necessity of configuring and coordinating a large number of machines. On the other hand, the computational power of all connected devices is also much bigger, which makes such attacks much more dangerous.</p>
+          <p>Thanks to the usage of thousands of computers, the number of generated messages, that have to be handled by the attacked system, is really huge. Nowadays, the largest DDoS attacks can generate as many as terabits of data per second.</p>
+          <h2 id="degradation-of-service">Degradation-of-Service</h2>
+          <p>Degradation-of-service attacks are similar to denial-of-service attacks but they are intended to not completely block the server but rather to disturb it and reduce its performance. The amount of sending messages is much smaller, and the server should be able to cope with the increased traffic.</p>
+          <p>Therefore, these attacks are not so dangerous as the normal DoS attacks. They are intended to reduce the performance of the attacked host, discouraging its clients, and to force the administrators to take additional actions to improve the server's performance. All that results in increased costs and financial damages which will affect the attacked system.</p>
+          <p>Well performed degradation-of-service attacks are designed in a way, which makes it not clear for the administrators, whether any attack takes place at all or if they just face an increased traffic.</p>
+          <h2 id="reflected-spoofed-attack">Reflected (Spoofed) Attack</h2>
+          <p>The spoofed attack is similar to <a href="#ddos">DDoS attacks</a> because it also involves flooding the attacked system with messages from many different sources and locations. However, the attacker, instead of sending the messages directly to the victim, first send them to other computers, which reflect them and resend to the targeted system.</p>
+          <p>This attack is also called the <strong>DRDoS</strong> (which means distributed reflected denial-of-service).</p>
+          <p>The attackers have to prepare specially constructed messages, with the fields indicating that they were sent from the victim's computer (that is, with the fake source IP address). Then, those messages are sent to many different machines, often genuine and located all over the world. The servers that received the messages, which were surely unexpected but more-or-less valid, can do only one sensible thing: send an error message to the victim's computer. As a result, the targeted system will receive thousands of unexpected messages, which have to be dealt with.</p>
+          <h2 id="slowloris-attacks">Slowloris Attacks</h2>
+          <p>During the Slowloris attacks, the attacker sends the requests slowly but in a large number. The targeted system has to keep all the connection channels open, because they are perfectly valid and therefore there is no reason to discard them.</p>
+          <p>This will result in using up the whole available pool of network connections on the server side.</p>
+          <p>These attacks require less sophisticated hardware to be used by the intruders, and make both the detection and protection against them more difficult.</p>
+          <h3 id="http-post-dos-attack">HTTP Post DoS Attack</h3>
+          <p>An example of this type of attacks is the HTTP Post DoS attack. The HTTP message sent by the intruder contains the <a href="/eng/theory/application-protocols.html">HTTP header</a> <em>Content-Length</em> with a large value.</p>
+          <p>The beginning of the message (the part containing the header) is received promptly by the attacked host but the rest of the request is sent to the server at an extremely slow rate. Due to the fact, that the message is valid, the server cannot discard it, and an allocated process continues waiting for incoming bytes.</p>
+          <p>Of course, the attacker creates hundreds or thousands of such connections, depleting the resources of the targeted system.</p>
+          <h3 id="shrew-attack">Shrew Attack</h3>
+          <p>The shrew attack is another example of a DoS attack which is based on sending messages to the attacked system at a slow rate. It targets the TCP protocol, so operates on a lower level than the HTTP Post DoS attack, described above.</p>
+          <p>An attacker sends the messages at a carefully chosen rate, exploiting the TCP retransmission mechanism. The TCP connections are not allowed to be closed, due to the ongoing communication, and soon the whole TCP traffic may be disrupted.</p>
+          <h2 id="zombie-computers">Zombie Computers</h2>
+          <p>DoS attacks are often performed indirectly. It means that the messages are not sent from the intruder's computer but from other machines, which are controlled by the attacker. Those machines are called <em>zombies</em> because their genuine users don't have the full control over them. Quite often, zombie computers are infected by specialized malware. After receiving the order from the attackers, the hidden applications will start sending packets to the targeted system. The users working on those machines won't often be aware of their participation in the attack.</p>
+          <p>Using zombie computers have at least two advantages. Firstly, it allows to create large networks of computers, which will attempt to break the target system. The computational power of many (hundreds or thousands) connected zombies working together is much larger that the power of any other possible network that could be built by the intruders.</p>
+          <p>Secondly, similarly as in the case of any other cryptographic attack, an additional separation between the attacked system and the attackers always increases the difficulty of any countermeasures that can be taken by the system administrators. For example, blocking the IP addresses of zombie computers located all over the world and belonging to different operators is much more difficult than just blocking the access from one organisation or location.</p>
+          <h2 id="tools">Tools</h2>
+          <p>There exist a lot of tools and applications available in the Internet that can perform various types of DoS attacks. In fact, the underground market offers a variety of products, with different features and prices. One could name programs like <em>GCHQ</em>, <em>HOIC</em>, or <em>MyDoom</em>.</p>
+          <p>One could mention also two tools for DDoS attacks, which were created in the UK. They are called <em>Predators Face</em> and <em>Rolling Thunder</em>.</p>
+          <p>There are also tools which can be used for Slowloris attacks, like <em>PyLoris</em>, <em>QSlowloris</em>, and <em>Goloris</em>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/attacks/brute-force.html" rel="prev"><small>← Previous</small>Brute force attack</a>
+          <a class="pager__next" href="/eng/attacks/man-in-the-middle.html" rel="next"><small>Next →</small>Man-in-the-middle attack</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fdos.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fdos.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fdos.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-attacks -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/attacks/">Attacks</a></h2>
+        <ul>
+          <li><a href="/eng/attacks/known-plaintext.html">Known-plaintext attack</a></li>
+          <li><a href="/eng/attacks/chosen-plaintext.html">Chosen-plaintext attack</a></li>
+          <li><a href="/eng/attacks/known-ciphertext.html">Ciphertext-only attack</a></li>
+          <li><a href="/eng/attacks/chosen-ciphertext.html">Chosen-ciphertext attack</a></li>
+          <li><a href="/eng/attacks/chosen-key.html">Chosen-key attack</a></li>
+          <li><a href="/eng/attacks/brute-force.html">Brute force attack</a></li>
+          <li><a href="/eng/attacks/dos.html" aria-current="page">DoS</a></li>
+          <li><a href="/eng/attacks/man-in-the-middle.html">Man-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/two-time-pad.html">Attack on two-time pad</a></li>
+          <li><a href="/eng/attacks/krack.html">KRACK attack</a></li>
+          <li><a href="/eng/attacks/frequency-analysis.html">Frequency analysis</a></li>
+          <li><a href="/eng/attacks/meet-in-the-middle.html">Meet-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/replay.html">Replay attack</a></li>
+          <li><a href="/eng/attacks/homograph-attack.html">Homograph attack</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-attacks -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

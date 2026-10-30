@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/simple/vigenere-cipher.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfr Vigenère’a | Crypto-IT</title>
+  <meta name="description" content="Szyfr Vigenère’a jest wieloalfabetowym szyfrem podstawieniowym, wykorzystującym tablicę tabula recta do szyfrowania i deszyfrowania.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/proste/szyfr-vigenere.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/vigenere-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-vigenere.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/vigenere-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfr Vigenère’a">
+  <meta property="og:description" content="Szyfr Vigenère’a jest wieloalfabetowym szyfrem podstawieniowym, wykorzystującym tablicę tabula recta do szyfrowania i deszyfrowania.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/proste/szyfr-vigenere.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfr Vigenère’a",
+        "description": "Szyfr Vigenère’a jest wieloalfabetowym szyfrem podstawieniowym, wykorzystującym tablicę tabula recta do szyfrowania i deszyfrowania.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/proste/szyfr-vigenere.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proste szyfry",
+            "item": "https://www.crypto-it.net/pl/proste/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Wieloalfabetowe szyfry podstawieniowe",
+            "item": "https://www.crypto-it.net/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Szyfr Vigenère’a"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/" aria-current="true">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/simple/vigenere-cipher.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/proste/">Proste szyfry</a></li>
+            <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a></li>
+            <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfr Vigenère’a</h1>
+          <p class="article__subtitle">Wieloalfabetowy szyfr podstawieniowy</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Autorem szyfru Vigenère’a jest Włoch Giovan Battista Bellaso, który opisał go w&nbsp;1553 roku w&nbsp;książce <em>"La cifra del.&nbsp;Sig.&nbsp;Giovan Battista Bellaso"</em>. Nazwa tego&nbsp;szyfru wzięła się z&nbsp;błędnego i&nbsp;przyjętego powszechnie w&nbsp;XIX wieku przekonania, że jego twórcą był francuski dyplomata i&nbsp;alchemik Blaise de&nbsp;Vigenère, żyjący w&nbsp;XVI wieku.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Dzięki łatwości w&nbsp;posługiwaniu się i&nbsp;zapewnianiu dobrej jakości zabezpieczń, był popularny i&nbsp;używany powszechnie we&nbsp;wszelkiego typu zastosowaniach aż do&nbsp;XX wieku.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Szyfr Vigenère’a jest wieloalfabetowym szyfrem podstawieniowym. Polega więc na&nbsp;stosowaniu różnie zdefiniowanych podstawień dla&nbsp;kolejnych liter tekstu. W&nbsp;przeciwieństwie do&nbsp;niektórych szyfrów wieloalfabetowych, strony nie&nbsp;muszą zapamiętywać i&nbsp;wymieniać pomiędzy sobą wszystkich zdefiniowanych przekształceń liter alfabetu. Użyte rozwiązanie redukuje ilość informacji, które trzeba zapamiętać do&nbsp;zaledwie jednego sekretnego słowa (lub&nbsp;zdania).</p>
+          <p>Do&nbsp;szyfrowania i&nbsp;odkodowywania wykorzystuje się tablicę zawierającą w&nbsp;pierwszym wierszu litery alfabetu w&nbsp;oryginalnej kolejności, a&nbsp;następnie w&nbsp;każdym kolejnym wierszu litery alfabetu przesunięte o&nbsp;jedną kolejną pozycję w&nbsp;lewo. Tablica&nbsp;ta nosi łacińską nazwę <i>tabula recta</i> i&nbsp;zostzostała po&nbsp;raz pierwszy użyta w&nbsp;kryptografii przez&nbsp;niemieckiego mnicha Johannes Trithemius.</p>
+          <figure class="figure">
+           <img src="/assets/img/simple-ciphers/tabula-recta.webp" alt="tabula recta" width="320" height="320" loading="lazy"><br>
+           <figcaption>Tabula Recta</figcaption>
+          </figure>
+          <p>W&nbsp;celu zaszyfrowania wiadomości, należy wybrać sekretne słowo kluczowe (lub&nbsp;kilka słów). Na&nbsp;jego podstawie będą wybierane wiersze z&nbsp;różnie przesuniętymi literami alfabetu. Kolejne litery tekstu jawnego są zastępowane przez kolejne odpowiadające im litery w&nbsp;wierszach, które z&nbsp;kolei są wskazywane przez litery sekretnego klucza.</p>
+          <p>Przykładowo, wybierając słowo <span class="term">rex</span> jako słowo kluczowe, ustala się, że pierwszą literę tekstu zaszyfruje się za&nbsp;pomocą wiersza&nbsp;<span class="term">r</span>, drugą za&nbsp;pomocą wiersza&nbsp;<span class="term">e</span>, a trzecią za&nbsp;pomocą wiersza&nbsp;<span class="term">x</span>. Wobec tego, pierwszą literę tekstu jawnego przesunie się o&nbsp;17 pozycji, drugą literę tekstu jawnego przesunie się o 4&nbsp;pozycje, a trzecią literę tekstu jawnego należy przesunąć o 23&nbsp;pozycje. Następnie, powtarza się litery sekretnego słowa od&nbsp;początku, czyli czwarta litera tekstu jawnego będzie zaszyfrowana znowu za&nbsp;pomocą wiersza&nbsp;<span class="term">r</span>.</p>
+          <p>Istnieje prosta odmiana tego&nbsp;szyfru, nazywana wariantem Beauforta. Polega na tym, że w&nbsp;trakcie szyfrowania wiadomości używa się algorytmu do&nbsp;deszyfrowania, a podczas dekodowania szyfrogramu, używa się algorytmu Vigenère’a do&nbsp;szyfrowania. Po&nbsp;prostu przesuwa się litery w&nbsp;alfabecie w&nbsp;odwrotne strony niż w&nbsp;oryginalnym algorytmie. Trzeba zauważyć, że ten wariant szyfru Vigenère’a nie&nbsp;ma nic wspólnego z&nbsp;<a href="/pl/proste/szyfr-beaufort.html">szyfrem Beauforta</a> i&nbsp;nie należy ich&nbsp;mylić.</p>
+          <a href="" id="Kryptoanaliza_Vigenere"></a>
+          <h2 id="sila-szyfru-vigenere-a">Siła szyfru Vigenère’a</h2>
+          <p>W&nbsp;celu łamania zabezpieczeń szyfru Vigenère’a pierwszym krokiem jest wyznaczenie długości sekretnego klucza (czyli długości słowa lub&nbsp;słów użytych do&nbsp;zakodowania wiadomości). Poniżej przedstawiono dwie metody zgadywania długości sekretnych słów użytych do&nbsp;szyfrowania. Są&nbsp;to metody opracowane przez Kasiskiego i&nbsp;Friedmana.</p>
+          <p>Po&nbsp;wyznaczeniu długości klucza, analiza szyfru opiera się na&nbsp;badaniu częstotliwości występowania liter w&nbsp;szyfrogramie. Oddzielnie analizuje się wszystkie litery zaszyfrowane za&nbsp;pomocą różnych liter klucza. Oddzielnie sprawdzać należy litery tekstu jawnego zaszyfrowane za&nbsp;pomocą pierwszej litery klucza, osobno litery tekstu jawnego zaszyfrowane za&nbsp;pomocą drugiej litery klucza,&nbsp;itd. Posiadając informację o&nbsp;długości klucza, główne zadanie polega więc na&nbsp;złamaniu pewnej liczby tekstów oddzielnie zakodowanych za&nbsp;pomocą <a href="/pl/proste/szyfr-cezara.html">szyfru Cezara</a>.</p>
+          <h3 id="test-kasiskiego">Test Kasiskiego</h3>
+          <p>Ta&nbsp;metoda wyznaczenia długości klucza została opracowana przez&nbsp;niemieckiego żołnierza, archeologa i&nbsp;kryptologa Friedricha Kasiskiego w XIX&nbsp;wieku. Polega ona na&nbsp;przeszukiwaniu szyfrogramu w&nbsp;poszukiwaniu powtarzających się sekwencji takich samych znaków. Znalezienie takich sekwencji może oznaczać, że są&nbsp;to takie same fragmenty tekstu jawnego zakodowane za&nbsp;pomocą takich samych fragmentów sekretnego klucza.</p>
+          <p>Przykładowo, prawidłowość&nbsp;tę można zauważyć w&nbsp;poniższym tekście jawnym zakodowanym za&nbsp;pomocą sekretnego klucza:</p>
+          <div class="table-wrap">
+           <table class="table table--big">
+           <tr>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;Key:</td>
+           <td><span class="term">NATURAENATURAENATURAENATURAE</span></td>
+           </tr>
+           <tr>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;Plaintext:</td>
+           <td><span class="term">ALIUDESTFACEREALIUDESTDICERE</span></td>
+           </tr>
+           <tr>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;Ciphertext:</td>
+           <td><span class="term"><strong>NLBOUEWG</strong>FTWVRI<strong>NLBOUEWG</strong>DBWVRI</span></td>
+           </tr>
+           </table>
+          </div>
+          <br>
+          <p>Na&nbsp;podstawie analizy i&nbsp;pomiaru odległości pomiędzy początkami dwóch powtórzen (która w&nbsp;tym wypadku wynosi 14&nbsp;znaków), należy podejrzewać, że klucz szyfrujący ma&nbsp;jedną z&nbsp;następujących długości: 1, 2, 7 lub 14&nbsp;znaków.</p>
+          <p>Jeżeli podczas analizy szyfrogramu, udałoby się natrafić na&nbsp;większą liczbę powtarzających się bloków tekstu, oznaczałoby&nbsp;to, że sekretny klucz ma&nbsp;prawdopodobnie długość równą jednej z&nbsp;liczb, która jest wskazywana przez&nbsp;różne powtórzone sekwencje.</p>
+          <p>Powtórzenia takich samych sekwencji w&nbsp;szyfrogramie mogą zdarzyć się również na&nbsp;skutek losowego mieszania się różnych liter tekstu jawnego i&nbsp;klucza. Im&nbsp;więcej powtórzeń uda się znaleźć w&nbsp;zakodowanym tekście, tym większe jest prawdopodobieństwo, że wynikają one faktycznie z&nbsp;szyfrowania takich samych fragmentów tekstu jawnego za&nbsp;pomocą takich samych fragmentów klucza, a nie&nbsp;są jedynie skutkiem zbiegu okoliczności.</p>
+          <h3 id="test-friedmana">Test Friedmana</h3>
+          <p>William Friedman był kryptografem w&nbsp;amerykańskiej armii i&nbsp;opracował swoją analizę długości klucza w&nbsp;szyfrze Vigenère’a w&nbsp;trzecim dziesięcioleciu XX&nbsp;wieku. Opierał się na&nbsp;wykorzystywaniu <a href="/pl/teoria/indeks-koincydencji.html">indeksu koincydencji</a> i&nbsp;porównywał tekst szyfrogramu z&nbsp;nim samym, przesuniętym względem oryginału o&nbsp;pewną liczbę liter.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/proste/szyfr-trithemius.html" rel="prev"><small>← Poprzedni</small>Szyfr Trithemiusa</a>
+          <a class="pager__next" href="/pl/proste/szyfr-beaufort.html" rel="next"><small>Następny →</small>Szyfr Beauforta</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-vigenere.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-vigenere.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fproste%2Fszyfr-vigenere.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-proste -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/proste/">Proste szyfry</a></h2>
+        <ul>
+          <li><a href="/pl/proste/szyfry-podstawieniowe.html">Szyfry podstawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/proste-szyfry-podstawieniowe.html">Proste szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-cezara.html">Szyfr Cezara</a></li>
+                  <li><a href="/pl/proste/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/homofoniczne-szyfry-podstawieniowe.html">Homofoniczne szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-ksiazkowy.html">Szyfr książkowy</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/poligramowe-szyfry-podstawieniowe.html">Poligramowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-playfair.html">Szyfr Playfair</a></li>
+                  <li><a href="/pl/proste/dwukwadratowy.html">Szyfr dwukwadratowy</a></li>
+                  <li><a href="/pl/proste/czterokwadratowy.html">Szyfr czterokwadratowy</a></li>
+                  <li><a href="/pl/proste/szyfr-hilla.html">Szyfr Hilla</a></li>
+                </ul>
+              </li>
+              <li><a href="/pl/proste/wieloalfabetowe-szyfry-podstawieniowe.html">Wieloalfabetowe szyfry podstawieniowe</a>
+                <ul>
+                  <li><a href="/pl/proste/szyfr-trithemius.html">Szyfr Trithemiusa</a></li>
+                  <li><a href="/pl/proste/szyfr-vigenere.html" aria-current="page">Szyfr Vigenère’a</a></li>
+                  <li><a href="/pl/proste/szyfr-beaufort.html">Szyfr Beauforta</a></li>
+                  <li><a href="/pl/proste/klucz-biezacy.html">Szyfr z kluczem bieżącym</a></li>
+                  <li><a href="/pl/proste/klucz-automatyczny.html">Szyfr z automatycznym generowaniem klucza</a></li>
+                  <li><a href="/pl/proste/nihilist.html">Szyfr Nihilist</a></li>
+                  <li><a href="/pl/proste/vic.html">Szyfr VIC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/szyfry-przestawieniowe.html">Szyfry przestawieniowe</a>
+            <ul>
+              <li><a href="/pl/proste/szyfr-plotkowy.html">Szyfr płotkowy</a></li>
+              <li><a href="/pl/proste/szyfr-sciezkowy.html">Szyfr ścieżkowy</a></li>
+              <li><a href="/pl/proste/szyfr-kolumnowy.html">Kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/podwojny-szyfr-kolumnowy.html">Podwójny kolumnowy szyfr przestawieniowy</a></li>
+              <li><a href="/pl/proste/szyfr-myszkowskiego.html">Szyfr Myszkowskiego</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/maszyny-rotorowe.html">Maszyny rotorowe</a>
+            <ul>
+              <li><a href="/pl/proste/maszyna-hebern.html">Maszyna Heberna</a></li>
+              <li><a href="/pl/proste/maszyna-lorenz.html">Maszyna Lorenza</a></li>
+              <li><a href="/pl/proste/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/proste/prosty-xor.html">Prosty szyfr XOR</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-proste -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

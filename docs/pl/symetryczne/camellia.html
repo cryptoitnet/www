@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/symmetric/camellia.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Camellia Szyfr Symetryczny | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Camellia jest blokowym szyfrem symetrycznym opracowanym w Japonii w 2000 roku.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/symetryczne/camellia.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/camellia.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/camellia.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/camellia.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Camellia Szyfr Symetryczny | Kryptografia">
+  <meta property="og:description" content="Camellia jest blokowym szyfrem symetrycznym opracowanym w Japonii w 2000 roku.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/symetryczne/camellia.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Camellia",
+        "description": "Camellia jest blokowym szyfrem symetrycznym opracowanym w Japonii w 2000 roku.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/symetryczne/camellia.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Szyfry symetryczne",
+            "item": "https://www.crypto-it.net/pl/symetryczne/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry blokowe",
+            "item": "https://www.crypto-it.net/pl/symetryczne/szyfry-blokowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Camellia"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/" aria-current="true">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/symmetric/camellia.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/symetryczne/">Szyfry symetryczne</a></li>
+            <li><a href="/pl/symetryczne/szyfry-blokowe.html">Szyfry blokowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Camellia</h1>
+          <p class="article__subtitle">Szyfr blokowy z kluczem symetrycznym</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Długość bloku = 128 bitów</li>
+           <li>Długość klucza = 128, 192 lub 256 bitów</li>
+          </ul>
+          <p>Szyfr został opracowany w&nbsp;Japonii przez&nbsp;firmy Mitsubishi i&nbsp;NTT w&nbsp;roku 2000. Jest zatwierdzony jako skuteczny i&nbsp;bezpieczny algorytm szyfrujący przez&nbsp;wiele organizacji na&nbsp;całym świecie, między innymi Międzynarodową Organizację Normalizacyjną (ang. <i>International Organization for Standardization</i>&nbsp;- ISO), projekt badawczy UE NESSIE oraz&nbsp;japoński CRYPTREC.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Camellia został zaprojektowany dla&nbsp;efektywnego działania w&nbsp;rozwiązaniach programistycznych i&nbsp;sprzętowych. Jest używany w&nbsp;wielu różnych sytuacjach od&nbsp;tanich kart elektronicznych do&nbsp;wydajnych protokołów sieciowych.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Camellia jest szyfrem blokowym z&nbsp;kluczem symetrycznym o&nbsp;długości 128, 192 lub&nbsp;256 bitów. Wielkości bloków tekstu jawnego i&nbsp;szyfrogramu są takie same i&nbsp;wynoszą zawsze 128&nbsp;bitów.</p>
+          <p>W&nbsp;opisie szyfru zachowano oryginalne nazewnictwo wszystkich wykorzystywanych zmiennych, bazując na&nbsp;oficjalnej dokumentacji Camellia.</p>
+          <p>Najważniejszymi elementami algorytmu są funkcje&nbsp;<span class="term">F</span>, które wykorzystywane są podczas szyfrowania, deszyfrowania i&nbsp;manipulacji zmiennymi pomocniczymi klucza. Funkcja&nbsp;<span class="term">F</span> pobiera 128&nbsp;bitów wejściowych, miesza je z&nbsp;bitami podkluczy&nbsp;<span class="term">k<sub>i</sub></span> i&nbsp;zwraca 128&nbsp;nowych bitów. Przekształcenie bitów w&nbsp;funkcji <span class="term">F</span> nazywane jest rundą algorytmu. Wywołania funkcji&nbsp;<span class="term">F</span> zebrane są w&nbsp;bloki zawierające sześć kolejnych powtórzeń takich rund.</p>
+          <p>Bloki sześciu rund (czyli sześciu wywołań funkcji&nbsp;<span class="term">F</span>) oddzielone są wywołaniami funkcji&nbsp;<span class="term">FL</span> oraz&nbsp;<span class="term">FL<sup>-1</sup></span>. Manipulują one 64-bitowymi partiami danych, mieszając je z podkluczami&nbsp;<span class="term">kl<sub>i</sub></span>.</p>
+          <p>Algorytmy szyfrowania i&nbsp;deszyfrowania polegają na&nbsp;wykonaniu pewnej liczby powtórzeń opisanych wyżej bloków sześciu rund (wywołań funkcji&nbsp;<span class="term">F</span>). Ilość powtórzeń tych bloków zależy od&nbsp;długości używanego sekretnego klucza szyfrującego:</p>
+          <ul>
+           <li>3&nbsp;powtórzenia bloków sześciu rund - dla&nbsp;klucza o&nbsp;długości 128&nbsp;bitów,</li>
+           <li>4&nbsp;powtórzenia bloków sześciu rund - dla&nbsp;kluczy o&nbsp;długości 192&nbsp;lub 256&nbsp;bitów.</li>
+          </ul>
+          <p>Dodatkowo, na&nbsp;początku i&nbsp;na końcu działania algorytmów szyfrującego i&nbsp;deszyfrującego wykonywane są dodatkowe operacje sumowania z&nbsp;bitami podkluczy&nbsp;<span class="term">kw<sub>i</sub></span>.</p>
+          <p>Podklucze wykorzystywane do&nbsp;zaszyfrowania każdego bloku danych (lub odczytania każdego bloku szyfrogramu) tworzone są w&nbsp;oddzielnym procesie. Dla&nbsp;każdego bloku danych, z&nbsp;sekretnego klucza tworzonych jest wiele podkluczy, wykorzystywanych potem w&nbsp;różnych miejscach głównego algorytmu.</p>
+          <h3 id="tworzenie-podkluczy">Tworzenie podkluczy</h3>
+          <p>Sekretny klucz używany w&nbsp;szyfrze Camellia może składać się ze&nbsp;128, 192 lub&nbsp;256 bitów. W&nbsp;celu zaszyfrowania każdego bloku danych, z&nbsp;bitów klucza tworzonych jest szereg zmiennych pomocniczych,&nbsp;a następnie podkluczy, z&nbsp;których każdy ma&nbsp;długość 64&nbsp;bitów.</p>
+          <p>W&nbsp;pierwszej kolejności tworzone są dwie zmienne o&nbsp;długości 128&nbsp;bitów (<span class="term">K<sub>L</sub></span> oraz <span class="term">K<sub>R</sub></span>) oraz cztery zmienne o&nbsp;długości 64&nbsp;bitów (<span class="term">K<sub>LL</sub></span>, <span class="term">K<sub>LR</sub></span>, <span class="term">K<sub>RL</sub></span> oraz <span class="term">K<sub>RR</sub></span>). Zmienne te związane są pomiędzy sobą następującymi zależnościami:</p>
+          <ul>
+           <li><span class="math">K<sub>LL</sub> = </span>lewe&nbsp;64 bity&nbsp;<span class="math">K<sub>L</sub></span></li>
+           <li><span class="math">K<sub>LR</sub> = </span>prawe&nbsp;64 bity&nbsp;<span class="math">K<sub>L</sub></span></li>
+           <li><span class="math">K<sub>RL</sub> = </span>lewe&nbsp;64 bity&nbsp;<span class="math">K<sub>R</sub></span></li>
+           <li><span class="math">K<sub>RR</sub> = </span>prawe&nbsp;64 bity&nbsp;<span class="math">K<sub>R</sub></span></li>
+          </ul>
+          <p>Pozostałe zależności należy wybrać bazując na&nbsp;używanej długości sekretnego klucza&nbsp;<span class="term">K</span>.</p>
+          <ul>
+           <li>
+           dla&nbsp;sekretnego klucza&nbsp;<span class="term">K</span> o&nbsp;długości 128&nbsp;bitów:
+           <ul>
+           <li><span class="math">K<sub>L</sub> = K</span></li>
+           <li><span class="math">K<sub>R</sub> = 0</span></li>
+           </ul>
+           </li>
+           <li>
+           dla&nbsp;sekretnego klucza&nbsp;<span class="term">K</span> o&nbsp;długości 192&nbsp;bitów:
+           <ul>
+           <li><span class="math">K<sub>L</sub> = </span>lewe&nbsp;128 bitów&nbsp;<span class="math">K</span></li>
+           <li><span class="math">K<sub>RL</sub> = </span>prawe&nbsp;64 bity&nbsp;<span class="math">K</span></li>
+           <li><span class="math">K<sub>RR</sub> = ~K<sub>RL</sub></span> (negacja bitów)</li>
+           </ul>
+           </li>
+           <li>
+           dla&nbsp;sekretnego klucza&nbsp;<span class="term">K</span> o&nbsp;długości 256&nbsp;bitów:
+           <ul>
+           <li><span class="math">K<sub>L</sub> = </span>lewe&nbsp;128 bitów&nbsp;<span class="math">K</span></li>
+           <li><span class="math">K<sub>R</sub> = </span>prawe&nbsp;128 bitów&nbsp;<span class="math">K</span></li>
+           </ul>
+           </li>
+          </ul>
+          <p>Na&nbsp;podstawie tych zmiennych generuje się dwie kolejne zmienne pomocnicze: <span class="term">K<sub>A</sub></span> oraz&nbsp;<span class="term">K<sub>B</sub></span>. Każda z&nbsp;nich składa się ze 128&nbsp;bitów. Zmienna <span class="term">K<sub>B</sub></span> jest różna od&nbsp;zera wtedy i&nbsp;tylko wtedy, gdy wykorzystywany sekretny klucz ma&nbsp;192 lub 256&nbsp;bitów. W&nbsp;procesie tworzenia zmiennych <span class="term">K<sub>A</sub></span> i&nbsp;<span class="term">K<sub>B</sub></span> wykorzystuje się sześć pomocniczych stałych oznaczanych jako&nbsp;&sum;<sub>i</sub>.</p>
+          <p>Na podstawie czterech 128-bitowych zmiennych <span class="term">K<sub>L</sub></span>, <span class="term">K<sub>R</sub></span>, <span class="term">K<sub>A</sub></span> i&nbsp;<span class="term">K<sub>B</sub></span> wyliczane są wszystkie sekretne 64-bitowe podklucze: <span class="term">k<sub>i</sub></span>, <span class="term">kw<sub>i</sub></span> oraz <span class="term">kl<sub>i</sub></span>. Podklucze wykorzystywane są we&nbsp;wszystkich etapach szyfrowania i&nbsp;deszyfrowania w&nbsp;algorytmie Camellia.</p>
+          <h2 id="schemat-blokowy-szyfrowania-w-camellia-dla-128-bitowego-kluc">Schemat blokowy szyfrowania w Camellia dla 128-bitowego klucza</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-camellia-encryption-pl.webp" alt="Schemat blokowy szyfrowania dla klucza o długości 128 bitów" width="741" height="1043" loading="lazy"></figure>
+          <h2 id="schemat-blokowy-szyfrowania-w-camellia-dla-192-lub-256-bitow">Schemat blokowy szyfrowania w Camellia dla 192&nbsp;lub 256-bitowego klucza</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-camellia-encryption-long-pl.webp" alt="Schemat blokowy szyfrowania dla klucza o długości 192 lub 256 bitów" width="741" height="1293" loading="lazy"></figure>
+          <h2 id="schemat-blokowy-deszyfrowania-w-camellia-dla-128-bitowego-kl">Schemat blokowy deszyfrowania w Camellia dla 128-bitowego klucza</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-camellia-decryption-pl.webp" alt="Schemat blokowy deszyfrowania dla klucza o długości 128 bitów" width="741" height="1043" loading="lazy"></figure>
+          <h2 id="schemat-blokowy-deszyfrowania-w-camellia-dla-192-lub-256-bit">Schemat blokowy deszyfrowania w Camellia dla 192&nbsp;lub 256-bitowego klucza</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-camellia-decryption-long-pl.webp" alt="Schemat blokowy deszyfrowania dla klucza o długości 192 lub 256 bitów" width="741" height="1285" loading="lazy"></figure>
+          <h2 id="schemat-blokowy-bloku-szesciu-rund-w-camellia">Schemat blokowy bloku sześciu rund w Camellia</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-6-round-pl.webp" alt="Schemat bloku sześciu rund" width="730" height="990" loading="lazy"></figure>
+          <h2 id="schemat-blokowy-tworzenia-zmiennych-pomocniczych-klucza-w-ca">Schemat blokowy tworzenia zmiennych pomocniczych klucza w Camellia</h2>
+          <figure class="figure"><img src="/assets/img/camellia/scheme-key-schedule-pl.webp" alt="Schemat blokowy tworzenia zmiennych Ka i Kb" width="1085" height="1300" loading="lazy"></figure>
+          <h2 id="matematyka">Matematyka</h2>
+          <p>Camellia wykorzystuje zestaw podstawowych operacji na&nbsp;bitach używanych w&nbsp;komputerach: iloczyn bitowy <span class="term">AND</span>, sumę bitową <span class="term">OR</span>, operację sumowania <span class="term">XOR</span>, negację bitów w&nbsp;zmiennej oraz&nbsp;przesunięcie bitów w&nbsp;lewo o&nbsp;podaną liczbę pozycji <span class="term">&lt;&lt;&lt;&nbsp;n</span> (bity ze&nbsp;skrajnie lewych pozycji przechodzą na&nbsp;wolne skrajnie prawe pozycje w&nbsp;zmiennej).</p>
+          <p>Poza&nbsp;tymi podstawowymi działaniami, zdefiniowane są bardziej złożone funkcje, z&nbsp;których składają się algorytmy szyfrujący i&nbsp;deszyfrujący oraz algorytm tworzenia podkluczy.</p>
+          <h3 id="funkcja-s">Funkcja S</h3>
+          <p>Funkcja&nbsp;<span class="term">S</span> jest wykorzystywana przez funkcję&nbsp;<span class="term">F</span>. Dane wejściowe o&nbsp;długości 64&nbsp;bitów są podmieniane na&nbsp;inne 8&nbsp;bajtów, zwracane następnie do&nbsp;dalszego przetwarzania.</p>
+          <p>Funkcja wykorzystuje w swoim działaniu 4&nbsp;tablice podstawieniowe, nazywane blokami&nbsp;<span class="term">S</span> (ang. <i>s-box</i>).</p>
+          <p>Dane wejściowe dzielone są na&nbsp;osiem oddzielnych bajtów <span class="term">x<sub>1</sub>,...,x<sub>8</sub></span>, z&nbsp;których <span class="term">x<sub>1</sub></span> zawiera najbardziej skrajne osiem bitów, <span class="term">x<sub>2</sub></span> kolejne osiem bitów, a <span class="term">x<sub>8</sub></span> ostatnie skrajne osiem prawych bitów.</p>
+          <p>Każdy&nbsp;z bloków&nbsp;<span class="term">S</span> podmienia osiem otrzymanych bitów na&nbsp;osiem innych bitów wskazanych w&nbsp;tabeli. Bloki&nbsp;<span class="term">S</span> oznaczone są jako <span class="term">s<sub>1</sub>,...,s<sub>4</sub></span>. Oznaczając przez <span class="term">y<sub>1</sub>,...,y<sub>8</sub></span> osiem kolejnych bajtów wyjściowych z&nbsp;funkcji (bajt&nbsp;<span class="term">y<sub>1</sub></span> zawiera najbardziej lewe bity wyjściowe, natomiast bajt&nbsp;<span class="term">y<sub>8</sub></span> zawiera najbardziej prawe bity wyjściowe), można przedstawić przekształcenia dokonywane w funkcji&nbsp;<span class="term">S</span> jako:</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>1</sub> = s<sub>1</sub>(x<sub>1</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>2</sub> = s<sub>2</sub>(x<sub>2</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>3</sub> = s<sub>3</sub>(x<sub>3</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>4</sub> = s<sub>4</sub>(x<sub>4</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>5</sub> = s<sub>2</sub>(x<sub>5</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>6</sub> = s<sub>3</sub>(x<sub>6</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>7</sub> = s<sub>4</sub>(x<sub>7</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>8</sub> = s<sub>1</sub>(x<sub>8</sub>)</span></p>
+          <p>Blok&nbsp;<span class="term">s<sub>1</sub></span> zawiera 256&nbsp;następujących wartości:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="S-Box S1">
+           <tr>
+           <td>112</td>
+           <td>130</td>
+           <td>44</td>
+           <td>236</td>
+           <td>179</td>
+           <td>39</td>
+           <td>192</td>
+           <td>229</td>
+           <td>228</td>
+           <td>133</td>
+           <td>87</td>
+           <td>53</td>
+           <td>234</td>
+           <td>12</td>
+           <td>174</td>
+           <td>65</td>
+           </tr>
+           <tr>
+           <td>35</td>
+           <td>239</td>
+           <td>107</td>
+           <td>147</td>
+           <td>69</td>
+           <td>25</td>
+           <td>165</td>
+           <td>33</td>
+           <td>237</td>
+           <td>14</td>
+           <td>79</td>
+           <td>78</td>
+           <td>29</td>
+           <td>101</td>
+           <td>146</td>
+           <td>189</td>
+           </tr>
+           <tr>
+           <td>134</td>
+           <td>184</td>
+           <td>175</td>
+           <td>143</td>
+           <td>124</td>
+           <td>235</td>
+           <td>31</td>
+           <td>206</td>
+           <td>62</td>
+           <td>48</td>
+           <td>220</td>
+           <td>95</td>
+           <td>94</td>
+           <td>197</td>
+           <td>11</td>
+           <td>26</td>
+           </tr>
+           <tr>
+           <td>166</td>
+           <td>225</td>
+           <td>57</td>
+           <td>202</td>
+           <td>213</td>
+           <td>71</td>
+           <td>93</td>
+           <td>61</td>
+           <td>217</td>
+           <td>1</td>
+           <td>90</td>
+           <td>214</td>
+           <td>81</td>
+           <td>86</td>
+           <td>108</td>
+           <td>77</td>
+           </tr>
+           <tr>
+           <td>139</td>
+           <td>13</td>
+           <td>154</td>
+           <td>102</td>
+           <td>251</td>
+           <td>204</td>
+           <td>176</td>
+           <td>45</td>
+           <td>116</td>
+           <td>18</td>
+           <td>43</td>
+           <td>32</td>
+           <td>240</td>
+           <td>177</td>
+           <td>132</td>
+           <td>153</td>
+           </tr>
+           <tr>
+           <td>223</td>
+           <td>76</td>
+           <td>203</td>
+           <td>194</td>
+           <td>52</td>
+           <td>126</td>
+           <td>118</td>
+           <td>5</td>
+           <td>109</td>
+           <td>183</td>
+           <td>169</td>
+           <td>49</td>
+           <td>209</td>
+           <td>23</td>
+           <td>4</td>
+           <td>215</td>
+           </tr>
+           <tr>
+           <td>20</td>
+           <td>88</td>
+           <td>58</td>
+           <td>97</td>
+           <td>222</td>
+           <td>27</td>
+           <td>17</td>
+           <td>28</td>
+           <td>50</td>
+           <td>15</td>
+           <td>156</td>
+           <td>22</td>
+           <td>83</td>
+           <td>24</td>
+           <td>242</td>
+           <td>34</td>
+           </tr>
+           <tr>
+           <td>254</td>
+           <td>68</td>
+           <td>207</td>
+           <td>178</td>
+           <td>195</td>
+           <td>181</td>
+           <td>122</td>
+           <td>145</td>
+           <td>36</td>
+           <td>8</td>
+           <td>232</td>
+           <td>168</td>
+           <td>96</td>
+           <td>252</td>
+           <td>105</td>
+           <td>80</td>
+           </tr>
+           <tr>
+           <td>170</td>
+           <td>208</td>
+           <td>160</td>
+           <td>125</td>
+           <td>161</td>
+           <td>137</td>
+           <td>98</td>
+           <td>151</td>
+           <td>84</td>
+           <td>91</td>
+           <td>30</td>
+           <td>149</td>
+           <td>224</td>
+           <td>255</td>
+           <td>100</td>
+           <td>210</td>
+           </tr>
+           <tr>
+           <td>16</td>
+           <td>196</td>
+           <td>0</td>
+           <td>72</td>
+           <td>163</td>
+           <td>247</td>
+           <td>117</td>
+           <td>219</td>
+           <td>138</td>
+           <td>3</td>
+           <td>230</td>
+           <td>218</td>
+           <td>9</td>
+           <td>63</td>
+           <td>221</td>
+           <td>148</td>
+           </tr>
+           <tr>
+           <td>135</td>
+           <td>92</td>
+           <td>131</td>
+           <td>2</td>
+           <td>205</td>
+           <td>74</td>
+           <td>144</td>
+           <td>51</td>
+           <td>115</td>
+           <td>103</td>
+           <td>246</td>
+           <td>243</td>
+           <td>157</td>
+           <td>127</td>
+           <td>191</td>
+           <td>226</td>
+           </tr>
+           <tr>
+           <td>82</td>
+           <td>155</td>
+           <td>216</td>
+           <td>38</td>
+           <td>200</td>
+           <td>55</td>
+           <td>198</td>
+           <td>59</td>
+           <td>129</td>
+           <td>150</td>
+           <td>111</td>
+           <td>75</td>
+           <td>19</td>
+           <td>190</td>
+           <td>99</td>
+           <td>46</td>
+           </tr>
+           <tr>
+           <td>233</td>
+           <td>121</td>
+           <td>167</td>
+           <td>140</td>
+           <td>159</td>
+           <td>110</td>
+           <td>188</td>
+           <td>142</td>
+           <td>41</td>
+           <td>245</td>
+           <td>249</td>
+           <td>182</td>
+           <td>47</td>
+           <td>253</td>
+           <td>180</td>
+           <td>89</td>
+           </tr>
+           <tr>
+           <td>120</td>
+           <td>152</td>
+           <td>6</td>
+           <td>106</td>
+           <td>231</td>
+           <td>70</td>
+           <td>113</td>
+           <td>186</td>
+           <td>212</td>
+           <td>37</td>
+           <td>171</td>
+           <td>66</td>
+           <td>136</td>
+           <td>162</td>
+           <td>141</td>
+           <td>250</td>
+           </tr>
+           <tr>
+           <td>114</td>
+           <td>7</td>
+           <td>185</td>
+           <td>85</td>
+           <td>248</td>
+           <td>238</td>
+           <td>172</td>
+           <td>10</td>
+           <td>54</td>
+           <td>73</td>
+           <td>42</td>
+           <td>104</td>
+           <td>60</td>
+           <td>56</td>
+           <td>241</td>
+           <td>164</td>
+           </tr>
+           <tr>
+           <td>64</td>
+           <td>40</td>
+           <td>211</td>
+           <td>123</td>
+           <td>187</td>
+           <td>201</td>
+           <td>67</td>
+           <td>193</td>
+           <td>21</td>
+           <td>227</td>
+           <td>173</td>
+           <td>244</td>
+           <td>119</td>
+           <td>199</td>
+           <td>128</td>
+           <td>158</td>
+           </tr>
+           </table>
+          </div>
+          <p>Bloki&nbsp;<span class="term">S</span> zwracają wartości wskazane przez&nbsp;jednobajtową liczbę wejściową. Komórki w&nbsp;tabeli numerowane są liczbami od&nbsp;0 do&nbsp;255, od&nbsp;lewej do&nbsp;prawej strony oraz od&nbsp;góry do&nbsp;dołu. Przykładowo <span class="term">s<sub>1</sub>[0]</span> wynosi&nbsp;112, <span class="term">s<sub>1</sub>[1]</span> równa się&nbsp;130, natomiast <span class="term">s<sub>1</sub>[255]</span> wynosi&nbsp;158.</p>
+          <p>Pozostałe trzy bloki&nbsp;<span class="term">S</span> mogą zostać zdefiniowane jako tablice zawierające 256&nbsp;liczb, podobnie jak blok&nbsp;<span class="term">s<sub>1</sub></span>. Alternatywnie, można operacje na&nbsp;nich przedstawić jako działania na&nbsp;<span class="term">s<sub>1</sub></span>, ze&nbsp;zmienionymi danymi wejściowymi:</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">s<sub>2</sub>(x) :=&nbsp;(s<sub>1</sub>(x)&nbsp;&lt;&lt;&lt;&nbsp;1)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">s<sub>3</sub>(x) :=&nbsp;(s<sub>1</sub>(x)&nbsp;&gt;&gt;&gt;&nbsp;1)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">s<sub>4</sub>(x) :=&nbsp;&nbsp;&nbsp;s<sub>1</sub>(x&lt;&lt;&lt;1)</span></p>
+          <h3 id="funkcja-p">Funkcja P</h3>
+          <p>Funkcja&nbsp;<span class="term">P</span> jest wykorzystywana przez funkcję&nbsp;<span class="term">F</span>. Funkcja&nbsp;<span class="term">P</span> pobiera dane wejściowe o&nbsp;długości 8&nbsp;bajtów (które są wyjściem z funkcji&nbsp;<span class="term">S</span>), przekształca&nbsp;je i&nbsp;zwraca również wektor o&nbsp;długości 8&nbsp;bajtów. Wyjście z funkcji&nbsp;<span class="term">P</span> jest też wyjściem z funkcji&nbsp;<span class="term">F</span>.</p>
+          <p>Dane wejściowe dzielone są na&nbsp;osiem oddzielnych bajtów <span class="term">x<sub>1</sub>,...,x<sub>8</sub></span>, z&nbsp;których <span class="term">x<sub>1</sub></span> zawiera najbardziej skrajne osiem bitów, <span class="term">x<sub>2</sub></span> kolejne osiem bitów, natomiast <span class="term">x<sub>8</sub></span> ostatnie skrajne osiem prawych bitów.</p>
+          <p>Oznaczając osiem kolejnych bajtów wyjściowych z&nbsp;funkcji jako <span class="term">y<sub>1</sub>,...,y<sub>8</sub></span> (gdzie <span class="term">y<sub>1</sub></span> zawiera najbardziej lewe osiem bitów wyjściowych, <span class="term">y<sub>2</sub></span> kolejne osiem bitów, natomiast <span class="term">y<sub>8</sub></span> zawiera skrajne prawe osiem bitów wyjściowych), można przedstawić przekształcenia dokonywane w funkcji&nbsp;<span class="term">P</span> jako:</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>1</sub> = x<sub>1</sub></span> XOR <span class="math">x<sub>3</sub></span> XOR <span class="math">x<sub>4</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>7</sub></span> XOR <span class="math">x<sub>8</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>2</sub> = x<sub>1</sub></span> XOR <span class="math">x<sub>2</sub></span> XOR <span class="math">x<sub>4</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>7</sub></span> XOR <span class="math">x<sub>8</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>3</sub> = x<sub>1</sub></span> XOR <span class="math">x<sub>2</sub></span> XOR <span class="math">x<sub>3</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>8</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>4</sub> = x<sub>2</sub></span> XOR <span class="math">x<sub>3</sub></span> XOR <span class="math">x<sub>4</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>7</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>5</sub> = x<sub>1</sub></span> XOR <span class="math">x<sub>2</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>7</sub></span> XOR <span class="math">x<sub>8</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>6</sub> = x<sub>2</sub></span> XOR <span class="math">x<sub>3</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>7</sub></span> XOR <span class="math">x<sub>8</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>7</sub> = x<sub>3</sub></span> XOR <span class="math">x<sub>4</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>8</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>8</sub> = x<sub>1</sub></span> XOR <span class="math">x<sub>4</sub></span> XOR <span class="math">x<sub>5</sub></span> XOR <span class="math">x<sub>6</sub></span> XOR <span class="math">x<sub>7</sub></span></p>
+          <h3 id="funkcja-f">Funkcja F</h3>
+          <p>Funkcja&nbsp;<span class="term">F</span> jest jedną z&nbsp;głównych funkcji wykorzystywaną podczas szyfrowania i&nbsp;deszyfrowania danych oraz&nbsp;generowania podkluczy. Dane wejściowe&nbsp;(<span class="term">X</span>) mają długość 64&nbsp;bitów i&nbsp;są mieszane z&nbsp;jednym z&nbsp;podkluczy&nbsp;(<span class="term">k</span>), również o&nbsp;długości 64&nbsp;bitów. Funkcja zwraca 64&nbsp;bity oznaczone jako&nbsp;<span class="term">Y</span>.</p>
+          <p>Bity danych są dodawane&nbsp;XOR do&nbsp;bitów klucza, a następnie przekształcane przez dwie funkcje <span class="term">S</span> oraz&nbsp;<span class="term">P</span>.</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(X, k)</span><span class="math"> -&gt; </span><span class="math">Y</span> <span class="math">&nbsp;=&gt;&nbsp;</span> <span class="math">P&nbsp;(S&nbsp;(X&nbsp;</span>XOR<span class="math">&nbsp;k))</span><span class="math"> -&gt; </span><span class="math">Y</span></p>
+          <h3 id="funkcja-fl">Funkcja FL</h3>
+          <p>Funkcja&nbsp;<span class="term">FL</span> wykorzystywana jest podczas szyfrowania i&nbsp;deszyfrowania. Operuje na&nbsp;bloku danych o&nbsp;długości 64&nbsp;bitów. Bity są mieszane z&nbsp;jednym z&nbsp;podkluczy i&nbsp;zwracany blok wyjściowy ma&nbsp;również długość 64&nbsp;bitów.</p>
+          <p>Blok danych wejściowych jest oznaczony jako&nbsp;<span class="term">X</span>, natomiast&nbsp;<span class="term">Y</span> to 64&nbsp;bity wyjściowe, a&nbsp;<span class="term">kl</span> to bity utworzonego wcześniej podklucza:</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(X, kl)</span><span class="math"> -&gt; </span><span class="math">Y</span> <span class="math">&nbsp;=&gt;&nbsp;</span> <span class="math">(X<sub>L</sub>&nbsp;</span><span class="math">||</span><span class="math">&nbsp;X<sub>R</sub>, kl<sub>L</sub>&nbsp;</span><span class="math">||</span><span class="math">&nbsp;kl<sub>R</sub>) </span><span class="math">-&gt; </span><span class="math">Y<sub>L</sub>&nbsp;</span><span class="math">||</span><span class="math">&nbsp;Y<sub>R</sub></span></p>
+          <p>W&nbsp;pierwszej kolejności <span class="term">X</span> jest dzielone na&nbsp;dwie 32-bitowe połówki: <span class="term">X<sub>L</sub></span> zawiera 32&nbsp;lewych bitów&nbsp;<span class="term">X</span>, natomiast <span class="term">X<sub>R</sub></span> składa się z&nbsp;32 prawych bitów&nbsp;<span class="term">X</span>. Następnie wylicza dwa&nbsp;bloki, również o&nbsp;długości 32&nbsp;bitów:</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">Y<sub>R</sub> = ((X<sub>L</sub> </span>AND<span class="math"> kl<sub>L</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math">&nbsp;1) </span>XOR<span class="math"> X<sub>R</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">Y<sub>L</sub> = (Y<sub>R</sub> </span>OR<span class="math"> kl<sub>R</sub>) </span> XOR<span class="math"> X<sub>L</sub></span></p>
+          <p><span class="term">Y<sub>L</sub></span> stanowi 32&nbsp;lewe bity wyjściowe z&nbsp;funkcji&nbsp;<span class="term">FL</span>, natomiast <span class="term">Y<sub>R</sub></span> to 32&nbsp;prawe bity wyjściowe.</p>
+          <h3 id="funkcja-fl-1">Funkcja FL<sup>-1</sup></h3>
+          <p>Funkcja&nbsp;<span class="term">FL<sup>-1</sup></span> wykorzystywana jest podczas algorytmów szyfrowania i&nbsp;deszyfrowania. Operuje na&nbsp;bloku danych o&nbsp;długości 64&nbsp;bitów, który mieszany jest z&nbsp;jednym z&nbsp;podkluczy. Zwracany blok wyjściowy ma&nbsp;również długość 64&nbsp;bitów.</p>
+          <p>Blok danych wejściowych jest oznaczony jako&nbsp;<span class="term">Y</span>, natomiast&nbsp;<span class="term">X</span> to 64&nbsp;bity wyjściowe, a&nbsp;<span class="term">kl</span> to bity utworzonego wcześniej podklucza:</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(Y, kl)</span><span class="math"> -&gt; </span><span class="math">X</span> <span class="math">&nbsp;=&gt;&nbsp;</span> <span class="math">(Y<sub>L</sub>&nbsp;</span><span class="math">||</span><span class="math">&nbsp;Y<sub>R</sub>, kl<sub>L</sub>&nbsp;</span><span class="math">||</span><span class="math">&nbsp;kl<sub>R</sub>) </span><span class="math">-&gt; </span><span class="math">X<sub>L</sub>&nbsp;</span><span class="math">||</span><span class="math">&nbsp;X<sub>R</sub></span></p>
+          <p>W&nbsp;pierwszej kolejności <span class="term">Y</span> jest dzielone na&nbsp;dwie 32-bitowe połówki: <span class="term">Y<sub>L</sub></span> zawiera 32&nbsp;lewych bitów&nbsp;<span class="term">Y</span>, natomiast <span class="term">Y<sub>R</sub></span> składa się z&nbsp;32 prawych bitów&nbsp;<span class="term">Y</span>. Następnie wylicza dwa&nbsp;bloki, również o&nbsp;długości 32&nbsp;bitów:</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">X<sub>L</sub> = (Y<sub>R</sub> </span>OR<span class="math"> kl<sub>R</sub>) </span> XOR<span class="math"> Y<sub>L</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">X<sub>R</sub> = ((X<sub>L</sub> </span>AND<span class="math"> kl<sub>L</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math">&nbsp;1) </span>XOR<span class="math"> Y<sub>R</sub></span></p>
+          <p><span class="term">X<sub>L</sub></span> stanowi 32&nbsp;lewe bity wyjściowe z&nbsp;funkcji&nbsp;<span class="term">FL<sup>-1</sup></span>, natomiast <span class="term">X<sub>R</sub></span> to 32&nbsp;prawe bity wyjściowe.</p>
+          <h3 id="stale-uzywane-podczas-generowania-podkluczy">Stałe używane podczas generowania podkluczy</h3>
+          <p>W&nbsp;trakcie generowania podkluczy w&nbsp;procesie szyfrowania i&nbsp;deszyfrowania kolejnych bloków używanych jest sześć stałych wartości, oznaczanych jako&nbsp;<span class="term">&sum;<sub>i</sub></span>.</p>
+          <p>Poniższe wartości mają długości 64&nbsp;bitów i&nbsp;są przedstawione w&nbsp;zapisie szesnastkowym.</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="Key schedule">
+           <tr>
+           <td>&sum;<sub>1</sub> =</td>
+           <td>0xA09E667F3BCC908B</td>
+           </tr>
+           <tr>
+           <td>&sum;<sub>2</sub> =</td>
+           <td>0xB67AE8584CAA73B2</td>
+           </tr>
+           <tr>
+           <td>&sum;<sub>3</sub> =</td>
+           <td>0xC6EF372FE94F82BE</td>
+           </tr>
+           <tr>
+           <td>&sum;<sub>4</sub> =</td>
+           <td>0x54FF53A5F1D36F1C</td>
+           </tr>
+           <tr>
+           <td>&sum;<sub>5</sub> =</td>
+           <td>0x10E527FADE682D1D</td>
+           </tr>
+           <tr>
+           <td>&sum;<sub>6</sub> =</td>
+           <td>0xB05688C2B3E6C1FD</td>
+           </tr>
+           </table>
+          </div>
+          <h3 id="generowanie-podkluczy">Generowanie podkluczy</h3>
+          <p>Na&nbsp;podstawie czterech 128-bitowych zmiennych <span class="term">K<sub>L</sub></span>, <span class="term">K<sub>R</sub></span>, <span class="term">K<sub>A</sub></span> i&nbsp;<span class="term">K<sub>B</sub></span> należy wyliczyć podklucze <span class="term">k<sub>i</sub></span>, <span class="term">kw<sub>i</sub></span> oraz <span class="term">kl<sub>i</sub></span>, wszystkie o&nbsp;długości 64&nbsp;bitów.</p>
+          <p>Tabela generowania podkluczy dla&nbsp;sekretnego klucza o&nbsp;długości 128&nbsp;bitów:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Generowanie podkluczy">
+           <tr>
+           <th scope="col">podklucz</th>
+           <th scope="col">otrzymana wartość</th>
+           <th scope="col">gdzie użyty</th>
+           </tr>
+           <tr>
+           <td>kw<sub>1</sub></td>
+           <td>64 lewe bity <span class="term">K<sub>L</sub></span></td>
+           <td>na początku</td>
+           </tr>
+           <tr>
+           <td>kw<sub>2</sub></td>
+           <td>64 prawe bity <span class="term">K<sub>L</sub></span></td>
+           <td>na początku</td>
+           </tr>
+           <tr>
+           <td>k<sub>1</sub></td>
+           <td>64 lewe bity <span class="term">K<sub>A</sub></span></td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;1)</td>
+           </tr>
+           <tr>
+           <td>k<sub>2</sub></td>
+           <td>64 prawe bity <span class="term">K<sub>A</sub></span></td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;2)</td>
+           </tr>
+           <tr>
+           <td>k<sub>3</sub></td>
+           <td>64 lewe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;15)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;3)</td>
+           </tr>
+           <tr>
+           <td>k<sub>4</sub></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;15)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;4)</td>
+           </tr>
+           <tr>
+           <td>k<sub>5</sub></td>
+           <td>64 lewe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;15)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;5)</td>
+           </tr>
+           <tr>
+           <td>k<sub>6</sub></td>
+           <td>64 prawe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;15)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;6)</td>
+           </tr>
+           <tr>
+           <td>kl<sub>1</sub></td>
+           <td>64 lewe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;30)</td>
+           <td>FL</td>
+           </tr>
+           <tr>
+           <td>kl<sub>2</sub></td>
+           <td>64 prawe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;30)</td>
+           <td>FL<sup>-1</sup></td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>7</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;45)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;7)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>8</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;45)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;8)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>9</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;45)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;9)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>10</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;60)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;10)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>11</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;60)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;11)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>12</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;60)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;12)</td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>3</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;77)</td>
+           <td><span class="term">FL</span></td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>4</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;77)</td>
+           <td><span class="term">FL<sup>-1</sup></span></td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>13</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;94)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;13)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>14</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;94)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;14)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>15</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;94)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;15)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>16</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;94)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;16)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>17</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;111)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;17)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>18</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;111)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;18)</td>
+           </tr>
+           <tr>
+           <td><span class="term">kw<sub>3</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;111)</td>
+           <td>na końcu</td>
+           </tr>
+           <tr>
+           <td><span class="term">kw<sub>4</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;111)</td>
+           <td>na końcu</td>
+           </tr>
+           </table>
+          </div>
+          <p>Tabela generowania podkluczy dla&nbsp;sekretnych kluczy o&nbsp;długości 192&nbsp;bitów lub 256&nbsp;bitów:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="Generowanie podkluczy">
+           <tr>
+           <th scope="col">podklucz</th>
+           <th scope="col">otrzymana wartość</th>
+           <th scope="col">gdzie użyty</th>
+           </tr>
+           <tr>
+           <td>kw<sub>1</sub></td>
+           <td>64 lewe bity <span class="term">K<sub>L</sub></span></td>
+           <td>na początku</td>
+           </tr>
+           <tr>
+           <td>kw<sub>2</sub></td>
+           <td>64 prawe bity <span class="term">K<sub>L</sub></span></td>
+           <td>na początku</td>
+           </tr>
+           <tr>
+           <td>k<sub>1</sub></td>
+           <td>64 lewe bity <span class="term">K<sub>B</sub></span></td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;1)</td>
+           </tr>
+           <tr>
+           <td>k<sub>2</sub></td>
+           <td>64 prawe bity <span class="term">K<sub>B</sub></span></td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;2)</td>
+           </tr>
+           <tr>
+           <td>k<sub>3</sub></td>
+           <td>64 lewe bity (<span class="term">K<sub>R</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;15)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;3)</td>
+           </tr>
+           <tr>
+           <td>k<sub>4</sub></td>
+           <td>64 prawe bity (<span class="term">K<sub>R</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;15)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;4)</td>
+           </tr>
+           <tr>
+           <td>k<sub>5</sub></td>
+           <td>64 lewe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;15)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;5)</td>
+           </tr>
+           <tr>
+           <td>k<sub>6</sub></td>
+           <td>64 prawe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;15)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;6)</td>
+           </tr>
+           <tr>
+           <td>kl<sub>1</sub></td>
+           <td>64 lewe bity (<span class="term">K<sub>R</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;30)</td>
+           <td>FL</td>
+           </tr>
+           <tr>
+           <td>kl<sub>2</sub></td>
+           <td>64 prawe bity (<span class="term">K<sub>R</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;30)</td>
+           <td>FL<sup>-1</sup></td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>7</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>B</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;30)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;7)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>8</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>B</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;30)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;8)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>9</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;45)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;9)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>10</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;45)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;10)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>11</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;45)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;11)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>12</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;45)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;12)</td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>3</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;60)</td>
+           <td><span class="term">FL</span></td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>4</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;60)</td>
+           <td><span class="term">FL<sup>-1</sup></span></td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>13</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>R</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;60)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;13)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>14</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>R</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;60)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;14)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>15</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>B</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;60)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;15)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>16</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>B</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;60)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;16)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>17</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;77)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;17)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>18</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;77)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;18)</td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>5</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;77)</td>
+           <td><span class="term">FL</span></td>
+           </tr>
+           <tr>
+           <td><span class="term">kl<sub>6</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;77)</td>
+           <td><span class="term">FL<sup>-1</sup></span></td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>19</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>R</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;94)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;19)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>20</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>R</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;94)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;20)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>21</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;94)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;21)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>22</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>A</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;94)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;22)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>23</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;111)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;23)</td>
+           </tr>
+           <tr>
+           <td><span class="term">k<sub>24</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>L</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;111)</td>
+           <td><span class="term">F</span>&nbsp;(runda&nbsp;24)</td>
+           </tr>
+           <tr>
+           <td><span class="term">kw<sub>3</sub></span></td>
+           <td>64 lewe bity (<span class="term">K<sub>B</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;111)</td>
+           <td>na końcu</td>
+           </tr>
+           <tr>
+           <td><span class="term">kw<sub>4</sub></span></td>
+           <td>64 prawe bity (<span class="term">K<sub>B</sub></span>&nbsp;&lt;&lt;&lt;&nbsp;111)</td>
+           <td>na końcu</td>
+           </tr>
+           </table>
+          </div>
+          <h2 id="implementacja">Implementacja</h2>
+          <p>Na stronie korporacji&nbsp;NTT można znaleźć kody źródłowe i szczegółowe opisy szyfru Camellia:<br> &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://info.isl.ntt.co.jp/crypt/eng/camellia" rel="noopener" target="_blank">info.isl.ntt.co.jp/crypt/eng/camellia</a></p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/symetryczne/blowfish.html" rel="prev"><small>← Poprzedni</small>Blowfish</a>
+          <a class="pager__next" href="/pl/symetryczne/serpent.html" rel="next"><small>Następny →</small>Serpent</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Fcamellia.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Fcamellia.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Fcamellia.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symetryczne -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/symetryczne/">Szyfry symetryczne</a></h2>
+        <ul>
+          <li><a href="/pl/symetryczne/szyfry-strumieniowe.html">Szyfry strumieniowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/otp.html">OTP</a></li>
+              <li><a href="/pl/symetryczne/rc4.html">RC4</a></li>
+              <li><a href="/pl/symetryczne/salsa20.html">Salsa20</a></li>
+              <li><a href="/pl/symetryczne/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/symetryczne/szyfry-blokowe.html">Szyfry blokowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/des.html">DES</a></li>
+              <li><a href="/pl/symetryczne/rc2.html">RC2</a></li>
+              <li><a href="/pl/symetryczne/3des.html">3 DES</a></li>
+              <li><a href="/pl/symetryczne/aes.html">AES</a></li>
+              <li><a href="/pl/symetryczne/blowfish.html">Blowfish</a></li>
+              <li><a href="/pl/symetryczne/camellia.html" aria-current="page">Camellia</a></li>
+              <li><a href="/pl/symetryczne/serpent.html">Serpent</a></li>
+              <li><a href="/pl/symetryczne/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symetryczne -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

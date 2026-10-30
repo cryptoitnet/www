@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/mac.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Message Authentication Code | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Message authentication code (MAC) algorithms are used for authentication and verification of received messages.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/mac.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/mac.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/mac.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/mac.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Message Authentication Code | Cryptography">
+  <meta property="og:description" content="Message authentication code (MAC) algorithms are used for authentication and verification of received messages.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/mac.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Message Authentication Code (MAC)",
+        "description": "Message authentication code (MAC) algorithms are used for authentication and verification of received messages.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/mac.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Message Authentication Code (MAC)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/mac.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Message Authentication Code (MAC)</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>A message authentication code (often called MAC) is a block of a few bytes that is used to authenticate a message. The receiver can check this block and be sure that the message hasn't been modified by the third party.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>The abbreviation MAC can also be used for describing algorithms that can create an authentication code and verify its correctness.</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           MAC defined over <span class="math">(K, M, T)</span> is a pair of algorithms <span class="math">(S, V)</span>:
+           <ul>
+           <li><span class="math">S(k, m)</span>: returns a message authentication code <span class="math">t</span> which belongs to a set <span class="math">T</span></li>
+           <li><span class="math">V(k, m, t)</span>: returns a value <span class="term">true</span> or <span class="term">false</span> depending on the correctness of the received authentication code</li>
+           </ul>
+           <div class="definition__note">
+           where:
+           <ul>
+           <li><var>M</var> is a set of all possible messages <span class="term">m</span>,</li>
+           <li><var>K</var> is a set of all possible keys <span class="term">k</span>,</li>
+           <li><var>T</var> is a set of all possible authentication codes <span class="term">t</span></li>
+           </ul>
+           </div>
+          </aside>
+          <p>The simplest way to mark the authenticity of the message is to compute its checksum, for example using the CRC algorithm. One can attach the result to the transmitted message.</p>
+          <p>The primary disadvantage of this method is the lack of protection against intentional modifications in the message content. The intruder can change the message, then calculate a new checksum, and eventually replace the original checksum by the new value. An ordinary CRC algorithm allows only to detect randomly damaged parts of messages (but not intentional changes made by the attacker).</p>
+          <p>The following paragraphs present several MAC algorithms that provide security against intentional changes of authentication codes.</p>
+          <h2 id="mac-algorithms-based-on-prf">MAC algorithms based on PRF</h2>
+          <p>It is possible to create secure MAC algorithms using a secure pseudorandom function (<a href="/eng/theory/prf-and-prp.html">PRF</a>).</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           Having a pseudorandom function <span class="math">F: (K x X)</span> <span class="math">→</span> <span class="math">Y</span> one can define a pair of secure MAC algorithms <span class="math">(S, V)</span> as:
+           <ul>
+           <li><span class="math">S(k, m) := F(k, m)</span></li>
+           <li><span class="math">V(k, m, t):</span> returns a value <span class="term">true</span> if <span class="math">t = F(k, m)</span> or <span class="term">false</span> otherwise</li>
+           </ul>
+           <div class="definition__note">
+           <ul>
+           <li>One should consider that the set Y should be large enough that a probability of guessing the result of the F function would be <button type="button" class="note-ref" popovertarget="note-negligible">negligible</button>.</li>
+           </ul>
+           </div>
+          </aside>
+          <p>For example, to encrypt a 16-byte long message one can use the <a href="/eng/symmetric/aes.html">AES</a> encryption algorithm or any other similar symmetric cipher that operates on data blocks of size of 16 bytes.</p>
+          <p>The following paragraphs present some MAC algorithms that allow to protect longer messages.</p>
+          <h2 id="cbc-mac">CBC MAC</h2>
+          <p>CBC MAC is based on a pseudorandom function (for convenience called F). It works similarly to encryption performed in the <a href="/eng/theory/modes-of-block-ciphers.html#TrybCbc">CBC mode</a>, with a difference that intermediate values are not returned. Moreover, after encryption of the last data block, one additional encryption of the current result is performed using the second secret key.</p>
+          <p>The additional encryption is performed to protect the calculated code. The whole process, including the last additional step, is often referred to as ECBC MAC (<em>Encrypted MAC</em>), in contrast to the previous algorithm steps called <em>Raw CBC MAC</em>.</p>
+          <figure class="figure"><img src="/assets/img/theory/mac/ecbcmac-eng.webp" alt="Scheme of ECBC MAC" width="1172" height="355" loading="lazy"></figure>
+          <br>
+          <p>Without the last algorithm step (that is, without encryption using the second key), an intruder could attack CBC MAC security using a <a href="/eng/attacks/chosen-plaintext.html">chosen-plaintext attack</a>:</p>
+          <ol class="steps">
+           <li>The intruder chooses a message <span class="term">m</span> of size of one block.</li>
+           <li>The intruder obtains a value of authentication code of the message from the attacked system: <span class="term">t = F(k, m)</span>.</li>
+           <li>At this moment, the attacker can determine a value of authentication code of the message <span class="term">m<sub>1</sub></span> of the size of two blocks <span class="term">m<sub>1</sub> = (m, t</span> XOR <span class="term">m)</span>:<br> rawCBC<span class="math">(k, m<sub>1</sub>) =</span> rawCBC<span class="math">(k, (m, t</span> XOR <span class="math">m)) = F(k, F(k, m)</span> XOR <span class="math">(t</span> XOR <span class="math">m)) = F(k, t</span> XOR <span class="math">(t</span> XOR <span class="math">m)) = t</span></li>
+          </ol>
+          <p>CBC MAC can protect a message of any length, from one to many blocks. To ensure security, while using CBC MAC one should change the secret key every some time. It can be proved that after sending the number of messages that is equal roughly to the square of the number of all possible values of data blocks, the key is no longer safe.</p>
+          <p>The last data block should be filled up to the full length using previously <a href="/eng/theory/padding.html">agreed bits</a>. The additional bits should clearly determine the end of the original message to prevent attackers from using a potential ambiguity. A popular method of aligning the length of the last block is to append an additional bit equal to <span class="term">1</span> and then filling the rest of the block up with bits equal to <span class="term">0</span>. If there is not enough free space in the last block, one should add one more extra block and fill it with the additional padding bits.</p>
+          <p>For comparison, adding only zeros would cause ambiguity where is the last bit of the broadcast message (because the original message may have zeros as last bits of data). Furthermore, a lot of messages with different contents that only differ in the number of zeros at the end, would have the same authentication codes. This situation would break safety rules of message encoding.</p>
+          <p>ECBC MAC is used in various applications, for example in banking systems (ANSI X9.9, X9.19 and FIPS 186-3 standards). It is often based on the <a href="/eng/symmetric/aes.html">AES</a> algorithm, that is used as F function.</p>
+          <h2 id="nmac">NMAC</h2>
+          <p>The NMAC algorithm (<em>Nested MAC</em>) is similar to the CBC MAC algorithm described earlier. It uses a slightly different pseudorandom function F. The function F returns numbers that are correct values of secret keys (thus, not the values of data blocks).</p>
+          <p>As in the case of CBC MAC, after encryption of the last data block, one additional encryption of the result is performed, using the second secret encryption key. Because the previous result of encryption of the last data block consists of the same amount of bits as the secret key, an additional sequence of bits (a fix pad) should be appended, to assure that the result has the same size as data blocks. NMAC is usually used in systems, where the length of data blocks is much bigger than the size of secret keys.</p>
+          <figure class="figure"><img src="/assets/img/theory/mac/nmac-eng.webp" alt="Scheme of NMAC" width="1289" height="370" loading="lazy"></figure>
+          <br>
+          <p>The last additional encryption is performed to protect the calculated code, as in the case of CBC MAC. During encryption the subsequent blocks without the last step of NMAC, the algorithm is commonly referred to as a <em>Cascade</em>.</p>
+          <p>Without the last step of the algorithm (that is, without encryption using the second key), an intruder would be able to append any number of blocks to the intercepted message with the correctly calculated authentication code. Then, he could calculate a new authentication code and attach it to the modified message. As input to the first new added function F, the attacker would use the original authentication code of the original message.</p>
+          <p>To ensure NMAC security, one should change the secret key from time to time. It can be proved that after sending the number of messages equal roughly to the square of the number of all possible values of secret keys, the key is no longer safe.</p>
+          <p>The NMAC algorithm uses the same methods for adding padding bits to the end of the last incomplete message block, as the CBC MAC algorithm.</p>
+          <h2 id="cmac">CMAC</h2>
+          <p>The CMAC algorithm is similar to the previously described CBC MAC algorithm. It uses the same pseudorandom function F, which returns numbers that are elements of the set of all possible values of data blocks.</p>
+          <p>Instead of the last additional encryption that uses a second key, CMAC uses two additional keys that are added to input bits to the last block of F function. Depending on whether the last message block is completely filled up with data bits, or it must be filled up with a previously determined sequence of padding characters, the corresponding encryption key should be used.</p>
+          <figure class="figure"><img src="/assets/img/theory/mac/cmac-eng.webp" alt="Scheme of CMAC" width="1145" height="650" loading="lazy"></figure>
+          <br>
+          <p>Adding the additional key in the last encryption step protects against appending new blocks of modified messages by a potential intruder. It is not necessary to use an additional encryption by the F function, unlike in other MAC algorithms. Thanks to this solution, there is no need to add an additional block to make room for padding (it is enough to choose the correct additional key).</p>
+          <p>CMAC is considered to be secure. It provides a safe way for message authentication. It is certified for example by the American institute NIST.</p>
+          <h2 id="pmac">PMAC</h2>
+          <p>The PMAC algorithm (<em>Parallel MAC</em>) can be performed using many threads at a time, unlike other MAC algorithms described above (that require sequential processing of data blocks).</p>
+          <p>PMAC uses two secret encryption keys. The first secret key is used in P functions. All P functions receive also the subsequent numbers of the additional counter. Output bits of P functions are added XOR to data blocks. The result is encrypted by a pseudorandom function F, that uses the second secret key. The P function should be uncomplicated and it should work much faster than F functions.</p>
+          <p>Output bits from all F functions and output bits from the last data block (which is not encrypted by the F function) are added XOR together, then the result is encrypted using the F function algorithm, with the second secret encryption key.</p>
+          <figure class="figure"><img src="/assets/img/theory/mac/pmac-eng.png" alt="Scheme of PMAC" width="1600" height="487" loading="lazy"></figure>
+          <br>
+          <p>As usual, it can be proved that PMAC is secure, if the secret key is changed from time to time. A new key should be created after sending the number of messages that is equal roughly to the square of the number of all possible values of data blocks.</p>
+          <p>PMAC allows to update authentication codes easily and quickly, in a case when one of the message block was replaced by a new one. For example, if a block <span class="term">m[x]</span> is replaced by <span class="term">m'[x]</span>, then the following calculations should be performed:<br> <span class="math">tag' = F(k<sub>2</sub>, </span><span class="math">(F<sup>-1</sup>(k<sub>2</sub>, tag)</span> XOR <span class="math">F(k<sub>2</sub>, m[x]</span> XOR <span class="math">P(k<sub>1</sub>, x))</span> XOR <span class="math">F(k<sub>2</sub>, m'[x]</span> XOR <span class="math">P(k<sub>1</sub>, x)))</span></p>
+          <h2 id="one-time-mac">One-time MAC</h2>
+          <p>Similar to <a href="/eng/symmetric/otp.html">one-time encryption</a>, one can define a one-time MAC algorithm, which provides security against potential attacks and it is generally faster than other message authentication algorithms based on PRF functions.</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           One-time MAC is a pair of algorithms <span class="math">(S, V)</span>:
+           <ul>
+           <li><span class="math">S(m, k<sub>1</sub>, k<sub>2</sub>) := P(m, k<sub>1</sub>) + k<sub>2</sub> (</span>mod <span class="math">q)</span>: returns an authentication code <span class="math">t</span></li>
+           <li><span class="math">V(m, k<sub>1</sub>, k<sub>2</sub>, t)</span>: returns a value <span class="term">true</span> or <span class="term">false</span> depending on the correctness of the examined authentication code <span class="math">t</span></li>
+           </ul>
+           where:
+           <div class="definition__note">
+           <ul>
+           <li><var>q</var> is a large prime (about <span class="term">2<sup>128</sup></span>),</li>
+           <li><var>m</var> is a message that contains <span class="term">L</span> blocks of size of 128 bits,</li>
+           <li><var>k<sub>1</sub>, k<sub>2</sub></var> are two secret keys; each of them has value from the interval <span class="term">[1, q]</span>,</li>
+           <li><var>P(m, x) = m[L]&sdot;x<sup>L</sup> + ... + m[1]&sdot;x</var> is a polynomial of degree <span class="term">L</span></li>
+           </ul>
+           </div>
+          </aside>
+          <p>It can be proved that two messages secured by using the same keys are indistinguishable for potential observers.</p>
+          <h2 id="carter-wegman-mac">Carter-Wegman MAC</h2>
+          <p>The construction of Carter-Wegman MAC is based on the idea of ​one-time MAC. It is extended by a pseudorandom function to allow using one secret key many times for subsequent messages.</p>
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           Having a secure one-time MAC <span class="math">(S, V)</span> defined over sets <span class="math">(M, K<sub>J</sub>, T)</span> and a secure pseudorandom function <span class="math">F: K<sub>F</sub></span> x <span class="math">{0,1}<sup>n</sup></span><span class="math">→</span><span class="math">{0,1}<sup>n</sup></span>, one can define a pair of algorithms <strong>Carter-Wegman MAC</strong>:
+           <ul>
+           <li><span class="math">S<sub>C-W</sub>(m, k<sub>F</sub>, k<sub>J</sub>) := (r, F(k<sub>F</sub>, r)</span> XOR <span class="math">S(m, k<sub>J</sub>))</span>: returns an authentication code that is a pair <span class="math">(r, t<sub>C-W</sub>)</span></li>
+           <li><span class="math">V<sub>C-W</sub>(m, k<sub>J</sub>, F(k<sub>F</sub>, r)</span> XOR <span class="math">t<sub>C-W</sub>)</span>: returns <span class="term">true</span> or <span class="term">false</span> depending on the correctness of the examined authentication code (r, <span class="math">t<sub>C-W</sub>)</span></li>
+           </ul>
+           where:
+           <div class="definition__note">
+           <ul>
+           <li><var>k<sub>J</sub>, k<sub>F</sub></var> are two secret keys of sets <var>K<sub>J</sub></var> and <var>K<sub>F</sub></var>,</li>
+           <li><var>T</var> is a set of all possible values of authentication codes of the one-time MAC algorithm (of length of <span class="term">n</span> bits),</li>
+           <li><var>r</var> is a random number of length of <span class="term">n</span> bits,</li>
+           <li><var>(r, t<sub>C-W</sub>)</var> is a value of an authentication code of the Carter-Wegman algorithm (of length of <span class="term">2n</span> bits)</li>
+           </ul>
+           </div>
+          </aside>
+          <h2 id="hmac">HMAC</h2>
+          <p>HMAC is a popular system of checking message integrity, which is quite similar to NMAC.</p>
+          <p>The HMAC algorithm uses one-way <a href="/eng/theory/one-way-function.html#hash">hash functions</a> to produce unique mac values.</p>
+          <figure class="figure"><img src="/assets/img/theory/mac/hmac-eng.webp" alt="Scheme of HMAC" width="1270" height="457" loading="lazy"></figure>
+          <br>
+          <p>The input parameters <span class="term">ipad</span> and <span class="term">opad</span> are used to modify the secret key. They may have various values assigned. It is recommended to choose the values that would make both inputs to the hash functions look as dissimilar as possible (that is, that modify the secret key in two different ways).</p>
+          <p>Using a secure hash function (that means the function which doesn't produce the same outputs for different input data) guarantees the security of the HMAC algorithm.</p>
+          <p>Nowadays, the HMAC algorithm is used in many systems, including some popular Internet protocols (SSL, IPsec, SSH).</p>
+          <div class="note" id="note-negligible" popover>
+           <p>Negligible value - it is assumed that <var>e</var> is:</p>
+           <ul>
+           <li>non-negligible, if <span class="math">e &gt;= 1/2<sup>30</sup></span> (in practice likely to happen when there is over <span class="math">1GB</span> of data)</li>
+           <li>negligible, if <span class="math">e &lt;= 1/2<sup>80</sup></span> (in practice will not happen over the life of key)</li>
+           </ul>
+           <button type="button" class="note__close" popovertarget="note-negligible" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/one-way-function.html" rel="prev"><small>← Previous</small>One-way function</a>
+          <a class="pager__next" href="/eng/theory/pbe.html" rel="next"><small>Next →</small>PBE</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fmac.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fmac.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fmac.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html" aria-current="page">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

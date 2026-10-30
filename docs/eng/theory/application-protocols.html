@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/protokoly-aplikacji.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Application Layer Protocols | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Application layer protocols operate in the highest layer of the network model. They create interfaces available to applications.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/application-protocols.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/application-protocols.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/protokoly-aplikacji.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/application-protocols.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Application Layer Protocols | Cryptography">
+  <meta property="og:description" content="Application layer protocols operate in the highest layer of the network model. They create interfaces available to applications.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/application-protocols.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Application Layer Protocols",
+        "description": "Application layer protocols operate in the highest layer of the network model. They create interfaces available to applications.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/application-protocols.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Application Layer Protocols"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/protokoly-aplikacji.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Application Layer Protocols</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Application layer protocols provide interface methods for applications to allow them to communicate over computer networks. The application layer is described in a similar way by both, <a href="/eng/theory/tcp-ip-protocols.html">TCP/IP and OSI</a> network models. Their specifications differ only in details.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <ul>
+           <li><a href="#HTTP">HTTP</a></li>
+           <li><a href="#HTTPS">HTTPS</a></li>
+           <li><a href="#SSLTLS">SSL/TLS</a></li>
+           <li><a href="#IRC">IRC</a></li>
+          </ul>
+          <h2 id="HTTP">Hypertext Transfer Protocol</h2>
+          <p>HTTP is the most important application layer protocol of all that are used in the Internet. It allows to request data from servers (websites), and send data to servers.</p>
+          <p>HTTP is as old as the Internet itself. The first version of the protocol (HTTP/0.9) allowed only to request HTML (<em>HyperText Markup Language</em>) pages. Two new HTTP versions, HTTP/1.0 and HTTP/1.1, were published in 1996 and 1997 respectively. The latest documentation of HTTP/1.1 consists of six specifications: <a href="http://tools.ietf.org/html/rfc7230" rel="noopener" target="_blank">RFC 7230</a>, <a href="http://tools.ietf.org/html/rfc7231" rel="noopener" target="_blank">RFC 7231</a>, <a href="http://tools.ietf.org/html/rfc7232" rel="noopener" target="_blank">RFC 7232</a>, <a href="http://tools.ietf.org/html/rfc7233" rel="noopener" target="_blank">RFC 7233</a>, <a href="http://tools.ietf.org/html/rfc7234" rel="noopener" target="_blank">RFC 7234</a>, and <a href="http://tools.ietf.org/html/rfc7235" rel="noopener" target="_blank">RFC 7235</a>. The most popular version of the protocol is the latest one, HTTP/1.1. Some older or simpler browsers use HTTP/1.0. The earliest version, HTTP/0.9, is used very rarely (however it is still supported by many applications).</p>
+          <p>Another version of the protocol (HTTP/2) was officially published as <a href="http://tools.ietf.org/html/rfc7540" rel="noopener" target="_blank">RFC 7540</a> in May 2015.</p>
+          <h3 id="http-overview">HTTP Overview</h3>
+          <p>HTTP is a request-response protocol between a client and a server. Every HTTP session is initiated by creating a TCP connection to the server (usually to port 80) and then sending a request with a desired URL address. The server returns the requested file (or other content) and, usually, terminates the connection.</p>
+          <p>In HTTP/1.1 just one connection is used to download a page file and all other files needed to display its context (images, stylesheets, scripts). There is no need, as in the previous versions, to establish a connection for every file separately. However, the HTTP protocol itself is connectionless - after sending all requested data, the server ends the connection between it and the client.</p>
+          <p>What is more, HTTP is stateless. This means that neither the client nor the server stores information about each other between different requests. Finally, HTTP is media independent. Any data can be transmitted as long as both the client and the server know how to handle it. The data type has to be specified using an appropriate MIME-type.</p>
+          <h3 id="http-protocol-design">HTTP Protocol Design</h3>
+          <p>The most common ports used for the protocol are port 80 and sometimes port 8080. An HTTP server listens on the port for a client's request message. After receiving the request, the server sends back an acknowledgement message and then a response message. The response usually contains the requested file, though the server may also return an error or other information.</p>
+          <h4>Messages in HTTP/0.9</h4>
+          <p>In HTTP/0.9 the requests sent to the server were quite simple. They contained only the <span class="term">GET</span> keyword followed by the URL path (with a query string), and ending with a <em>newline</em> character. A simple HTTP/0.9 request may be similar to the one below:</p>
+          <pre><code>GET http://www.example.com/directory</code></pre>
+          <p>The server should immediately return the requested document (ASCII text with HTML data or plain text prefixed with <span class="term">PLAINTEXT</span>). The server doesn't hold any state related to the browser.</p>
+          <h4>Messages in HTTP/1.0 and HTTP/1.1</h4>
+          <p>Both modern protocol versions, HTTP/1.0 and HTTP/1.1, allow a user to specify additional data in a request. First of all, there are more methods available:</p>
+          <ul>
+           <li><strong>GET</strong> - has the same functionality as requests in earlier HTTP/0.9, it is used to retrieve data from the server using a given path,</li>
+           <li><strong>HEAD</strong> - is similar to GET but the response will contain only the Status-Line (a protocol version, a Status-Code, a Reason-Phrase) and other server-related data in the Response-header,</li>
+           <li><strong>POST</strong> - is used to send data to the server or file upload using HTML forms,</li>
+           <li><strong>PUT</strong> - replaces the resource pointed to by a given path with the uploaded content,</li>
+           <li><strong>DELETE</strong> - removes the resource pointed to by a given path,</li>
+           <li><strong>CONNECT</strong> - establishes a tunnel to the server identified by a given path; this method is used mostly with SSL/TLS, it allows to configure a proxy server to forward client's requests to URL specified as a parameter,</li>
+           <li><strong>TRACE</strong> - is a method used for testing and debugging; it performs a test along a request message's track, and provides logs to the user,</li>
+           <li><strong>OPTIONS</strong> (HTTP/1.1 and newer) - requests information about the capabilities of a server without requesting a resource.</li>
+          </ul>
+          <p>Some of these methods are considered to be safe, they can be used only for retrieving information from a server (HEAD, OPTIONS, GET, TRACE). On the other hand there are a few methods which can cause side effects on the server or even on external sites (DELETE, PUT, POST). In practice handling of GET requests is not limited in any way, thus this particular method should be also considered as dangerous.</p>
+          <p>The first line of a request message contains the request method name, together with the URL path, and protocol version information. It may look similar to that one:</p>
+          <pre><code>POST /first_directory/second_directory/doit.php HTTP/1.1</code></pre>
+          <p>The first line can be followed by some more lines called <em>headers</em>. Each header contains one name-value pair (the name and the value are separated by a colon). There are a few common request headers included in most client's requests:</p>
+          <ul>
+           <li><strong>Host</strong> - contains the host's URL,</li>
+           <li><strong>User-Agent</strong> - stores information about the user's browser,</li>
+           <li><strong>Content-Type</strong> or <strong>Content-Length</strong> - provides information about an optional payload that user attached to the message,</li>
+           <li><strong>Accept</strong> - information about supported MIME document types (for example <em>audio/mpeg</em> or <em>image/jpeg</em>),</li>
+           <li><strong>Accept-Language</strong> - information about supported languages,</li>
+           <li><strong>Accept-Encoding</strong> - encoding supported in response messages,</li>
+           <li><strong>Referer</strong> (<em>note, it's misspelled</em>) - provides information about the originating page.</li>
+          </ul>
+          <p>The headers are terminated by a single empty line followed by an optional payload (which may contain for example form data). The rest of the previous request message might be defined in this way:</p>
+          <pre><code>Host: www.server.com
+User-Agent: Mozilla/5.0
+Referer: www.server.com/first_directory/select_action.html
+Content-Length: 12
+Content-Type: text/plain
+
+Do first job</code></pre>
+          <p>The server responds by sending its own message. The message starts with the Status-Line (that contains, as mentioned above, the protocol version, a numerical Status-Code, and a human-readable Reason-Phrase).</p>
+          <p>The first line can be followed by some response headers, for example:</p>
+          <ul>
+           <li><strong>Server</strong> - a server name,</li>
+           <li><strong>Via</strong> - a list of proxies used for sending the response,</li>
+           <li><strong>Connection</strong> - control options for the current connection (<em>keep-alive</em> if the server waits for more queries or <em>close</em> if the connection is closed after completing the last query),</li>
+           <li><strong>Content-Encoding</strong> - the type of compression used on the data,</li>
+           <li><strong>Content-Type</strong>, <strong>Content-Length</strong>, <strong>Content-Language</strong> - for content-related information.</li>
+          </ul>
+          <p>The response headers are followed by a single empty line which may be followed by an optional content (the message body). The response message may be similar to this one:</p>
+          <pre><code>HTTP/1.1 200 OK
+Server: Apache/2.4.1 (Unix)
+Content-Length: 19
+Content-Type: text/plain
+Connection: close
+
+First job completed</code></pre>
+          <p>The message body would contain the html code of the requested webpage. Below there is an example of a message from a server that returns the website <span class="term">hello_world.html</span>:</p>
+          <pre><code>HTTP/1.1 200 OK
+Server: Apache/2.4.1 (Unix)
+Date: Sat, 27 Dec 2014 17:58:58 GMT
+Last-Modified: Sat, 26 Jul 2014 13:19:25 GMT
+Content-Type: text/html
+Content-Length: 87
+Connection: close
+
+&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <h3 id="security-of-http">Security of HTTP</h3>
+          <p>The biggest weakness of HTTP is the fact that the communication between the client and the server is not encrypted. All messages can be easily eavesdropped on their way from one computer to another. <a href="#HTTPS">HTTPS</a> is the most popular method of establishing secure HTTP connections.</p>
+          <p>It seems to be worth mentioning that an intruder can also use HTTP request messages with the enabled method TRACE, to gather information related to the attacked system. Sometimes it may be recommended to disable the HTTP TRACE method using <span class="term">mod_rewrite</span>.</p>
+          <h3 id="security-issues-caused-by-different-implementations">Security issues caused by different implementations</h3>
+          <p>There are a few problems related to HTTP security caused by the fact that different server and client applications provide different type of support for older versions of the protocol.</p>
+          <p>For example, the specification of HTTP/1.0 describes that HTTP/1.0 clients must be able to handle valid responses in both HTTP/0.9 and HTTP/1.0 protocol formats. Although in some <a href="https://tools.ietf.org/html/rfc2016" rel="noopener" target="_blank">other documents</a> one can find different approaches, most browsers support HTTP/0.9 and thus they are vulnerable for attacks performed as shown below:</p>
+          <ol class="steps">
+           <li>The intruder prepares the GET request message to be sent to the server, to one of its unsupported ports. The requested URL is fake and contains a <span class="term">&#x3C;html&#x3E;</span> tag. The first line of the message could be similar to this one: <span class="term">GET /&#x3C;html&#x3E;&#x3C;body&#x3E;something HTTP/1.0</span>, the next line would contain the attacked server's path and port values. The parameters of the lower layers of the message suggest that it was sent by another, victim's, computer.</li>
+           <li>Because the server doesn't expect HTTP messages on the selected port, it will return an error message. The chosen port is not related to HTTP in any way, so the response will not be understandable for the sender (client's browser). However, the message will probably contain the original request message, quoted somewhere with the explanation that the request message was incorrect. Therefore the browser can interpret the message in only one way that is possible for it - as HTTP/0.9 response message (which consists only of an HTML file). The client's browser will display the website which contents depends on what data was located after the <span class="term">&#x3C;html&#x3E;</span> tag in the fake request message created by the attacker. The whole TCP/IP message received by the client (that is, by the attacked system) will look like a genuine message from the server (indeed, it would be sent by the server itself).</li>
+          </ol>
+          <p>Other kinds of problems are related to the fact that HTTP/1.1 allows to encode a newline character as a single <span class="term">CR</span> character. At present, most web servers (for example Apache or IIS) do not fulfil this requirement and do not treat a single <span class="term">CR</span> as a newline character. However, most browsers do recognize it as a newline (Internet Explorer, Safari, Opera). Therefore the messages containing <span class="term">CR</span> characters may be interpreted and handled in different ways by various browsers and servers.</p>
+          <p>The similar issue is caused by the concept of multiline headers which was introduced in HTTP/1.1. The idea is that if a header line begins with a whitespace, it should be treated as a continuation of the previous header line. Again, most web servers (included Apache or IIS) handle multiline headers while most browsers (including Internet Explorer, Safari, Opera) don't. Again, the same message with multiline headers can be treated in different ways.</p>
+          <p>The HTTP specification doesn't specify how web servers and client applications should treat duplicate or ambiguous headers. As one could expect, different software handle them in different ways (accept first, accept last, discard all).</p>
+          <p>Security of HTTP, like security of the whole Internet, suffers from the way in which web structure and ideas were developed - a lot of vendors and producers, incompatibility, features often developed bottom-top, and lack of concern about security and privacy at the beginning of Web.</p>
+          <h2 id="HTTPS">Hypertext Transfer Protocol Secure</h2>
+          <p>HTTPS allows to browse the Internet using the HTTP protocol with additional encryption. The first version of HTTPS was created in 1994 by Netscape Communications.</p>
+          <p>All the HTTP content is encrypted by the SSL or TLS algorithms, which operate also on the Application Layer but below the HTTP itself. The attacker who overhears the communication is able to see only the SSL or TLS frames with some encrypted data. The underlying SSL/TLS algorithm typically uses long-term public and private keys to generate a symmetric key for each communication session.</p>
+          <h3 id="encryption">Encryption</h3>
+          <p>As it was mentioned before, the whole HTTPS algorithm consists in fact of two algorithms, HTTP and SSL/TLS. It operates over a Transport Layer protocol, usually TCP. The TCP connection is not encrypted, which means that the IP addresses and port numbers are visible to others. Thus, the attacker may know the domain name but won't be able to determine the full URL path.</p>
+          <p>The strength of the encryption depends strictly on the underlying SSL/TLS protocol.</p>
+          <p>It is recommended to use algorithms that provide perfect forward secrecy. This means that if an attacker possesses one of the long-term asymmetric secret keys (used to create the HTTPS session), he (or she) won't be able to derive the short-time session key, and to decrypt the actual messages. Not all asymmetric algorithms provide such security. Two known algorithms that do provide it are <a href="/eng/asymmetric/diffie-hellman.html">Diffie-Hellman</a> and Elliptic curve Diffie-Hellman key exchange algorithms.</p>
+          <h3 id="authentication">Authentication</h3>
+          <p>What is more, HTTPS provides website authentication. This protects against <a href="/eng/attacks/man-in-the-middle.html">man-in-the-middle</a> attacks. Web servers can be authenticated by proving certificates to web browsers. The web browsers contain the certificates of major authorities (such as Symantec, Comodo, GoDaddy, etc.) already pre-installed and are able to determine the true authenticity of the other side.</p>
+          <p>When a web browser fails to authenticate the web server it tries to connect to (for example due to an invalid certificate), it will usually display a proper warning to the user. Also, encrypted connections are usually presented with some kind of a green lock icon located somewhere near to the URL bar.</p>
+          <h3 id="http-vs-https">HTTP vs. HTTPS</h3>
+          <p>The HTTPS URL is the same as the HTTP one, aside from its scheme token (<em>https://</em> vs. <em>http://</em>). As mentioned above, most web browsers indicate usage of HTTPS by showing an icon of a green padlock.</p>
+          <p>HTTPS uses a different port number than the ordinary HTTP protocol: 443 by default, as opposed to port 80 used by HTTP.</p>
+          <p>To make sure that communication using HTTPS is secure, it is necessary that all content of a web-page (that means not only text but also images, scripts, etc.) is loaded over HTTPS. To avoid surveillance and various types of attacks, strictly no data should be provided over the HTTP protocol.</p>
+          <h2 id="SSLTLS">Secure Socket Layer and Transport Layer Security</h2>
+          <p>Both Transport Layer Security (TLS) and Secure Sockets Layer (SSL) refer to the same set of Application Layer protocols. They are used for protecting data exchanged by other Application Layer protocols.</p>
+          <p>SSL was originally developed in a company called Netscape. There are three versions of SSL protocol, invented in 1994, 1995 and 1996 years respectively. The first version of TLS was presented in 1999, as an improvement of the existing SSL 3.0 protocol. After 1999, two other TLS versions have been officially released: TLS 1.1 in 2006 and TLS 1.2 in 2009. The third version, TLS 1.3, is currently being prepared (as for 2016) and is due to be released soon. Generally, all the newer TLS and SSL versions were introducing new more reliable cryptographic algorithms, whereas the older and insecure versions were being removed. The protocol name changed from SSL to TLS to avoid potential legal issues from Netscape.</p>
+          <p>Nowadays, public and private keys used by TLS/SSL asymmetric algorithms contain thousands of bits. There exist a few popular implementations of TLS/SSL protocol for major programming languages and operating systems. <a href="http://openssl.com/" rel="noopener" target="_blank">OpenSSL</a> is perhaps the most popular one.</p>
+          <p>TLS/SSL protocols operate on the Application Layer under other Application Layer protocols and they are supposed to protect the messages exchanged by the later ones. Currently, TLS/SSL protocols are used to secure all major web functionalities:</p>
+          <ul>
+           <li><a href="#HTTPS">Web browsing (HTTPS)</a></li>
+           <li>Email</li>
+           <li>Voice-over-IP (VoIP)</li>
+           <li>Instant messaging</li>
+          </ul>
+          <p>TLS/SSL usually cooperates with the reliable TCP protocol operating on the Transport Layer. However, there exist also implementations that work with other Transport Layer protocols, including the unreliable ones like UDP.</p>
+          <p>There are three main functionalities provided by TLS/SSL:</p>
+          <ul>
+           <li><a href="#SSLTLSEncryption">Encryption</a></li>
+           <li><a href="#SSLTLSAuthentication">Authentication</a></li>
+           <li><a href="#SSLTLSIntegrity">Message Integrity</a></li>
+          </ul>
+          <p>Each functionality is described below in more details.</p>
+          <p>TLS/SSL protocol may be split into two sub-protocols, used in different phases of communication:</p>
+          <ul>
+           <li><a href="#SSLTLSHandshake"><strong>Handshake Protocol</strong></a> which is used to negotiate all the connection parameters and establish a secure session.</li>
+           <li><strong>Record Protocol</strong> which protects all the messages exchanged later by the underlying Application Layer protocol (thus, the messages with actually important data, like web contents or email messages).</li>
+          </ul>
+          <p>TLS messages are called <em>records</em>. Each record contains several control fields which describe the protocol version, the message type, the message length, etc. The control fields are followed by the actual data, and then by the (optional) message <a href="/eng/theory/mac.html">MAC</a> and the (also optional) <a href="/eng/theory/padding.html">padding</a> bytes.</p>
+          <h3 id="SSLTLSEncryption">Encryption</h3>
+          <p>Before establishing the connection, both sides negotiate the encryption parameters during so called <a href="#SSLTLSHandshake">TLS handshake protocol</a>. They must agree which encryption algorithm will be used and create proper cryptographic keys. The encryption used later for securing all messages is symmetric and usually the negotiated symmetric key is valid only for the time of one session.</p>
+          <p>The process of establishing the shared secret key is secure and the eavesdropper cannot obtain it even if he intercepted all the messages exchanged between the client and the server. What is more, the handshake protocol guarantees that the negotiated secret key was intact during transmission by the intruder, that is, that the communication is reliable.</p>
+          <p>The whole process of establishing the secure connection is protected against <a href="/eng/attacks/man-in-the-middle.html">man-in-the-middle</a> attacks.</p>
+          <h3 id="SSLTLSAuthentication">Authentication</h3>
+          <p>Both sides may authenticate themselves before creating the session. The authentication is performed by using the digital certificates signed by trusted third parties and asymmetric encryption with public and private keys.</p>
+          <p>The authentication step is optional and one or both sides may not require it. Usually, for convenience reasons, only the server authenticates itself.</p>
+          <p>The client may authenticate the other side by using the other side's public key (available from the certificate received from trusted Certificate Authorities) to decrypt some information encrypted earlier by the other side by using the corresponding private key. If the information can be properly decrypted, then the client should assume that the other side can be trusted.</p>
+          <h3 id="SSLTLSIntegrity">Message Integrity</h3>
+          <p>The whole communication protected by TLS/SSL is reliable and the protocol itself checks the integrity of all received messages.</p>
+          <p>The integrity checks are based on message <a href="/eng/theory/mac.html">authentication codes</a> attached to all messages. They are supposed to secure the messages against damages and alteration.</p>
+          <p>Similarly to other TLS/SSL functionalities, message integrity may also be provided by various different cryptographic algorithms, depending on the client and server capabilities.</p>
+          <h3 id="SSLTLSHandshake">Handshake Protocol</h3>
+          <p>The handshake procedure begins just after the sides agreed to use TLS. The client and the server choose all the parameters of the secure connection they are going to create.</p>
+          <ol class="steps">
+           <li>First, the client sends a list of supported ciphers and hash functions.</li>
+           <li>Then, the server selects the ones that it supports as well, and notifies the client of the decision.</li>
+           <li>Usually (and also optionally), the server identifies itself by presenting a valid digital certificate, which contains several information like the name of the server and its public key. The public key is used by the client to check the server validity.</li>
+           <li>The client may use the server public key to encrypt a random number and send it to the server, thus establishing the secret key which only the server will be able to decrypt.</li>
+           <li>Alternatively, the even better approach is to use a more secure asymmetric algorithm to establish a stronger symmetric key. There exist two asymmetric key exchange algorithms, <em>Diffie-Hellman</em> and <em>Elliptic curve Diffie-Hellman</em>, which provide an additional level of security by having the property of perfect forward secrecy. It means that secret symmetric keys established for each session will remain secure even if the long-term public and private keys used during the handshake protocol are compromised.</li>
+          </ol>
+          <p>If any of the steps described above fails (on either side), the connection is cancelled. The second phase of communication, the record protocol will not be started.</p>
+          <p>Due to the fact that session negotiating by using an asymmetric encryption algorithm is a rather expensive procedure, then instead of creating a new symmetric key, either side may try to resume the previously used session. If the other side accepts that, they will use the secret keys created for the previous session.</p>
+          <h3 id="security-of-tls-ssl">Security of TLS/SSL</h3>
+          <p>The secure TLS/SSL connection may be configured to use various underlying symmetric and asymmetric encryption algorithms. The strength of the protection depends strongly on the selected cipher and its implementation.</p>
+          <p>The two first SSL protocol versions are generally considered to be unsafe, whilst the third SSL version is comparable to TLS 1.1. As opposite to that, the newer TLS versions are much more refined and provide much better security. Although there exist several attacks targeting various TLS algorithm implementations, it is considered to be a strong and efficient tool for providing security during communicating over computer networks.</p>
+          <p>It is recommended to create secret keys by algorithms which provide perfect forward secrecy. That guarantees that private keys compromising (that belong for example to trusted Certificate Authorities) will not compromise the privacy of all communications protected by the derived private keys. Certificate Authority organisations were recently targeted by many attacks which led to disclosure of many long-term private keys and compromised many digital certificates.</p>
+          <h2 id="IRC">Internet Relay Chat</h2>
+          <p>IRC is an application layer protocol which allows to exchange text messages between users.</p>
+          <p>The protocol was created in 1988 by a Finnish software engineer, Jarkko Oikarinen. It was designed mainly for group communication via various discussion forums called channels but the protocol allows also to send and receive private messages or data.</p>
+          <h3 id="irc-overview">IRC Overview</h3>
+          <p>IRC works in client/server model. At first, every user has to install <button type="button" class="note-ref" popovertarget="note-irc-apps">a client application</button>. Using the client application, it is possible to send text messages to the IRC server, which transfers messages to other clients. The servers are connected together and form larger groups, so they can exchange messages between themselves.</p>
+          <p>There are several IRC services that provide some additional functionalities, like bots (sending messages generated by computer programs to channels) or bouncers (daemon processes that provide IRC communication to offline users or to computers without any IRC client installed).</p>
+          <p>The image below presents an example of the IRC network:</p>
+          <figure class="figure"><img src="/assets/img/theory/protocols/irc-eng.webp" alt="IRC Network Model" width="643" height="491" loading="lazy"></figure>
+          <h3 id="irc-protocol-design">IRC Protocol Design</h3>
+          <p>Usually IRC runs over the TCP protocol. The official TCP port assigned to IRC is 194, however to avoid having to run the server application with root privileges, the most common port to run IRC is 6667/TCP and a few other ports nearby (6660-6669 and 7000).</p>
+          <p>IRC specification is covered by several documents, RFC 1459 and a couple of later ones: RFC 2811, RFC 2812, and RFC 2813. However, most client and server applications don't follow the design strictly.</p>
+          <p>IRC was used originally only for sending text messages. Each character was encoded using <button type="button" class="note-ref" popovertarget="note-irc-7-bit-encoding">8 bits</button>, without specifying the type of encoding. This could cause problems when conversing users were using different encoding. At present, UTF-8 is the most popular encoding used in IRC messages and it is supported by most IRC applications.</p>
+          <p>IRC users communicate with server and other users by sending simple text commands. Every command specifies who is the recipient (a server, a channel or another user) and additional parameters like the text of the message.</p>
+          <h3 id="security-of-irc">Security of IRC</h3>
+          <p>The original design of IRC is insecure. Most servers don't require users to register an account and usually people can choose nicknames just before connecting to the channels.</p>
+          <p>Every process of changing the network structures is usually problematic and it may cause various issues (for example, because of several users having the same nicknames not necessarily with the same privileges). Also, it is assumed that servers trust one another during exchanging messages. A server that behaves incorrectly can cause problems to the whole network.</p>
+          <p>In the early 2000s some IRC networks were often attacked using <a href="/eng/attacks/dos.html#ddos">DDoS</a> and other more sophisticated attacks. This caused many users to migrate to different IRC networks or abandon that way of communication completely.</p>
+          <p>The limitations of the protocol are well known, and therefore improvements are often introduced in modern implementations. A lot of IRC servers have already started to support secure <a href="#SSLTLS">SSL/TLS</a> connections.</p>
+          <h3 id="irc-today">IRC Today</h3>
+          <p>IRC was the most popular in 2003. It is estimated that it was used by over one million people on hundreds of thousands of channels. Nowadays, the number of users has decreased to less than half a million in 2014. The reasons why people use IRC applications have also changed.</p>
+          <p>At the beginning, the IRC networks were used for social networking, however now websites like Facebook or Twitter took over these functions. People used to use IRC networks to broadcast unofficial or illegal news and information. At present, there are much better ways to do it (like <strong>TOR</strong>). IRC channels were used to exchange information about piracy software and warez. Nowadays, bad guys prefer to look for such information in other places, like P2P.</p>
+          <p>Due to commercialization of the Internet, a lot of companies have decided to invest money in their own products and to create their own ways of communication instead of using publicly available IRC. On the other hand, there are several IRC-based commercial or open source <button type="button" class="note-ref" popovertarget="note-irc-projects">projects</button> that are widely used by development teams and various firms and organizations for internal and external communication.</p>
+          <p>IRC is a very old protocol and it has been used for many years. The way of using the protocol has changed over that time. One may predict that IRC technology will be still used in various applications and services, at least over the next several years.</p>
+          <div class="note" id="note-irc-apps" popover>
+           <p>At present, IRC client applications are widely available for all major operating systems (mIRC, irssi, HexChat) and browsers (Mibbit, KiwiIRC). Most web browsers provide add-ons that allow to use IRC. The most popular server application is perhaps IRCd.</p>
+           <button type="button" class="note__close" popovertarget="note-irc-apps" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-irc-7-bit-encoding" popover>
+           <p>Before 1990s, when IRC was used mostly in Scandinavian countries, 7-bit encoding was the most popular one. It contained some quite pretty non-ASCII letters like &#xe4;, &#xf6;, and &#xe5;.</p>
+           <button type="button" class="note__close" popovertarget="note-irc-7-bit-encoding" popovertargetaction="hide">Close</button>
+          </div>
+          <div class="note" id="note-irc-projects" popover>
+           <p>One may mention <a href="http://freenode.net/" rel="noopener" target="_blank">Freenode</a>, a free network for open source software communities. The other example could be Campfire, a commercial web-based application that provides secure chat rooms and transmission of files and images. A bit different project, <a href="http://hubot.github.com/" rel="noopener" target="_blank">named Hubot</a> is also worth mentioning.</p>
+           <button type="button" class="note__close" popovertarget="note-irc-projects" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/tcp-ip-protocols.html" rel="prev"><small>← Previous</small>TCP/IP Protocols</a>
+          <a class="pager__next" href="/eng/theory/notation-of-numbers.html" rel="next"><small>Next →</small>Notation of numbers</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fapplication-protocols.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fapplication-protocols.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fapplication-protocols.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html" aria-current="page">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

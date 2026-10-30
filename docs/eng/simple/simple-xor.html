@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/prosty-xor.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple XOR Cipher | Polyalphabetic Substitution | Crypto-IT</title>
+  <meta name="description" content="Simple XOR Cipher is a polyalphabetic substitution cipher, which is based on the Vigenère cipher adapted for using by computer programs.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/simple-xor.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/simple-xor.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/prosty-xor.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/simple-xor.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Simple XOR Cipher | Polyalphabetic Substitution">
+  <meta property="og:description" content="Simple XOR Cipher is a polyalphabetic substitution cipher, which is based on the Vigenère cipher adapted for using by computer programs.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/simple-xor.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Simple XOR Cipher",
+        "description": "Simple XOR Cipher is a polyalphabetic substitution cipher, which is based on the Vigenère cipher adapted for using by computer programs.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/simple-xor.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Simple XOR Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/prosty-xor.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Simple XOR Cipher</h1>
+          <p class="article__subtitle">Polyalphabetic Substitution Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Despite its simplicity and susceptibility to attacks, the simple XOR cipher was used in many commercial applications, thanks to its speed and uncomplicated implementation.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>The simple XOR cipher was quite popular in early times of computers, in operating systems MS-DOS and Macintosh.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The simple XOR cipher is a variation of the <a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a>. It differs from the original version because it operates on bytes, which are stored in computer memory, instead of letters.</p>
+          <p>Instead of adding two alphabet letters, as in the original version of the Vigenère cipher, the XOR algorithm adds subsequent plaintext bytes to secret key bytes using XOR operation. After using the last secret key byte, one should return to the first byte (as in the Vigenère encryption).</p>
+          <p>In order to decrypt ciphertext bytes, one should take the same steps as during encryption. Subsequent ciphertext bytes should be added to subsequent secret key bytes using XOR operation.</p>
+          <p>Both encryption and decryption can be presented using the following equations:<br> <span class="math">M</span> XOR <span class="math">K = C</span><br> <span class="math">C</span> XOR <span class="math">K = M</span></p>
+          <h2 id="security-of-the-simple-xor-cipher">Security of the simple XOR cipher</h2>
+          <p>The simple XOR cipher is quite easy to break. It doesn't offer better protection than some other classical <a href="/eng/simple/polyalphabetic-substitution-ciphers.html">polyalphabetic substitution ciphers</a>. Using a computer, it is possible to break the cipher in a relatively short time.</p>
+          <p>Almost always, the first step to break the cipher should be guessing a length of the secret key. It can be easily achieved by calculating an <a href="/eng/theory/index-of-coincidence.html">index of coincidence</a> of the ciphertext.</p>
+          <p>After determining the length of the key, one should write down the same ciphertext in two lines, one under another. Bytes in the lower line should be offset by the secret key size with respect to the same bytes in the upper line. Then, after adding XOR both texts (after adding each two bytes in the same columns), one will receive a sequence of bytes without secret key modifications.</p>
+          <p>Thanks to the redundancy of information in languages stored in binary form as bytes, it is <a href="/eng/attacks/frequency-analysis.html">possible to guess</a> the original message letters based on the received bytes.</p>
+          <h2 id="implementation">Implementation</h2>
+          <p>The application written in C, that encrypts a given text file using a simple XOR cipher:</p>
+          <pre><code>#include &lt;stdio.h&gt;
+
+int main (int argc, char *argv[])
+{
+  FILE *fi, *fo;
+  char *cp;
+  int c;
+
+  if ((cp = argv[1]) &amp;&amp; *cp!='\0') {
+    if ((fi = fopen(argv[2], "rb")) != NULL) {
+      if ((fo = fopen(argv[3], "wb")) != NULL) {
+        while ((c = getc(fi)) != EOF) {
+          if (!*cp) cp = argv[1];
+          c ^= *(cp++);
+          putc(c,fo);
+        }
+        fclose(fo);
+      }
+      fclose(fi);
+    }
+  }
+  return 0;
+}</code></pre>
+          <p>Usage:<br> <span class="term">program_name key input_file output_file</span></p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/enigma.html" rel="prev"><small>← Previous</small>Enigma</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fsimple-xor.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fsimple-xor.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fsimple-xor.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html" aria-current="page">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

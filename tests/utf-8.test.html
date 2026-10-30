@@ -1,0 +1,57 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>UTF-8 tests</title>
+<!-- Open through a local server. Result shown on the page and in the title. -->
+<pre id="result">running…</pre>
+<script type="module">
+  import { encode, decode, parseBytes, Utf8Error }
+    from '../docs/assets/js/tools/utf-8.js';
+
+  const results = [];
+  const eq = (name, actual, expected) =>
+    results.push(actual === expected ? `ok   ${name}` : `FAIL ${name}: got ${JSON.stringify(actual)}, expected ${JSON.stringify(expected)}`);
+  const throws = (name, fn, code) => {
+    try { fn(); results.push(`FAIL ${name}: no error`); }
+    catch (e) { eq(name, e instanceof Utf8Error && e.code, code); }
+  };
+
+  // ASCII
+  eq('encode ASCII hex', encode('ABC', 'hex'), '41 42 43');
+  eq('encode ASCII decimal', encode('ABC', 'decimal'), '65 66 67');
+  eq('encode ASCII binary', encode('AB', 'binary'), '01000001 01000010');
+  eq('encode ASCII entities', encode('AB', 'entities'), '&#65;&#66;');
+
+  // Polish characters: "ą" = U+0105 -> C4 85 (196 133)
+  eq('encode polish ą hex', encode('ą', 'hex'), 'C4 85');
+  eq('encode polish żółć entities', encode('ą', 'entities'), '&#196;&#133;');
+  eq('decode polish hex', decode('C4 85', 'hex'), 'ą');
+  eq('decode polish entities', decode('&#196;&#133;', 'entities'), 'ą');
+
+  // Emoji (4-byte): 😀 = U+1F600 -> F0 9F 98 80
+  eq('encode emoji hex', encode('😀', 'hex'), 'F0 9F 98 80');
+  eq('decode emoji hex', decode('F0 9F 98 80', 'hex'), '😀');
+  eq('encode emoji decimal', encode('😀', 'decimal'), '240 159 152 128');
+
+  // Round trips across formats and a mixed string
+  const text = 'Zażółć gęślą jaźń — 日本語 😀';
+  for (const fmt of ['hex', 'decimal', 'binary', 'entities']) {
+    eq(`round trip ${fmt}`, decode(encode(text, fmt), fmt), text);
+  }
+
+  // parseBytes basics
+  eq('parse hex bytes', parseBytes('C4 85', 'hex').join(','), '196,133');
+  eq('parse decimal with commas', parseBytes('240, 159, 152, 128', 'decimal').join(','), '240,159,152,128');
+
+  // Errors
+  throws('invalid hex token', () => decode('ZZ', 'hex'), 'parse');
+  throws('byte out of range', () => decode('300', 'decimal'), 'parse');
+  throws('invalid binary token', () => decode('012', 'binary'), 'parse');
+  throws('garbage in entities', () => decode('&#65; hello', 'entities'), 'parse');
+  // Lone continuation byte 0x80 is not valid UTF-8 (fatal decoder rejects it)
+  throws('invalid utf-8 sequence', () => decode('80', 'hex'), 'invalid');
+  throws('truncated multibyte', () => decode('C4', 'hex'), 'invalid');
+
+  const failed = results.filter((r) => r.startsWith('FAIL')).length;
+  document.getElementById('result').textContent = `${results.join('\n')}\n\n${failed ? `${failed} FAILED` : 'ALL PASSED'}`;
+  document.title = failed ? 'FAILED' : 'PASSED';
+</script>

@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/symmetric/salsa20.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salsa20 Szyfr Symetryczny | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Salsa20 jest strumieniowym szyfrem symetrycznym, odznaczającym się przyzwoitą szybkością działania i dobrym poziomem zapewnianego bezpieczeństwa.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/symetryczne/salsa20.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/salsa20.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/salsa20.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/salsa20.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Salsa20 Szyfr Symetryczny | Kryptografia">
+  <meta property="og:description" content="Salsa20 jest strumieniowym szyfrem symetrycznym, odznaczającym się przyzwoitą szybkością działania i dobrym poziomem zapewnianego bezpieczeństwa.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/symetryczne/salsa20.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Salsa20",
+        "description": "Salsa20 jest strumieniowym szyfrem symetrycznym, odznaczającym się przyzwoitą szybkością działania i dobrym poziomem zapewnianego bezpieczeństwa.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/symetryczne/salsa20.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Szyfry symetryczne",
+            "item": "https://www.crypto-it.net/pl/symetryczne/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Szyfry strumieniowe",
+            "item": "https://www.crypto-it.net/pl/symetryczne/szyfry-strumieniowe.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Salsa20"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/" aria-current="true">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/symmetric/salsa20.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/symetryczne/">Szyfry symetryczne</a></li>
+            <li><a href="/pl/symetryczne/szyfry-strumieniowe.html">Szyfry strumieniowe</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Salsa20</h1>
+          <p class="article__subtitle">Szyfr strumieniowy z kluczem symetrycznym</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Długość klucza = 32 bajtów</li>
+          </ul>
+          <p>Salsa20 jest nowoczesnym i wydajnym strumieniowym szyfrem symetrycznym. Został on zaprojektowany w&nbsp;2005 roku przez Daniela Bernsteina, profesora informatyki na&nbsp;Uniwersytecie Illinois w&nbsp;Chicago.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Szyfr Salsa20 został zgłoszony do&nbsp;projektu eSTREAM, mającego miejsce w latach 2004 do 2008, który miał na celu spopularyzowanie szyfrów strumieniowych i doprowadził do opublikowania kilku nowych szyfrów strumieniowych przyzwoitej jakości. Salsa20 jest uważany za&nbsp;dobrze zaprojektowany i&nbsp;efektywny algorytm. Nie są znane żadne skuteczne ataki na&nbsp;szyfry z&nbsp;rodziny Salsa20.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Salsa20 jest szyfrem strumieniowym, który operuje na blokach danych o wielkości 64&nbsp;bajtów.</p>
+          <h3 id="szyfrowanie">Szyfrowanie</h3>
+          <p>Dla&nbsp;każdego 64-bajtowego bloku danych, algorytm wywołuje <strong>funkcję rozszerzającą</strong> Salsa20. Danymi wejściowymi do&nbsp;funkcji są: sekretny klucz (który może mieć 32 lub 16&nbsp;bajtów) oraz 8-bajtowy <button type="button" class="note-ref" popovertarget="note-nonce">nonce</button>, połączony dodatkowo z&nbsp;numerem aktualnie szyfrowanego bloku. Wartości numerów bloków zmieniają się od&nbsp;<span class="term">0</span> do&nbsp;<span class="term">2<sup>64</sup>-1</span> (jest więc zapisany na 8&nbsp;bajtach). Każde wywołanie funkcji rozszerzającej zwiększa wartość numeru bloku o&nbsp;jeden.</p>
+          <p>Rdzeniem algorytmu Salsa20 jest <strong>funkcja haszująca</strong>, która otrzymuje 64&nbsp;bajty z&nbsp;funkcji rozszerzającej, następnie miesza&nbsp;je, a na koniec zwraca inne 64&nbsp;bajty danych, z powrotem do funkcji rozszerzającej. Funkcja haszująca jako dane wejściowe przyjmuje ciąg bajtów, na który składają się:</p>
+          <ul>
+           <li>sekretny klucz.</li>
+           <li>nonce wraz z&nbsp;dodatkowym numerem bloku.</li>
+           <li>cztery&nbsp;stałe wektory, każdy składający się z 4&nbsp;bajtów, określone przez&nbsp;funkcję rozszerzającą, o wartościach zależących od długości używanego sekretnego klucza.</li>
+          </ul>
+          <p>Funkcja haszująca operuje na&nbsp;danych podzielonych na&nbsp;<strong>słowa</strong> (słowa maszynowe, ang. <i>words</i>). Każde słowo składa się z 4&nbsp;bajtów i&nbsp;może zawierać liczbę z&nbsp;przedziału od&nbsp;<span class="term">0</span> do&nbsp;<span class="term">2<sup>32</sup>-1</span>. Wynika z&nbsp;tego, że blok danych wejściowych ma 16&nbsp;słów długości, sekretny klucz zawiera 8 lub 4&nbsp;słowa, natomiast nonce ma 2&nbsp;słowa.</p>
+          <p>Wyjście z&nbsp;funkcji rozszerzającej szyfru Salsa20 jest dodawane&nbsp;XOR do 64-bajtowego bloku danych. Wynikiem tego działania jest 64-bajtowy blok zaszyfrowanego tekstu.</p>
+          <h3 id="deszyfrowanie">Deszyfrowanie</h3>
+          <p>W&nbsp;celu odszyfrowania otrzymanego szyfrogramu, należy wykorzystać ten sam algorytm. Dane powinny zostać podzielone w ten sam sposób.</p>
+          <p>Wyjście z&nbsp;funkcji rozszerzającej szyfru Salsa20 powinno być dodane&nbsp;XOR do&nbsp;64-bajtowego bloku zaszyfrowanego tekstu. Wynikiem tego sumowania jest 64-bajtowy blok tekstu jawnego.</p>
+          <h3 id="inne-szyfry-oparte-na-salsa20">Inne szyfry oparte na Salsa20</h3>
+          <p>Istnieje kilka odmian szyfru Salsa20. Bazują one na&nbsp;tym samym algorytmie, ale różnią się pewnymi detalami w&nbsp;implementacji.</p>
+          <ul>
+           <li><strong>Salsa20/8</strong> i <strong>Salsa20/12</strong> - działają dokładnie na&nbsp;tej samej zasadzie, co oryginalny algorytm Salsa20. Jedynie zamiast wykonania 10&nbsp;powtórzeń funkcji podwójnej rundy wewnątrz funkcji haszującej, przeprowadzają one odpowiednio 4&nbsp;lub 6&nbsp;powtórzeń.</li>
+           <li>rodzina szyfrów <strong>ChaCha</strong> - opublikowane przez Bernsteina w 2008&nbsp;roku. Zapewniają lepszą jakość zabezpieczeń dzięki użyciu nieco innych funkcji haszujących. Dane wejściowe są przekazywane w&nbsp;innej kolejności dla&nbsp;umożliwienia bardziej efektywnej implementacji.</li>
+          </ul>
+          <h2 id="schemat-blokowy-algorytmu-salsa20">Schemat blokowy algorytmu Salsa20</h2>
+          <figure class="figure">
+           <img src="/assets/img/salsa20/algorithm-scheme-pl.webp" alt="Schemat blokowy algorytmu Salsa20" width="707" height="707" loading="lazy">
+           <figcaption>Schemat blokowy algorytmu Salsa20</figcaption>
+          </figure>
+          <h2 id="matematyka">Matematyka</h2>
+          <p>Operacje wykonywane w&nbsp;ramach algorytmu szyfrującego Salsa20 zostały przedstawione od&nbsp;funkcji najniższego poziomu, do zbudowanych z nich funkcji wyższego poziomu.</p>
+          <h3 id="suma-dwoch-slow">Suma dwóch słów</h3>
+          <p>Dodawanie dwóch 4-bajtowych słów jest przedstawione w&nbsp;opisie algorytmu jako <var>a + b</var>. Wynik dodawania jest dzielony modulo przez&nbsp;<span class="term">2<sup>32</sup></span> (czyli przez maksymalną wartość słowa 4-bajtowego).</p>
+          <p>Suma dwóch słów <var>a</var> i&nbsp;<var>b</var> jest równa <var>a+b&nbsp;mod&nbsp;2<sup>32</sup></var>. Wynik ma 4&nbsp;bajty długości.</p>
+          <h3 id="xor-dwoch-slow">XOR dwóch słów</h3>
+          <p>Operacja&nbsp;XOR na&nbsp;dwóch 4-bajtowych słowach jest przedstawiona w&nbsp;opisie algorytmu jako <var>a XOR b</var>.</p>
+          <p>Aby dodać XOR dwa 4-bajtowe słowa, należy obie liczby porównać bit po&nbsp;bicie i dla każdej takiej pary bitów wykonać działanie XOR. Otrzymany wynik ma również 4&nbsp;bajty długości.</p>
+          <h3 id="rotacja-bitow-w-lewo">Rotacja bitów w lewo</h3>
+          <p>Rotacja w&nbsp;lewo o&nbsp;<var>a</var> bitów 4-bajtowego słowa <var>w</var> jest przedstawiona w&nbsp;opisie algorytmu jako <var>w &lt;&lt;&lt; a</var>. Podczas rotacji, <var>a</var> najbardziej skrajnych lewych bitów przechodzi na&nbsp;prawą stronę słowa.</p>
+          <p>Rotacja bitów w&nbsp;lewo <var>w &lt;&lt;&lt; a</var> 4-bajtowego słowa&nbsp;<var>w</var> może być przedstawiona jako operacja mnożenia:<br> <var>2<sup>a</sup>&middot;w mod(2<sup>32</sup>-1)</var><br> Otrzymany wynik jest poprawnym słowem, o długości 4&nbsp;bajtów.</p>
+          <h3 id="funkcja-cwiartki-rundy">Funkcja ćwiartki rundy</h3>
+          <span>(ang. <i>Quarterround Function</i>)</span>
+          <p>Funkcja Ćwiartki Rundy pobiera 4&nbsp;słowa danych wejściowych. Zwracany ciąg ma również długość 4&nbsp;słów.</p>
+          <p>Jeżeli <span class="term">x</span>&nbsp;jest wejściem do&nbsp;funkcji o&nbsp;długości 4&nbsp;słów:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">x&nbsp;= (x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>,&nbsp;x<sub>3</sub>)</span><br> to Funkcja Ćwiartki Rundy może być zdefiniowana następująco:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">quarterround(x)&nbsp;= (y<sub>0</sub>, y<sub>1</sub>, y<sub>2</sub>,&nbsp;y<sub>3</sub>)</span><br> gdzie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>1</sub>&nbsp;= x<sub>1</sub> </span>XOR<span class="math"> ((x<sub>0</sub> +&nbsp;x<sub>3</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math">&nbsp;7)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>2</sub>&nbsp;= x<sub>2</sub> </span>XOR<span class="math"> ((y<sub>1</sub> +&nbsp;x<sub>0</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math">&nbsp;9)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>3</sub>&nbsp;= x<sub>3</sub> </span>XOR<span class="math"> ((y<sub>2</sub> +&nbsp;y<sub>1</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math">&nbsp;13)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">y<sub>0</sub>&nbsp;= x<sub>0</sub> </span>XOR<span class="math"> ((y<sub>3</sub> +&nbsp;y<sub>2</sub>) </span><span class="math">&lt;&lt;&lt;</span><span class="math">&nbsp;18)</span></p>
+          <p>Funkcja Ćwiartki Rundy może wykonywać się w&nbsp;miejscu, to znaczy bez potrzeby przydzielania dodatkowej pamięci. Najpierw x<sub>1</sub> zamienia się na&nbsp;y<sub>1</sub>, potem x<sub>2</sub> przekształca się w&nbsp;y<sub>2</sub>, następnie x<sub>3</sub> przekształca się w&nbsp;y<sub>3</sub>, a na&nbsp;końcu x<sub>0</sub> zamienia się na&nbsp;y<sub>0</sub>. Funkcja Ćwiartki Rundy jest odwracalna, ponieważ wszystkie powyższe operacje są odwracalne.</p>
+          <h3 id="funkcja-rundy-wierszy">Funkcja rundy wierszy</h3>
+          <span>(ang. <i>Rowround Function</i>)</span>
+          <p>Funkcja Rundy Wierszy pobiera 16&nbsp;słów wejściowych, przekształca je i&nbsp;zwraca ciąg o&nbsp;długości również 16&nbsp;słów.</p>
+          <p>Funkcja&nbsp;ta jest bardzo podobna do&nbsp;Funkcji Rundy Kolumn, ale operuje na&nbsp;słowach w&nbsp;innej kolejności.</p>
+          <p>Jeżeli <var>x</var>&nbsp;jest 16-bajtowym ciągiem przekazanym do&nbsp;funkcji:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">x&nbsp;= (x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>,&nbsp;...,&nbsp;x<sub>15</sub>)</span><br> to Funkcja Rundy Wierszy może być zdefiniowana następująco:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">rowround(x)&nbsp;= (y<sub>0</sub>, y<sub>1</sub>, y<sub>2</sub>,&nbsp;...,&nbsp;y<sub>15</sub>)</span><br> gdzie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(y<sub>0</sub>, y<sub>1</sub>, y<sub>2</sub>,&nbsp;y<sub>3</sub>)&nbsp;= quarterround(x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>,&nbsp;x<sub>3</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(y<sub>5</sub>, y<sub>6</sub>, y<sub>7</sub>,&nbsp;y<sub>4</sub>)&nbsp;= quarterround(x<sub>5</sub>, x<sub>6</sub>, x<sub>7</sub>,&nbsp;x<sub>4</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(y<sub>10</sub>, y<sub>11</sub>, y<sub>8</sub>,&nbsp;y<sub>9</sub>)&nbsp;= quarterround(x<sub>10</sub>, x<sub>11</sub>, x<sub>8</sub>,&nbsp;x<sub>9</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(y<sub>15</sub>, y<sub>12</sub>, y<sub>13</sub>,&nbsp;y<sub>14</sub>)&nbsp;= quarterround(x<sub>15</sub>, x<sub>12</sub>, x<sub>13</sub>,&nbsp;x<sub>14</sub>)</span></p>
+          <br>
+          <p>Dane wejściowe do funkcji składające się z 16&nbsp;słów mogą być przedstawione za&nbsp;pomocą macierzy:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="16 słów wejściowych">
+           <tr>
+           <td>x<sub>0</sub></td>
+           <td>x<sub>1</sub></td>
+           <td>x<sub>2</sub></td>
+           <td>x<sub>3</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>4</sub></td>
+           <td>x<sub>5</sub></td>
+           <td>x<sub>6</sub></td>
+           <td>x<sub>7</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>8</sub></td>
+           <td>x<sub>9</sub></td>
+           <td>x<sub>10</sub></td>
+           <td>x<sub>11</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>12</sub></td>
+           <td>x<sub>13</sub></td>
+           <td>x<sub>14</sub></td>
+           <td>x<sub>15</sub></td>
+           </tr>
+           </table>
+          </div>
+          <p>Wiersze w&nbsp;macierzy są modyfikowane równocześnie. Każdy z&nbsp;nich jest przetwarzany za&nbsp;pomocą Funkcji Ćwiartki Rundy.</p>
+          <p>Słowa w&nbsp;pierwszym wierszu są zmieniane w&nbsp;następującej kolejności:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>1</sub></span></li>
+           <li><span class="term">x<sub>2</sub></span></li>
+           <li><span class="term">x<sub>3</sub></span></li>
+           <li><span class="term">x<sub>0</sub></span></li>
+          </ol>
+          <p>Słowa w&nbsp;drugim wierszu są zmieniane w&nbsp;następującej kolejności:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>6</sub></span></li>
+           <li><span class="term">x<sub>7</sub></span></li>
+           <li><span class="term">x<sub>4</sub></span></li>
+           <li><span class="term">x<sub>5</sub></span></li>
+          </ol>
+          <p>W&nbsp;trzecim wierszu, słowa zmieniane w&nbsp;kolejności:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>11</sub></span></li>
+           <li><span class="term">x<sub>8</sub></span></li>
+           <li><span class="term">x<sub>9</sub></span></li>
+           <li><span class="term">x<sub>10</sub></span></li>
+          </ol>
+          <p>W&nbsp;ostatnim, czwartym wierszu, słowa są zmieniane w&nbsp;kolejności:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>12</sub></span></li>
+           <li><span class="term">x<sub>13</sub></span></li>
+           <li><span class="term">x<sub>14</sub></span></li>
+           <li><span class="term">x<sub>15</sub></span></li>
+          </ol>
+          <h3 id="funkcja-rundy-kolumn">Funkcja rundy kolumn</h3>
+          <span>(ang. <i>Columnround Function</i>)</span>
+          <p>Funkcja Rundy Kolumn pobiera 16&nbsp;słów wejściowych i&nbsp;zwraca ciąg o&nbsp;długości również 16&nbsp;słów.</p>
+          <p>Jeżeli <var>x</var>&nbsp;jest wejściem do&nbsp;funkcji o&nbsp;długości 16&nbsp;słów:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">x&nbsp;= (x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>,&nbsp;...,&nbsp;x<sub>15</sub>)</span><br> to funkcja rundy kolumn może być zdefiniowana następująco:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">columnround(x)&nbsp;= (y<sub>0</sub>, y<sub>1</sub>, y<sub>2</sub>,&nbsp;...,&nbsp;y<sub>15</sub>)</span><br> gdzie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(y<sub>0</sub>, y<sub>4</sub>, y<sub>8</sub>,&nbsp;y<sub>12</sub>)&nbsp;= quarterround(x<sub>0</sub>, x<sub>4</sub>, x<sub>8</sub>,&nbsp;x<sub>12</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(y<sub>5</sub>, y<sub>9</sub>, y<sub>13</sub>,&nbsp;y<sub>1</sub>)&nbsp;= quarterround(x<sub>5</sub>, x<sub>9</sub>, x<sub>13</sub>,&nbsp;x<sub>1</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(y<sub>10</sub>, y<sub>14</sub>, y<sub>2</sub>,&nbsp;y<sub>6</sub>)&nbsp;= quarterround(x<sub>10</sub>, x<sub>14</sub>, x<sub>2</sub>,&nbsp;x<sub>6</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(y<sub>15</sub>, y<sub>3</sub>, y<sub>7</sub>,&nbsp;y<sub>11</sub>)&nbsp;= quarterround(x<sub>15</sub>, x<sub>3</sub>, x<sub>7</sub>,&nbsp;x<sub>11</sub>)</span></p>
+          <br>
+          <p>Dane wejściowe składające się z 16&nbsp;słów mogą być przedstawione za&nbsp;pomocą macierzy:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix" aria-label="16 słów wejściowych">
+           <tr>
+           <td>x<sub>0</sub></td>
+           <td>x<sub>1</sub></td>
+           <td>x<sub>2</sub></td>
+           <td>x<sub>3</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>4</sub></td>
+           <td>x<sub>5</sub></td>
+           <td>x<sub>6</sub></td>
+           <td>x<sub>7</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>8</sub></td>
+           <td>x<sub>9</sub></td>
+           <td>x<sub>10</sub></td>
+           <td>x<sub>11</sub></td>
+           </tr>
+           <tr>
+           <td>x<sub>12</sub></td>
+           <td>x<sub>13</sub></td>
+           <td>x<sub>14</sub></td>
+           <td>x<sub>15</sub></td>
+           </tr>
+           </table>
+          </div>
+          <p>Kolumny w&nbsp;macierzy mogą być przekształcane równocześnie. Każda z&nbsp;nich jest modyfikowana za&nbsp;pomocą Funkcji Ćwiartki Rundy.</p>
+          <p>W&nbsp;pierwszej kolumnie, słowa są zmieniane w&nbsp;następującej kolejności:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>4</sub></span></li>
+           <li><span class="term">x<sub>8</sub></span></li>
+           <li><span class="term">x<sub>12</sub></span></li>
+           <li><span class="term">x<sub>0</sub></span></li>
+          </ol>
+          <p>W&nbsp;drugiej kolumnie, słowa są zmieniane w&nbsp;kolejności:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>9</sub></span></li>
+           <li><span class="term">x<sub>13</sub></span></li>
+           <li><span class="term">x<sub>1</sub></span></li>
+           <li><span class="term">x<sub>5</sub></span></li>
+          </ol>
+          <p>W&nbsp;trzeciej kolumnie, słowa są zmieniane w&nbsp;następującej kolejności:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>14</sub></span></li>
+           <li><span class="term">x<sub>2</sub></span></li>
+           <li><span class="term">x<sub>6</sub></span></li>
+           <li><span class="term">x<sub>10</sub></span></li>
+          </ol>
+          <p>W&nbsp;ostatniej, czwartej kolumnie, słowa są zmieniane w&nbsp;kolejności:</p>
+          <ol class="steps">
+           <li><span class="term">x<sub>3</sub></span></li>
+           <li><span class="term">x<sub>7</sub></span></li>
+           <li><span class="term">x<sub>11</sub></span></li>
+           <li><span class="term">x<sub>15</sub></span></li>
+          </ol>
+          <h3 id="funkcja-podwojnej-rundy">Funkcja podwójnej rundy</h3>
+          <span>(ang. <i>Doubleround Function</i>)</span>
+          <p>Funkcja Podwójnej Rundy pobiera 16&nbsp;słów wejściowych, przekształca je, a na koniec zwraca ciąg o&nbsp;długości również 16&nbsp;słów.</p>
+          <p>Jeżeli <var>x</var>&nbsp;jest wejściem do&nbsp;funkcji o&nbsp;długości 16&nbsp;słów, to Funkcja Podwójnej Rundy może być zdefiniowana następująco:<br> &nbsp; &nbsp;&nbsp;<span class="math">doubleround(x)&nbsp;= rowround(columnround(x))</span></p>
+          <h3 id="funkcja-zmiany-porzadku-bajtow">Funkcja zmiany porządku bajtów</h3>
+          <span>(ang. <i>Littleendian Function</i>)</span>
+          <p>Otrzymane 4&nbsp;bajty są zwracane w&nbsp;odwrotnej kolejności.</p>
+          <p>Jeśli <var>b</var> jest ciągiem 4&nbsp;bajtów:<br> &nbsp; &nbsp;&nbsp;<span class="math">b&nbsp;= (b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>,&nbsp;b<sub>3</sub>)</span><br> to przekształcenie może być zdefiniowane następująco:<br> &nbsp; &nbsp;&nbsp;<span class="math">littleendian(b) = b<sub>0</sub> + 2<sup>8</sup>b<sub>1</sub> + 2<sup>16</sup>b<sub>2</sub> + 2<sup>24</sup>b<sub>3</sub></span></p>
+          <p>Zamiana&nbsp;ta jest odwracalna. Powtórne użycie tej&nbsp;funkcji na&nbsp;otrzymanych danych powoduje powrót do&nbsp;stanu pierwotnego.</p>
+          <h3 id="funkcja-haszujaca-salsa20">Funkcja haszująca Salsa20</h3>
+          <p>Funkcja Haszująca Salsa20 pobiera 64&nbsp;bajty wejściowe i&nbsp;zwraca również ciąg o&nbsp;długości 64&nbsp;bajtów.</p>
+          <p>Najpierw, Funkcja Haszująca tworzy 16&nbsp;słów bazując na&nbsp;otrzymanych 64&nbsp;bajtach wejściowych. Jeżeli <var>input</var> jest ciągiem 64&nbsp;bajtów:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">input&nbsp;=(b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>,&nbsp;..., b<sub>63</sub>)</span><br> to 16&nbsp;słów jest tworzonych następująco:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">w<sub>0</sub> = littleendian(b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>, b<sub>3</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">w<sub>1</sub> = littleendian(b<sub>4</sub>, b<sub>5</sub>, b<sub>6</sub>, b<sub>7</sub>)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">[...]</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">w<sub>15</sub> = littleendian(b<sub>60</sub>, b<sub>61</sub>, b<sub>62</sub>, b<sub>63</sub>)</span></p>
+          <p>Następnie, wszystkie 16&nbsp;słów jest modyfikowanych w&nbsp;trakcie 10&nbsp;iteracji Funkcji Podwójnej Rundy:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">(x<sub>0</sub>, x<sub>1</sub>,&nbsp;..., x<sub>15</sub>)&nbsp;= doubleround<sup>10</sup>(w<sub>0</sub>, w<sub>1</sub>,&nbsp;..., w<sub>15</sub>)</span></p>
+          <p>Na końcu, otrzymane na&nbsp;wejściu 16&nbsp;słów jest dodawanych (tak jak to opisano powyżej) do 16&nbsp;zmodyfikowanych słów i&nbsp;zamienianych na 64&nbsp;bajty przy użyciu Funkcji Zmiany Porządku Bajtów. Otrzymane w wyniku 64 bajty są wyjściem (<var>output</var>) z&nbsp;Funkcji Haszującej Salsa20:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">output&nbsp;= littleendian<sup>-1</sup>(x<sub>0</sub>+w<sub>0</sub>) + littleendian<sup>-1</sup>(x<sub>1</sub>+w<sub>1</sub>)&nbsp;+&nbsp;... + littleendian<sup>-1</sup>(x<sub>15</sub>+w<sub>15</sub>)</span></p>
+          <h3 id="funkcja-rozszerzajaca-salsa20">Funkcja rozszerzająca Salsa20</h3>
+          <p>Funkcja Rozszerzająca Salsa20 pobiera dwa ciągi bajtów. Pierwszy ciąg może mieć 16 lub 32&nbsp;bajty. Drugi ciąg ma 16&nbsp;bajtów długości. Funkcja zwraca ciąg o długości 64&nbsp;bajtów.</p>
+          <p>Jeżeli pierwszy ciąg ma&nbsp;długość 32&nbsp;bajtów, to jest&nbsp;on dzielony na&nbsp;dwa ciągi o&nbsp;długości 16&nbsp;bajtów każdy (<var>k<sub>0</sub></var> i&nbsp;<var>k<sub>1</sub></var>). Funkcja Rozszerzająca Salsa20 jest wtedy definiowana za pomocą Funkcji Haszującej Salsa20 w następujący sposób:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">Salsa20Expansion<sub>k<sub>0</sub>, k<sub>1</sub></sub>(n)&nbsp;= Salsa20Hash(a<sub>0</sub>, k<sub>0</sub>, a<sub>1</sub>, n, a<sub>2</sub>, k<sub>1</sub>,&nbsp;a<sub>3</sub>)</span><br> gdzie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a<sub>0</sub>&nbsp;= (101, 120, 112,&nbsp;97)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a<sub>1</sub>&nbsp;= (110, 100, 32,&nbsp;51)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a<sub>2</sub>&nbsp;= (50, 45, 98,&nbsp;121)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a<sub>3</sub>&nbsp;= (116, 101, 32,&nbsp;107)</span></p>
+          <p>Jeżeli pierwszy ciąg ma&nbsp;długość 16&nbsp;bajtów (<var>k</var>), to wtedy Funkcja Rozszerzająca Salsa20 jest definiowana za&nbsp;pomocą Funkcji Haszującej Salsa20 w&nbsp;sposób przedstawiony poniżej:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">Salsa20Expansion<sub>k</sub>(n)&nbsp;= Salsa20Hash(b<sub>0</sub>, k, b<sub>1</sub>, n, b<sub>2</sub>, k,&nbsp;b<sub>3</sub>)</span><br> gdzie:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">b<sub>0</sub>&nbsp;= (101, 120, 112,&nbsp;97)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">b<sub>1</sub>&nbsp;= (110, 100, 32,&nbsp;49)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">b<sub>2</sub>&nbsp;= (54, 45, 98,&nbsp;121)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">b<sub>3</sub>&nbsp;= (116, 101, 32,&nbsp;107)</span></p>
+          <p>Wartości wektora <var>(a<sub>0</sub>, a<sub>1</sub>, a<sub>2</sub>,&nbsp;a<sub>3</sub>)</var> oznaczają "<i>expand 32-byte&nbsp;k</i>", zapisane w&nbsp;kodzie ASCII. Wartości wektora <var>(b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>,&nbsp;b<sub>3</sub>)</var> oznacza "<i>expand 16-byte&nbsp;k</i>" w&nbsp;kodzie ASCII.</p>
+          <div class="note" id="note-nonce" popover>
+           <p><em>Nonce</em> (ang. <i>number used once</i>) to dowolna liczba (często losowa lub pseudolosowa), używana tylko raz w&nbsp;danej komunikacji kryptograficznej. Zapewnia bezpieczeństwo szyfrów strumieniowych (strumień klucza jest inny dla&nbsp;każdej wiadomości) i&nbsp;uniemożliwia ponowne wykorzystanie starych wiadomości w&nbsp;atakach powtórzeniowych.</p>
+           <button type="button" class="note__close" popovertarget="note-nonce" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/symetryczne/rc4.html" rel="prev"><small>← Poprzedni</small>RC4</a>
+          <a class="pager__next" href="/pl/symetryczne/css.html" rel="next"><small>Następny →</small>CSS</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Fsalsa20.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Fsalsa20.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fsymetryczne%2Fsalsa20.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symetryczne -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/symetryczne/">Szyfry symetryczne</a></h2>
+        <ul>
+          <li><a href="/pl/symetryczne/szyfry-strumieniowe.html">Szyfry strumieniowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/otp.html">OTP</a></li>
+              <li><a href="/pl/symetryczne/rc4.html">RC4</a></li>
+              <li><a href="/pl/symetryczne/salsa20.html" aria-current="page">Salsa20</a></li>
+              <li><a href="/pl/symetryczne/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/pl/symetryczne/szyfry-blokowe.html">Szyfry blokowe</a>
+            <ul>
+              <li><a href="/pl/symetryczne/des.html">DES</a></li>
+              <li><a href="/pl/symetryczne/rc2.html">RC2</a></li>
+              <li><a href="/pl/symetryczne/3des.html">3 DES</a></li>
+              <li><a href="/pl/symetryczne/aes.html">AES</a></li>
+              <li><a href="/pl/symetryczne/blowfish.html">Blowfish</a></li>
+              <li><a href="/pl/symetryczne/camellia.html">Camellia</a></li>
+              <li><a href="/pl/symetryczne/serpent.html">Serpent</a></li>
+              <li><a href="/pl/symetryczne/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symetryczne -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

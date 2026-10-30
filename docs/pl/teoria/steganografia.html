@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/steganography.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steganografia | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Steganografia polega na przekazywaniu ukrytych informacji. Poznaj jej historię oraz różne metody, które są stosowane obecnie.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/steganografia.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/steganography.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/steganografia.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/steganography.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Steganografia | Kryptografia">
+  <meta property="og:description" content="Steganografia polega na przekazywaniu ukrytych informacji. Poznaj jej historię oraz różne metody, które są stosowane obecnie.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/steganografia.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Steganografia",
+        "description": "Steganografia polega na przekazywaniu ukrytych informacji. Poznaj jej historię oraz różne metody, które są stosowane obecnie.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/steganografia.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Steganografia"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/steganography.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Steganografia</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Steganografia polega na przekazywaniu informacji w&nbsp;taki sposób, aby jej treść nie została wykryta. W&nbsp;przeciwieństwie do&nbsp;kryptografii, zapewnia się to nie przez zabezpieczanie tekstu szyfrem, ale ukrywając wiadomość w&nbsp;taki sposób, żeby sam fakt jej istnienia był tajemnicą.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="krotka-historia-steganografii">Krótka historia steganografii</h2>
+          <p>Pierwsze wzmianki o&nbsp;steganografii pochodzą z&nbsp;V&nbsp;w.&nbsp;p.n.e. Herodot opisywał sposób przesyłania wiadomości polegający nie na&nbsp;zapisywaniu tekstu na&nbsp;wosku pokrywającym deskę, co&nbsp;było zwykłym sposobem komunikacji w&nbsp;Grecji w&nbsp;tamtym okresie, ale poprzez nanoszenie informacji bezpośrednio na&nbsp;desce i&nbsp;przykrywaniu całości woskiem.</p>
+          <p>W&nbsp;czasie II&nbsp;wojny światowej w Niemczech wynaleziono i&nbsp;stosowano z&nbsp;powodzeniem tzw. mikrokropki, czyli dokumenty formatu&nbsp;A4 zmniejszone i&nbsp;zapisane na&nbsp;obszarze wielkości kropki (będącej częścią innego zwykłego tekstu).</p>
+          <p>Do&nbsp;steganografii zaliczają się też wszelkiego rodzaju <button type="button" class="note-ref" popovertarget="note-atrament">atramenty sympatyczne</button>. Były one stosowane od&nbsp;czasów starożytnych na&nbsp;całym świecie. Wraz z&nbsp;upływem czasu i&nbsp;pojawieniem się nowych technologii opracowywano coraz doskonalsze rodzaje atramentów sympatycznych, czyniąc je coraz trudniejszymi do wykrycia: bardziej bezwonnymi, niewidocznymi w&nbsp;świetle ultrafioletowym, łatwo rozpuszczalnymi w&nbsp;wodzie, itd. W roku&nbsp;1999 CIA odmówiło ujawnienia receptur atramentów sympatycznych z okresu I&nbsp;wojny światowej, tłumacząc, ze wciąż są one ważne dla bezpieczeństwa państwa.</p>
+          <h2 id="steganografia-obecnie">Steganografia obecnie</h2>
+          <p>Możliwości ukrywania przekazu znacznie zwiększyły się wraz z&nbsp;rozwojem technologii. Przykładowo technologia mikrokropek jest wykorzystywana w&nbsp;niemal wszystkich obecnie produkowanych drukarkach do oznaczania ich wydruków w&nbsp;sposób niewidzialny dla użytkownika.</p>
+          <p>Bardzo popularną obecnie metodą steganografii jest ukrywanie informacji w&nbsp;zapisanych cyfrowo obrazach. W&nbsp;tym celu wykorzystuje się pewną nadmiarowość obecną przy&nbsp;przechowywaniu obrazu elektronicznie. Każdy piksel zakodowany jest przy użyciu pewnej ilości bitów i&nbsp;zazwyczaj zmiana najmniej znaczących bitów jest niezauważalna dla&nbsp;przypadkowego odbiorcy. Te&nbsp;właśnie najmniej znaczące bity wykorzystuje się do&nbsp;przekazywania sekretnych informacji. Podobne efekty można osiągnąć modyfikując dźwięk zapisany elektronicznie.</p>
+          <p>Do innych pomysłowych metod steganografii można zaliczyć:</p>
+          <ul>
+           <li>wprowadzanie opóźnień w&nbsp;pakietach sieciowych,</li>
+           <li>modyfikacja znaków drukowanych - wielkości, pozycji, odstępów pomiędzy literami,</li>
+           <li>wykorzystywanie niewidocznych znaków Unicode o&nbsp;zerowej szerokości (na przykład znaków <i>Zero-Width Joiner</i> i&nbsp;<i>Zero-Width Non-Joiner</i>, które są interpretowane jedynie w&nbsp;języku arabskim),</li>
+           <li>zmiana kolejności elementów w&nbsp;zbiorach,</li>
+           <li>dodawanie danych w&nbsp;nie wykorzystywanych częściach plików, na&nbsp;przykład za&nbsp;znakiem końca pliku (<var>EOF</var>, ang. <i>end of&nbsp;file</i>).</li>
+          </ul>
+          <div class="note" id="note-atrament" popover>
+           <p>Atrament sympatyczny to określenie substancji, która jest bezbarwna lub staje się bezbarwna po&nbsp;pewnym czasie od&nbsp;naniesienia jej na&nbsp;docelową powierzchnię. Można ją potem odczytać przy&nbsp;użyciu określonej, właściwej dla&nbsp;danego rodzaju substancji, metody, na&nbsp;przykład oświetleniu światłem ultrafioletowym, podgrzaniu lub&nbsp;użyciu konkretnego środka chemicznego.</p>
+           <button type="button" class="note__close" popovertarget="note-atrament" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/kerckhoffs.html" rel="prev"><small>← Poprzedni</small>Zasada Kerckhoffsa</a>
+          <a class="pager__next" href="/pl/teoria/protokoly.html" rel="next"><small>Następny →</small>Protokoły</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fsteganografia.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fsteganografia.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fsteganografia.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html" aria-current="page">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

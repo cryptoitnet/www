@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/teoria/pbe.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Password-Based Encryption | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Password-based encryption (PBE) algorithms are mechanisms that allow users to create strong and secure secret keys.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/theory/pbe.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/pbe.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/pbe.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/pbe.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Password-Based Encryption | Cryptography">
+  <meta property="og:description" content="Password-based encryption (PBE) algorithms are mechanisms that allow users to create strong and secure secret keys.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/theory/pbe.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Password-Based Encryption (PBE)",
+        "description": "Password-based encryption (PBE) algorithms are mechanisms that allow users to create strong and secure secret keys.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/theory/pbe.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Theory",
+            "item": "https://www.crypto-it.net/eng/theory/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Password-Based Encryption (PBE)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/" aria-current="true">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/teoria/pbe.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/theory/">Theory</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Password-Based Encryption (PBE)</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Password-based encryption is a popular method of creating strong cryptographic keys.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>The strength of the cipher depends on the strength of the secret key. A strong secret key must contain characters that are not easily predictable, thus the secret key cannot be simply derived from the user's password (because passwords are usually memorable subsets of ASCII or UTF-8 characters).</p>
+          <p>Password-based encryption allows to create strong secret keys based on passwords provided by the users. The produced key bytes are supposed to be as random and unpredictable as possible.</p>
+          <p>PBE algorithms use a user's password together with some additional input parameters:</p>
+          <ul>
+           <li><a href="#part_salt">salt</a></li>
+           <li><a href="#part_iterations">iteration count</a></li>
+          </ul>
+          <p>There are two popular PBE standards that describe how to convert password bytes into the secret key: <strong>PKCS #5</strong> (supports ASCII characters) and <strong>PKCS #12</strong> (which supports 16-bit characters).</p>
+          <p>In essence, they use a mixing function based around a <a href="/eng/theory/one-way-function.html#hash">secure hash</a> function which is applied a number of times (specified by an iteration count). After the mixing, the output bytes are used to create the key for the cipher (together with the initialization vector if needed).</p>
+          <figure class="figure">
+           <img src="/assets/img/theory/pbe-eng.webp" alt="a diagram of PBE algorithms" width="1193" height="1624" loading="lazy">
+           <figcaption>A diagram of PBE algorithms</figcaption>
+          </figure>
+          <h2 id="part_salt">Salt</h2>
+          <p>The salt is a random number. It is supposed to prevent dictionary attacks. Without the salt, an intruder could use the same PBE algorithms and create a lot of keys for some popular phrases, often used as passwords. Adding a random value makes the combined input to the PBE algorithm completely random. It is no longer possible for the attacker to check all the likely PBE algorithm inputs.</p>
+          <p>Due to the fact that the salt is random, it is highly unlikely that the same salt would be reused twice, for multiple encryptions. The salt is not a secret value. It may be transmitted along with the ciphertext to the receiver.</p>
+          <p>Salt values are created by <a href="/eng/theory/pseudorandom-generator.html">pseudorandom number generators</a>. Ideally, the length of the salt should be the same as the output size of the hash function that was used to create it.</p>
+          <h2 id="part_iterations">Iteration Count</h2>
+          <p>The key derivation procedure may be made more complicated by running PBE algorithm many times. This would make the process of creating the secret key much more time consuming. Such a situation is certainly acceptable for the user, who has to perform the authentication procedure rarely and doesn't mind short delays. On the other hand, the attacker using <a href="/eng/attacks/brute-force.html">brute force attacks</a> and checking thousands of combinations would suffer significantly due to the increased time complexity.</p>
+          <p>Similarly to the salt, the iteration count may be transmitted to the receiver in the clear, along with the ciphertext.</p>
+          <p>It is recommended to use 1000 or more iterations to achieve a sufficiently good security level.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/theory/mac.html" rel="prev"><small>← Previous</small>MAC</a>
+          <a class="pager__next" href="/eng/theory/software-signing.html" rel="next"><small>Next →</small>Software signing</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fpbe.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fpbe.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Ftheory%2Fpbe.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-theory -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/theory/">Theory</a></h2>
+        <ul>
+          <li><a href="/eng/theory/introduction.html">Introduction</a></li>
+          <li><a href="/eng/theory/kerckhoffs.html">Kerckhoffs&#x27;s principle</a></li>
+          <li><a href="/eng/theory/steganography.html">Steganography</a></li>
+          <li><a href="/eng/theory/protocols.html">Protocols</a></li>
+          <li><a href="/eng/theory/tcp-ip-protocols.html">TCP/IP Protocols</a></li>
+          <li><a href="/eng/theory/application-protocols.html">Application Protocols</a></li>
+          <li><a href="/eng/theory/notation-of-numbers.html">Notation of numbers</a></li>
+          <li><a href="/eng/theory/binary-numbers.html">Binary numbers</a></li>
+          <li><a href="/eng/theory/utf-8.html">UTF-8 encoding</a></li>
+          <li><a href="/eng/theory/time-estimation-of-mathematical-operations.html">Time estimation of mathematical operations</a></li>
+          <li><a href="/eng/theory/modular-arithmetic.html">Modular arithmetic</a></li>
+          <li><a href="/eng/theory/ciphers-security.html">Information theoretic security of ciphers</a></li>
+          <li><a href="/eng/theory/padding.html">Padding</a></li>
+          <li><a href="/eng/theory/modes-of-block-ciphers.html">Block ciphers modes of operation</a></li>
+          <li><a href="/eng/theory/pseudorandom-generator.html">Pseudorandom generator</a></li>
+          <li><a href="/eng/theory/prf-and-prp.html">Pseudorandom functions and permutations</a></li>
+          <li><a href="/eng/theory/one-way-function.html">One-way function</a></li>
+          <li><a href="/eng/theory/mac.html">MAC</a></li>
+          <li><a href="/eng/theory/pbe.html" aria-current="page">PBE</a></li>
+          <li><a href="/eng/theory/software-signing.html">Software signing</a></li>
+          <li><a href="/eng/theory/index-of-coincidence.html">Index of coincidence</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-theory -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

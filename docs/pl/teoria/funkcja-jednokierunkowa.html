@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/one-way-function.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funkcja Jednokierunkowa | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Funkcje jednokierunkowe to funkcje, które łatwo obliczyć, ale za to dużo trudniej obliczyć wartość ich funkcji odwrotnych.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/funkcja-jednokierunkowa.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/one-way-function.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/funkcja-jednokierunkowa.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/one-way-function.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Funkcja Jednokierunkowa | Kryptografia">
+  <meta property="og:description" content="Funkcje jednokierunkowe to funkcje, które łatwo obliczyć, ale za to dużo trudniej obliczyć wartość ich funkcji odwrotnych.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/funkcja-jednokierunkowa.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Funkcja jednokierunkowa",
+        "description": "Funkcje jednokierunkowe to funkcje, które łatwo obliczyć, ale za to dużo trudniej obliczyć wartość ich funkcji odwrotnych.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/funkcja-jednokierunkowa.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Funkcja jednokierunkowa"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/one-way-function.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Funkcja jednokierunkowa</h1>
+          <p class="article__subtitle">(ang. one-way function)</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Funkcja jednokierunkowa to funkcja, którą łatwo obliczyć, ale za to dużo trudniej obliczyć wartość jej funkcji odwrotnej. Znając wartość&nbsp;<span class="term">x</span> można łatwo obliczyć&nbsp;<span class="term">f(x)</span>. Z&nbsp;drugiej strony znając wartość&nbsp;<span class="term">f(x)</span> bardzo trudno jest wyznaczyć oryginalną wartość&nbsp;<span class="term">x</span>.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>W&nbsp;sensie ściśle matematycznym nie&nbsp;jest udowodnione, że funkcje jednokierunkowe <button type="button" class="note-ref" popovertarget="note-istnieja">rzeczywiście istnieją</button>. W&nbsp;praktyce jednak, wykorzystuje się funkcje, które zachowują się tak, jak powinny zachowywać się idealne funkcje jednokierunkowe.</p>
+          <p>Funkcje jednokierunkowe są kluczowymi elementami wielu narzędzi przydatnych w&nbsp;kryptografii. Są wykorzystywane w&nbsp;<a href="/pl/teoria/generator-pseudolosowy.html">generatorach pseudolosowych</a>, <a href="/pl/teoria/mac.html">uwierzytelnianiu wiadomości</a> i w&nbsp;<a href="#hash">podpisach elektronicznych</a>.</p>
+          <h2 id="jednokierunkowa-funkcja-zapadkowa">Jednokierunkowa funkcja zapadkowa</h2>
+          <span>(ang. <i>trapdoor one-way function</i>)</span>
+          <p>Jednokierunkowa funkcja zapadkowa to specjalny typ funkcji jednokierunkowej, która posiada swego rodzaju "tylne drzwi" (zapadnię). Podobnie jak w przypadku wszystkich funkcji jednokierunkowych, łatwo jest obliczyć wynik w jednym kierunku, natomiast trudno obliczać w kierunku przeciwnym. Różnica polega na tym, że jeśli posiada się pewne dodatkowe sekretne informacje, to bez większych problemów można obliczyć taką funkcję w&nbsp;kierunku przeciwnym.</p>
+          <p>Przykładem jednokierunkowych funkcji zapadkowych może być rozkład bardzo dużych liczb na&nbsp;czynniki pierwsze. Jest&nbsp;to zadanie obecnie praktycznie niewykonalne. Z&nbsp;drugiej strony, znając jedną z&nbsp;poszukiwanych liczb, zadanie rozkładu na&nbsp;czynniki pierwsze staje się bardzo proste.</p>
+          <h2 id="hash">Jednokierunkowa funkcja skrótu</h2>
+          <span>(ang. <i>one-way hash function</i>)</span>
+          <p>Jednokierunkowe funkcje skrótu (istnieje wiele <button type="button" class="note-ref" popovertarget="note-hash">innych określeń</button> funkcji tego typu) przekształcają ciągi wejściowe o&nbsp;różnej długości w&nbsp;ciągi wyjściowe o&nbsp;stałej (zwykle mniejszej) długości. Ciąg wyjściowy jest nazywany często wartością skrótu (ang. <i>hash value</i>). Jednokierunkowe funkcje skrótu są często wykorzystywane do&nbsp;oznaczania porcji danych, czyli do&nbsp;przypisywania im&nbsp;pewnych unikalnych, charakterystycznych wartości.</p>
+          <p>Jednokierunkowe funkcje skrótu spełniają wszystkie warunki, jakie muszą posiadać funkcje jednokierunkowe. Łatwo jest obliczyć skrót na&nbsp;podstawie ciągu wejściowego, natomiast dysponując tylko skrótem nie&nbsp;da się przewidzieć jakie były oryginalne dane wejściowe.</p>
+          <p>Funkcja skrótu powinna być bezkonfliktowa (ang. <i>collision-free</i>), czyli bardzo trudno powinno być wskazać dwa różne ciągi wejściowe, które dają w&nbsp;wyniku <button type="button" class="note-ref" popovertarget="note-birthday">taki sam skrót</button>.</p>
+          <p>Algorytmy funkcji skrótu są często jawne. Zapewniają bezpieczeństwo dzięki swoim właściwościom, posiadanym z&nbsp;definicji jako funkcje jednokierunkowe. Zwykle zmiana dowolnego bitu w&nbsp;ciągu wejściowym, powoduje zmianę około połowy bitów wartości skrótu. Dane generowane przez&nbsp;funkcje skrótu powinny być pseudolosowe (nie&nbsp;powinno być możliwe odróżnienie ich od&nbsp;zwykłych danych losowych).</p>
+          <p>Jednokierunkowe funkcje skrótu używane są w&nbsp;celu ochrony przed&nbsp;celowymi lub&nbsp;przypadkowymi modyfikacjami danych. Dla&nbsp;danego zbioru danych można wyliczyć za&nbsp;ich pomocą sumę kontrolną, która będzie mogła być załączona do&nbsp;wiadomości i&nbsp;sprawdzona przez jej odbiorców. Weryfikacja odbywa się poprzez wyliczenie przez&nbsp;odbiorców sumy kontrolnej dla otrzymanych danych i&nbsp;porównanie jej z&nbsp;wartością otrzymaną). Funkcje skrótu wykorzystywane są na&nbsp;przykład w&nbsp;algorytmie uwierzytelniania wiadomości <a href="/pl/teoria/mac.html#hmac">HMAC</a>.</p>
+          <p>Ponadto, funkcje skrótu są wykorzystywane do&nbsp;efektywnego przechowywania danych w&nbsp;tak zwanych tablicach haszujących. Dostęp do&nbsp;danych odbywa się poprzez&nbsp;odszukiwanie właściwych wartości skrótu, przechowywanych w&nbsp;pamięci komputera.</p>
+          <h2 id="rozszerzenie-funkcji-skrotu">Rozszerzenie funkcji skrótu</h2>
+          <p>Mając daną funkcję skrótu operującą na&nbsp;niewielkim bloku danych, można rozszerzyć ją i&nbsp;skonstruować funkcję operującą na&nbsp;większej, dowolnie dużej ilości danych wejściowych. W ten sposób staje się możliwe obliczenie wartości skrótu dla&nbsp;wiadomości o&nbsp;dowolnej długości. Można w&nbsp;tym celu wykorzystać tak zwaną <strong>konstrukcję Merkle-Damgard</strong>.</p>
+          <p>Poniższy schemat prezentuje sposób połączenia bloków funkcji skrótu (<span class="math">h:&nbsp;T&nbsp;x&nbsp;X&nbsp;</span><span class="math">→</span><span class="math">&nbsp;T</span>, gdzie&nbsp;<span class="math">T</span> to zbiór wszystkich możliwych wartości skrótu), z&nbsp;których każda operuje na&nbsp;jednym bloku danych, w&nbsp;łańcuch, który umożliwia wyliczenie wartości skrótu dla&nbsp;całej wiadomości (<span class="math">H:&nbsp;X<sup>L</sup>&nbsp;</span><span class="math">→</span><span class="math">&nbsp;T</span>).</p>
+          <figure class="figure"><img src="/assets/img/theory/merkle-damgard-pl.webp" alt="Schemat konstrukcji Merkle-Damgard" width="1089" height="219" loading="lazy"></figure>
+          <br>
+          <p>Do&nbsp;pierwszej funkcji&nbsp;<var>h</var> przekazywany jest wcześniej ustalony wektor inicjujący&nbsp;<var>IV</var>. Natomiast ostatni blok wiadomości, powinien zostać dopełniony do&nbsp;pełnej długości za&nbsp;pomocą <a href="/pl/teoria/dopelnienie.html">wcześniej ustalonych bitów</a>. Popularną metodą wyrównywania długości ostatniego bloku jest dopisanie za&nbsp;ostatnim bitem wiadomości dodatkowego bitu równego&nbsp;<span class="term">1</span>, a następnie dopełnienie bloku bitami zerowymi. Pozwala to precyzyjnie określić koniec właściwych bitów wiadomości.</p>
+          <p>Można wykazać, że jeśli funkcja&nbsp;<var>h</var> jest bezkonfliktowa, to utworzona na&nbsp;jej bazie funkcja&nbsp;<var>H</var> jest również bezkonfliktowa (ponieważ kolizja w funkcji&nbsp;<var>H</var> powodowałaby automatycznie kolizję w funkcji&nbsp;<var>h</var>).</p>
+          <h2 id="blockcipherhash">Konstrukcja funkcji skrótu na&nbsp;bazie szyfru blokowego</h2>
+          <p>Istnieje kilka popularnych sposobów utworzenia jednokierunkowej funkcji skrótu, operującej na&nbsp;danych wejściowych dowolnej długości, przy&nbsp;użyciu algorytmów szyfrów blokowych.</p>
+          <p>Funkcja skrótu <strong>Davies-Meyer</strong> (oznaczona jako&nbsp;<var>h</var>) wykorzystuje algorytm szyfrujący&nbsp;<var>E</var> operujący na&nbsp;kolejnych blokach wiadomości:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">h(H,&nbsp;m)&nbsp;= E(m,&nbsp;H)</span> XOR&nbsp;<span class="math">H</span></p>
+          <p>Budowa funkcji Davies-Meyer jest przedstawione poniżej:</p>
+          <figure class="figure"><img src="/assets/img/theory/davies-meyer-pl.webp" alt="Schemat funkcji Davies-Meyer" width="1134" height="253" loading="lazy"></figure>
+          <br>
+          <p>Można wykazać, że jeżeli&nbsp;<var>E</var> jest bezpiecznym algorytmem szyfru blokowego, to ewentualny napastnik musiałby wykonać w&nbsp;przybliżeniu <span class="term">O(2<sup>n/2</sup>)</span>&nbsp;operacji szyfrowania, aby znaleźć kolizję (czyli wiadomość, dla&nbsp;której wyliczona wartość skrótu jest taka sama, jak wartość, której on&nbsp;poszukuje).</p>
+          <p>Innym rodzajem funkcji skrótu opartej na&nbsp;algorytmie szyfru blokowego są funkcje <strong>Miyaguchi-Preneel</strong>. Istnieje 12&nbsp;odmian tych funkcji, przykładowo:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">h(H,&nbsp;m)&nbsp;= E(m,&nbsp;H)</span> XOR&nbsp;<span class="math">H</span> XOR&nbsp;<span class="math">m</span><br> lub:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">h(H,&nbsp;m)&nbsp;= E(H</span>&nbsp;XOR&nbsp;<span class="math">m,&nbsp;m)</span> XOR&nbsp;<span class="math">m</span></p>
+          <div class="note" id="note-istnieja" popover>
+           <p>Udowodnienie, że funkcje jednokierunkowe istnieją, automatycznie udowodniłoby szerszą zależność, że problemy o&nbsp;złożonościach niedeterministycznie wielomianowej&nbsp;(<var>NP</var>) i&nbsp;deterministycznie wielomianowej&nbsp;(<var>P</var>) mają różne złożoności (czyli, że <var>NP</var> nie&nbsp;równa się&nbsp;<var>P</var>). Jest&nbsp;to jedno z&nbsp;najważniejszych współczesnych zagadnień algorytmiki.</p>
+           <button type="button" class="note__close" popovertarget="note-istnieja" popovertargetaction="hide">Zamknij</button>
+          </div>
+          <div class="note" id="note-hash" popover>
+           <p>Jednokierunkowe funkcje skrótu są nazywane również funkcjami haszującymi (z&nbsp;ang. <i>one-way hash functions</i>), ściągającymi (ang. <i>contraction functions</i>), kompresującymi (ang. <i>compression functions</i>), skrótem wiadomości (ang. <i>message digest</i>), odciskiem palca (ang. <i>fingerprint</i>), kryptograficzną sumą kontrolną (ang. <i>cryptographic checksum</i>), kontrolą spójności wiadomości (ang. <i>message integrity check</i> -&nbsp;<i>MIC</i>) i&nbsp;kodem wykrywania ingerencji (ang. <i>manipulation detection code</i> -&nbsp;<i>MDC</i>).</p>
+           <p>Funkcje kompresujące pobierają stałą ilość danych wejściowych i&nbsp;zwracają również stałą ilość danych wyjściowych. Są wykorzystywane w&nbsp;wielu algorytmach kryptograficznych, na&nbsp;przykład w&nbsp;szyfrach blokowych.</p>
+           <button type="button" class="note__close" popovertarget="note-hash" popovertargetaction="hide">Zamknij</button>
+          </div>
+          <div class="note" id="note-birthday" popover>
+           <p>Należy przy tym zwrócić uwagę, że zgodnie z&nbsp;<em>paradoksem dnia urodzin</em> kolizja pojawia się po&nbsp;sprawdzeniu za&nbsp;pomocą prostego <a href="/pl/ataki/atak-silowy.html">ataku siłowego</a> liczby możliwych wiadomości równej w&nbsp;przybliżeniu pierwiastkowi z&nbsp;liczby wszystkich możliwych wiadomości.</p>
+           <p>Znacznie ogranicza to czas potrzebny na znalezienie powtarzających się wartości funkcji skrótu, dlatego projektując funkcje haszujące należy brać to pod&nbsp;uwagę. Przykładowo, dla&nbsp;funkcji SHA-256 należałoby sprawdzić mniej więcej 2<sup>128</sup>&nbsp;wiadomości, co czyni ją relatywnie bezpieczną.</p>
+           <button type="button" class="note__close" popovertarget="note-birthday" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/prf-i-prp.html" rel="prev"><small>← Poprzedni</small>Funkcje i permutacje pseudolosowe</a>
+          <a class="pager__next" href="/pl/teoria/mac.html" rel="next"><small>Następny →</small>MAC</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Ffunkcja-jednokierunkowa.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Ffunkcja-jednokierunkowa.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Ffunkcja-jednokierunkowa.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html" aria-current="page">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

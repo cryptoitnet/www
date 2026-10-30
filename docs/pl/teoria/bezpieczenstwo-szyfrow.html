@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/ciphers-security.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bezpieczeństwo Szyfrów Zgodne z Teorią Informacji | Crypto-IT</title>
+  <meta name="description" content="Ocena poziomu zabezpieczeń szyfrów: Całkowite Bezpieczeństwo i Bezpieczeństwo Semantyczne. Definicje, opisy, przykłady.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/bezpieczenstwo-szyfrow.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/ciphers-security.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/bezpieczenstwo-szyfrow.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/ciphers-security.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Bezpieczeństwo Szyfrów Zgodne z Teorią Informacji">
+  <meta property="og:description" content="Ocena poziomu zabezpieczeń szyfrów: Całkowite Bezpieczeństwo i Bezpieczeństwo Semantyczne. Definicje, opisy, przykłady.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/bezpieczenstwo-szyfrow.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Bezpieczeństwo szyfrów zgodne z teorią informacji",
+        "description": "Ocena poziomu zabezpieczeń szyfrów: Całkowite Bezpieczeństwo i Bezpieczeństwo Semantyczne. Definicje, opisy, przykłady.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/bezpieczenstwo-szyfrow.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Bezpieczeństwo szyfrów zgodne z teorią informacji"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/ciphers-security.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Bezpieczeństwo szyfrów zgodne z teorią informacji</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Siłę szyfru można określić, oceniając jego odporność na&nbsp;ataki przeprowadzane jedynie od&nbsp;strony technicznej (czyli z&nbsp;pominięciem błędów powodowanych przez&nbsp;człowieka używającego ten&nbsp;szyfr). Zapewnianie przez szyfr całkowitego bezpieczeństwa jest najwyższym stopniem zabezpieczenia, jakie można zdefiniować. W&nbsp;rzeczywistości, zwykle używane jest pojęcie bezpieczeństwa semantycznego, które określa warunki dla&nbsp;zagwarantowania praktycznego bezpieczeństwa szyfru.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="calkowite-bezpieczenstwo">Całkowite bezpieczeństwo</h2>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Szyfr <span class="math">(E,&nbsp;D)</span> zdefiniowany na&nbsp;<span class="math">(K,&nbsp;M,&nbsp;C)</span> zapewnia <strong>całkowite bezpieczeństwo</strong> (ang.&nbsp;<i>perfect secrecy</i>) jeśli dla każdych dwóch wiadomości <span class="math">m<sub>1</sub></span> i&nbsp;<span class="math">m<sub>2</sub></span> (o&nbsp;takiej samej długości) należących do&nbsp;<span class="math">M</span> i&nbsp;dla każdego <span class="math">c</span> należącego do&nbsp;C, zachodzi równość:<br> <span class="math">P[E(k,&nbsp;m<sub>1</sub>)=c]&nbsp;=&nbsp;P[E(k,&nbsp;m<sub>2</sub>)=c]</span><br> gdzie:
+           <ul>
+           <li>klucz <span class="math">k</span> należy do zbioru&nbsp;<span class="math">K</span> zawierającego wszystkie możliwe klucze szyfrujące,</li>
+           <li><span class="math">M</span> to zbiór zawierający wszystkie możliwe wiadomości,</li>
+           <li><span class="math">C</span> to zbiór zawierający wszystkie możliwe szyfrogramy (zaszyfrowane wiadomości).</li>
+           </ul>
+           <div class="definition__note">
+           <ul>
+           <li>Na&nbsp;podstawie szyfrogramu nie&nbsp;da&nbsp;się określić, która z&nbsp;dwóch możliwych wiadomości została zakodowana</li>
+           <li>Na&nbsp;podstawie szyfrogramu nie&nbsp;da się niczego dowiedzieć o&nbsp;tekście jawnym</li>
+           <li>Szyfru nie&nbsp;da&nbsp;się złamać stosując wyłącznie <a href="/pl/ataki/znany-szyfrogram.html">ataki ze&nbsp;znanym szyfrogramem</a></li>
+           <li><span class="math">|K|&nbsp;>=&nbsp;|M|</span></li>
+           </ul>
+           </div>
+          </aside>
+          <p>Szyfr&nbsp;<a href="/pl/symetryczne/otp.html">OTP</a> jest jedynym znanym szyfrem, który zapewnia całkowite bezpieczeństwo.</p>
+          <h2 id="bezpieczenstwo-semantyczne">Bezpieczeństwo semantyczne</h2>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Szyfr jest <strong>semantycznie bezpieczny</strong> (ang.&nbsp;<i>semantically secure</i>) jeżeli znajomość zaszyfrowanego tekstu i długości oryginalnej wiadomości, nie ujawnia żadnych dodatkowych i <strong>praktycznie osiągalnych</strong> informacji o oryginalnym tekście.
+          </aside>
+          <p>Każdy <button type="button" class="note-ref" popovertarget="note-ppta">probabilistyczny algorytm o złożoności wielomianowej</button> (<var>PPTA</var>), który otrzymuje zaszyfrowany <strong>przy użyciu szyfru semantycznie bezpiecznego</strong> tekst danej wiadomości oraz&nbsp;długość tej&nbsp;wiadomości nie&nbsp;może określić żadnych dodatkowych informacji o&nbsp;oryginalnej wiadomości z&nbsp;prawdopodobieństwem <button type="button" class="note-ref" popovertarget="note-negligible">niezaniedbywalnie</button> (ang.&nbsp;<i>non-negligibly</i>) większym niż wszystkie inne algorytmy <var>PPTA</var>, które otrzymują jedynie długość oryginalnej wiadomości i&nbsp;nie mają dostępu do&nbsp;tekstu zaszyfrowanego.</p>
+          <p>Można wykazać, że <a href="/pl/symetryczne/otp.html">szyfr&nbsp;OTP</a> jest semantycznie bezpieczny, o&nbsp;ile używa całkowicie losowego klucza szyfrującego. Podobnie, każdy szyfr strumieniowy może posiadać tę&nbsp;własność, pod&nbsp;warunkiem, że wykorzystywany w&nbsp;nim <a href="/pl/teoria/generator-pseudolosowy.html">generator pseudolosowy</a> jest bezpieczny.</p>
+          <div class="note" id="note-negligible" popover>
+           <p>Wielkość zaniedbywalna&nbsp;- przyjmuje się, że wielkość <var>e</var>&nbsp;jest:</p>
+           <ul>
+           <li>niezaniedbywalna, jeżeli <span class="math">e&nbsp;&gt;&#61; 1&#47;2<sup>30</sup></span> (w&nbsp;praktyce prawdopodobnie zdarzy się w <span class="math">1GB</span>&nbsp; danych)</li>
+           <li>zaniedbywalna, jeżeli <span class="math">e&nbsp;&lt;&#61; 1&#47;2<sup>80</sup></span> (w&nbsp;praktyce nie&nbsp;zdarzy się w&nbsp;czasie życia klucza)</li>
+           </ul>
+           <button type="button" class="note__close" popovertarget="note-negligible" popovertargetaction="hide">Zamknij</button>
+          </div>
+          <div class="note" id="note-ppta" popover>
+           <p>Probabilistyczny algorytm o&nbsp;złożoności wielomianowej (ang.&nbsp;<i>probabilistic, polynomial-time algorithm</i>&nbsp;- <var>PPTA</var>) to niedeterministyczny algorytm o&nbsp;<a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html#czas_wielomianowy">wielomianowej złożoności obliczeniowej</a>, z&nbsp;prawdopodobieństwem błędu mniejszym niż&nbsp;0.5 dla&nbsp;wszystkich jego&nbsp;wywołań.</p>
+           <button type="button" class="note__close" popovertarget="note-ppta" popovertargetaction="hide">Zamknij</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/arytmetyka-modularna.html" rel="prev"><small>← Poprzedni</small>Arytmetyka modularna</a>
+          <a class="pager__next" href="/pl/teoria/dopelnienie.html" rel="next"><small>Następny →</small>Dopełnianie bloków</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fbezpieczenstwo-szyfrow.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fbezpieczenstwo-szyfrow.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fbezpieczenstwo-szyfrow.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html" aria-current="page">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/asymmetric/merkle-puzzles.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Puzzle Merkle’a | Szyfrowanie Asymetryczne | Crypto-IT</title>
+  <meta name="description" content="Algorytm Puzzli Merkle’a umożliwia wynegocjowanie wspólnego sekretnego klucza przez dowolne dwie osoby, bez potrzeby żadnych wcześniejszych ustaleń pomiędzy…">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/asymetryczne/puzzle-merkle.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/merkle-puzzles.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/puzzle-merkle.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/asymmetric/merkle-puzzles.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Puzzle Merkle’a | Szyfrowanie Asymetryczne">
+  <meta property="og:description" content="Algorytm Puzzli Merkle’a umożliwia wynegocjowanie wspólnego sekretnego klucza przez dowolne dwie osoby, bez potrzeby żadnych wcześniejszych ustaleń pomiędzy…">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/asymetryczne/puzzle-merkle.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Puzzle Merkle’a (ang. Merkle's Puzzles)",
+        "description": "Algorytm Puzzli Merkle’a umożliwia wynegocjowanie wspólnego sekretnego klucza przez dowolne dwie osoby, bez potrzeby żadnych wcześniejszych ustaleń pomiędzy…",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/asymetryczne/puzzle-merkle.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Szyfry asymetryczne",
+            "item": "https://www.crypto-it.net/pl/asymetryczne/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Puzzle Merkle’a (ang. Merkle's Puzzles)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/" aria-current="true">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/asymmetric/merkle-puzzles.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/asymetryczne/">Szyfry asymetryczne</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Puzzle Merkle’a (ang. Merkle's Puzzles)</h1>
+          <p class="article__subtitle">Protokół negocjowania sekretnego klucza</p>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>bez wcześniejszego uwierzytelnienia</li>
+          </ul>
+          <p>Algorytm Puzzli Merkle’a umożliwia wynegocjowanie sekretnego klucza przez dowolne dwie osoby. Sekretny klucz będzie współdzielony przez obie zainteresowane strony i wykorzystany do ochrony dalszej komunikacji. Zakłada&nbsp;się, że obie osoby mogły wcześniej nie&nbsp;mieć ze&nbsp;sobą żadnego kontaktu i&nbsp;niczego między sobą nie&nbsp;ustalały.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="zastosowanie">Zastosowanie</h2>
+          <p>Jest&nbsp;to jeden z&nbsp;pierwszych algorytmów szyfrowania za pomocą klucza publicznego. Został odkryty przez&nbsp;Ralpha Merkle’a w roku&nbsp;1974 i&nbsp;opublikowany cztery lata później.</p>
+          <h2 id="algorytm">Algorytm</h2>
+          <p>Algorytm puzzli Merkle’a opisuje komunikację pomiędzy dwoma zainteresowanymi stronami, która umożliwia ustalenie wspólnego sekretnego klucza, w&nbsp;taki sposób, że nie&nbsp;jest możliwe jego&nbsp;podsłuchanie przez&nbsp;trzecią osobę. Klucz&nbsp;ten może być potem używany podczas dalszej komunikacji, chronionej przy&nbsp;użyciu <a href="/pl/symetryczne/">szyfrowania symetrycznego</a>.</p>
+          <p>Poniżej przedstawiono protokół wymiany informacji pomiędzy dwoma użytkownikami, nazwanymi zwyczajowo Alice i&nbsp;Bob. Aby wynegocjować wspólny sekretny klucz, należy wykonać poniższe kroki:</p>
+          <ol class="steps">
+           <li>Pierwsza ze&nbsp;stron (Alice) przygotowuje dużą liczbę wiadomości, które składają się z&nbsp;unikalnego losowego identyfikatora wiadomości oraz&nbsp;unikalnego klucza.</li>
+           <li>Następnie Alice szyfruje każdą z&nbsp;tych wiadomości za&nbsp;pomocą słabego szyfru (na&nbsp;przykład szyfru symetrycznego z&nbsp;sekretnym kluczem o&nbsp;długości 20&nbsp;bitów), a&nbsp;potem wysyła wszystkie zaszyfrowane wiadomości do&nbsp;drugiej ze&nbsp;stron (czyli do&nbsp;Boba).</li>
+           <li>Bob wybiera losowo jedną z otrzymanych zaszyfrowanych wiadomości i&nbsp;łamie jej&nbsp;zabezpieczenia za&nbsp;pomocą ataku siłowego.</li>
+           <li>Bob informuje Alice, jaką wartość ma&nbsp;identyfikator w&nbsp;wybranej przez&nbsp;niego wiadomości.</li>
+           <li>Obie strony dysponują teraz wspólnym kluczem, który znajdował się w&nbsp;wybranej przez&nbsp;Boba wiadomości. Będą go&nbsp;wykorzystywać podczas dalszej komunikacji.</li>
+          </ol>
+          <p>Głównym założeniem algorytmu puzzli Merkle’a jest to, że początkowa duża liczba wiadomości szyfrowana jest za&nbsp;pomocą szyfru, na&nbsp;tyle prostego, że możliwego do&nbsp;złamania za&nbsp;pomocą <a href="/pl/ataki/atak-silowy.html">ataku siłowego</a> przez&nbsp;odbiorcę.</p>
+          <p>Sekretny unikalny klucz jest określany przez&nbsp;przesyłany tekstem otwartym identyfikator wiadomości. Ewentualny napastnik, który chce go&nbsp;odkryć i&nbsp;podsłuchuje całą komunikację, musiałby odszyfrować za&nbsp;pomocą ataków siłowych dużą część przesyłanych na&nbsp;początku algorytmu wiadomości. Liczyłby na&nbsp;to, że trafi na&nbsp;wiadomość losowo wybraną przez&nbsp;Boba i&nbsp;po jej&nbsp;odszyfrowaniu zdobędzie wiedzę o&nbsp;sekretnym kluczu. Wobec tego klucz, który szyfruje te wiadomości musi być na tyle długi, żeby odszyfrowanie dużej ich ilości było praktycznie niewykonalne.</p>
+          <h2 id="sila-puzzli-merkle-a">Siła puzzli Merkle’a</h2>
+          <p>Zakładając, że odszyfrowanie jednej wiadomości metodą ataku siłowego wymaga <span class="term">n</span>&nbsp;kroków oraz,&nbsp;że wysłanych jest <span class="term">m</span>&nbsp;wiadomości, wynegocjowanie sekretnego klucza zajmuje Alice i&nbsp;Bobowi w&nbsp;sumie <span class="term">O(n+m)</span>&nbsp;czasu. Z&nbsp;drugiej strony, intruz próbujący podsłuchać komunikację pomiędzy nimi, w&nbsp;celu odkrycia wybranego klucza musi przeprowadzić ilość obliczeń o&nbsp;złożoności rzędu&nbsp;<span class="term">O(n*m)</span>.</p>
+          <p>Złożoność kwadratowa obliczeń dla&nbsp;napastnika nie jest obecnie uznawana za w&nbsp;zupełności wystarczającą w&nbsp;praktycznym zastosowaniu. Zbyt długi klucz (czyli zbyt duża wartość&nbsp;<span class="term">n</span>) powoduje, że użytkowanie tego protokołu staje się uciążliwe dla&nbsp;komunikujących się stron. Obecnie, stosowane są bardziej wydajne i&nbsp;wygodne sposoby wykorzystujące ideę szyfrowania z&nbsp;kluczem publicznym i&nbsp;prywatnym.</p>
+          <p>Ze&nbsp;względu na&nbsp;brak początkowego uwierzytelnienia uczestników, protokół ten&nbsp;jest podatny na&nbsp;ataki typu <a href="/pl/ataki/man-in-the-middle.html">man-in-the-middle</a>. Napastnik może rozpocząć dwie sesje protokołu (z&nbsp;Alice i z&nbsp;Bobem) i&nbsp;podając się za&nbsp;przeciwne strony, ustalić dwa klucze symetryczne wykorzystywane potem w&nbsp;dalszej komunikacji z&nbsp;nimi za&nbsp;pomocą szyfrowania symetrycznego.</p>
+          <h2 id="schemat-blokowy-protokolu-puzzli-merkle-a">Schemat blokowy protokołu puzzli Merkle’a</h2>
+          <figure class="figure"><img src="/assets/img/merkle-puzzles/merkle-puzzles.webp" alt="Protokół Puzzli Merkle&#x27;a" width="500" height="200" loading="lazy"></figure>
+          <h2 id="matematyka">Matematyka</h2>
+          <h3 id="szyfrowanie-w-puzzlach-merkle-a">Szyfrowanie w puzzlach Merkle’a</h3>
+          <p>Duża liczba wiadomości, która wysyłana jest na&nbsp;początku protokołu, musi zostać zaszyfrowana przez pierwszą ze&nbsp;stron przy&nbsp;użyciu szyfru symetrycznego.</p>
+          <p>Używany jest wtedy jeden z typowych i&nbsp;skutecznych algorytmów szyfrowania symetrycznego. Jedyną zmianą jaką się wprowadza, jest celowe osłabienie siły szyfru, poprzez wykorzystanie krótszych rzeczywistych kluczy symetrycznych. Zwykle zastępuje się oryginalny losowy klucz o&nbsp;długości powiedzmy 128&nbsp;bitów, za&nbsp;pomocą klucza składającego się z 98&nbsp;bitów zerowych połączonych z 30&nbsp;losowymi bitami rzeczywistego klucza. To&nbsp;właśnie te 30&nbsp;losowych bitów musi być złamanych przez odbiorcę wiadomości.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a class="pager__next" href="/pl/asymetryczne/diffiego-hellmana.html" rel="next"><small>Następny →</small>Protokół Diffiego-Hellmana</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2Fpuzzle-merkle.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2Fpuzzle-merkle.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2Fpuzzle-merkle.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-asymetryczne -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/asymetryczne/">Szyfry asymetryczne</a></h2>
+        <ul>
+          <li><a href="/pl/asymetryczne/puzzle-merkle.html" aria-current="page">Puzzle Merkle’a</a></li>
+          <li><a href="/pl/asymetryczne/diffiego-hellmana.html">Protokół Diffiego-Hellmana</a></li>
+          <li><a href="/pl/asymetryczne/rsa.html">RSA</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-asymetryczne -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

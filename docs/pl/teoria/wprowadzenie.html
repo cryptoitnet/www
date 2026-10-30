@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/introduction.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wprowadzenie w 10 akapitach | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Wprowadzenie do szyfrów, czyli historia pierwszych sposobów szyfrowania i podstawowe zasady obowiązujące we współczesnej kryptografii.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/wprowadzenie.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/introduction.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/wprowadzenie.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/introduction.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Wprowadzenie w 10 akapitach | Kryptografia">
+  <meta property="og:description" content="Wprowadzenie do szyfrów, czyli historia pierwszych sposobów szyfrowania i podstawowe zasady obowiązujące we współczesnej kryptografii.">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/wprowadzenie.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Wprowadzenie do szyfrów w 10 akapitach",
+        "description": "Wprowadzenie do szyfrów, czyli historia pierwszych sposobów szyfrowania i podstawowe zasady obowiązujące we współczesnej kryptografii.",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/wprowadzenie.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Wprowadzenie do szyfrów w 10 akapitach"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/introduction.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Wprowadzenie do szyfrów w 10 akapitach</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Trudno stwierdzić to z&nbsp;całą pewnością, ale wydaje się prawdopodobne, że wkrótce po&nbsp;opanowaniu sztuki pisania, ludzie zaczęli odczuwać potrzebę ukrycia i&nbsp;zamaskowania tego, co&nbsp;napisali. Zapewne wraz z&nbsp;upływem czasu i&nbsp;ze wzrostem znaczenia zapisywanych rzeczy ta potrzeba stawała się pilniejsza. Powstawały pierwsze organizmy państwowe i&nbsp;coraz więcej coraz ważniejszych informacji musiało być przesyłanych w&nbsp;formie pisemnej na&nbsp;większe odległości. Informacji, których ujawnienie mogło przynieść nieprzyjemne konsekwencje.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="krotka-historia-kryptografii">Krótka historia kryptografii</h2>
+          <p>Początkowo starano się maskować sam fakt istnienia wiadomości, a nie&nbsp;jej treść. Postępowanie takie nazywa się <a href="/pl/teoria/steganografia.html">steganografią</a>. Z&nbsp;czasem pojawiły się pierwsze proste szyfry <a href="/pl/proste/">podstawieniowe</a>, które polegały na&nbsp;zamianie jednych liter na&nbsp;inne, w&nbsp;sposób znany tylko wtajemniczonym stronom.</p>
+          <p>Trzeba tutaj zauważyć, że olbrzymim ułatwieniem były alfabety, które wykształciły się w&nbsp;Europie (łaciński, grecki). Zawierały stosunkowo mało liter, którymi łatwo było manipulować. Zastosowanie szyfru podstawieniowego dla&nbsp;tekstu w&nbsp;języku chińskim nie&nbsp;jest już takie oczywiste.</p>
+          <p>Wraz z&nbsp;upływem czasu i&nbsp;powstaniem technik łamania prostych szyfrów podstawieniowych, przestała wystarczać zwykła zamiana liter. Coraz nowsze szyfry zapewniały coraz większe wymieszanie liter w&nbsp;tekście i&nbsp;zaciemnianie przekazu oraz&nbsp;zaburzenie w&nbsp;ukrytych tekstach typowych cech językowych (częstotliwości liter, popularnie występujących par znaków). Oprócz zastępowania jednych liter innymi, zaczęto zmieniać również kolejność liter.</p>
+          <h2 id="budowa-szyfru">Budowa szyfru</h2>
+          <p>Na&nbsp;tym etapie rozwoju wykształcił się już współczesny model tworzenia szyfrów. Mamy więc długi tekst, który chcemy zaszyfrować. Mamy przepis (algorytm), czyli listę kroków jakie należy wykonać żeby zmienić tekst jawny w&nbsp;szyfrogram. Na&nbsp;koniec ustalamy sekretny klucz, korzystając z&nbsp;którego będziemy stosować algorytm. Przykładowo, algorytmem może być stwierdzenie <em>"przesuń każdą literę w&nbsp;prawo"</em>, a sekretnym kluczem <em>"o&nbsp;trzy pozycje"</em>.</p>
+          <p>Podział ten bierze się z możliwości ograniczenia w&nbsp;ten sposób wymiany informacji pomiędzy zainteresowanymi stronami. Informacja o&nbsp;ile pozycji należy przesunąć litery jest w&nbsp;tym wypadku kluczowa, natomiast informacja o&nbsp;tym, że ma nastąpić przesunięcie w prawo, sama w sobie nie zagraża tajności informacji i&nbsp;dla wygody mogłaby być przekazana na początku wiadomości w&nbsp;formie niezaszyfrowanej. Dodatkowo, taki&nbsp;podział umożliwia wielokrotne stosowanie algorytmu z&nbsp;różnymi kluczami, na&nbsp;przykład w&nbsp;komunikacji z&nbsp;różnymi osobami.</p>
+          <p>Obecnie algorytmy szyfrujące działają na&nbsp;komputerach lub są sprzętowo implementowane w&nbsp;elektronicznych urządzeniach. Sekretne klucze są długości kilkudziesięciu lub&nbsp;nawet kilkuset znaków, a w&nbsp;czasie szyfrowania lub&nbsp;deszyfrowania wykonywanych jest miliony operacji. Algorytmy szyfrujące stały się częścią większych algorytmów, protokołów komunikacyjnych i&nbsp;standardów wszelkiego rodzaju i&nbsp;obecnie ma się z&nbsp;nimi na co&nbsp;dzień styczność w&nbsp;większości dziedzin życia.</p>
+          <p>Na&nbsp;koniec zauważmy dwie rzeczy. Po&nbsp;pierwsze, ideą i&nbsp;sensem większości szyfrów jest to, że sekretny klucz jest bardzo krótki w&nbsp;porównaniu do&nbsp;ilości przekazywanych informacji. Umożliwia&nbsp;to zastąpienie problemu trudniejszego (dostarczenie w&nbsp;tajemnicy długiej wiadomości) problemem łatwiejszym (dostarczenie&nbsp;w tajemnicy krótkiego sekretnego klucza, używanego potem wielokrotnie).</p>
+          <p>Po&nbsp;drugie, algorytm może być znany powszechnie albo&nbsp;być strzeżoną tajemnicą, dodatkowym zabezpieczeniem komunikacji. Ogólna <a href="/pl/teoria/kerckhoffs.html">reguła</a> mówi, że szyfr powinien być niezawodny i bezpieczny nawet po&nbsp;pełnym opublikowaniu jego&nbsp;algorytmu i&nbsp;dlatego analizując zabezpieczenia zawsze należy zakładać, że wszystko oprócz sekretnego klucza jest znane przeciwnikowi.</p>
+          <p>Większość obecnie stosowanych szyfrów jest oparta na&nbsp;publicznie znanych algorytmach. W&nbsp;praktyce przemawiają za&nbsp;takim podejściem dwa argumenty. Po&nbsp;pierwsze, większość sekretnych algorytmów zwykle i&nbsp;tak staje się znanych -&nbsp;na&nbsp;skutek zbiegu okoliczności, przekupstwa, zdrady albo analizy sprzętu lub&nbsp;oprogramowania, który je&nbsp;wykorzystuje. Po&nbsp;drugie, publicznie zaproponowany algorytm ma&nbsp;okazję być zbadany i&nbsp;przeanalizowany przez&nbsp;tysiące uczciwych i&nbsp;mądrych ludzi, którzy w&nbsp;wypadku znalezienia błędów, nagłośnią je i&nbsp;umożliwią poprawienie jego&nbsp;działania.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a class="pager__next" href="/pl/teoria/kerckhoffs.html" rel="next"><small>Następny →</small>Zasada Kerckhoffsa</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fwprowadzenie.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fwprowadzenie.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fwprowadzenie.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html" aria-current="page">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

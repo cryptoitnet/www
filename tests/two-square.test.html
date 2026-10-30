@@ -1,0 +1,71 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Two-square tests</title>
+<!-- Open through a local server. Result shown on the page and in the title. -->
+<pre id="result">running…</pre>
+<script type="module">
+  import { normalize, buildTable, toDigraphs, convert, encrypt, decrypt, TwoSquareError }
+    from '../docs/assets/js/tools/two-square.js';
+
+  const results = [];
+  const eq = (name, actual, expected) =>
+    results.push(actual === expected ? `ok   ${name}` : `FAIL ${name}: got ${JSON.stringify(actual)}, expected ${JSON.stringify(expected)}`);
+  const throws = (name, fn, code) => {
+    try { fn(); results.push(`FAIL ${name}: no error`); }
+    catch (e) { eq(name, e instanceof TwoSquareError && e.code, code); }
+  };
+
+  // Wikipedia two-square (vertical/stacked, keywords EXAMPLE / KEYWORD, Q dropped):
+  // "Help me Obiwan Kenobi" -> HE DL XW SD JY AN HO TK DG (HE unchanged: same column)
+  eq('wikipedia vertical encrypt',
+     convert('Help me Obiwan Kenobi', 'EXAMPLE', 'KEYWORD', 'no-q', 'vertical').output,
+     'HEDLXWSDJYANHOTKDG');
+  eq('wikipedia vertical is self-inverse',
+     convert('HEDLXWSDJYANHOTKDG', 'EXAMPLE', 'KEYWORD', 'no-q', 'vertical').output,
+     'HELPMEOBIWANKENOBI');
+
+  // Horizontal (side by side) layout: article example, tables from Vespasian's parents
+  eq('article horizontal example AS -> IL',
+     convert('AS', 'Titus Flavius Sabinus', 'Vespasia Polla', 'j-as-i', 'horizontal').output, 'IL');
+  const hEnc = convert('Help me Obiwan Kenobi', 'EXAMPLE', 'KEYWORD', 'no-q', 'horizontal').output;
+  eq('horizontal self-inverse',
+     convert(hEnc, 'EXAMPLE', 'KEYWORD', 'no-q', 'horizontal').output, 'HELPMEOBIWANKENOBI');
+  eq('vertical differs from horizontal',
+     hEnc !== convert('Help me Obiwan Kenobi', 'EXAMPLE', 'KEYWORD', 'no-q', 'vertical').output, true);
+
+  // encrypt and decrypt are the same operation
+  eq('encrypt === decrypt alias', encrypt === decrypt && encrypt === convert, true);
+
+  // Tables
+  eq('table from keyword', buildTable('EXAMPLE', 'no-q'), 'EXAMPLBCDFGHIJKNORSTUVWYZ');
+  eq('table has 25 letters', buildTable('secret', 'j-as-i').length, 25);
+  eq('alphabetical when no keyword', buildTable('', 'j-as-i'), 'ABCDEFGHIKLMNOPQRSTUVWXYZ');
+
+  // Normalization
+  eq('polish letters', normalize('Zażółć gęślą', 'j-as-i'), 'ZAZOLCGESLA');
+  eq('j becomes i', normalize('Jazz', 'j-as-i'), 'IAZZ');
+  eq('no-q drops q', normalize('QUIZ', 'no-q'), 'UIZ');
+
+  // Digraphs and padding
+  eq('odd length padded with X', toDigraphs('ABC', 'j-as-i').join(' '), 'AB CX');
+  eq('no-x pads with Z', toDigraphs('ABC', 'no-x').join(' '), 'AB CZ');
+  eq('even length unchanged', toDigraphs('ABCD', 'j-as-i').join(' '), 'AB CD');
+
+  // Round trips in every mode and layout
+  for (const mode of ['j-as-i', 'no-q', 'no-x']) {
+    for (const layout of ['vertical', 'horizontal']) {
+      const plain = normalize('The quick brown fox jumps over a lazy dog', mode);
+      const padded = toDigraphs(plain, mode).join('');
+      const enc = convert(padded, 'alpha', 'beta', mode, layout).output;
+      const back = convert(enc, 'alpha', 'beta', mode, layout).output;
+      eq(`round trip ${mode}/${layout}`, back, padded);
+    }
+  }
+
+  // Errors
+  throws('invalid mode', () => convert('abc', 'k', 'k', 'bogus', 'vertical'), 'mode');
+
+  const failed = results.filter((r) => r.startsWith('FAIL')).length;
+  document.getElementById('result').textContent = `${results.join('\n')}\n\n${failed ? `${failed} FAILED` : 'ALL PASSED'}`;
+  document.title = failed ? 'FAILED' : 'PASSED';
+</script>

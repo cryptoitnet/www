@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/ataki/atak-statystyczny.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frequency Analysis | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Frequency analysis is one of the known ciphertext attacks, focused on the study of the frequency of letters or groups of letters in a ciphertext.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/attacks/frequency-analysis.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/frequency-analysis.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/atak-statystyczny.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/frequency-analysis.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Frequency Analysis | Cryptography">
+  <meta property="og:description" content="Frequency analysis is one of the known ciphertext attacks, focused on the study of the frequency of letters or groups of letters in a ciphertext.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/attacks/frequency-analysis.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Frequency Analysis",
+        "description": "Frequency analysis is one of the known ciphertext attacks, focused on the study of the frequency of letters or groups of letters in a ciphertext.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/attacks/frequency-analysis.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Attacks",
+            "item": "https://www.crypto-it.net/eng/attacks/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Frequency Analysis"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/" aria-current="true">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/ataki/atak-statystyczny.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/attacks/">Attacks</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Frequency Analysis</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Frequency analysis is one of the <a href="/eng/attacks/known-ciphertext.html">known ciphertext</a> attacks. It is based on the study of the frequency of letters or groups of letters in a ciphertext.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>In all languages, different letters are used with different frequencies. For each language proportions of appearance of all characters are slightly different, so texts written in a given language have some certain common properties, which allow to distinguish them from texts written in other languages.</p>
+          <p>For example, in English there are often used vowels like <span class="term">e</span>, <span class="term">o</span>, <span class="term">a</span> or a consonant <span class="term">t</span>. On the other hand, there are some very rare letters, for example <span class="term">z</span> or <span class="term">x</span>. There are statements of frequencies of letters <button type="button" class="note-ref" popovertarget="note-literki">in different languages</button>. The frequencies can be determined only approximately because in different kind of texts (scientific, historical, fiction) they are slightly different.</p>
+          <p>Each language has some typical and popular sequences of letters. In English, there are some common bigrams, like <span class="term">tr</span>, <span class="term">er</span>, <span class="term">on</span>, <span class="term">an</span>, <span class="term">ss</span>, <span class="term">tt</span> and <span class="term">ee</span>. Based on that, one can distinguish an English text from texts written in other languages. It is possible to determine the correct order of letters from mixed words.</p>
+          <h2 id="frequency-analysis-of-substitution-ciphers">Frequency Analysis of Substitution Ciphers</h2>
+          <p>Frequency analysis is used for breaking substitution ciphers. The general idea is to find the popular letters in the ciphertext and try to replace them by the common letters in the used language.</p>
+          <p>The attacker usually checks some possibilities and makes some substitutions of letters in ciphertext. He looks for possible appearing words and based on that makes more substitutions. Using computers, it is possible to try a lot of combinations in relatively short time.</p>
+          <p>For example, if in the analyzed ciphertext the most popular letter is <span class="term">x</span>, one may predict that <span class="term">x</span> replaced <span class="term">e</span> or <span class="term">o</span> (one of the most popular letters in English) from the plaintext.</p>
+          <p>It is useful to look for popular pairs of letters or even try to predict some frequent longer sequences of letters or whole words. The intruder always tries to find sequences of letters which are often used in the selected language.</p>
+          <div class="note" id="note-literki" popover>
+           <p>The overall frequency of letters in English may be presented as below:</p>
+           <div class="table-wrap">
+           <table class="table table--matrix" aria-label="overall frequency of letters">
+           <tr>
+           <td>a</td>
+           <td>8.17%</td>
+           </tr>
+           <tr>
+           <td>b</td>
+           <td>1.49%</td>
+           </tr>
+           <tr>
+           <td>c</td>
+           <td>2.78%</td>
+           </tr>
+           <tr>
+           <td>d</td>
+           <td>4.25%</td>
+           </tr>
+           <tr>
+           <td>e</td>
+           <td>12.70%</td>
+           </tr>
+           <tr>
+           <td>f</td>
+           <td>2.23%</td>
+           </tr>
+           <tr>
+           <td>g</td>
+           <td>2.02%</td>
+           </tr>
+           <tr>
+           <td>h</td>
+           <td>6.09%</td>
+           </tr>
+           <tr>
+           <td>i</td>
+           <td>6.97%</td>
+           </tr>
+           <tr>
+           <td>j</td>
+           <td>0.15%</td>
+           </tr>
+           <tr>
+           <td>k</td>
+           <td>0.77%</td>
+           </tr>
+           <tr>
+           <td>l</td>
+           <td>4.03%</td>
+           </tr>
+           <tr>
+           <td>m</td>
+           <td>2.41%</td>
+           </tr>
+           <tr>
+           <td>n</td>
+           <td>6.75%</td>
+           </tr>
+           <tr>
+           <td>o</td>
+           <td>7.51%</td>
+           </tr>
+           <tr>
+           <td>p</td>
+           <td>1.93%</td>
+           </tr>
+           <tr>
+           <td>q</td>
+           <td>0.10%</td>
+           </tr>
+           <tr>
+           <td>r</td>
+           <td>5.99%</td>
+           </tr>
+           <tr>
+           <td>s</td>
+           <td>6.33%</td>
+           </tr>
+           <tr>
+           <td>t</td>
+           <td>9.06%</td>
+           </tr>
+           <tr>
+           <td>u</td>
+           <td>2.76%</td>
+           </tr>
+           <tr>
+           <td>v</td>
+           <td>0.98%</td>
+           </tr>
+           <tr>
+           <td>w</td>
+           <td>2.36%</td>
+           </tr>
+           <tr>
+           <td>x</td>
+           <td>0.15%</td>
+           </tr>
+           <tr>
+           <td>y</td>
+           <td>1.97%</td>
+           </tr>
+           <tr>
+           <td>z</td>
+           <td>0.07%</td>
+           </tr>
+           </table>
+           </div>
+           <button type="button" class="note__close" popovertarget="note-literki" popovertargetaction="hide">Close</button>
+          </div>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/attacks/krack.html" rel="prev"><small>← Previous</small>KRACK attack</a>
+          <a class="pager__next" href="/eng/attacks/meet-in-the-middle.html" rel="next"><small>Next →</small>Meet-in-the-middle attack</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Ffrequency-analysis.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Ffrequency-analysis.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Ffrequency-analysis.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-attacks -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/attacks/">Attacks</a></h2>
+        <ul>
+          <li><a href="/eng/attacks/known-plaintext.html">Known-plaintext attack</a></li>
+          <li><a href="/eng/attacks/chosen-plaintext.html">Chosen-plaintext attack</a></li>
+          <li><a href="/eng/attacks/known-ciphertext.html">Ciphertext-only attack</a></li>
+          <li><a href="/eng/attacks/chosen-ciphertext.html">Chosen-ciphertext attack</a></li>
+          <li><a href="/eng/attacks/chosen-key.html">Chosen-key attack</a></li>
+          <li><a href="/eng/attacks/brute-force.html">Brute force attack</a></li>
+          <li><a href="/eng/attacks/dos.html">DoS</a></li>
+          <li><a href="/eng/attacks/man-in-the-middle.html">Man-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/two-time-pad.html">Attack on two-time pad</a></li>
+          <li><a href="/eng/attacks/krack.html">KRACK attack</a></li>
+          <li><a href="/eng/attacks/frequency-analysis.html" aria-current="page">Frequency analysis</a></li>
+          <li><a href="/eng/attacks/meet-in-the-middle.html">Meet-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/replay.html">Replay attack</a></li>
+          <li><a href="/eng/attacks/homograph-attack.html">Homograph attack</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-attacks -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

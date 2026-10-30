@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/asymetryczne/" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asymmetric Ciphers | Cryptography | Crypto-IT</title>
+  <meta name="description" content="Thanks to modern mathematics asymmetric ciphers can perform unique operations like secret key negotiation or message authentication.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/asymmetric/">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/asymmetric/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Asymmetric Ciphers | Cryptography">
+  <meta property="og:description" content="Thanks to modern mathematics asymmetric ciphers can perform unique operations like secret key negotiation or message authentication.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/asymmetric/">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Asymmetric Ciphers",
+        "description": "Thanks to modern mathematics asymmetric ciphers can perform unique operations like secret key negotiation or message authentication.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/asymmetric/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Asymmetric Ciphers"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/" aria-current="true">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/asymetryczne/" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Asymmetric Ciphers</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Asymmetric ciphers are also referred to as ciphers with public and private keys. They use two keys, one for encryption of messages and the other one during decryption.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           <p class="definition__title">Definition</p>
+           The system of <strong>asymmetric encryption</strong> consists of three algorithms <span class="math">(G, E, D)</span>:
+           <ul>
+           <li><span class="math">G( )</span> - the nondeterministic algorithm which returns a pair of keys <span class="math">(p<sub>k</sub>, s<sub>k</sub>)</span>,</li>
+           <li><span class="math">E(p<sub>k</sub>, m)</span> - the nondeterministic algorithm which encrypts plaintext <span class="math">m</span> and returns ciphertext <span class="math">c</span>,</li>
+           <li><span class="math">D(s<sub>k</sub>, c)</span> - the deterministic algorithm which decrypts <span class="math">c</span> and returns plaintext <span class="math">m</span>.</li>
+           </ul>
+           All the three algorithms must provide consistency. For each pair of keys <span class="math">(p<sub>k</sub>, s<sub>k</sub>)</span> created by <span class="math">G</span> and for every plaintext message <span class="math">m</span> the following condition must be fulfilled:
+           <ul>
+           <li><span class="math">D(s<sub>k</sub>, E(p<sub>k</sub>, m)) = m</span></li>
+           </ul>
+          </aside>
+          <p>The public key is widely known and everybody can use it to encrypt any messages. The idea of asymmetric encryption is that only the owner of the second key (the private key, which is not known to anybody else), can decrypt the message. Similarly, data encrypted with the private key can only be decrypted with the corresponding public key.</p>
+          <p>The intruder can encrypt any messages using the known public key. Asymmetric ciphers are therefore vulnerable to the <a href="/eng/attacks/chosen-plaintext.html">chosen plaintext attacks</a>. The ciphers with public key encryption must provide security against such attacks. After encrypting two messages using the same public key, the intruder should not be able to distinguish which ciphertext is connected with which plaintext. Also, an observer which analyses two messages encrypted using the same algorithm and the same public key, should not be able to distinguish their ciphertexts.</p>
+          <p>Asymmetric ciphers are much slower than symmetric ciphers (usually thousand times slower). It is common practice to use public key encryption only to establish the secure connection and negotiate the new secret key, which is then used to protect further communication by using symmetric encryption.</p>
+        </div>
+        <!-- auto:pager -->
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2F" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2F" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2F" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-asymmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/asymmetric/" aria-current="page">Asymmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/asymmetric/merkle-puzzles.html">Merkle&#x27;s puzzles</a></li>
+          <li><a href="/eng/asymmetric/diffie-hellman.html">Diffie–Hellman protocol</a></li>
+          <li><a href="/eng/asymmetric/rsa.html">RSA</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-asymmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

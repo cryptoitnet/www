@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/asymmetric/">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szyfry Asymetryczne | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Dzięki zastosowaniu najnowszych osiągnięć matematycznych, szyfry asymetryczne mogą skutecznie wykonywać unikalne zadania takie jak negocjowanie sekretnego…">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/asymetryczne/">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/asymmetric/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Szyfry Asymetryczne | Kryptografia">
+  <meta property="og:description" content="Dzięki zastosowaniu najnowszych osiągnięć matematycznych, szyfry asymetryczne mogą skutecznie wykonywać unikalne zadania takie jak negocjowanie sekretnego…">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/asymetryczne/">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Szyfrowanie asymetryczne",
+        "description": "Dzięki zastosowaniu najnowszych osiągnięć matematycznych, szyfry asymetryczne mogą skutecznie wykonywać unikalne zadania takie jak negocjowanie sekretnego…",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/asymetryczne/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Szyfrowanie asymetryczne"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/" aria-current="true">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/asymmetric/" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Szyfrowanie asymetryczne</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Szyfry asymetryczne są nazywane również szyframi z&nbsp;kluczem publicznym i&nbsp;prywatnym. W&nbsp;swoim działaniu wykorzystują dwa klucze, jeden do&nbsp;szyfrowania wiadomości, a drugi do&nbsp;deszyfrowania.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           System <strong>szyfrowania asymetrycznego</strong> składa się z&nbsp;trzech algorytmów <span class="math">(G,&nbsp;E,&nbsp;D)</span>:
+           <ul>
+           <li><span class="math">G( )</span> - niedeterministyczny algorytm zwracający parę kluczy <span class="math">(p<sub>k</sub>,&nbsp;s<sub>k</sub>)</span>,</li>
+           <li><span class="math">E(p<sub>k</sub>,&nbsp;m)</span> - niedeterministyczny algorytm szyfrujący tekst jawny&nbsp;<span class="term">m</span> i&nbsp;zwracający tekst zaszyfrowany&nbsp;<span class="math">c</span>,</li>
+           <li><span class="math">D(s<sub>k</sub>,&nbsp;c)</span> - deterministyczny algorytm deszyfrujący <span class="math">c</span>,&nbsp;zwracający tekst jawny&nbsp;<span class="math">m</span>.</li>
+           </ul>
+           Wszystkie trzy algorytmy muszą spełniać regułę konsystencji, czyli dla&nbsp;każdej pary kluczy <span class="math">(p<sub>k</sub>,&nbsp;s<sub>k</sub>)</span> zwróconej przez <span class="math">G</span> i&nbsp;dla każdej wiadomości jawnej <span class="math">m</span> musi zachodzić warunek:
+           <ul>
+           <li><span class="math">D(s<sub>k</sub>,&nbsp;E(p<sub>k</sub>,&nbsp;m)) = m</span></li>
+           </ul>
+          </aside>
+          <p>Klucz publiczny jest znany powszechnie i&nbsp;może być używany przez wszystkich zainteresowanych do&nbsp;szyfrowania dowolnie wybranych danych. Idea szyfrów asymetrycznych polega na&nbsp;tym, że tylko posiadacz drugiego klucza z&nbsp;pary -&nbsp;klucza prywatnego (który nie jest publicznie znany), może rozszyfrować takie dane. Podobnie, dane zaszyfrowane za pomocą klucza prywatnego, mogą być odszyfrowane tylko przy użyciu odpowiadającego&nbsp;mu klucza publicznego.</p>
+          <p>Z&nbsp;racji tego, że napastnik może samodzielnie szyfrować za&nbsp;pomocą powszechnie dostępnego klucza publicznego dowolne wiadomości, szyfry asymetryczne są bardziej narażone na&nbsp;ataki z&nbsp;<a href="/pl/ataki/wybrany-tekst-jawny.html">wybranym tekstem jawnym</a>. Szyfry z&nbsp;kluczem publicznym muszą więc zapewniać bezpieczeństwo przed tego typu atakami. Napastnik po&nbsp;zaszyfrowaniu dwóch wiadomości za&nbsp;pomocą tego samego klucza publicznego, nie&nbsp;może być w&nbsp;stanie rozpoznać, który szyfrogram odpowiada której oryginalnej wiadomości. Podobnie, analizując dwie wiadomości zaszyfrowane za&nbsp;pomocą tego&nbsp;samego algorytmu i&nbsp;tego samego klucza publicznego, postronny obserwator nie&nbsp;może być w&nbsp;stanie w&nbsp;żaden sposób rozróżnić ich szyfrogramów.</p>
+          <p>Szyfry asymetryczne są dużo wolniejsze od&nbsp;szyfrów symetrycznych (zwykle przynajmniej tysiąc razy wolniejsze). Częstą praktyką jest więc używanie szyfrowania z&nbsp;kluczem publicznym jedynie do&nbsp;nawiązania bezpiecznego połączenia i&nbsp;wynegocjowania nowego sekretnego klucza, który będzie używany w&nbsp;trakcie szyfrowania symetrycznego, chroniącego całą dalszą komunikację.</p>
+        </div>
+        <!-- auto:pager -->
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2F" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2F" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fasymetryczne%2F" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-asymetryczne -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/asymetryczne/" aria-current="page">Szyfry asymetryczne</a></h2>
+        <ul>
+          <li><a href="/pl/asymetryczne/puzzle-merkle.html">Puzzle Merkle’a</a></li>
+          <li><a href="/pl/asymetryczne/diffiego-hellmana.html">Protokół Diffiego-Hellmana</a></li>
+          <li><a href="/pl/asymetryczne/rsa.html">RSA</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-asymetryczne -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

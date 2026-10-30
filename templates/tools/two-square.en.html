@@ -1,0 +1,57 @@
+<section class="tool" id="online" aria-labelledby="online-title"
+         data-tool="two-square"
+         data-msg-mode="Invalid letter-omission mode."
+         data-msg-copied="Copied">
+  <h2 id="online-title">Two-square cipher online</h2>
+  <div class="tool__grid">
+    <div>
+      <div class="field">
+        <label for="ts-keyword1">First keyword</label>
+        <input type="text" id="ts-keyword1" data-role="keyword1" value="example" autocomplete="off" spellcheck="false">
+        <small>Builds the first table. Leave empty for a plain alphabetical table.</small>
+      </div>
+      <div class="field">
+        <label for="ts-keyword2">Second keyword</label>
+        <input type="text" id="ts-keyword2" data-role="keyword2" value="keyword" autocomplete="off" spellcheck="false">
+        <small>Builds the second table.</small>
+      </div>
+      <fieldset>
+        <legend>Letter left out of the tables</legend>
+        <div class="options">
+          <label><input type="radio" name="mode" value="j-as-i"> J as I</label>
+          <label><input type="radio" name="mode" value="no-q" checked> Without Q</label>
+          <label><input type="radio" name="mode" value="no-x"> Without X</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Table layout</legend>
+        <div class="options">
+          <label><input type="radio" name="layout" value="horizontal" checked> Horizontal (side by side)</label>
+          <label><input type="radio" name="layout" value="vertical"> Vertical (stacked)</label>
+        </div>
+      </fieldset>
+    </div>
+    <figure class="matrix-pair" aria-label="Current key tables">
+      <table class="matrix" data-role="table1" aria-label="First table"></table>
+      <table class="matrix" data-role="table2" aria-label="Second table"></table>
+    </figure>
+  </div>
+
+  <div class="field">
+    <label for="ts-input">Text</label>
+    <textarea id="ts-input" data-role="input" spellcheck="false">Help me Obiwan Kenobi</textarea>
+    <small>Only letters are used; spaces, digits and punctuation are ignored, accents are removed. The same operation encrypts and decrypts.</small>
+  </div>
+
+  <p class="tool__steps">Pairs: <span data-role="digraphs" aria-live="polite"></span></p>
+  <p class="tool__error" data-role="error" role="alert"></p>
+
+  <div class="field">
+    <label for="ts-output">Result</label>
+    <textarea id="ts-output" data-role="output" readonly></textarea>
+  </div>
+  <div class="tool__actions">
+    <button type="button" class="button" data-role="copy">Copy result</button>
+    <button type="button" class="button" data-role="swap">Use result as input</button>
+  </div>
+</section>

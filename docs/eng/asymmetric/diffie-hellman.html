@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/asymetryczne/diffiego-hellmana.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diffie–Hellman Protocol | Asymmetric Cipher | Crypto-IT</title>
+  <meta name="description" content="Diffie–Hellman Protocol is an algorithm with public and private keys, which allows both negotiating a shared key and encrypting messages by using asymmetric…">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/asymmetric/diffie-hellman.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/asymmetric/diffie-hellman.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/asymetryczne/diffiego-hellmana.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/asymmetric/diffie-hellman.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Diffie–Hellman Protocol | Asymmetric Cipher">
+  <meta property="og:description" content="Diffie–Hellman Protocol is an algorithm with public and private keys, which allows both negotiating a shared key and encrypting messages by using asymmetric…">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/asymmetric/diffie-hellman.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Diffie–Hellman Protocol",
+        "description": "Diffie–Hellman Protocol is an algorithm with public and private keys, which allows both negotiating a shared key and encrypting messages by using asymmetric…",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/asymmetric/diffie-hellman.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Asymmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/asymmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Diffie–Hellman Protocol"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/" aria-current="true">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/asymetryczne/diffiego-hellmana.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/asymmetric/">Asymmetric ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Diffie–Hellman Protocol</h1>
+          <p class="article__subtitle">Key-agreement protocol, message encryption</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>without authentication</li>
+          </ul>
+          <p>The Diffie-Hellman Algorithm is one of the most popular key-agreement algorithms. It is used by many protocols, including <a href="/eng/theory/application-protocols.html#SSLTLS">SSL/TLS</a>. It is considered to be slightly faster than <a href="/eng/asymmetric/rsa.html">RSA</a>, which can be used for the same purpose.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <p>The Diffie-Hellman Protocol may be also used for message encryption using the public key.</p>
+          <h2 id="usage">Usage</h2>
+          <p>The algorithm was first published by the American cryptographers Whitfield Diffie and Martin Hellman in 1976. However, it was revealed that the cipher had been discovered even earlier, by the British intelligence agency (James H. Ellis, Clifford Cocks, and Malcolm J. Williamson) but remained undisclosed.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The Diffie-Hellman algorithm describes a way of communication between two parties which allows to create a shared secret key. The key may be later used during the further communication, protected by the <a href="/eng/symmetric/">symmetric encryption</a>. It is impossible to deduce the key by a potential eavesdropper.</p>
+          <p>The algorithm uses mathematical theory about discrete logarithms in given groups.</p>
+          <p>The protocol of the exchange of information between two parties (commonly referred to as Alice and Bob) is presented below. To determine the shared secret key using the Diffie-Hellman protocol, the following steps should be performed:</p>
+          <ol class="steps">
+           <li>Alice and Bob agree on a common prime number <span class="term">p</span> and a generating element <span class="term">g</span>.</li>
+           <li>Alice picks a random and secret natural number <span class="term">a</span> and then sends <span class="term">A = g<sup>a</sup> mod p</span> to Bob.</li>
+           <li>Bob picks a random and secret natural number <span class="term">b</span> and then sends <span class="term">B = g<sup>b</sup> mod p</span> to Alice.</li>
+           <li>Alice computes a number <span class="term">k = B<sup>a</sup> mod p</span>.</li>
+           <li>Bob computes the same number <span class="term">k = A<sup>b</sup> mod p</span>.</li>
+           <li>At this point, both Alice and Bob possess the secret number <span class="term">k</span>.</li>
+          </ol>
+          <p>The number <span class="term">k</span> computed by both parties is very big - the numbers <span class="term">a</span> and <span class="term">b</span> used in the algorithm have at least 100 digits and the prime number <span class="term">p</span> has at least 300 digits. The value <span class="term">k</span> can be changed into the symmetric key using a <a href="/eng/theory/one-way-function.html#hash">hash function</a>. The symmetric key is used for the encryption of further communication.</p>
+          <h2 id="public-key-encryption">Public key encryption</h2>
+          <p>It is possible to use the Diffie-Hellman protocol for message encryption using the public and private keys.</p>
+          <p>In such a case, Bob could send a message to Alice, encrypting it with Alice's public key, which contains three numbers: <span class="term">g</span>, <span class="term">p</span>, <span class="term">g<sup>a</sup> mod p</span>. To send a secret message to Alice, Bob chooses a random number <span class="term">b</span>, and then sends an unencrypted number <span class="term">g<sup>b</sup> mod p</span> to Alice. Eventually, the message itself can be sent, being encrypted by a symmetric key <span class="term">(g<sup>a</sup>)<sup>b</sup> mod p</span>.</p>
+          <p>Only Alice will be able to determine the value of <span class="term">b</span> and decrypt the message. Using the public key protects the sides from <a href="/eng/attacks/man-in-the-middle.html">man-in-the-middle</a> attacks.</p>
+          <p>The algorithm allows asymmetric encryption of data. At present, however, <a href="/eng/asymmetric/rsa.html">RSA</a> is a much more popular algorithm that allows encryption using public and private keys.</p>
+          <h2 id="security-of-the-diffie-hellman-protocol">Security of the Diffie-Hellman protocol</h2>
+          <p>The protocol is considered secure if the initial numbers are chosen properly. The numbers have to be random and very big. The attacker would have to solve the discrete logarithm problem in a given group (it means that all mathematical operations are followed by reduction modulo another big number). However, no efficient general algorithm for computing discrete logarithms on conventional computers is known.</p>
+          <p>After establishing the symmetric key, both parties destroy the values <span class="term">a</span> and <span class="term">b</span>. This prevents the initial numbers from being stolen by the intruder.</p>
+          <p>Because the protocol does not provide authentication of the communicating parties, it is vulnerable to <a href="/eng/attacks/man-in-the-middle.html">man-in-the-middle</a> attacks. The attacker may establish two sessions of the protocol (one with Alice and one with Bob) and pretend to be the opposite side to each of them. He sets two symmetric keys and uses them in the communication with them (still pretending to be the opposite side to each of them).</p>
+          <h2 id="block-diagram-of-diffie-hellman-protocol">Block Diagram of Diffie-Hellman protocol</h2>
+          <figure class="figure"><img src="/assets/img/diffie-hellman/diffie-hellman-eng.webp" alt="Diffie–Hellman Protocol" width="500" height="200" loading="lazy"></figure>
+          <h2 id="maths">Maths</h2>
+          <h3 id="powers-modulo-a-prime-number">Powers modulo a prime number</h3>
+          <p>Raising a number to the power modulo a prime number is one of the most important operations in modern cryptography. It is described by the general laws of numbers manipulation in modulo arithmetic. Both the base and the exponent are positive integers. The result is also a natural number.</p>
+          <p>The operation of raising a number to the power modulo a prime number may be presented as a sequence of operations which consist of raising to the square and then dividing modulo the prime number all the subsequent results.</p>
+          <p>For example, raising 4 to the power of 9 modulo 7 can be calculated in the following way:<br> <span class="math"> &nbsp;4<sup>9</sup> mod 7:<br> &nbsp;4<sup>2</sup> mod 7 = 16 mod 7 = 2<br> &nbsp;4<sup>4</sup> mod 7 = 2<sup>2</sup> mod 7 = 4 mod 7 = 4<br> &nbsp;4<sup>8</sup> mod 7 = 4<sup>2</sup> mod 7 = 16 mod 7 = 2<br> &nbsp;4<sup>9</sup> mod 7 = (4<sup>1</sup> mod 7 * 4<sup>8</sup> mod 7) mod 7 = 4 * 2 mod 7 = 1 </span></p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/asymmetric/merkle-puzzles.html" rel="prev"><small>← Previous</small>Merkle&#x27;s puzzles</a>
+          <a class="pager__next" href="/eng/asymmetric/rsa.html" rel="next"><small>Next →</small>RSA</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2Fdiffie-hellman.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2Fdiffie-hellman.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fasymmetric%2Fdiffie-hellman.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-asymmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/asymmetric/">Asymmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/asymmetric/merkle-puzzles.html">Merkle&#x27;s puzzles</a></li>
+          <li><a href="/eng/asymmetric/diffie-hellman.html" aria-current="page">Diffie–Hellman protocol</a></li>
+          <li><a href="/eng/asymmetric/rsa.html">RSA</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-asymmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

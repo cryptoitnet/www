@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/symetryczne/otp.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OTP | One-Time Pad Symmetric Cipher | Crypto-IT</title>
+  <meta name="description" content="One-Time Pad (OTP) is a symmetric stream cipher, with a quite easy algorithm and an excellent level of provided protection. It was invented in 1917 in the USA.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/symmetric/otp.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/symmetric/otp.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/symetryczne/otp.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/symmetric/otp.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="OTP | One-Time Pad Symmetric Cipher">
+  <meta property="og:description" content="One-Time Pad (OTP) is a symmetric stream cipher, with a quite easy algorithm and an excellent level of provided protection. It was invented in 1917 in the USA.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/symmetric/otp.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "One-Time Pad (OTP)",
+        "description": "One-Time Pad (OTP) is a symmetric stream cipher, with a quite easy algorithm and an excellent level of provided protection. It was invented in 1917 in the USA.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/symmetric/otp.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Symmetric ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Stream ciphers",
+            "item": "https://www.crypto-it.net/eng/symmetric/stream-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "One-Time Pad (OTP)"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/" aria-current="true">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/symetryczne/otp.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/symmetric/">Symmetric ciphers</a></li>
+            <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">One-Time Pad (OTP)</h1>
+          <p class="article__subtitle">Stream cipher with symmetric secret key</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <ul>
+           <li>Key length = message length</li>
+          </ul>
+          <p>Invented in 1917 by Gilbert Vernam, an engineer at AT&amp;T Corporation in the USA.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>It has been proven that OTP is impossible to crack if it is used correctly. It has the <a href="/eng/theory/ciphers-security.html">perfect secrecy property</a> and allows very fast encryption and decryption. However, the secret key must be at least as long as the message, what makes it quite inconvenient to use while sending large electronic information.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>Both data encryption and decryption by using OTP takes place in the same way. All bytes of the message (or of the ciphertext) are added XOR to bytes of the secret key.</p>
+          <p>The bytes are added one by one, and each addition produces one output byte:</p>
+          <p> <span class="math">m<sub>i</sub></span> XOR <span class="math">k<sub>i</sub> = c<sub>i</sub></span><br> <span class="math">c<sub>i</sub></span> XOR <span class="math">k<sub>i</sub> = m<sub>i</sub></span></p>
+          <h3 id="using-the-same-key-repeatedly">Using the same key repeatedly</h3>
+          <p>Each part of the secret key can be used only once for encrypting exactly one part of the message (of course, of the same length). Using the same key bytes more than once, allows the attacker to discover the two original messages summed by XOR:</p>
+          <p> <span class="math">M<sub>1</sub></span> XOR <span class="math">K = C<sub>1</sub></span><br> <span class="math">M<sub>2</sub></span> XOR <span class="math">K = C<sub>2</sub></span><br> <span class="math">C<sub>1</sub></span> XOR <span class="math">C<sub>2</sub></span> = <span class="math">M<sub>1</sub></span> XOR <span class="math">K</span> XOR <span class="math">M<sub>2</sub></span> XOR <span class="math">K</span> = <span class="math">M<sub>1</sub></span> XOR <span class="math">M<sub>2</sub></span></p>
+          <p>Having two original messages summed by XOR, the intruder can try to break the cipher, by using attacks based on <a href="/eng/attacks/frequency-analysis.html">language and encoding features</a>.</p>
+          <h3 id="providing-no-integrity">Providing no integrity</h3>
+          <p>It is possible to modify the ciphertext in such a way, that the receiver would not be able to detect that. What is worse, the changes have a predictable impact on the message. If the attackers know the structure of the message, they are able to change only the desired parts of the message.</p>
+          <p> <span class="math">m</span> <span class="math">→</span> enc<span class="math">(m, k)</span> <span class="math">→</span> <span class="math">m</span> XOR <span class="math">k</span><br> <span class="math">(m</span> XOR <span class="math">k)</span> XOR <span class="math">p = m</span> XOR <span class="math">k</span> XOR <span class="math">p</span><br> <span class="math">m</span> XOR <span class="math">k</span> XOR <span class="math">p</span> <span class="math">→</span> dec<span class="math">(m</span> XOR <span class="math">p, k)</span> <span class="math">-&gt;</span> <span class="math">m</span> XOR <span class="math">p</span><br><br> where <span class="term">p</span> is the modification added by the attacker.</p>
+          <h3 id="secret-sharing">Secret Sharing</h3>
+          <p>OTP allows to share the secret key among a number of people. Then, the encrypted text can be decoded only when all those parties use their parts of the key. Each person will know only one subkey.</p>
+          <p>To encrypt a text of size <var>n</var> by using a secret key sharing by <var>m</var> people, it is required to prepare <var>m*n</var> key characters. As a result, each subkey will contain <var>n</var> characters and will allow to encrypt a text up n-character long.</p>
+          <p>For example, if a secret key is shared among three parties, it will be required to have all three subkeys XORed with the ciphertext in order to recover the original message.</p>
+          <p> <span class="math">K = K<sub>1</sub></span> XOR <span class="math">K<sub>2</sub></span> XOR <span class="math">K<sub>3</sub></span><br> <span class="math">C = M</span> XOR <span class="math">K<sub>1</sub></span> XOR <span class="math">K<sub>2</sub></span> XOR <span class="math">K<sub>3</sub></span><br> <span class="math">M = C</span> XOR <span class="math">K<sub>1</sub></span> XOR <span class="math">K<sub>2</sub></span> XOR <span class="math">K<sub>3</sub></span><br></p>
+          <h2 id="block-diagram-of-otp-algorithm">Block Diagram of OTP Algorithm</h2>
+          <figure class="figure"><img src="/assets/img/otp/otp-scheme.webp" alt="Scheme of OTP algorithm" width="718" height="378" loading="lazy"></figure>
+          <h2 id="maths">Maths</h2>
+          <h3 id="xor">XOR</h3>
+          <p>The only operation during the OTP encryption and decryption is <strong>Exclusive Or</strong> (XOR). The key bytes are added XOR to the data bytes, one after another.</p>
+          <p>Each time, all the 8 bits in the first byte are added XOR to the 8 bits in the second bytes.</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <caption>A truth table for XOR</caption>
+           <tr>
+           <th>b<sub>1</sub></th>
+           <th>b<sub>2</sub></th>
+           <th>b<sub>1</sub> XOR b<sub>2</sub></th>
+           </tr>
+           <tr>
+           <td>0 </td>
+           <td>0 </td>
+           <td>0 </td>
+           </tr>
+           <tr>
+           <td>0 </td>
+           <td>1 </td>
+           <td>1 </td>
+           </tr>
+           <tr>
+           <td>1 </td>
+           <td>0 </td>
+           <td>1 </td>
+           </tr>
+           <tr>
+           <td>1 </td>
+           <td>1 </td>
+           <td>0 </td>
+           </tr>
+           </table>
+          </div>
+          <h2 id="implementation">Implementation</h2>
+          <p>OTP encryption implemented in C++:</p>
+          <pre><code>string otp(const string &amp; plaintext, const string &amp; key) {
+    size_t len = plaintext.size() &lt; key.size() ?
+                 plaintext.size() : key.size();
+
+    string ciphertext;
+    ciphertext.resize(len);
+
+    for (size_t i = 0; i &lt; len; ++i) {
+        ciphertext[i] = ((short int)plaintext[i]) ^
+                        ((short int)key[i]);
+    }
+
+    return ciphertext;
+}</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/symmetric/stream-ciphers.html" rel="prev"><small>← Previous</small>Stream ciphers</a>
+          <a class="pager__next" href="/eng/symmetric/rc4.html" rel="next"><small>Next →</small>RC4</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fotp.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fotp.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsymmetric%2Fotp.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-symmetric -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/symmetric/">Symmetric ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/symmetric/stream-ciphers.html">Stream ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/otp.html" aria-current="page">OTP</a></li>
+              <li><a href="/eng/symmetric/rc4.html">RC4</a></li>
+              <li><a href="/eng/symmetric/salsa20.html">Salsa20</a></li>
+              <li><a href="/eng/symmetric/css.html">CSS</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/symmetric/block-ciphers.html">Block ciphers</a>
+            <ul>
+              <li><a href="/eng/symmetric/des.html">DES</a></li>
+              <li><a href="/eng/symmetric/rc2.html">RC2</a></li>
+              <li><a href="/eng/symmetric/3des.html">Triple DES</a></li>
+              <li><a href="/eng/symmetric/aes.html">AES</a></li>
+              <li><a href="/eng/symmetric/blowfish.html">Blowfish</a></li>
+              <li><a href="/eng/symmetric/camellia.html">Camellia</a></li>
+              <li><a href="/eng/symmetric/serpent.html">Serpent</a></li>
+              <li><a href="/eng/symmetric/twofish.html">Twofish</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-symmetric -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

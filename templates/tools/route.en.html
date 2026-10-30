@@ -1,0 +1,58 @@
+<section class="tool" id="online" aria-labelledby="online-title"
+         data-tool="route"
+         data-msg-columns="The number of columns must be at least 2."
+         data-msg-length="For decryption the text length must be a multiple of the number of columns."
+         data-msg-copied="Copied">
+  <h2 id="online-title">Route cipher online</h2>
+  <div class="tool__grid">
+    <div>
+      <div class="field">
+        <label for="rt-columns">Number of columns</label>
+        <select id="rt-columns" data-role="columns">
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5" selected>5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <small>Width of the grid the message is written into, row by row.</small>
+      </div>
+      <fieldset>
+        <legend>Route shape</legend>
+        <div class="options">
+          <label><input type="radio" name="path" value="clockwise" checked> From the top-right corner, clockwise to the centre</label>
+          <label><input type="radio" name="path" value="anticlockwise"> From the top-right corner, anticlockwise to the centre</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend class="visually-hidden">Direction</legend>
+        <div class="segmented">
+          <label><input type="radio" name="direction" value="encrypt" checked> Encrypt</label>
+          <label><input type="radio" name="direction" value="decrypt"> Decrypt</label>
+        </div>
+      </fieldset>
+    </div>
+    <figure>
+      <table class="matrix" data-role="grid" aria-label="The route grid"></table>
+    </figure>
+  </div>
+
+  <div class="field">
+    <label for="rt-input">Text</label>
+    <textarea id="rt-input" data-role="input" spellcheck="false">We are discovered flee at once</textarea>
+    <small>Only letters are used; spaces, digits and punctuation are ignored, accents are removed. On encryption the last row is padded with X.</small>
+  </div>
+
+  <p class="tool__error" data-role="error" role="alert"></p>
+
+  <div class="field">
+    <label for="rt-output">Result</label>
+    <textarea id="rt-output" data-role="output" readonly></textarea>
+  </div>
+  <div class="tool__actions">
+    <button type="button" class="button" data-role="copy">Copy result</button>
+    <button type="button" class="button" data-role="swap">Use result as input</button>
+  </div>
+</section>

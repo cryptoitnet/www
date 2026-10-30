@@ -1,0 +1,58 @@
+<section class="tool" id="online" aria-labelledby="online-title"
+         data-tool="route"
+         data-msg-columns="Liczba kolumn musi wynosić co najmniej 2."
+         data-msg-length="Przy deszyfrowaniu długość tekstu musi być wielokrotnością liczby kolumn."
+         data-msg-copied="Skopiowano">
+  <h2 id="online-title">Szyfr ścieżkowy online</h2>
+  <div class="tool__grid">
+    <div>
+      <div class="field">
+        <label for="rt-columns">Liczba kolumn</label>
+        <select id="rt-columns" data-role="columns">
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5" selected>5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <small>Szerokość tabeli, do której wpisuje się wiadomość wiersz po wierszu.</small>
+      </div>
+      <fieldset>
+        <legend>Kształt ścieżki</legend>
+        <div class="options">
+          <label><input type="radio" name="path" value="clockwise" checked> Z górnego-prawego rogu, zgodnie ze wskazówkami zegara, do środka</label>
+          <label><input type="radio" name="path" value="anticlockwise"> Z górnego-prawego rogu, przeciwnie do wskazówek zegara, do środka</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend class="visually-hidden">Kierunek</legend>
+        <div class="segmented">
+          <label><input type="radio" name="direction" value="encrypt" checked> Szyfruj</label>
+          <label><input type="radio" name="direction" value="decrypt"> Deszyfruj</label>
+        </div>
+      </fieldset>
+    </div>
+    <figure>
+      <table class="matrix" data-role="grid" aria-label="Tabela ścieżki"></table>
+    </figure>
+  </div>
+
+  <div class="field">
+    <label for="rt-input">Tekst</label>
+    <textarea id="rt-input" data-role="input" spellcheck="false">We are discovered flee at once</textarea>
+    <small>Uwzględniane są tylko litery; spacje, cyfry i znaki interpunkcyjne są pomijane, a znaki diakrytyczne usuwane. Przy szyfrowaniu ostatni wiersz jest uzupełniany literą X.</small>
+  </div>
+
+  <p class="tool__error" data-role="error" role="alert"></p>
+
+  <div class="field">
+    <label for="rt-output">Wynik</label>
+    <textarea id="rt-output" data-role="output" readonly></textarea>
+  </div>
+  <div class="tool__actions">
+    <button type="button" class="button" data-role="copy">Kopiuj wynik</button>
+    <button type="button" class="button" data-role="swap">Użyj wyniku jako wejścia</button>
+  </div>
+</section>

@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="pl" data-type="article" data-translation="/eng/theory/binary-numbers.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liczby Binarne | Kryptografia | Crypto-IT</title>
+  <meta name="description" content="Liczby binarne są powszechnie używane przez wszystkie komputery na całym świecie. Poznaj sposób zapisywania liczb dwójkowych i przeprowadzania działań…">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/pl/teoria/liczby-binarne.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/theory/binary-numbers.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/teoria/liczby-binarne.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/theory/binary-numbers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Liczby Binarne | Kryptografia">
+  <meta property="og:description" content="Liczby binarne są powszechnie używane przez wszystkie komputery na całym świecie. Poznaj sposób zapisywania liczb dwójkowych i przeprowadzania działań…">
+  <meta property="og:url" content="https://www.crypto-it.net/pl/teoria/liczby-binarne.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Zapis i operacje na liczbach binarnych",
+        "description": "Liczby binarne są powszechnie używane przez wszystkie komputery na całym świecie. Poznaj sposób zapisywania liczb dwójkowych i przeprowadzania działań…",
+        "inLanguage": "pl",
+        "author": {
+          "@type": "Person",
+          "name": "Krzysztof Kowalczyk",
+          "url": "https://www.crypto-it.net/pl/ostronie/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/pl/teoria/liczby-binarne.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://www.crypto-it.net/pl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teoria",
+            "item": "https://www.crypto-it.net/pl/teoria/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Zapis i operacje na liczbach binarnych"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/pl/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Menu główne">
+        <ul>
+          <li><a href="/pl/teoria/" aria-current="true">Teoria</a></li>
+          <li><a href="/pl/proste/">Proste szyfry</a></li>
+          <li><a href="/pl/symetryczne/">Symetryczne</a></li>
+          <li><a href="/pl/asymetryczne/">Asymetryczne</a></li>
+          <li><a href="/pl/ataki/">Ataki</a></li>
+          <li><a href="/pl/narzedzia/">Oprogramowanie</a></li>
+          <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+          <li><a href="/pl/aktualnosci/">Aktualności</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/eng/theory/binary-numbers.html" hreflang="en" lang="en">EN<span class="visually-hidden"> – English version</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+          <ol>
+            <li><a href="/pl/">Strona główna</a></li>
+            <li><a href="/pl/teoria/">Teoria</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Zapis i operacje na liczbach binarnych</h1>
+          <!-- auto:dates -->
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Liczby zapisywane w&nbsp;postaci binarnej składają się z&nbsp;ciągów zer i&nbsp;jedynek. Obecnie wykorzystywanych jest kilka rodzajów systemów binarnych, z&nbsp;których najpopularniejsze to:</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Spis treści</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <ul>
+           <li><strong>naturalny system dwójkowy</strong> (ang. <i>Natural Binary System</i>&nbsp;-&nbsp;<strong>NBS</strong>), który umożliwia zapisywanie wyłącznie liczb nieujemnych,</li>
+           <li><strong>kod uzupełnień do&nbsp;dwóch</strong>, w&nbsp;skrócie <strong>U2</strong> lub&nbsp;<strong>ZU2</strong> (ang. <i>Two's Complement</i>&nbsp;-&nbsp;<strong>2C</strong>), za&nbsp;pomocą którego można zapisywać liczby dodatnie i&nbsp;ujemne.</li>
+          </ul>
+          <h2 id="zapis-liczb-w-nbs">Zapis liczb w&nbsp;NBS</h2>
+          <p>Liczba binarna zapisana w&nbsp;systemie NBS i&nbsp;posiadająca <var>n</var> cyfr, może przyjmować wartości od&nbsp;<span class="term">0</span> do&nbsp;<span class="term">2<sup>n</sup>-1</span>.</p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Wartość dziesiętna liczby binarnej posiadającej <span class="term">n</span> cyfr oraz zapisanej w&nbsp;naturalnym systemie dwójkowym jako:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a<sub>n-1</sub>&nbsp;... a<sub>2</sub>a<sub>1</sub>a<sub>0</sub></span><br> wynosi:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">2<sup>n-1</sup>a<sub>n-1</sub>&nbsp;+ ... +&nbsp;2<sup>2</sup>a<sub>2</sub>&nbsp;+&nbsp;2<sup>1</sup>a<sub>1</sub>&nbsp;+&nbsp;2<sup>0</sup>a<sub>0</sub></span>
+           <div class="definition__note">
+           gdzie:
+           <ul>
+           <li><var>a<sub>i</sub></var> może być równe <span class="term">0</span> lub&nbsp;<span class="term">1</span>.</li>
+           </ul>
+           </div>
+          </aside>
+          <h3 id="zapis-ulamkowy-w-nbs">Zapis ułamkowy w&nbsp;NBS</h3>
+          <p>Za&nbsp;pomocą systemu&nbsp;NBS można zapisywać liczby binarne ułamkowe stałoprzecinkowe. Pewna ilość bitów koduje wtedy wartość ułamkową liczby.</p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Wartość dziesiętna liczby binarnej posiadającej <span class="term">n+m</span> cyfr oraz zapisanej w&nbsp;naturalnym systemie dwójkowym jako:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a<sub>n-1</sub>&nbsp;... a<sub>2</sub>a<sub>1</sub>a<sub>0</sub>&nbsp;,&nbsp;a<sub>-1</sub>a<sub>-2</sub>&nbsp;... a<sub>-m</sub></span><br> wynosi:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">2<sup>n-1</sup>a<sub>n-1</sub>&nbsp;+ ... +&nbsp;2<sup>2</sup>a<sub>2</sub>&nbsp;+&nbsp;2<sup>1</sup>a<sub>1</sub>&nbsp;+ 2<sup>0</sup>a<sub>0</sub>&nbsp;+ 2<sup>-1</sup>a<sub>-1</sub>&nbsp;+ 2<sup>-2</sup>a<sub>-2</sub>&nbsp;+&nbsp;... +&nbsp;2<sup>-m</sup>a<sub>-m</sub></span>
+           <div class="definition__note">
+           gdzie:
+           <ul>
+           <li><var>n</var> to ilość bitów całkowitych,</li>
+           <li><var>m</var> to liczba bitów ułamkowych,</li>
+           <li><var>a<sub>i</sub></var> może być równe <span class="term">0</span> lub&nbsp;<span class="term">1</span>.</li>
+           </ul>
+           </div>
+          </aside>
+          <h3 id="dodawanie-liczb-w-nbs">Dodawanie liczb w&nbsp;NBS</h3>
+          <p>Dodawanie liczb binarnych w&nbsp;NBS można przedstawić za&nbsp;pomocą zwykłego pisemnego sumowania:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="Dodawanie liczb binarnych 111101 + 110 w NBS">
+           <tr>
+           <td>&nbsp;</td>
+           <td><sup>1</sup></td>
+           <td><sup>1</sup></td>
+           <td><sup>1</sup></td>
+           <td><sup>1</sup></td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>+</td>
+           <td>&nbsp;</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <h3 id="odejmowanie-liczb-w-nbs">Odejmowanie liczb w&nbsp;NBS</h3>
+          <p>Odejmowanie liczb binarnych w&nbsp;systemie NBS można łatwo przeprowadzić sposobem pisemnym. Odejmuje się odpowiadające sobie bity, w&nbsp;razie potrzeby pożyczając bity z&nbsp;kolumn po&nbsp;lewej strony aktualnej. Pożyczane liczby mają zawsze wartości o&nbsp;jeden większe niż wynosi podstawa systemu, czyli w&nbsp;tym przypadku&nbsp;<span class="term">10</span> (lub&nbsp;<span class="term">2</span> w&nbsp;zapisie dziesiętnym; dla&nbsp;uproszczenia zapisu w&nbsp;przykładzie poniżej użyto dwójki).</p>
+          <p>Przykładowo, odejmując&nbsp;<span class="term">6</span> od&nbsp;<span class="term">19</span> w&nbsp;systemie NBS otrzyma&nbsp;się:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary subtraction of numbers 10011 - 110 in NBS">
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td><sup>1</sup></td>
+           <td><sup>2</sup></td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>-</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p>Jest to ten sam wynik, jak w&nbsp;przypadku odejmowania liczb w&nbsp;systemie dziesiętnym (<span class="term">19-6=13</span>).</p>
+          <h3 id="mnozenie-liczb-w-nbs">Mnożenie liczb w&nbsp;NBS</h3>
+          <p>Mnożenie liczb binarnych zapisanych w&nbsp;NBS przeprowadza się analogicznie, do mnożenia liczb w&nbsp;systemie dziesiętnym. Przykładowo mnożąc&nbsp;<span class="term">22</span> razy&nbsp;<span class="term">5</span> otrzymuje się poprawny wynik równy&nbsp;<span class="term">110</span>:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary multiplication of numbers 10110 x 101 in NBS">
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td class="cell-border">x</td>
+           <td class="cell-border">&nbsp;</td>
+           <td class="cell-border">&nbsp;</td>
+           <td class="cell-border">&nbsp;</td>
+           <td class="cell-border">1</td>
+           <td class="cell-border">0</td>
+           <td class="cell-border">1</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>&nbsp;</td>
+           </tr>
+           <tr class="row-border">
+           <td>+</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           </table>
+          </div>
+          <h3 id="dzielenie-liczb-w-nbs">Dzielenie liczb w&nbsp;NBS</h3>
+          <p>Dzielenie liczb binarnych w&nbsp;naturalnym systemie dwójkowym można przedstawić w&nbsp;formie pisemnej, za pomocą operacji odejmowania i&nbsp;rotacji.</p>
+          <p>W&nbsp;tym celu należy zapisać obie liczby pod&nbsp;kreską, dzielną nad&nbsp;dzielnikiem. Dzielnik przesuwa się w&nbsp;lewo, aż jego najstarszy niezerowy bit zrówna się z&nbsp;najstarszym niezerowym bitem dzielnej.</p>
+          <p>Następnie porównuje się dzielną z&nbsp;dzielnikiem. Jeśli dzielna (czyli liczba zapisana wyżej) jest większa od&nbsp;dzielnika, to odejmuje się od&nbsp;niej dzielnik, a&nbsp;ponad kreską na&nbsp;ostatniej pozycji dzielnika dopisuje jedynkę. W&nbsp;kolejnym porównywaniu zamiast dzielnej należy używać wyniku z&nbsp;odejmowania.</p>
+          <p>Jeśli dzielnik jest większy od&nbsp;dzielnej, to nie&nbsp;wykonuje się odejmowania, tylko zapisuje zero nad&nbsp;kreską i&nbsp;przesuwa dzielnik (dolną liczbę) o&nbsp;jedną pozycję w&nbsp;prawo, a następnie powtarza całe porównywanie.</p>
+          <p>Jeśli dzielnika nie&nbsp;da się już przesunąć bardziej w&nbsp;prawo, to nad&nbsp;kreską dopisuje się zero, a aktualna różnica dzielnej i&nbsp;dzielnika stanowi resztę z&nbsp;dzielenia.</p>
+          <p>Na&nbsp;przykład, dzieląc pisemnie&nbsp;<span class="term">11</span> przez&nbsp;<span class="term">3</span> otrzyma się w wyniku&nbsp;<span class="term">3</span> i&nbsp;resztę&nbsp;<span class="term">2</span>:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="The binary division of numbers 1011 / 11 in NBS">
+           <tr class="row-border">
+           <td>&nbsp;&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <td>&nbsp;&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>&nbsp;&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           </tr>
+           <tr>
+           <td>&nbsp;&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>-&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           <td>&nbsp;</td>
+           </tr>
+           <tr>
+           <td>&nbsp;&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>-&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <td>&nbsp;&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           </table>
+          </div>
+          <p>Po&nbsp;otrzymaniu reszty w&nbsp;dzieleniu, jest możliwe dalsze kontynuowanie tych samych operacji, otrzymując cyfry ułamkowe (podobnie jak w&nbsp;przypadku dzielenia pisemnego liczb dziesiętnych).</p>
+          <h2 id="zapis-liczb-w-u2">Zapis liczb w&nbsp;U2</h2>
+          <p>Liczba binarna zapisana w&nbsp;systemie U2 i&nbsp;posiadająca <var>n</var> cyfr, może przyjmować wartości dodatnie i&nbsp;ujemne w&nbsp;przedziale od&nbsp;<span class="term">-2<sup>n-1</sup></span> do&nbsp;<span class="term">2<sup>n-1</sup>-1</span>.</p>
+          <aside class="definition">
+           <p class="definition__title">Definicja</p>
+           Wartość dziesiętna liczby binarnej posiadającej <span class="term">n</span> cyfr oraz zapisanej w&nbsp;kodzie uzupełnień do&nbsp;dwóch jako:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">a<sub>n-1</sub>&nbsp;... a<sub>2</sub>a<sub>1</sub>a<sub>0</sub></span><br> wynosi:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">-(2<sup>n-1</sup>)a<sub>n-1</sub>&nbsp;+ 2<sup>n-2</sup>a<sub>n-2</sub>&nbsp;+... +&nbsp;2<sup>2</sup>a<sub>2</sub>&nbsp;+&nbsp;2<sup>1</sup>a<sub>1</sub>&nbsp;+&nbsp;2<sup>0</sup>a<sub>0</sub></span>
+           <div class="definition__note">
+           gdzie:
+           <ul>
+           <li><var>a<sub>i</sub></var> może być równe <span class="term">0</span> lub&nbsp;<span class="term">1</span>.</li>
+           </ul>
+           </div>
+          </aside>
+          <p>Skrajnie lewy bit liczby binarnej nazywany jest bitem znaku i&nbsp;decyduje czy liczba jest dodatnia czy ujemna (liczba jest ujemna, jeśli bit znaku równy jest <span class="term">1</span>).</p>
+          <h3 id="zwiekszenie-ilosci-bitow-w-u2">Zwiększenie ilości bitów w&nbsp;U2</h3>
+          <p>Liczby w&nbsp;systemie U2 można zapisywać na&nbsp;różnej ilości bitów, podobnie jak liczby w&nbsp;systemie dziesiętnym można zapisać za&nbsp;pomocą różnej ilości cyfr, dodając z&nbsp;lewej strony dodatkowe zera. W&nbsp;celu zwiększenia ilości bitów, na&nbsp;których zapisana jest liczba, należy dopisać bit z lewej strony i&nbsp;przypisać mu taką samą wartość jaką miał dotychczasowy bit znaku. Gwarantuje to zachowanie oryginalnej wartości liczby.</p>
+          <p>Na&nbsp;przykład, mając daną liczbę <span class="term">-7</span> zapisaną w&nbsp;kodzie U2 na 4&nbsp;bitach (<span class="term">1001<sub>2</sub></span>), można rozszerzyć ją do 5&nbsp;bitów poprzez powielenie bitu znaku z lewej strony (<span class="term">11001<sub>2</sub></span>):<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">&nbsp;1001<sub>2</sub> = -2<sup>3</sup> + 2<sup>0</sup>&nbsp;= -8 + 1 =&nbsp;-7</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">11001<sub>2</sub> = -2<sup>4</sup> + 2<sup>3</sup> + 2<sup>0</sup>&nbsp;= -16 + 8 + 1 =&nbsp;-7</span></p>
+          <h3 id="zmiana-znaku-liczby-w-u2">Zmiana znaku liczby w&nbsp;U2</h3>
+          <p>Wyznaczenie liczby przeciwnej polega na&nbsp;negacji wszystkich bitów w&nbsp;liczbie (zastąpieniu zerami jedynek, a jedynkami zer), a następnie dodaniu do&nbsp;otrzymanej wartości liczby&nbsp;<span class="term">1</span>.</p>
+          <p>Przykładowo, aby wyznaczyć liczbę <span class="term">11</span> w&nbsp;kodzie U2, znając binarną wartość liczby <span class="term">-11</span> w&nbsp;kodzie U2 (czyli <span class="term">110101<sub>2</sub></span>), należy w&nbsp;pierwszej kolejności zanegować wszystkie bity:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">~110101 = 001010</span>,<br> a następnie dodać do&nbsp;otrzymanej wartości jedynkę:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="Dodawanie liczb binarnych 1010 + 1 w U2">
+           <tr>
+           <td>&nbsp;</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr class="row-border">
+           <td>+</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">2<sup>3</sup> + 2<sup>1</sup> + 2<sup>0</sup>&nbsp;= 8 + 2 + 1 =&nbsp;11</span></p>
+          <h3 id="dodawanie-liczb-w-u2">Dodawanie liczb w&nbsp;U2</h3>
+          <p>Dodawanie liczb binarnych w&nbsp;U2 można przedstawić za&nbsp;pomocą zwykłego pisemnego sumowania, analogicznie jak w przypadku dodawania liczb w formacie NBS. Przykładowo, dodając&nbsp;<span class="term">6</span> do&nbsp;<span class="term">-11</span> w&nbsp;systemie U2 otrzyma&nbsp;się:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="Dodawanie liczb binarnych 110101 + 110 w U2">
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td><sup>1</sup></td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>+</td>
+           <td>&nbsp;</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p>czyli <span class="term">-5</span> w&nbsp;systemie dziesiętnym:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">-2<sup>5</sup> + 2<sup>4</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>0</sup>&nbsp;= -32 + 16 + 8 + 2 + 1 =&nbsp;-5</span></p>
+          <p>Wykonując operacje na&nbsp;liczbach binarnych, należy mieć na&nbsp;uwadze, aby wynik zawierał się w&nbsp;zakresie dla&nbsp;jakiego zdefiniowano aktualnie przetwarzane liczby. W&nbsp;przeciwnym wypadku otrzymana wartość nie&nbsp;zmieści się w&nbsp;słowie o&nbsp;przewidzianej ilości bitów i&nbsp;będzie niepoprawna.</p>
+          <h3 id="odejmowanie-liczb-w-u2">Odejmowanie liczb w&nbsp;U2</h3>
+          <p>Odejmowanie liczb binarnych w&nbsp;systemie U2 można przedstawić za&nbsp;pomocą zwykłego pisemnego odejmowania (tak jak w&nbsp;systemie NBS). Pożyczane liczby mają (również podobnie jak w&nbsp;NBS) wartości o&nbsp;jeden większe niż wynosi podstawa systemu, czyli w&nbsp;tym przypadku&nbsp;<span class="term">10</span> (lub&nbsp;<span class="term">2</span> w&nbsp;zapisie dziesiętnym; dla&nbsp;uproszczenia zapisu w&nbsp;przykładach poniżej użyto dwójki). Przykładowo, odejmując&nbsp;<span class="term">6</span> od&nbsp;<span class="term">-11</span> w&nbsp;systemie U2 otrzyma&nbsp;się:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="Odejmowanie liczb binarnych 110101 - 110 w U2">
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td><sup>1</sup></td>
+           <td><sup>2</sup></td>
+           <td><sup>2</sup></td>
+           <td>&nbsp;</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>-</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p>czyli poprawną wartość w&nbsp;systemie dziesiętnym:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">-2<sup>5</sup> + 2<sup>3</sup> + 2<sup>2</sup> + 2<sup>1</sup> + 2<sup>0</sup>&nbsp;= -32 + 8 + 4 + 2 + 1 =&nbsp;-17</span></p>
+          <p>Podobnie, aby odjąć&nbsp;<span class="term">22</span> od&nbsp;<span class="term">-11</span> w&nbsp;systemie U2 należy:</p>
+          <div class="table-wrap">
+           <table class="table" aria-label="Odejmowanie liczb binarnych 1110101 - 10110 w U2">
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td><sup>2</sup></td>
+           <td><sup>1</sup></td>
+           <td><sup>2</sup></td>
+           <td><sup>2</sup></td>
+           <td>&nbsp;</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           </tr>
+           <tr class="row-border">
+           <td>-</td>
+           <td>0</td>
+           <td>0</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>0</td>
+           </tr>
+           <tr>
+           <td>&nbsp;</td>
+           <td>1</td>
+           <td>0</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           <td>1</td>
+           </tr>
+           </table>
+          </div>
+          <p>co w&nbsp;systemie dziesiętnym wynosi:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">-2<sup>6</sup> + 2<sup>4</sup> + 2<sup>3</sup> + 2<sup>2</sup> + 2<sup>1</sup> + 2<sup>0</sup>&nbsp;= -64 + 16 + 8 + 4 + 2 + 1 =&nbsp;-33</span></p>
+          <h3 id="mnozenie-liczb-w-u2">Mnożenie liczb w&nbsp;U2</h3>
+          <p>Binarne mnożenie w&nbsp;systemie U2 jest nieco bardziej skomplikowane niż mnożenie liczb w&nbsp;binarnym systemie naturalnym. Wydajnym algorytmem umożliwiającym przeprowadzenie obliczeń jest tak zwany <strong>algorytm mnożenia Bootha</strong> (ang. <i>Booth's multiplication algorithm</i>). W&nbsp;celu przemnożenia przez&nbsp;siebie dwóch liczb (<span class="term">X</span> o&nbsp;długości <span class="term">dł<sub>X</sub></span> bitów i&nbsp;<span class="term">Y</span> o&nbsp;długości <span class="term">dł<sub>Y</sub></span> bitów) zapisanych w&nbsp;U2, należy najpierw wykonać następujące kroki inicjujące:</p>
+          <ol class="steps">
+           <li>Jeżeli wartość którejś z&nbsp;mnożonych liczb jest równa maksymalnej ujemnej liczbie możliwej do&nbsp;zapisana na&nbsp;ilości bitów, jaką ta liczba posiada, to przed rozpoczęciem dalszych działań należy ją rozszerzyć o&nbsp;jeden bit z&nbsp;lewej strony,</li>
+           <li>Obliczyć odwrotność <span class="term">X</span> w U2 (czyli <span class="term">-X</span>),</li>
+           <li>Zainicjować zmienną pomocniczą&nbsp;<span class="term">A</span> o&nbsp;długości <span class="term">dł<sub>X</sub>+dł<sub>Y</sub>+1</span>&nbsp;bitów: wypełnić najbardziej znaczące <span class="term">dł<sub>X</sub></span> bitów liczby <span class="term">A</span> bitami z&nbsp;liczby <span class="term">X</span>, natomiast pozostałe <span class="term">dł<sub>Y</sub>+1</span>&nbsp;bitów wypełnić zerami (litera&nbsp;<span class="term">A</span> nawiązuje do operacji dodawania, ang. <i>addition</i>, wykonywanego w&nbsp;dalszych krokach algorytmu),</li>
+           <li>Zainicjować zmienną pomocniczą&nbsp;<span class="term">S</span> o&nbsp;długości <span class="term">dł<sub>X</sub>+dł<sub>Y</sub>+1</span>&nbsp;bitów: wypełnić najbardziej znaczące <span class="term">dł<sub>X</sub></span> bitów liczby <span class="term">S</span> bitami z&nbsp;liczby <span class="term">-X</span>, natomiast pozostałe <span class="term">dł<sub>Y</sub>+1</span>&nbsp;bitów wypełnić zerami (litera&nbsp;<span class="term">S</span> nawiązuje do operacji rotacji, ang. <i>shifting</i>, wykonywanej w&nbsp;dalszych krokach algorytmu),</li>
+           <li>Zainicjować zmienną pomocniczą&nbsp;<span class="term">P</span> o&nbsp;długości <span class="term">dł<sub>X</sub>+dł<sub>Y</sub>+1</span>&nbsp;bitów: wypełnić najbardziej znaczące <span class="term">dł<sub>X</sub></span> bitów liczby&nbsp;<span class="term">P</span> zerami, kolejne <span class="term">dł<sub>Y</sub></span> bitów liczby&nbsp;<span class="term">P</span> bitami z liczby&nbsp;<span class="term">Y</span>, natomiast ostatni bit (najmniej znaczący) liczby&nbsp;<span class="term">P</span> ustawić na&nbsp;zero (litera&nbsp;<span class="term">P</span> nawiązuje do wyniku operacji mnożenia, ang. <i>product</i>).</li>
+          </ol>
+          <p>Po&nbsp;inicjalizacji zmiennych, należy wykonać poniższe dwa kroki <span class="term">dł<sub>Y</sub></span> razy:</p>
+          <ol class="steps">
+           <li>Jeżeli dwa ostatnie bity liczby&nbsp;<span class="term">P</span> są równe&nbsp;<span class="term">01</span>, to dodać <span class="term">P+A</span> (ignorując ewentualne przepełnienie) i&nbsp;wynik przypisać do&nbsp;<span class="term">P</span>. W&nbsp;przeciwnym wypadku, jeżeli dwa ostatnie bity liczby&nbsp;<span class="term">P</span> są równe&nbsp;<span class="term">10</span>, to dodać <span class="term">P+S</span> (ignorując ewentualne przepełnienie) i&nbsp;wynik przypisać do&nbsp;<span class="term">P</span>. W&nbsp;przeciwnym wypadku, jeżeli są równe <span class="term">00</span> lub&nbsp;<span class="term">11</span>, to liczba&nbsp;<span class="term">P</span> powinna zostać niezmieniona.</li>
+           <li>Przesunąć arytmetycznie wszystkie bity otrzymanej liczby&nbsp;<span class="term">P</span> o&nbsp;jedną pozycje w&nbsp;prawo (porzucając najmniej znaczący bit, a wartość dotychczasowego najbardziej znaczącego bitu pozostawiając niezmienioną) i&nbsp;przypisać wynik do&nbsp;<span class="term">P</span>.</li>
+          </ol>
+          <p>Po&nbsp;ukończeniu powyższych kroków, należy odrzucić z&nbsp;otrzymanej liczby&nbsp;<span class="term">P</span> najmniej znaczący bit. Wynik, otrzymana nowa liczba&nbsp;<span class="term">P</span>, jest iloczynem mnożenia oryginalnych liczb <span class="term">X</span> i&nbsp;<span class="term">Y</span>.</p>
+          <h4>Przykład mnożenia liczb binarnych w&nbsp;U2</h4>
+          <p>Rozważmy przebieg mnożenia liczb <span class="term">-8</span> i&nbsp;<span class="term">3</span>:</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="math">X = -8 = 1000<sub>2</sub></span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">Y = 3 = 011<sub>2</sub></span></p>
+          <p>W&nbsp;pierwszym kroku należy rozszerzyć liczbę&nbsp;<span class="term">X</span>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">X = 11000</span></p>
+          <p>Następnie należy wyznaczyć wartość <span class="term">-X</span>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">-X = ~11000 + 01 = 00111 + 01 = 01000</span></p>
+          <p>Wyznaczenie początkowych wartości liczb pomocniczych <span class="term">A</span>, <span class="term">S</span> i&nbsp;<span class="term">P</span>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">A = 1&nbsp;1000&nbsp;0000</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">S = 0&nbsp;1000&nbsp;0000</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">P = 0&nbsp;0000&nbsp;0110</span></p>
+          <p>Następnie dwa kolejne kroki algorytmu powinny zostać powtórzone trzy razy (tyle wynosi długość liczby <span class="term">Y</span>):<br> &nbsp;<strong>Runda&nbsp;1:</strong><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">P = P + S = 0&nbsp;1000&nbsp;0110</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">P >> 1 = 0&nbsp;0100&nbsp;0011</span><br> &nbsp;<strong>Runda&nbsp;2:</strong><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">P >> 1 = 0&nbsp;0010&nbsp;0001</span><br> &nbsp;<strong>Runda&nbsp;3:</strong><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">P = P + A = 1&nbsp;1010&nbsp;0001</span><br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">P >> 1 = 1&nbsp;1101&nbsp;0000</span></p>
+          <p>Na&nbsp;końcu należy usunąć najmniej znaczący bit liczby&nbsp;<span class="term">P</span>:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">P = 1110&nbsp;1000</span></p>
+          <p>Otrzymana wartość jest równa:<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math">-2<sup>7</sup> + 2<sup>6</sup> + 2<sup>5</sup> + 2<sup>3</sup>&nbsp;= -128 + 64 + 32 + 8 =&nbsp;-24</span></p>
+          <p>Jest&nbsp;to poprawny wynik mnożenia liczb <span class="term">-8</span> i&nbsp;<span class="term">3</span>.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Poprzedni i następny artykuł">
+          <a href="/pl/teoria/zapis-liczb.html" rel="prev"><small>← Poprzedni</small>Zapis liczb</a>
+          <a class="pager__next" href="/pl/teoria/utf-8.html" rel="next"><small>Następny →</small>Kodowanie UTF-8</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Udostępnij:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fliczby-binarne.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fliczby-binarne.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Fpl%2Fteoria%2Fliczby-binarne.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-teoria -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/pl/teoria/">Teoria</a></h2>
+        <ul>
+          <li><a href="/pl/teoria/wprowadzenie.html">Wprowadzenie</a></li>
+          <li><a href="/pl/teoria/kerckhoffs.html">Zasada Kerckhoffsa</a></li>
+          <li><a href="/pl/teoria/steganografia.html">Steganografia</a></li>
+          <li><a href="/pl/teoria/protokoly.html">Protokoły</a></li>
+          <li><a href="/pl/teoria/protokoly-tcp-ip.html">Protokoły TCP/IP</a></li>
+          <li><a href="/pl/teoria/protokoly-aplikacji.html">Protokoły warstwy aplikacji</a></li>
+          <li><a href="/pl/teoria/zapis-liczb.html">Zapis liczb</a></li>
+          <li><a href="/pl/teoria/liczby-binarne.html" aria-current="page">Liczby binarne</a></li>
+          <li><a href="/pl/teoria/utf-8.html">Kodowanie UTF-8</a></li>
+          <li><a href="/pl/teoria/szacowanie-czasu-dzialan-matematycznych.html">Szacowanie czasu działań matematycznych</a></li>
+          <li><a href="/pl/teoria/arytmetyka-modularna.html">Arytmetyka modularna</a></li>
+          <li><a href="/pl/teoria/bezpieczenstwo-szyfrow.html">Bezpieczeństwo szyfrów</a></li>
+          <li><a href="/pl/teoria/dopelnienie.html">Dopełnianie bloków</a></li>
+          <li><a href="/pl/teoria/tryby-szyfrow-blokowych.html">Tryby szyfrów blokowych</a></li>
+          <li><a href="/pl/teoria/generator-pseudolosowy.html">Generator pseudolosowy</a></li>
+          <li><a href="/pl/teoria/prf-i-prp.html">Funkcje i permutacje pseudolosowe</a></li>
+          <li><a href="/pl/teoria/funkcja-jednokierunkowa.html">Funkcja jednokierunkowa</a></li>
+          <li><a href="/pl/teoria/mac.html">MAC</a></li>
+          <li><a href="/pl/teoria/pbe.html">PBE</a></li>
+          <li><a href="/pl/teoria/podpisywanie-oprogramowania.html">Podpisywanie oprogramowania</a></li>
+          <li><a href="/pl/teoria/indeks-koincydencji.html">Indeks koincydencji</a></li>
+        </ul>
+        <p class="promo">
+      <a href="https://www.empik.com/adler-tajemnice-zamku-bazina-merriday-marta,p1208937129,ksiazka-p" rel="noopener" target="_blank">
+        <img src="/assets/img/banner-adler.webp" width="336" height="287" alt="Książka „Adler” Marty Merriday – kup w Empiku" loading="lazy">
+      </a>
+    </p>
+      </div>
+    </aside>
+    <!-- /shared:sidebar-teoria -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/pl/ostronie/">O stronie</a></li>
+        <li><a href="/pl/narzedzia-online.html">Narzędzia online</a></li>
+        <li><a href="/pl/prywatnosc.html">Polityka prywatności</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Rail fence tests</title>
+<!-- Open through a local server. Result shown on the page and in the title. -->
+<pre id="result">running…</pre>
+<script type="module">
+  import { normalize, encrypt, decrypt, RailFenceError }
+    from '../docs/assets/js/tools/rail-fence.js';
+
+  const results = [];
+  const eq = (name, actual, expected) =>
+    results.push(actual === expected ? `ok   ${name}` : `FAIL ${name}: got ${JSON.stringify(actual)}, expected ${JSON.stringify(expected)}`);
+  const throws = (name, fn, code) => {
+    try { fn(); results.push(`FAIL ${name}: no error`); }
+    catch (e) { eq(name, e instanceof RailFenceError && e.code, code); }
+  };
+
+  // Wikipedia example: WEAREDISCOVEREDRUNATONCE, 3 rails -> WECRUOERDSOEERNTNEAIVDAC
+  eq('wikipedia 3 rails encrypt',
+     encrypt('WEAREDISCOVEREDRUNATONCE', 3).output, 'WECRUOERDSOEERNTNEAIVDAC');
+  eq('wikipedia 3 rails decrypt',
+     decrypt('WECRUOERDSOEERNTNEAIVDAC', 3).output, 'WEAREDISCOVEREDRUNATONCE');
+
+  // Another classic: WEAREDISCOVEREDFLEEATONCE, 3 rails
+  eq('classic 3 rails',
+     encrypt('WE ARE DISCOVERED. FLEE AT ONCE', 3).output, 'WECRLTEERDSOEEFEAOCAIVDEN');
+  eq('classic 3 rails round trip',
+     decrypt(encrypt('WEAREDISCOVEREDFLEEATONCE', 3).output, 3).output, 'WEAREDISCOVEREDFLEEATONCE');
+
+  // 2 rails = split odd/even positions
+  eq('2 rails encrypt', encrypt('HELLOWORLD', 2).output, 'HLOOLELWRD');
+  eq('2 rails round trip', decrypt(encrypt('HELLOWORLD', 2).output, 2).output, 'HELLOWORLD');
+
+  // Normalization: spaces/punctuation dropped, accents removed, uppercased
+  eq('normalize', normalize('Zażółć! 123'), 'ZAZOLC');
+  eq('ignores non-letters before enciphering',
+     encrypt('we are discovered', 3).output, encrypt('WEAREDISCOVERED', 3).output);
+
+  // Offset shifts the starting point on the zig-zag; still round-trips
+  for (const rails of [2, 3, 4, 5]) {
+    for (const offset of [0, 1, 3, 7]) {
+      const plain = normalize('The quick brown fox jumps over the lazy dog');
+      const enc = encrypt(plain, rails, offset).output;
+      const back = decrypt(enc, rails, offset).output;
+      eq(`round trip rails=${rails} offset=${offset}`, back, plain);
+    }
+  }
+
+  // A non-zero offset changes the ciphertext
+  eq('offset changes output',
+     encrypt('WEAREDISCOVEREDRUNATONCE', 3, 0).output !== encrypt('WEAREDISCOVEREDRUNATONCE', 3, 2).output,
+     true);
+
+  // Errors
+  throws('too few rails', () => encrypt('abc', 1), 'rails');
+  throws('negative offset', () => encrypt('abc', 3, -1), 'offset');
+
+  const failed = results.filter((r) => r.startsWith('FAIL')).length;
+  document.getElementById('result').textContent = `${results.join('\n')}\n\n${failed ? `${failed} FAILED` : 'ALL PASSED'}`;
+  document.title = failed ? 'FAILED' : 'PASSED';
+</script>

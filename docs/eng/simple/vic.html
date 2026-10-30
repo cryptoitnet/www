@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/vic.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIC Cipher | Polyalphabetic Substitution Ciphers | Crypto-IT</title>
+  <meta name="description" content="VIC was a polyalphabetic substitution cipher used by Soviet spies in 20th century.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/vic.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/vic.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/vic.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/vic.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="VIC Cipher | Polyalphabetic Substitution Ciphers">
+  <meta property="og:description" content="VIC was a polyalphabetic substitution cipher used by Soviet spies in 20th century.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/vic.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "VIC Cipher",
+        "description": "VIC was a polyalphabetic substitution cipher used by Soviet spies in 20th century.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/vic.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Polyalphabetic substitution ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/polyalphabetic-substitution-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "VIC Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/vic.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a></li>
+            <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">VIC Cipher</h1>
+          <p class="article__subtitle">Polyalphabetic Substitution Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>Used by Soviet spies all over the world, in the middle of the twentieth century. Its name is based on a nickname VICTOR of a Soviet agent spying in the USA under the name Reino Häyhänen. In 1957 he surrendered to the American intelligence and disclosed details of the cipher.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>The VIC cipher is regarded as the most complex modification of the Nihilist cipher family. It is considered to be one of the strongest ciphers, which can be used manually without computers. By the time it was disclosed as a result of betrayal, American counterintelligence hadn't managed to break the cipher.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>The VIC cipher uses a table which allows changing letters of plaintext into numbers. It is called a <em>straddling checkerboard</em>.</p>
+          <p>It differs from tables used in other substitution ciphers because it produces shorter sequences of numbers (it is much more comfortable for sending to the second party).</p>
+          <p>The straddling checkerboard can be created in the following form:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <tr>
+           <td> </td>
+           <td>0</td>
+           <td>1</td>
+           <td>2</td>
+           <td>3</td>
+           <td>4</td>
+           <td>5</td>
+           <td>6</td>
+           <td>7</td>
+           <td>8</td>
+           <td>9</td>
+           </tr>
+           <tr>
+           <td> </td>
+           <td>E</td>
+           <td>T</td>
+           <td> </td>
+           <td>A</td>
+           <td>O</td>
+           <td>N</td>
+           <td> </td>
+           <td>R</td>
+           <td>I</td>
+           <td>S</td>
+           </tr>
+           <tr>
+           <td>2</td>
+           <td>B</td>
+           <td>C</td>
+           <td>D</td>
+           <td>F</td>
+           <td>G</td>
+           <td>H</td>
+           <td>J</td>
+           <td>K</td>
+           <td>L</td>
+           <td>M</td>
+           </tr>
+           <tr>
+           <td>6</td>
+           <td>P</td>
+           <td>Q</td>
+           <td>/</td>
+           <td>U</td>
+           <td>V</td>
+           <td>W</td>
+           <td>X</td>
+           <td>Y</td>
+           <td>Z</td>
+           <td>.</td>
+           </tr>
+           </table>
+          </div>
+          <p>The highest row is populated with the ten digits from 0 to 9. The second row is typically filled with popular letters in any order. In English a mnemonic ESTONIA-R can be used to remember the most frequent letters. Free cells should be left under two digits and in the leftmost column.</p>
+          <p>Each of both lower rows receives one of the two remaining digits, which isn't used in the second row. Then, the two rows should be filled with letters in alphabetical order. Because of two empty remaining cells, two additional special characters may be entered into the table. They can be used for special purposes or shortcuts agreed previously between the two parties.</p>
+          <p>During encryption using VIC one should replace letters of the message by numbers created based on numbers of rows and columns. The most popular letters should be replaced by only one digit of the column (that results in producing shorter ciphertext).</p>
+          <p>For example, one can encrypt the name of the famous Scottish queen using the table presented above:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <tr>
+           <td>M</td>
+           <td>A</td>
+           <td>R</td>
+           <td>Y</td>
+           <td>Q</td>
+           <td>U</td>
+           <td>E</td>
+           <td>E</td>
+           <td>N</td>
+           <td>O</td>
+           <td>F</td>
+           <td>S</td>
+           <td>C</td>
+           <td>O</td>
+           <td>T</td>
+           <td>S</td>
+           </tr>
+           <tr>
+           <td>29</td>
+           <td>3</td>
+           <td>7</td>
+           <td>67</td>
+           <td>61</td>
+           <td>63</td>
+           <td>0</td>
+           <td>0</td>
+           <td>5</td>
+           <td>4</td>
+           <td>23</td>
+           <td>9</td>
+           <td>21</td>
+           <td>4</td>
+           <td>1</td>
+           <td>9</td>
+           </tr>
+           </table>
+          </div>
+          <p>It should be noticed, that a lot of numbers in the received sequence have only one digit.</p>
+          <p>The next step is to add some specified numbers to the all digits of the created sequence. One should add one by one all digits of the changing message to all digits of the secret sequence. After the last letter of the secret sequence, algorithm goes back to the first digit of the sequence and continues its work. The addition is done modulo 10, so if the result is bigger than 10 then the tens digit should be discarded.</p>
+          <p>Continuing the example, one could add the received numbers to the secret sequence of four digits, the year of Mary's birth (1542):</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <tr>
+           <td> </td>
+           <td>2</td>
+           <td>9</td>
+           <td>3</td>
+           <td>7</td>
+           <td>6</td>
+           <td>7</td>
+           <td>6</td>
+           <td>1</td>
+           <td>6</td>
+           <td>3</td>
+           <td>0</td>
+           <td>0</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>3</td>
+           <td>9</td>
+           <td>2</td>
+           <td>1</td>
+           <td>4</td>
+           <td>1</td>
+           <td>9</td>
+           </tr>
+           <tr>
+           <td>+</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>5</td>
+           <td>4</td>
+           <td>2</td>
+           <td>1</td>
+           <td>5</td>
+           </tr>
+           <tr>
+           <td>=</td>
+           <td>3</td>
+           <td>4</td>
+           <td>7</td>
+           <td>9</td>
+           <td>7</td>
+           <td>2</td>
+           <td>0</td>
+           <td>3</td>
+           <td>7</td>
+           <td>8</td>
+           <td>4</td>
+           <td>2</td>
+           <td>6</td>
+           <td>9</td>
+           <td>6</td>
+           <td>5</td>
+           <td>0</td>
+           <td>7</td>
+           <td>5</td>
+           <td>6</td>
+           <td>2</td>
+           <td>4</td>
+           </tr>
+           </table>
+          </div>
+          <p>The received digits can be used as a ciphertext and sent to the second party. Sometimes, it is a good idea to change digits back into letters, using the same table as during encryption. Changing numbers into letters is straightforward and intuitive. After finding one of the two digits which are assigned to the two lower rows, one should use a proper two-digit number.</p>
+          <p>The sequence of digits received previously can be changed into a sequence of letters as below:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix">
+           <tr>
+           <td>3</td>
+           <td>4</td>
+           <td>7</td>
+           <td>9</td>
+           <td>7</td>
+           <td>20</td>
+           <td>3</td>
+           <td>7</td>
+           <td>8</td>
+           <td>4</td>
+           <td>26</td>
+           <td>9</td>
+           <td>65</td>
+           <td>0</td>
+           <td>7</td>
+           <td>5</td>
+           <td>62</td>
+           <td>4</td>
+           </tr>
+           <tr>
+           <td>A</td>
+           <td>O</td>
+           <td>R</td>
+           <td>S</td>
+           <td>R</td>
+           <td>B</td>
+           <td>A</td>
+           <td>R</td>
+           <td>I</td>
+           <td>O</td>
+           <td>J</td>
+           <td>S</td>
+           <td>W</td>
+           <td>E</td>
+           <td>R</td>
+           <td>N</td>
+           <td>/</td>
+           <td>O</td>
+           </tr>
+           </table>
+          </div>
+          <p>Decrypting can be performed using the same straddling checkerboard, the same secret number and the steps performed in reverse order. The secret number's digits should be subtracted from ciphertext's digits. If any of the results are smaller than 0, then one should add 10 to the ciphertext's digits.</p>
+          <h2 id="security-of-vic">Security of VIC</h2>
+          <p>The VIC cipher is well designed and provides quite good security. It makes ciphertext analyzing very time-consuming by breaking the original frequency distribution.</p>
+          <p>There are many modifications of the VIC cipher. Changes can be introduced in the straddling checkerboard by changing the order of letters. Some cells may be left empty, what makes cryptanalysis more difficult.</p>
+          <p>The received ciphertext's characters can be modified at the end of encryption using one of the transposition ciphers' algorithms.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/nihilist.html" rel="prev"><small>← Previous</small>Nihilist cipher</a>
+          <a class="pager__next" href="/eng/simple/transposition-ciphers.html" rel="next"><small>Next →</small>Transposition ciphers</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fvic.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fvic.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Fvic.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html" aria-current="page">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

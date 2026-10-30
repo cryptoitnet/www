@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/proste/szyfr-plotkowy.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rail Fence Cipher | Transposition Ciphers | Crypto-IT</title>
+  <meta name="description" content="The Rail Fence Cipher is a transposition cipher. It rearranges the plaintext letters by drawing them in a way that they form a shape of the rails of an…">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/simple/rail-fence-cipher.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/simple/rail-fence-cipher.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/proste/szyfr-plotkowy.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/simple/rail-fence-cipher.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Rail Fence Cipher | Transposition Ciphers">
+  <meta property="og:description" content="The Rail Fence Cipher is a transposition cipher. It rearranges the plaintext letters by drawing them in a way that they form a shape of the rails of an…">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/simple/rail-fence-cipher.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <script src="/assets/js/tools/rail-fence.js" type="module"></script>
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Rail Fence Cipher",
+        "description": "The Rail Fence Cipher is a transposition cipher. It rearranges the plaintext letters by drawing them in a way that they form a shape of the rails of an…",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/simple/rail-fence-cipher.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simple ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Transposition ciphers",
+            "item": "https://www.crypto-it.net/eng/simple/transposition-ciphers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Rail Fence Cipher"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/" aria-current="true">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/proste/szyfr-plotkowy.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/simple/">Simple ciphers</a></li>
+            <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Rail Fence Cipher</h1>
+          <p class="article__subtitle">Transposition Cipher</p>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The Rail Fence Cipher is a transposition cipher, which rearranges the plaintext letters by drawing them in a way that they form a shape of the rails of an imaginary fence.</p>
+          <p><a href="#online">Try the rail fence cipher online ↓</a></p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <h2 id="usage">Usage</h2>
+          <p>The Rail Fence Cipher was invented in ancient times. It was used by the Greeks, who created a special tool, called <i>scytale</i>, to make message encryption and decryption easier. Currently, it is usually used with a piece of paper. The letters are arranged in a way which is similar to the shape of the top edge of the rail fence.</p>
+          <h2 id="algorithm">Algorithm</h2>
+          <p>To encrypt the message, the letters should be written in a zigzag pattern, going downwards and upwards between the levels of the top and bottom imaginary rails. The shape that is formed by the letters is similar to the shape of the top edge of the rail fence.</p>
+          <p>Next, all the letters should be read off and concatenated, to produce one line of ciphertext. The letters should be read in rows, usually from the top row down to the bottom one.</p>
+          <p>The secret key is the number of levels in the rail. It is also a number of rows of letters that are created during encryption. This number cannot be very big, so the number of possible keys is quite limited.</p>
+          <p>For example, let us encrypt a name of one of the countries in Europe: <span class="term">The United Kingdom</span>. Let's assume that the secret key is <var>3</var>, so three levels of rails will be produced.</p>
+          <p>First, we will remove the empty spaces, and encrypt only the capitalized letters:</p>
+          <p>THEUNITEDKINGDOM</p>
+          <p>Next, the plaintext letters will form the shape of the fence:</p>
+          <div class="table-wrap">
+           <table class="table table--matrix table--plain" aria-label="Arranging the letters">
+           <tr>
+           <td>T</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>N</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>D</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>G</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           </tr>
+           <tr>
+           <td>.</td>
+           <td>H</td>
+           <td>.</td>
+           <td>U</td>
+           <td>.</td>
+           <td>I</td>
+           <td>.</td>
+           <td>E</td>
+           <td>.</td>
+           <td>K</td>
+           <td>.</td>
+           <td>N</td>
+           <td>.</td>
+           <td>D</td>
+           <td>.</td>
+           <td>M</td>
+           </tr>
+           <tr>
+           <td>.</td>
+           <td>.</td>
+           <td>E</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>T</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>I</td>
+           <td>.</td>
+           <td>.</td>
+           <td>.</td>
+           <td>O</td>
+           <td>.</td>
+           </tr>
+           </table>
+          </div>
+          <p>Then, the letters should be read row by row, starting from the top one. Finally, they ought to be concatenated to form one ciphertext message. In our example, the calculated ciphertext sequence would be:</p>
+          <p>TNDGHUIEKNDMETIO</p>
+          <p>To decrypt the message, the receiver should know the secret key, that is the number of levels of the rail. Based on the number of rows and the ciphertext length, it is possible to reconstruct the grid and fill it with letters in the right order (that is, in the same way as used by the sender during encryption).</p>
+          <section class="tool" id="online" aria-labelledby="online-title"
+                   data-tool="rail-fence"
+                   data-msg-rails="The number of rails must be at least 2."
+                   data-msg-offset="The offset must be zero or a positive number."
+                   data-msg-copied="Copied">
+            <h2 id="online-title">Rail fence cipher online</h2>
+            <div class="tool__grid">
+              <div>
+                <div class="field">
+                  <label for="rf-rails">Number of rails</label>
+                  <select id="rf-rails" data-role="rails">
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                  </select>
+                  <small>Height of the imaginary fence the text zig-zags across.</small>
+                </div>
+                <div class="field">
+                  <label for="rf-offset">Offset</label>
+                  <input type="number" id="rf-offset" data-role="offset" value="0" min="0" step="1">
+                  <small>How many zig-zag steps to skip before the first letter. Leave at 0 for the classic cipher.</small>
+                </div>
+                <fieldset>
+                  <legend class="visually-hidden">Direction</legend>
+                  <div class="segmented">
+                    <label><input type="radio" name="direction" value="encrypt" checked> Encrypt</label>
+                    <label><input type="radio" name="direction" value="decrypt"> Decrypt</label>
+                  </div>
+                </fieldset>
+              </div>
+              <figure>
+                <table class="matrix" data-role="fence" aria-label="The fence grid"></table>
+              </figure>
+            </div>
+
+            <div class="field">
+              <label for="rf-input">Text</label>
+              <textarea id="rf-input" data-role="input" spellcheck="false">We are discovered, run at once</textarea>
+              <small>Only letters are used; spaces, digits and punctuation are ignored, accents are removed.</small>
+            </div>
+
+            <p class="tool__error" data-role="error" role="alert"></p>
+
+            <div class="field">
+              <label for="rf-output">Result</label>
+              <textarea id="rf-output" data-role="output" readonly></textarea>
+            </div>
+            <div class="tool__actions">
+              <button type="button" class="button" data-role="copy">Copy result</button>
+              <button type="button" class="button" data-role="swap">Use result as input</button>
+            </div>
+          </section>
+          <h2 id="security-of-the-rail-fence-cipher">Security of the Rail Fence Cipher</h2>
+          <p>Ciphertexts produced by transposition ciphers are relatively easy to recognize, because the <a href="/eng/attacks/frequency-analysis.html">frequency distribution</a> of all ciphertext alphabet letters is the same as in plain messages written in the same language.</p>
+          <p>Due to the small number of possible keys, the Rail Fence Cipher can be broken quite easily by using <a href="/eng/attacks/brute-force.html">brute force attacks</a>. The attacker should check all the practicable numbers of rail levels, that might have been using during encryption.</p>
+          <h2 id="implementation">Implementation</h2>
+          <p>The encryption function in the Rail Fence Cipher performs two major steps. First, the letters are entered into a table, that represents the imaginary fence. Then, the letters should be read off in rows.</p>
+          <p>Below, there is a JavaScript function which performs encryption of the input message and returns the result. Note, that <span class="term">rowNumber</span> input parameter is determined by the cipher's secret key:</p>
+          <pre><code>function encrypt(messageInput, rowNumber) {
+  var messageOutput = '';
+
+  var fanceTable = [];
+  for (var pos = 0; pos &lt; rowNumber; ++pos) {
+    fanceTable[pos] = [];
+  }
+
+  // First, enter the letters into the fence table:
+
+  var r = 0;
+  var direction = 1;
+
+  for (var c = 0; c &lt; messageInput.length; ++c) {
+    fanceTable[r].push(messageInput[c]);
+
+    if (((r == rowNumber - 1) &amp;&amp; (direction == 1)) ||
+        ((r == 0) &amp;&amp; (direction == -1))) {
+      direction = -direction;
+    }
+
+    r = r + direction;
+  }
+
+  // Then, read off the ciphertext:
+
+  var row = 0;
+  while (row &lt; rowNumber) {
+    for (var pos = 0; pos &lt; fanceTable[row].length; ++pos) {
+      messageOutput = messageOutput.concat(fanceTable[row][pos]);
+    }
+    ++row;
+  }
+
+  return messageOutput;
+}</code></pre>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/simple/transposition-ciphers.html" rel="prev"><small>← Previous</small>Transposition ciphers</a>
+          <a class="pager__next" href="/eng/simple/route-cipher.html" rel="next"><small>Next →</small>Route cipher</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Frail-fence-cipher.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Frail-fence-cipher.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fsimple%2Frail-fence-cipher.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-simple -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/simple/">Simple ciphers</a></h2>
+        <ul>
+          <li><a href="/eng/simple/substitution-ciphers.html">Substitution ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/simple-substitution-ciphers.html">Simple substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/caesar-cipher.html">Caesar cipher</a></li>
+                  <li><a href="/eng/simple/rot13.html">ROT13</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/homophonic-substitution-ciphers.html">Homophonic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/book-cipher.html">Book cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polygraphic-substitution-ciphers.html">Polygraphic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/playfair-cipher.html">Playfair cipher</a></li>
+                  <li><a href="/eng/simple/two-square.html">Two-square cipher</a></li>
+                  <li><a href="/eng/simple/four-square.html">Four-square cipher</a></li>
+                  <li><a href="/eng/simple/hill-cipher.html">Hill cipher</a></li>
+                </ul>
+              </li>
+              <li><a href="/eng/simple/polyalphabetic-substitution-ciphers.html">Polyalphabetic substitution ciphers</a>
+                <ul>
+                  <li><a href="/eng/simple/trithemius-cipher.html">Trithemius cipher</a></li>
+                  <li><a href="/eng/simple/vigenere-cipher.html">Vigenère cipher</a></li>
+                  <li><a href="/eng/simple/beaufort-cipher.html">Beaufort cipher</a></li>
+                  <li><a href="/eng/simple/running-key.html">Running key cipher</a></li>
+                  <li><a href="/eng/simple/autokey-cipher.html">Autokey cipher</a></li>
+                  <li><a href="/eng/simple/nihilist.html">Nihilist cipher</a></li>
+                  <li><a href="/eng/simple/vic.html">VIC cipher</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/transposition-ciphers.html">Transposition ciphers</a>
+            <ul>
+              <li><a href="/eng/simple/rail-fence-cipher.html" aria-current="page">Rail fence cipher</a></li>
+              <li><a href="/eng/simple/route-cipher.html">Route cipher</a></li>
+              <li><a href="/eng/simple/columnar-transposition.html">Columnar transposition</a></li>
+              <li><a href="/eng/simple/double-transposition.html">Double transposition</a></li>
+              <li><a href="/eng/simple/myszkowski-transposition.html">Myszkowski transposition</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/rotor-machines.html">Rotor machines</a>
+            <ul>
+              <li><a href="/eng/simple/hebern-machine.html">Hebern machine</a></li>
+              <li><a href="/eng/simple/lorenz-machine.html">Lorenz machine</a></li>
+              <li><a href="/eng/simple/enigma.html">Enigma</a></li>
+            </ul>
+          </li>
+          <li><a href="/eng/simple/simple-xor.html">Simple XOR cipher</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-simple -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

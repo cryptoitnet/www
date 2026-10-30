@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en" data-type="article" data-translation="/pl/ataki/meet-in-the-middle.html" data-published="2020-03-09">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meet-in-the-Middle Attack | Cryptography | Crypto-IT</title>
+  <meta name="description" content="By using meet-in-the-middle attacks it is possible to break ciphers, which have two or more secret keys for multiple encryption using the same algorithm.">
+  <!-- auto:meta -->
+  <link rel="canonical" href="https://www.crypto-it.net/eng/attacks/meet-in-the-middle.html">
+  <link rel="alternate" hreflang="en" href="https://www.crypto-it.net/eng/attacks/meet-in-the-middle.html">
+  <link rel="alternate" hreflang="pl" href="https://www.crypto-it.net/pl/ataki/meet-in-the-middle.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.crypto-it.net/eng/attacks/meet-in-the-middle.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Crypto-IT">
+  <meta property="og:title" content="Meet-in-the-Middle Attack | Cryptography">
+  <meta property="og:description" content="By using meet-in-the-middle attacks it is possible to break ciphers, which have two or more secret keys for multiple encryption using the same algorithm.">
+  <meta property="og:url" content="https://www.crypto-it.net/eng/attacks/meet-in-the-middle.html">
+  <meta property="og:image" content="https://www.crypto-it.net/assets/img/og-default.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <!-- /auto:meta -->
+  <!-- shared:head -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#11182b">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" type="module"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8376636145498199" crossorigin="anonymous"></script>
+  <!-- /shared:head -->
+  <!-- auto:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Meet-in-the-middle Attack",
+        "description": "By using meet-in-the-middle attacks it is possible to break ciphers, which have two or more secret keys for multiple encryption using the same algorithm.",
+        "inLanguage": "en",
+        "datePublished": "2020-03-09",
+        "dateModified": "2020-03-09",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Kowalczyk",
+          "url": "https://www.crypto-it.net/eng/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Crypto-IT",
+          "url": "https://www.crypto-it.net/"
+        },
+        "mainEntityOfPage": "https://www.crypto-it.net/eng/attacks/meet-in-the-middle.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.crypto-it.net/eng/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Attacks",
+            "item": "https://www.crypto-it.net/eng/attacks/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Meet-in-the-middle Attack"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- /auto:jsonld -->
+</head>
+<body>
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/eng/">Crypto<span>-IT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/eng/theory/">Theory</a></li>
+          <li><a href="/eng/simple/">Simple ciphers</a></li>
+          <li><a href="/eng/symmetric/">Symmetric</a></li>
+          <li><a href="/eng/asymmetric/">Asymmetric</a></li>
+          <li><a href="/eng/attacks/" aria-current="true">Attacks</a></li>
+          <li><a href="/eng/tools/">Software</a></li>
+          <li><a href="/eng/online-tools.html">Online tools</a></li>
+          <li><a href="/eng/news/">News</a></li>
+        </ul>
+      </nav>
+      <a class="lang-switch" href="/pl/ataki/meet-in-the-middle.html" hreflang="pl" lang="pl">PL<span class="visually-hidden"> – wersja polska</span></a>
+    </div>
+  </header>
+  <!-- /shared:header -->
+  <div class="layout">
+    <main id="main">
+      <article>
+        <!-- auto:breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <ol>
+            <li><a href="/eng/">Home</a></li>
+            <li><a href="/eng/attacks/">Attacks</a></li>
+          </ol>
+        </nav>
+        <!-- /auto:breadcrumbs -->
+        <header>
+          <h1 class="article__title">Meet-in-the-middle Attack</h1>
+          <!-- auto:dates -->
+          <p class="article__meta">Published <time datetime="2020-03-09">9 March 2020</time></p>
+          <!-- /auto:dates -->
+        </header>
+        <div class="article__body">
+          <p>The meet-in-the-middle attack is one of the types of <a href="/eng/attacks/known-plaintext.html">known plaintext attacks</a>. The intruder has to know some parts of plaintext and their ciphertexts. Using meet-in-the-middle attacks it is possible to break ciphers, which have two or more secret keys for multiple encryption using the same algorithm. For example, the <a href="/eng/symmetric/3des.html">3DES</a> cipher works in this way. Meet-in-the-middle attack was first presented by Diffie and Hellman for cryptanalysis of <a href="/eng/symmetric/des.html">DES</a> algorithm.</p>
+          <!-- shared:toc -->
+          <nav class="toc" aria-labelledby="toc-title" data-toc hidden>
+            <h2 id="toc-title">Contents</h2>
+          </nav>
+          <!-- /shared:toc -->
+          <aside class="definition">
+           A cipher, which is to be broken using meet-in-the-middle attack, can be defined as two algorithms, one for encryption and one for decryption. Each of them contains two simpler algorithms:<br> <span class="math">C = E<sub>b</sub>(k<sub>b</sub>, E<sub>a</sub>(k<sub>a</sub>, P))</span><br> <span class="math">P = D<sub>a</sub>(k<sub>a</sub>, D<sub>b</sub>(k<sub>b</sub>, C))</span>
+           <div class="definition__note">
+           where:
+           <ul>
+           <li>C is a ciphertext,</li>
+           <li>P is a plaintext,</li>
+           <li>E is an algorithm for encryption,</li>
+           <li>D is an algorithm for decryption,</li>
+           <li>k<sub>a</sub> and k<sub>b</sub> are two secret keys</li>
+           </ul>
+           </div>
+          </aside>
+          <p>A following equation can be written for the cipher defined above:<br> <span class="math">D<sub>b</sub>(k<sub>b</sub>, C) = E<sub>a</sub>(k<sub>a</sub>, P)</span><br> Where <span class="term">C</span> is the ciphertext, known to the intruder, which corresponds to the message <span class="term">P</span>, also known to the intruder.</p>
+          <p>The first step of the attack is to create a table with all possible values for one side of the equation. One should calculate all possible ciphertexts of the known plaintext <span class="term">P</span> created using the first secret key, so <span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span>. A number of rows in the table is equal to a number of possible secret keys. It is good idea to sort the received table based on received ciphertexts <span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span>, in order to simplify its further searching.</p>
+          <p>The second step of the attack is to calculate values of <span class="term">D<sub>b</sub>(k<sub>b</sub>,C)</span> for the second side of the equation. One should compare them with the values of the first side of the equation, computed earlier and stored in the table. The intruder searches a pair of secret keys <span class="term">k<sub>a</sub></span> and <span class="term">k<sub>b</sub></span>, for which the value <span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span> found in the table and the just calculated value <span class="term">D<sub>b</sub>(k<sub>b</sub>,C)</span> are the same.</p>
+          <figure class="figure">
+           <img src="/assets/img/attacks/attack-mitm-simple-eng.webp" alt="scheme of meet-in-the-middle" width="500" height="220" loading="lazy">
+           <figcaption>The scheme of meet-in-the-middle attack</figcaption>
+          </figure>
+          <p>It is possible to attack encryption systems, where two encrypting algorithms <span class="term">E</span> are different (and used keys which have not necessarily the same lengths). In that case, in the first step the table is created for weaker of two algorithms.</p>
+          <h2 id="meet-in-the-middle-complexity">Meet-in-the-middle Complexity</h2>
+          <p>The meet-in-the-middle attack allows much quicker breaking of the cipher than using the ordinary <a href="/eng/attacks/brute-force.html">brute force attack</a>. Both time complexity and computational complexity depend on lengths of two encrypting keys <span class="term">k<sub>a</sub></span> and <span class="term">k<sub>b</sub></span>. They may be presented as a sum of two products:</p>
+          <p> <span class="math">2<sup>len(k<sub>a</sub>)</sup> log(2<sup>len(k<sub>a</sub>)</sup>) + 2<sup>len(k<sub>b</sub>)</sup> log(2<sup>len(k<sub>a</sub>)</sup>)</span></p>
+          Where:
+          <ul>
+           <li><var>2<sup>len(k<sub>a</sub>)</sup></var> - creating the table with all possible values of <span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span>,</li>
+           <li><var>log(2<sup>len(k<sub>a</sub>)</sup>)</var> - sorting the table with all possible values of <span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span>,</li>
+           <li><var>2<sup>len(k<sub>b</sub>)</sup></var> - calculating all possible values of <span class="term">D<sub>b</sub>(k<sub>b</sub>,C)</span>,</li>
+           <li><var>log(2<sup>len(k<sub>a</sub>)</sup>)</var> - searching the sorted table with values of <span class="term">E<sub>a</sub>(k<sub>a</sub>,P)</span>.</li>
+          </ul>
+          <p>If lengths of both keys <span class="term">k<sub>a</sub></span> and <span class="term">k<sub>b</sub></span> are the same and equal to <span class="term">Lk</span>, then time complexity of the meet-in-the-middle attack can be presented as <span class="term">O(2<sup>Lk+1</sup>)</span>. Memory usage can be approximated as <span class="term">O(2<sup>Lk</sup>)</span>. Time complexity of the brute force attack is much greater and equals to approximately <span class="term">O(2<sup>Lk+Lk</sup>)</span>. However, the brute force attack uses only <span class="term">O(1)</span> memory.</p>
+          <h2 id="meet-in-the-middle-2d">Meet-in-the-middle 2D</h2>
+          <p>If an analyzed algorithm can be divided into two simpler algorithms with one intermediate state and if the state is smaller than a secret key, then it is possible to perform the two-dimensional meet-in-the-middle attack. In modern block ciphers, algorithms often operate on small data blocks using the quite long secret key.</p>
+          <p>If it is possible to find the intermediate state <span class="term">S</span>, then the analyzed cipher can be presented as:<br> <span class="math">C = E<sub>1</sub>(k<sub>1</sub>, E<sub>2</sub>(k<sub>2</sub>, P))</span><br> <span class="math">P = D<sub>2</sub>(k<sub>2</sub>, D<sub>1</sub>(k<sub>1</sub>, C))</span><br> Where values <span class="term">E<sub>2</sub>(k<sub>2</sub>,P)</span> can be found in the set which contains all possible values of the intermediate state <span class="term">S</span>.</p>
+          <p>Both encryption algorithms <span class="term">E<sub>1</sub></span> and <span class="term">E<sub>2</sub></span> can be broken using a two-dimensional meet-in-the-middle attack. A scheme of the two-dimensional attack is presented below:</p>
+          <figure class="figure"><img src="/assets/img/attacks/attack-mitm-2d-eng.webp" alt="A scheme of the two-dimensional meet-in-the-middle attack" width="800" height="300" loading="lazy"></figure>
+          <p>In order to break a cipher using the two-dimensional meet-in-the-middle attack, one should take the following steps:</p>
+          <ol class="steps">
+           <li>Calculate all possible values of <span class="term">E<sub>a<sub>1</sub></sub>(k<sub>a<sub>1</sub></sub>,P)</span> (for known <span class="term">P</span> and all possible values of the key <span class="term">k<sub>a<sub>1</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>a<sub>1</sub></sub></span>. The table should be sorted by calculated values of <span class="term">E<sub>a<sub>1</sub></sub>(k<sub>a<sub>1</sub></sub>,P)</span>.</li>
+           <li>Calculate all possible values of <span class="term">D<sub>b<sub>2</sub></sub>(k<sub>b<sub>2</sub></sub>,C)</span> (for known <span class="term">C</span> corresponding to <span class="term">P</span> and all possible values of the key <span class="term">k<sub>b<sub>2</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>b<sub>2</sub></sub></span>. The table should be sorted by calculated values of <span class="term">D<sub>b<sub>2</sub></sub>(k<sub>b<sub>2</sub></sub>,C)</span>.</li>
+           <li>
+           For all possible values of the intermediate state <span class="term">S</span>:
+           <ol class="steps">
+           <li>Calculate all possible values of <span class="term">D<sub>b<sub>1</sub></sub>(k<sub>b<sub>1</sub></sub>,S)</span> (for all possible values of the key <span class="term">k<sub>b<sub>1</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>b<sub>1</sub></sub></span>. The table should be sorted by calculated values of <span class="term">D<sub>b<sub>1</sub></sub>(k<sub>b<sub>1</sub></sub>,S)</span>.</li>
+           <li>Calculate all possible values of <span class="term">E<sub>a<sub>2</sub></sub>(k<sub>a<sub>2</sub></sub>,S)</span> (for all possible values of the key <span class="term">k<sub>a<sub>2</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>a<sub>2</sub></sub></span>. The table should be sorted by calculated values of <span class="term">E<sub>a<sub>2</sub></sub>(k<sub>a<sub>2</sub></sub>,S)</span>.</li>
+           <li>Compare values in four created tables, searching for equality <span class="term">E<sub>a<sub>1</sub></sub>(k<sub>a<sub>1</sub></sub>,P)</span> = <span class="term">D<sub>b<sub>1</sub></sub>(k<sub>b<sub>1</sub></sub>,S)</span> (one should receive a pair of keys <span class="term">(k<sub>a<sub>1</sub></sub>,k<sub>b<sub>1</sub></sub>)</span>) and <span class="term">E<sub>a<sub>2</sub></sub>(k<sub>a<sub>2</sub></sub>,S)</span> = <span class="term">D<sub>b<sub>2</sub></sub>(k<sub>b<sub>2</sub></sub>,C)</span> (a pair of keys <span class="term">(k<sub>a<sub>2</sub></sub>,k<sub>b<sub>2</sub></sub>)</span>). All combinations of the two pairs are the potential secret key for the whole cipher. One should check all received combinations with other known plaintext and ciphertexts blocks.</li>
+           </ol>
+           </li>
+          </ol>
+          <p>Usually four extracted keys <span class="term">k<sub>a<sub>1</sub></sub></span>, <span class="term">k<sub>b<sub>1</sub></sub></span>, <span class="term">k<sub>a<sub>2</sub></sub></span> and <span class="term">k<sub>b<sub>2</sub></sub></span> share some bits. One should assign an independent variable to each bit in the keys and treat them separately.</p>
+          <h2 id="meet-in-the-middle-nd">Meet-in-the-middle nD</h2>
+          <p>It is possible that the attacked cipher can be divided into more than two simpler ciphers. In the general case one could find <span class="term">n</span> intermediate states and <span class="term">n+1</span> encryption algorithms which can be break using the meet-in-the-middle method. A scheme of the multidimensional meet-in-the-middle attack is presented below:</p>
+          <figure class="figure"><img src="/assets/img/attacks/attack-mitm-nd-eng.webp" alt="A scheme of the multidimensional meet-in-the-middle attack" width="880" height="300" loading="lazy"></figure>
+          <p>In order to break a cipher using the multidimensional meet-in-the-middle attack, one should take the following steps:</p>
+          <ol class="steps">
+           <li>Calculate all possible values of <span class="term">E<sub>a<sub>1</sub></sub>(k<sub>a<sub>1</sub></sub>,P)</span> (for known <span class="term">P</span> and all possible values of the key <span class="term">k<sub>a<sub>1</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>a<sub>1</sub></sub></span>. The table should be sorted by calculated values of <span class="term">E<sub>a<sub>1</sub></sub>(k<sub>a<sub>1</sub></sub>,P)</span>.</li>
+           <li>Calculate all possible values of <span class="term">D<sub>b<sub>n+1</sub></sub>(k<sub>b<sub>n+1</sub></sub>,C)</span> (for known <span class="term">C</span> corresponding to <span class="term">P</span> and all possible values of the key <span class="term">k<sub>b<sub>n+1</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>b<sub>n+1</sub></sub></span>. The table should be sorted by calculated values of <span class="term">D<sub>b<sub>n+1</sub></sub>(k<sub>b<sub>n+1</sub></sub>,C)</span>.</li>
+           <li>
+           For all possible values of the intermediate state <span class="term">S<sub>1</sub></span>:
+           <ol class="steps">
+           <li>Calculate all possible values of <span class="term">D<sub>b<sub>1</sub></sub>(k<sub>b<sub>1</sub></sub>,S<sub>1</sub>)</span> (for all possible values of the key <span class="term">k<sub>b<sub>1</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>b<sub>1</sub></sub></span>. The table should be sorted by calculated values of <span class="term">D<sub>b<sub>1</sub></sub>(k<sub>b<sub>1</sub></sub>,S<sub>1</sub>)</span>.</li>
+           <li>Calculate all possible values of <span class="term">E<sub>a<sub>2</sub></sub>(k<sub>a<sub>2</sub></sub>,S<sub>1</sub>)</span> (for all possible values of the key <span class="term">k<sub>a<sub>2</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>a<sub>2</sub></sub></span>. The table should be sorted by calculated values of <span class="term">E<sub>a<sub>2</sub></sub>(k<sub>a<sub>2</sub></sub>,S<sub>1</sub>)</span>.</li>
+           <li>
+           For all possible values of the intermediate state <span class="term">S<sub>2</sub></span>:
+           <ol class="steps">
+           <li>Calculate all possible values of <span class="term">D<sub>b<sub>2</sub></sub>(k<sub>b<sub>2</sub></sub>,S<sub>2</sub>)</span> (for all possible values of the key <span class="term">k<sub>b<sub>2</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>b<sub>2</sub></sub></span>. The table should be sorted by calculated values of <span class="term">D<sub>b<sub>2</sub></sub>(k<sub>b<sub>2</sub></sub>,S<sub>2</sub>)</span>.</li>
+           <li><span class="term">...</span>repeat analogous operations up to the intermediate state <span class="term">S<sub>n</sub></span><span class="term">...</span></li>
+           <li>
+           For all possible values of the intermediate state <span class="term">S<sub>n</sub></span>:
+           <ol class="steps">
+           <li>Calculate all possible values of <span class="term">D<sub>b<sub>n</sub></sub>(k<sub>b<sub>n</sub></sub>,S<sub>n</sub>)</span> (for all possible values of the key <span class="term">k<sub>b<sub>n</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>b<sub>n</sub></sub></span>. The table should be sorted by calculated values of <span class="term">D<sub>b<sub>n</sub></sub>(k<sub>b<sub>n</sub></sub>,S<sub>n</sub>)</span>.</li>
+           <li>Calculate all possible values of <span class="term">E<sub>a<sub>n+1</sub></sub>(k<sub>a<sub>n+1</sub></sub>,S<sub>n</sub>)</span> (for all possible values of the key <span class="term">k<sub>a<sub>n+1</sub></sub></span>), then insert them to a table together with values of corresponding keys <span class="term">k<sub>a<sub>n+1</sub></sub></span>. The table should be sorted by calculated values of <span class="term">E<sub>a<sub>n+1</sub></sub>(k<sub>a<sub>n+1</sub></sub>,S<sub>n</sub>)</span>.</li>
+           <li>Analyze numbers in all created tables, comparing corresponding values of <span class="term">E<sub>a<sub>i</sub></sub></span> with <span class="term">D<sub>b<sub>i</sub></sub></span>. One should receive a few combinations of corresponding pairs of keys <span class="term">(k<sub>a<sub>i</sub></sub>,k<sub>b<sub>i</sub></sub>)</span>. The pairs should be checked for other known parts of plaintext and ciphertext and one combination of pairs should correctly encrypt and decrypt all data.</li>
+           </ol>
+           </li>
+           </ol>
+           </li>
+           </ol>
+           </li>
+          </ol>
+          <p>One can choose an arbitrary order of analyzed intermediate states. The states are smaller than encryption keys, so tables created in the multidimensional meet-in-the-middle attack have approximately the same size as tables created during the regular meet-in-the-middle attack.</p>
+        </div>
+        <!-- auto:pager -->
+        <nav class="pager" aria-label="Previous and next article">
+          <a href="/eng/attacks/frequency-analysis.html" rel="prev"><small>← Previous</small>Frequency analysis</a>
+          <a class="pager__next" href="/eng/attacks/replay.html" rel="next"><small>Next →</small>Replay attack</a>
+        </nav>
+        <!-- /auto:pager -->
+        <!-- auto:share -->
+        <p class="share">Share:
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fmeet-in-the-middle.html" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://x.com/intent/post?url=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fmeet-in-the-middle.html" rel="noopener" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.crypto-it.net%2Feng%2Fattacks%2Fmeet-in-the-middle.html" rel="noopener" target="_blank">Facebook</a>
+        </p>
+        <!-- /auto:share -->
+      </article>
+    </main>
+    <!-- shared:sidebar-attacks -->
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <div class="sidebar__inner">
+        <h2 id="sidebar-title"><a href="/eng/attacks/">Attacks</a></h2>
+        <ul>
+          <li><a href="/eng/attacks/known-plaintext.html">Known-plaintext attack</a></li>
+          <li><a href="/eng/attacks/chosen-plaintext.html">Chosen-plaintext attack</a></li>
+          <li><a href="/eng/attacks/known-ciphertext.html">Ciphertext-only attack</a></li>
+          <li><a href="/eng/attacks/chosen-ciphertext.html">Chosen-ciphertext attack</a></li>
+          <li><a href="/eng/attacks/chosen-key.html">Chosen-key attack</a></li>
+          <li><a href="/eng/attacks/brute-force.html">Brute force attack</a></li>
+          <li><a href="/eng/attacks/dos.html">DoS</a></li>
+          <li><a href="/eng/attacks/man-in-the-middle.html">Man-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/two-time-pad.html">Attack on two-time pad</a></li>
+          <li><a href="/eng/attacks/krack.html">KRACK attack</a></li>
+          <li><a href="/eng/attacks/frequency-analysis.html">Frequency analysis</a></li>
+          <li><a href="/eng/attacks/meet-in-the-middle.html" aria-current="page">Meet-in-the-middle attack</a></li>
+          <li><a href="/eng/attacks/replay.html">Replay attack</a></li>
+          <li><a href="/eng/attacks/homograph-attack.html">Homograph attack</a></li>
+        </ul>
+
+      </div>
+    </aside>
+    <!-- /shared:sidebar-attacks -->
+  </div>
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <ul>
+        <li><a href="/eng/about/">About Crypto-IT</a></li>
+        <li><a href="/eng/online-tools.html">Online tools</a></li>
+        <li><a href="/eng/privacy.html">Privacy policy</a></li>
+      </ul>
+      <p>© 2026 KK · Crypto-IT</p>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>
